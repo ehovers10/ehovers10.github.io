@@ -12,13 +12,13 @@
 	<div id="header">
 		<div id="headbg">
 			<h1>introduction to ethics, s14</h1>
-			<h2>course plan</h2>
+			<h2>resources</h2>
 		</div>
 	</div>
 	
 <!-- Site navigation menu -->
 	<div id="nav-bar">
-		<a href="index.html">erik's home</a>
+		<a href="ehome2.html">erik's home</a>
 		<a href="intro-ethics-s14.html">course info</a>
 		<a href="ies14resources.html">resources</a>
 		<a href="ies14courseplan.html">course plan</a>
@@ -29,9 +29,9 @@
 
 	<div id="content">
 	
-	<h2>concept map of course topics</h2>
-	<a href="http://www.mindmup.com/map/a13a4a2d80799501317c4f2e5a095e5a18" data-role="mindmup-embed" title="Introduction to Ethics" data-width="756" data-height="500" data-style="border: groove SteelBlue;margin-bottom:5px;">Introduction to Ethics on MindMup</a>
-<script async src="http://www.mindmup.com/external-embed.js"></script>
+		<h2>readings, lecture notes, syllabus</h2>
+		
+		<iframe src="https://app.box.com/embed_widget/vq97g0s349r7/s/lv9w42522e2eq9tl61ko?view=list&sort=name&direction=ASC&theme=blue" width="756" height="500" data-style="border: groove SteelBlue;margin-bottom:5px;" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 			
 	</div>
 	
