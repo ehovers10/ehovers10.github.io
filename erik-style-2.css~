@@ -22,7 +22,7 @@ th {
 
 #wrap {
 	margin: -20px auto;
-	width: 800px;
+	width: 80%;
 	background: #fff url('nice_snow.png');
 	background-repeat: repeat-y;
 	<--box-shadow: 10px 10px 5px #888888;

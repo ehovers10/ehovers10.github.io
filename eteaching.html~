@@ -27,9 +27,13 @@
 
 	<div id="content">
 	
-		<h2>courses taught at Rutgers</h2>
+		<h2>overview</h2>
 		
 		<img src="indian-paintbrush.JPG" alt="">
+		
+		<p>Below are links to the course websites for classes I have taught.  Students in my classes will find in these pages class announcements and resources, as well as the means for submitting assignments.  Some of the content is protected and made available only to students in the relevant class. </p>
+	
+		<h2>courses taught at Rutgers</h2>
 		
 		<ul>
 			<li><a href="intro-ethics-s14.html">Introduction to ethics, spring 2014</a></li>
@@ -37,10 +41,7 @@
 			<li>Introduction to philosophy, spring 2012</li>
 			<li>Introduction to philosophy, fall 2011</li>		
 		</ul>
-		
-		<h2>overview</h2>
 
-		<p>The links above take you to the course websites for classes I have taught.  Students in my classes will find in these pages class announcements and resources, as well as the means for submitting assignments.  Some of the content is protected and made available only to students enrolled in the linked course. </p>
 		
 	</div>
 	
