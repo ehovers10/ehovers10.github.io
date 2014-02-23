@@ -19,9 +19,9 @@
 <!-- Site navigation menu -->
 	<div id="nav-bar">
 		<a href="/index.html">erik's home</a>
-		<a href="/intro-ethics-s14/index.html">course info</a>
-		<a href="/intro-ethics-s14/resources/index.html">resources</a>
-		<a href="/intro-ethics-s14/course-plan/index.html">course plan</a>
+		<a href="./index.html">course info</a>
+		<a href="./resources/index.html">resources</a>
+		<a href="./course-plan/index.html">course plan</a>
 		<a href="http://www.dropitto.me/ehoversten" target="_blank">submit an assignment</a>
 	</div>
 	

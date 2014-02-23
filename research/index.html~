@@ -18,7 +18,7 @@
 	
 <!-- Site navigation menu -->
 	<div id="nav-bar">
-		<a href="index.html">home</a>
+		<a href="/index.html">home</a>
 		<a href="/research/index.html">research</a>
 		<a href="/teaching/index.html">teaching</a>
 	</div>

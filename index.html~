@@ -19,7 +19,7 @@
 	
 <!-- Site navigation menu -->
 	<div id="nav-bar">
-		<a href="/">home</a>
+		<a href="/index.html">home</a>
 		<a href="/research/">research</a>
 		<a href="/teaching/">teaching</a>
 	</div>
@@ -36,7 +36,7 @@
 		
 		<h2>site info</h2>
 		
-		<p>On this site, you will (soon) find links to some of <a href="/research/">my philosophical work</a>, which is focused on studying formal models of the influence of context on natural language interpretation.  In addition, if you are a student in one of <a href="/teaching/">my classes</a>, you can access resources relevant to the course.</p>
+		<p>On this site, you will (soon) find links to some of <a href="/research/index.html">my philosophical work</a>, which is focused on studying formal models of the influence of context on natural language interpretation.  In addition, if you are a student in one of <a href="/teaching/index.html">my classes</a>, you can access resources relevant to the course.</p>
 		
 	</div>
 		
