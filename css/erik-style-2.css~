@@ -1,15 +1,20 @@
+@font-face {
+	font-family: 'finalfrontier';
+	src: url('/fonts/finalfrontier.ttf');
+}
+
+@font-face {
+	font-family: 'sffourche';
+	src: url('/fonts/sffourche.ttf');
+}
+
 body {
    background: url('/images/green_cup.png') repeat;
-   font-family: Lucida, sans-serif;
+   font-family: Verbana, sans-serif;
    <!--font-family: Georgia, "Times New Roman",
 			Times, serif;
 	<!--font-size: small;
 	line-height: 1.25em; 
-}
-
-@font-face {
-	font-family: 'finalfrontier';
-	src: url('/fonts/finalfrontier.ttf');
 }
 
 h1,h2 {
@@ -59,7 +64,7 @@ a:hover {
 #header h2 { padding-right: 20px; padding-bottom: 4px; font-size: 17px; color: #fff; float: right; }
 
 #nav-bar { 
-	margin: auto;
+	margin: 0 auto;
 	width: 800px;
    background: url('/images/nice_snow.png'); 
 	border: groove SteelBlue; 
@@ -112,7 +117,7 @@ a:hover {
 	padding: 20px;
 	text-align: justify;
 	color: DarkSlateGray;
-	font-size: 14px;
+	font-size: 12px;
 	border: groove SteelBlue;
 	border-bottom: none;
 }

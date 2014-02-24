@@ -6,7 +6,8 @@
 </head>
 
 <body id="research">
-<div id="wrap">
+
+<!--<div id="wrap">-->
 
 <!-- Header -->
 	<div id="header">
@@ -42,6 +43,6 @@
 		<address>&copy; 2014 by erik</address>
 	</div>
 
-</div>
+<!--</div>-->
 </body>
 </html>
