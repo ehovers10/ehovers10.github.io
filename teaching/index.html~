@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="/css/erik-style-2.css">
 </head>
 
-<body>
+<body id="teach">
 <div id="wrap">
 
 <!-- Header -->
@@ -18,9 +18,7 @@
 	
 <!-- Site navigation menu -->
 	<div id="nav-bar">
-		<a href="/index.html">home</a>
-		<a href="/research/index.html">research</a>
-		<a href="/teaching/index.html">teaching</a>
+		<a href="/" id="nav-home">home</a><a href="/research/" id="nav-research">research</a><a href="/teaching/" id="nav-teach">teaching</a>
 	</div>
 	
 <!-- Main content -->

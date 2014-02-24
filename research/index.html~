@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="/css/erik-style-2.css">
 </head>
 
-<body>
+<body id="research">
 <div id="wrap">
 
 <!-- Header -->
@@ -18,9 +18,7 @@
 	
 <!-- Site navigation menu -->
 	<div id="nav-bar">
-		<a href="/index.html">home</a>
-		<a href="/research/index.html">research</a>
-		<a href="/teaching/index.html">teaching</a>
+		<a href="/" id="nav-home">home</a><a href="/research/" id="nav-research">research</a><a href="/teaching/" id="nav-teach">teaching</a>
 	</div>
 	
 <!-- Main content -->
@@ -31,7 +29,7 @@
 		
 		<img src="/images/splash2.jpg" alt="">
 		
-		<p>My primary research interest is in philosophy of language and cognitive science. In particular, I'm interested in formal models of the influence of context on natural language interpretation.</p>
+		<p>My primary research interests are in philosophy of language and cognitive science. More specifically, I'm interested in formal models of the influence of context on natural language interpretation. More specifically still, my dissertation explores ways of modeling focus as a tool for interlocutors to collaboratively set the boundaries for the semantic values of expressions in discourse. I think that the unique ways in which focus generally, and contrastive topic in particular, are implemented in conversation motivate interesting decisions for characterizing the nature of semantic values (contents vs. updates) and the division of labor between semantic and pragmatic interpretive effects of language use.</p>
 		
 		<h2>papers</h2>
 		

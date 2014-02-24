@@ -1,9 +1,19 @@
 body {
    background: url('/images/green_cup.png') repeat;
-   font-family: Georgia, "Times New Roman",
+   font-family: Lucida, sans-serif;
+   <!--font-family: Georgia, "Times New Roman",
 			Times, serif;
-	font: 0.5em;
-	line-height: 1.5em; 
+	<!--font-size: small;
+	line-height: 1.25em; 
+}
+
+@font-face {
+	font-family: 'finalfrontier';
+	src: url('/fonts/finalfrontier.ttf');
+}
+
+h1,h2 {
+	font-family: finalfrontier;
 }
 
 a {
@@ -15,71 +25,99 @@ a:hover {
 	text-decoration: underline;
 }
 
-th {
-	border-bottom: solid SteelBlue;
-}
-
 
 #wrap {
-	margin: -20px auto;
+	margin: auto;
 	width: 800px;
 	background: #fff url('/images/nice_snow.png');
 	background-repeat: repeat-y;
 	border: groove SteelBlue;
-	<--box-shadow: 10px 10px 5px #888888;
-	<--border-radius: 25px;
 }
 
 #header {
+	margin: 0 auto;
+	width: 800px;
 	height: 105px;
 	background: SteelBlue url('/images/bt-head-1.jpeg');
 	opacity: 1;
-	<--border-radius: 0 25px 0 0;
+	border: groove SteelBlue;
+	border-bottom: none;
+	line-height: 1em;
+	
 }
 
 #headbg {
+	margin-top: -20px;
 	position: inherit;
-	height: inherit;	
+	height: inherit;
 	background-color: SteelBlue;
 	opacity: 0.8;
 }
 
-#header h1 { padding-left: 20px; padding-top: 22px; font-size: 30px; color: #fff; }
+#header h1 { padding-left: 20px; padding-top: 22px;  font-size: 30px; color: #fff; }
 #header h1 a { font-size: 22px; color: #FFF; text-decoration: none; }
-#header h2 { padding-right: 20px; padding-bottom: 4px; font-size: 17px; color: #fff; float: right;}
-
+#header h2 { padding-right: 20px; padding-bottom: 4px; font-size: 17px; color: #fff; float: right; }
 
 #nav-bar { 
+	margin: auto;
+	width: 800px;
    background: url('/images/nice_snow.png'); 
-	border-bottom: 1px solid SteelBlue; 
-	<!--margin-left: 20px;
+	border: groove SteelBlue; 
+	border-top: none;
 }
 
 #nav-bar a {
+	text-align: center;
+	font-family: finalfrontier;
 	font-weight: bold;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	padding-left: 0.75em;
-	padding-right: 0.75em;
+	padding-bottom: 0.3em;
+	padding-top: 0.3em;
+	padding-left: 1em;
+	padding-right: 1em;
 	display: inline-block;
 	<!--border-left: 1px solid SteelBlue;
+}
+
+#home a#nav-home,
+#research a#nav-research,
+#teach a#nav-teach {
+	text-decoration: none;
+	<!--font-weight: bold;
+	background-color: DarkSlateGray;
+	opacity: 0.8;
+	color: #fff;
+}
+
+#ies14info a#nav-ies14info,
+#ies14resources a#nav-ies14resources,
+#ies14courseplan a#nav-ies14courseplan {
+	text-decoration: none;
+	<!--font-weight: bold;
+	background-color: DarkSlateGray;
+	opacity: 0.8;
+	color: #fff;
 }
 
 #nav-bar a:hover {
 	text-decoration: none;
 	background-color: SteelBlue;
+	opacity: 0.8;
 	color: #fff;
 }
 
 #content {
+	margin: 20px auto;
+	width: 760px;
 	background: #fff url('/images/nice_snow.png');
 	padding: 20px;
 	text-align: justify;
 	color: DarkSlateGray;
-	<--border-radius: 0 0 0 25px;
+	font-size: 14px;
+	border: groove SteelBlue;
+	border-bottom: none;
 }
 
-#content h2 { width: 50%; font-size: 15px; color: DarkSlateGray; border-bottom: solid SteelBlue; }
+#content h2 { width: 50%; font-size: 17px; color: DarkSlateGray; border-bottom: solid SteelBlue; }
 
 #content img {
 	float: right;
@@ -95,11 +133,16 @@ th {
 }
 
 #footer {
+	margin: -20px auto;
+	width: 800px;
 	position: relative;
+	padding-top: 10px;
+	font-family: finalfrontier;
 	text-align: center;
 	color: #fff;
-	height: 30px;
+	height: 20px;
 	background: SteelBlue;
-	opacity: 1;
-	<--border-radius: 0 25px 0 0;
+	opacity: 0.9;
+	border: groove SteelBlue;
+	border-top: none;
 }
