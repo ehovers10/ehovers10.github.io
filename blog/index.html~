@@ -1,0 +1,9 @@
+---
+layout: post
+title: "my posts"
+date:   2014-02-24 13:49
+---
+
+<a href='{{ .posts }}'>Here are my posts.</a>
+
+
