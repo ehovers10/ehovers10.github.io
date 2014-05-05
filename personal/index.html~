@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>erik's personal page</title>
+	<link rel="stylesheet" href="/css/erik-style-2.css">
+</head>
+
+<body id="personal">
+
+<!--<div id="wrap">-->
+
+<!-- Header -->
+	<div id="header">
+		<div id="headbg">
+			<h1>erik hoversten</h1>
+			<h2>personal</h2>
+		</div>
+	</div>
+	
+<!-- Site navigation menu -->
+	<div id="nav-bar">
+		<a href="/" id="nav-home">home</a><a href="/research/" id="nav-research">research</a><a href="/teaching/" id="nav-teach">teaching</a>
+	</div>
+	
+<!-- Main content -->
+
+	<div id="content">
+	
+	
+		
+	</div>
+	
+<!-- Signature -->
+	<div id="footer">
+		<address>&copy; 2014 by erik</address>
+	</div>
+
+<!--</div>-->
+</body>
+</html>
