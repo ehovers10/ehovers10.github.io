@@ -19,7 +19,7 @@
 	
 <!-- Site navigation menu -->
 	<div id="nav-bar">
-		<a href="/" id="nav-home">home</a><a href="/research/" id="nav-research">research</a><a href="/teaching/" id="nav-teach">teaching</a>
+		<a href="/" id="nav-home">home</a><a href="/research/" id="nav-research">research</a><a href="/teaching/" id="nav-teach">teaching</a><a href="/personal/">personal</a>
 	</div>
 	
 <!-- Main content -->
@@ -34,7 +34,7 @@
 		
 		<h2>papers</h2>
 		
-		<p>I don't have anything on tap for public consumption at the moment, but <a href="http://givingwhatwecan.org/" title="giving what we can">these folks</a> have some excellent proposals.</p>
+		<p><a href="/research/hoversten-cv.pdf">Here is a copy of my CV.</a>  I will be posting more work here as it develops.  In the meantime, <a href="http://givingwhatwecan.org/" title="giving what we can">these folks</a> have some excellent proposals for you to check out.</p>
 
 	</div>
 	
