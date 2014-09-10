@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>{{ page.title }}</title>
+		<link rel="stylesheet" href="/css/erik-style-2.css">
+	</head>
+
+<body id="home">
+
+<!-- Header -->
+	<div id="header">
+		<div id="headbg">
+			<h1>erik hoversten</h1>
+			<h2>{{ page.subheading }}</h2>
+		</div>
+	</div>
+	
+<!-- Site navigation menu -->
+	<div id="nav-bar">
+		<a href="/" id="nav-home">home</a><a href="/research/" id="nav-research">research</a><a href="/teaching/" id="nav-teach">teaching</a><a href="/personal/" id="nav-personal">personal</a>
+	</div>

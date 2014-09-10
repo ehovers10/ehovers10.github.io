@@ -1,27 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>erik hoversten</title>
-	<link rel="stylesheet" href="/css/erik-style-2.css">
-</head>
-
-<body id="home">
-
-<!-- Header -->
-	<div id="header">
-		<div id="headbg">
-			<h1>erik hoversten</h1>
-			<h2>ehovers10@gmail.com</h2>
-		</div>
-	</div>
+---
+layout: elay1
+title: erik hoversten
+---
 	
-<!-- Site navigation menu -->
-	<div id="nav-bar">
-		<a href="/" id="nav-home">home</a><a href="/research/" id="nav-research">research</a><a href="/teaching/" id="nav-teach">teaching</a><a href="/personal/">personal</a>
-	</div>
-	
-<!-- Main content -->
-
 	<div id="content">
 	
 		<h2>about me</h2>
@@ -35,14 +16,3 @@
 		<p>On this site, you will (soon) find links to some of <a href="/research/" title="erik's research">my philosophical work</a>, which is focused on investigating formal models of the influence of context on natural language interpretation.  In addition, if you are a student in one of <a href="/teaching/" title="erik's courses">my classes</a>, you can access resources relevant to the course.</p>
 		
 	</div>
-		
-	
-<!-- Signature -->
-	<div id="footer">
-		<address>&copy; 2014 by erik</address>
-	</div>
-
-<!--</div>-->
-
-</body>
-</html>

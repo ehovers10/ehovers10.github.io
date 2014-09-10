@@ -48,7 +48,7 @@ a:hover {
 	border: groove SteelBlue;
 	border-bottom: none;
 	line-height: 1em;
-	
+	box-shadow: 10px 10px 5px #888888;
 }
 
 #headbg {
@@ -69,6 +69,7 @@ a:hover {
    background: url('/images/nice_snow.png'); 
 	border: groove SteelBlue; 
 	border-top: none;
+	box-shadow: 10px 10px 5px #888888;
 }
 
 #nav-bar a {
@@ -89,9 +90,9 @@ a:hover {
 #personal a#nav-personal {
 	text-decoration: none;
 	<!--font-weight: bold;
-	background-color: DarkSlateGray;
-	opacity: 0.8;
-	color: #fff;
+	<!--background-color: DarkSlateGray;
+	<!--opacity: 0.8;
+	<!--color: #fff;
 }
 
 #ies14info a#nav-ies14info,
@@ -121,6 +122,7 @@ a:hover {
 	font-size: 13px;
 	border: groove SteelBlue;
 	border-bottom: none;
+	box-shadow: 10px 10px 5px #888888;
 }
 
 #content h2 { width: 50%; font-size: 17px; color: DarkSlateGray; border-bottom: solid SteelBlue; }
@@ -151,4 +153,5 @@ a:hover {
 	opacity: 0.9;
 	border: groove SteelBlue;
 	border-top: none;
+	box-shadow: 10px 10px 5px #888888;
 }

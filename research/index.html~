@@ -1,28 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>erik's research</title>
-	<link rel="stylesheet" href="/css/erik-style-2.css">
-</head>
-
-<body id="research">
-
-<!--<div id="wrap">-->
-
-<!-- Header -->
-	<div id="header">
-		<div id="headbg">
-			<h1>erik hoversten</h1>
-			<h2>research</h2>
-		</div>
-	</div>
-	
-<!-- Site navigation menu -->
-	<div id="nav-bar">
-		<a href="/" id="nav-home">home</a><a href="/research/" id="nav-research">research</a><a href="/teaching/" id="nav-teach">teaching</a><a href="/personal/">personal</a>
-	</div>
-	
-<!-- Main content -->
+---
+layout: elay1
+title: erik's research
+---
 
 	<div id="content">
 	
@@ -37,12 +16,3 @@
 		<p><a href="/research/hoversten-cv0914.pdf">Here is a copy of my CV.</a>  I will be posting more work here as it develops.  In the meantime, <a href="http://givingwhatwecan.org/" title="giving what we can">these folks</a> have some excellent proposals for you to check out.</p>
 
 	</div>
-	
-<!-- Signature -->
-	<div id="footer">
-		<address>&copy; 2014 by erik</address>
-	</div>
-
-<!--</div>-->
-</body>
-</html>
