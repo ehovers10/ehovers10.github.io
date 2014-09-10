@@ -12,7 +12,7 @@
 	<div id="header">
 		<div id="headbg">
 			<h1>erik hoversten</h1>
-			<h2>ehovers10@gmail.com</h2>
+			<h2>{{ page.subheading }}</h2>
 		</div>
 	</div>
 	
