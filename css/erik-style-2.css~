@@ -153,4 +153,5 @@ a:hover {
 	opacity: 0.9;
 	border: groove SteelBlue;
 	border-top: none;
+	box-shadow: 10px 10px 5px #888888;
 }
