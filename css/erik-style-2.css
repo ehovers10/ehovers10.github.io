@@ -85,7 +85,8 @@ a:hover {
 
 #home a#nav-home,
 #research a#nav-research,
-#teach a#nav-teach {
+#teach a#nav-teach,
+#personal a#nav-personal {
 	text-decoration: none;
 	<!--font-weight: bold;
 	background-color: DarkSlateGray;
