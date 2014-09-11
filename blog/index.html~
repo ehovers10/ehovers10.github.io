@@ -1,7 +1,8 @@
 ---
-layout: post
+layout: elay1
 title: erik hoversten
 subheading: blog
+date: 2014-09-10 12:45
 ---
 
 <div id="content">
@@ -9,9 +10,9 @@ subheading: blog
 	{% for post in site.posts limit:25 %}
 
 	<h2>{{ post.title }}</h2>
-	<h3>{{ post.date | date: "%Y-%m-%d" }}</h3>
+	<p>{{ post.date | date: "%Y-%m-%d" }}</p>
 
-	<p>{{ post.description }}</p>
+	<p>{{ post.content }}</p>
 
 	{% endfor %}
 
