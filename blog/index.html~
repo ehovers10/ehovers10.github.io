@@ -7,12 +7,14 @@ date: 2014-09-10 12:45
 
 <div id="content">
 
-	<img src="/images/splash2.jpg" alt="" title="splash">
+	<div id="side-bar">
+		<p>Lorem ipsum</p>
+	</div>
 
 	{% for post in site.posts limit:25 %}
 
 	<h2>{{ post.title }}</h2>
-	<p>{{ post.date | date: "%Y-%m-%d" }}</p>
+	<h4>{{ post.date | date: "%Y-%m-%d" }}</h4>
 
 	<p>{{ post.content }}</p>
 	
