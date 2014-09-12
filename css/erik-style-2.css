@@ -150,6 +150,7 @@ a:hover {
 #side-bar {
 	float: right;
 	width: 300px;
+	background: #fff url('/images/green_cup.png');
 	border: groove SteelBlue;
 	padding: 10px;
 	margin-left: 20px;
