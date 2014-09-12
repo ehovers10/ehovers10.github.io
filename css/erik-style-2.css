@@ -157,6 +157,10 @@ a:hover {
 	margin-bottom: 20px;
 }
 
+#side-bar ul {
+	list-style-type: circle;
+}
+
 #content ul {
 	list-style-type: none;
 }

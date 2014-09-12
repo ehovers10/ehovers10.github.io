@@ -151,11 +151,14 @@ a:hover {
 	float: right;
 	width: 300px;
 	background: #fff url('/images/green_cup.png');
-	opacity: 0.6;
 	border: groove SteelBlue;
 	padding: 10px;
 	margin-left: 20px;
 	margin-bottom: 20px;
+}
+
+#side-bar ul {
+	list-style-image: url('/images/runner.jpeg');
 }
 
 #content ul {
