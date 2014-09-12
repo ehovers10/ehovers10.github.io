@@ -6,11 +6,7 @@ layout: elay1
 	<h2>{{ page.title }}</h2>
 	<h4>{{ page.date | date: "%Y-%m-%d" }}</h4>
 	
-<<<<<<< HEAD
 	{{ content }}
-=======
-	{{ page.content }}
 	
 	<p><a href="/blog/">(main)</a></p>
->>>>>>> cb327f04ed8448d59c294edb6ee6301129084015
 </div>

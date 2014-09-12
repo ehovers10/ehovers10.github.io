@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Contextualism and shared content"
-date: 2014-09-10 13:14
+date: 2014-09-11 17:45
 tags: semantics contextualism relativism content
 ---
 
