@@ -9,18 +9,15 @@ date: 2014-09-10 12:45
 
 	<div id="side-bar">
 		<h2>archive</h2>
-<<<<<<< HEAD
+
 		{% for post in site.posts limit:25 %}
 			<p>{{ post.date | date: "%Y-%m-%d" }}: <a href="{{ post.url }}">{{ post.title }}</a></p>
 		{% endfor %}
+		
 		<h2>tags</h2>
-=======
-		{% for post in site.posts limit:10 %}
-			<p>{{ post.date | date: "%Y-%m-%d" }}: <a href="{{ post.url }}">{{ post.title }}</a></p>
-		{% endfor %}
-		<h2>tags</h2>
+
 		<h2>feed</h2>
->>>>>>> cb327f04ed8448d59c294edb6ee6301129084015
+
 	</div>
 
 	{% for post in site.posts limit:25 %}
@@ -29,11 +26,8 @@ date: 2014-09-10 12:45
 	<h4>{{ post.date | date: "%Y-%m-%d" }}</h4>
 
 	<p>{{ post.excerpt }}</p>
-<<<<<<< HEAD
-	
+
 	<p><a href="{{ post.url }}">(expand post)</a></p>
-=======
->>>>>>> cb327f04ed8448d59c294edb6ee6301129084015
 	
 	<hr>
 
