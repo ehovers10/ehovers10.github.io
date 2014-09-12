@@ -40,13 +40,13 @@ a:hover {
 }
 
 #header {
-	margin: 0 auto;
+	margin: 20px auto;
 	width: 800px;
 	height: 105px;
 	background: SteelBlue url('/images/bt-head-1.jpeg');
 	opacity: 1;
 	border: groove SteelBlue;
-	border-bottom: none;
+	<!--border-bottom: none;
 	line-height: 1em;
 	box-shadow: 10px 10px 5px #888888;
 }
@@ -68,7 +68,7 @@ a:hover {
 	width: 800px;
    background: url('/images/nice_snow.png'); 
 	border: groove SteelBlue; 
-	border-top: none;
+	<!--border-top: none;
 	box-shadow: 10px 10px 5px #888888;
 }
 
