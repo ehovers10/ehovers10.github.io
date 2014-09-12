@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Erik's website</title>
+		<description>philosophy of language centric notes</description>		
+		<link>http://erikhoversten.org</link>
+		<atom:link href="http://erikhoversten.org/blog/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Contextualism and shared content</title>
+				<description>&lt;p&gt;On one way of understanding the conceptual terrain, &lt;em&gt;contextualism&lt;/em&gt; and &lt;em&gt;relativism&lt;/em&gt; differ on which context is relevant to the assessment of a contribution to the discourse.  In normal communicative exchanges, there are two salient contexts whose features can plausibly impact interpretation-- the context of the speaker and the context of the audience. And in normal communicative exchanges, there will be considerable overlap between these contexts.  However, certain differences can develop, and the choice of which context to feed to the semantic machinery can make a difference to the interpretation of contributions to the discourse.&lt;/p&gt;
+
+&lt;p&gt;Another way of defining the distinction between contextalism and relativism has to do not with what context is relevant but at what stage of interpretation context becomes relevant. In a two-dimensional semantic framework like that developed by David Kaplan, expressions are assigned a character and a content.  An expression&amp;#39;s character determines its content, perhaps in conjunction with elements of context.  And its content in turn determines an extension (a truth value, in the case of sentences), again potentially in conjunction with context.  An expression is said to be contextual if context is operative at the character-to-content stage; it is relative if context is involved in the content-to-extension stage; and an expression can potentially be both contextual and relative.&lt;/p&gt;
+
+&lt;p&gt;John MacFarlane has helpfully united these two conceptual space carvings by introducing four classes of context sensitive expression.  Expressions are indexically contextual if they are contextual is both senses, indexically relative if they are relative in the first sense, contextual in the second; nonindexically contextual if contextual in the first sense, relative in the second; and nonindexically relative if relative in both senses.&lt;/p&gt;
+
+&lt;p&gt;A primary challenge for indexical contextualism as an adequate theory of apparently context sensitive expressions is its ability to account for intuitions regarding discourse continuity.  The primary example of this sort of issue involves what some people refer to as &amp;quot;genuine disagreement&amp;quot;.  In a disagreement, two individuals take conflicting stances on some issue.  In genuine, as opposed to spurious, disagreement, the conflict is taken to be mediated by the presence in the conversational context of some some sort of content, to which the disagreeing parties apply differing truth values (or toward which they take on incompatible commitments of some broader sort).&lt;/p&gt;
+
+&lt;p&gt;Because contextualism inserts contextual values directly into the semantic content of the expression in question, the commitments that individual accrue are sensitive to the context within which they reside.  Thus, the disagreemetn is rendered spurious by excising the requisite shared content.&lt;/p&gt;
+
+&lt;p&gt;Nonindexical contextualism and relativism can retain shared content because context only factors in after content is determined.  While speakers certainly accrue commitments on the basis of the extensions of their utterances, so long as they also have commitments tied to the content of what they say, there is opportunity for the nonindexical theories to locate the disagreement.&lt;/p&gt;
+
+&lt;p&gt;The story of the disagreement is somewhat different on an indexical relativist account.  We can easily make sense of why an audience member may express disagreement with a speaker&amp;#39;s utterance.  Since the audience&amp;#39;s context determines the content, if the utterance so filled out conflicts with their context internal judgement, disagreement will be forthcoming.  But since any utterance they make expressing that disagreement will have a content determined in part by the original speaker&amp;#39;s context, the disagreement will have little weight.  Here, too, shared content is lost.&lt;/p&gt;
+</description>
+				<pubDate>Thu, 11 Sep 2014 17:45:00 -0400</pubDate>
+				<link>http://erikhoversten.org/2014/09/11/contextualism-shared-content.html</link>
+				<guid isPermaLink="true">http://erikhoversten.org/2014/09/11/contextualism-shared-content.html</guid>
+			</item>
+		
+			<item>
+				<title>Correctibles, posits, or leaps?</title>
+				<description>&lt;p&gt;I&amp;#39;ve been thinking a lot lately about a class of expression that I&amp;#39;m calling &amp;quot;correctibles&amp;quot;.  The idea behind these expressions (or perhaps better, use of expressions) is that they exhibit a certain resiliance to correction.  For instance, I think that generics and certain relative expressions are in this class.&lt;/p&gt;
+
+&lt;p&gt;If I say &amp;quot;Cows give milk&amp;quot;, and you challenge me with &amp;quot;What about bulls?&amp;quot;, it may not be out of line for me to respond, &amp;quot;I didn&amp;#39;t say all cows!&amp;quot;  Your challenge has force, but my original contribution can sail through at least mostly intact.  Similarly, if you say &amp;quot;I know that my car is parked out back&amp;quot;, and I challenge you to prove you aren&amp;#39;t a brain in a vat, you could probably retort, &amp;quot;I didn&amp;#39;t say I could convince a skeptic!&amp;quot;&lt;/p&gt;
+
+&lt;p&gt;Assuming there&amp;#39;s a genuine linguistic phenomenon here and that a uniform class of (use of) expressions can be determined, I think these correctibles can give us some interesting insight into discourse dynamics.  The idea is that correctibles have a corrective potential built into their semantic contribution.  Speakers may choose to use a correctible knowing that they may be challenged on it.  And the impact of its use may depend on whether a challenge arises.  Thus, correctibles provide a nice example of the collaborative effort of discourse development.  The nature of my contribution can depend on how you choose to make use of it.&lt;/p&gt;
+
+&lt;p&gt;The collaborative nature of the communicative exchange seems pretty obvious, but the particularly disputative aspect of corrective communication has some cool motivations.  Two of my favorites are John Stuart Mill&amp;#39;s approach to disagreement, and William James&amp;#39; notion of the will to believe.&lt;/p&gt;
+
+&lt;p&gt;James points out that the project of inquiry has two, potentially conflicting, motivations: the desire to believe truths, and the desire to avoid believing falsehoods.  Sometimes, jumping to a conclusion that goes beyond our evidence may better serve the goals of inquiry, even when there&amp;#39;s a risk of the conclusion being false.&lt;/p&gt;
+
+&lt;p&gt;The collaborative inquiry has the same motivations, and sometimes putting something out there, even if it isn&amp;#39;t known to be true, can be valuable to the exchange as a whole.  This can be done with all the more confidence when one can trust in her interlocutor to correct such posits to the best of her ability.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;m not sure about the name &amp;quot;correctible&amp;quot;.  I&amp;#39;m thinking that, in honor of James, a fittingly provocative name may be &amp;quot;leap&amp;quot;.&lt;/p&gt;
+</description>
+				<pubDate>Wed, 10 Sep 2014 13:14:00 -0400</pubDate>
+				<link>http://erikhoversten.org/2014/09/10/correctibles-posits-leaps.html</link>
+				<guid isPermaLink="true">http://erikhoversten.org/2014/09/10/correctibles-posits-leaps.html</guid>
+			</item>
+		
+	</channel>
+</rss>
