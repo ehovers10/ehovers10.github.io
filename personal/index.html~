@@ -14,7 +14,10 @@ subheading: personal
 	
 		<h2>some images (courtesy of nature)</h2>		
 		
-		<iframe src="https://drive.google.com/embeddedfolderview?id=0ByDdolCnLvo4UV90UmNncG9tM00#grid" width="90%" height="400" data-style="border: 3px groove SteelBlue;"></iframe>		
+		<!--<iframe src="https://drive.google.com/embeddedfolderview?id=0ByDdolCnLvo4UV90UmNncG9tM00#grid" width="90%" height="400" data-style="border: groove SteelBlue; background: url('/images/green_cup.png');"></iframe>-->		
+	
+		
+		<iframe src="https://app.box.com/embed_widget/s/ft2tykdrfd04pdhjiwse?view=icon&sort=name&direction=ASC&theme=blue" width="90%" height="500" data-style="border: groove SteelBlue;margin-bottom:5px;" allowfullscreen webkitallowfullscreen msallowfullscreen></iframe>
 		
 		
 		

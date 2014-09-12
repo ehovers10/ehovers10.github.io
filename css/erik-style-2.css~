@@ -132,7 +132,7 @@ a:hover {
 	color: DarkSlateGray;
 	font-size: 13px;
 	border: groove SteelBlue;
-	<!--border-bottom: none;
+	border-bottom: none;
 	box-shadow: 10px 10px 5px #888888;
 }
 
@@ -150,6 +150,8 @@ a:hover {
 #side-bar {
 	float: right;
 	width: 300px;
+	background: #fff url('/images/green_cup.png');
+	opacity: 0.6;
 	border: groove SteelBlue;
 	padding: 10px;
 	margin-left: 20px;
@@ -161,7 +163,7 @@ a:hover {
 }
 
 #footer {
-	margin: 0 auto 50px;
+	margin: -20px auto 50px;
 	width: 800px;
 	position: relative;
 	padding-top: 10px;
@@ -173,7 +175,7 @@ a:hover {
 	background: SteelBlue;
 	opacity: 0.9;
 	border: groove SteelBlue;
-	<!--border-top: none;
+	border-top: none;
 	box-shadow: 10px 10px 5px #888888;
 }
 
