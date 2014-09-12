@@ -19,8 +19,8 @@ date: 2014-09-10 12:45
 			{% for post in site.posts %}
 				{% for tag in post.tags %} 
 					{% unless etags contains tag %} 
-						{% capture etags %}{{ etags | append: tag | append: ", " }}{% endcapture %}
-						<a href="/">{{ tag }}</a>
+						{% capture etags %}{{ etags | append: tag | }}{% endcapture %}
+						<a href="/">{{ tag }}</a> |
 					{% endunless %}
 				{% endfor %}
 			{% endfor %}
@@ -33,7 +33,7 @@ date: 2014-09-10 12:45
 	{% for post in site.posts limit:25 %}
 
 	<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-	<h4>{{ post.date | date: "%m/%d/%Y" }} | {% for tag in post.tags %} <a href="{{ tag.url }}">{{ tag }}</a> {% endfor %}</h4>
+	<h4>{{ post.date | date: "%m/%d/%Y" }} : {% for tag in post.tags %} <a href="{{ tag.url }}">{{ tag }}</a> | {% endfor %}</h4>
 
 	<p>{{ post.excerpt }}</p>
 
