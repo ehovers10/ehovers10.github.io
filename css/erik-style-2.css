@@ -136,6 +136,15 @@ a:hover {
 	margin-bottom: 20px;
 }
 
+#side-bar {
+	float: right;
+	width: 300px;
+	border: groove SteelBlue;
+	padding: 10px;
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+
 #content ul {
 	list-style-type: none;
 }
