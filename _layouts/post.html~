@@ -2,8 +2,9 @@
 layout: elay1
 ---
 
-<p class="meta">{{ page.date | date_to_string }}</p>
-
-<div class="post">
-{{ content }}
+<div id="content">
+	<h2>{{ page.title }}</h2>
+	<h4>{{ page.date | date: "%Y-%m-%d" }}</h4>
+	
+	{{ content }}
 </div>

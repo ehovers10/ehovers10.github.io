@@ -2,6 +2,11 @@
 layout: elay1
 ---
 
-<div class="post">
-{{ content }}
+<div id="content">
+	<h2>{{ page.title }}</h2>
+	<h4>{{ page.date | date: "%Y-%m-%d" }}</h4>
+	
+	{{ content }}
+	
+	<p><a href="/blog/">(main)</a></p>
 </div>
