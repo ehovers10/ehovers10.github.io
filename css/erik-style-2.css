@@ -161,12 +161,13 @@ a:hover {
 }
 
 #footer {
-	margin: -20px auto;
+	margin: -20px auto 50px;
 	width: 800px;
 	position: relative;
 	padding-top: 10px;
 	font-family: finalfrontier;
-	text-align: center;
+	text-indent: 20px;
+	<!--text-align: center;
 	color: #fff;
 	height: 20px;
 	background: SteelBlue;
