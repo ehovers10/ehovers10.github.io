@@ -3,7 +3,9 @@ layout: elay1
 ---
 
 <div id="content">
-	<p>(previous) -- <a href="/blog/">(main)</a> -- (next)</p>
+	<div id="post-nav">
+		<a href="{{page.previous.url}}">{{page.previous.title}}</a> | <a href="/blog/">Main</a> | <a href="{{page.next.url}}">{{page.next.title}}</a>
+	</div>
 
 	<h2>{{ page.title }}</h2>
 	<h4>{{ page.date | date: "%Y-%m-%d" }}</h4>

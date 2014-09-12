@@ -112,6 +112,17 @@ a:hover {
 	color: #fff;
 }
 
+#post-nav {
+	margin: 0 auto;
+	width: 800px;
+	<!--text-align: center;
+	font-family: finalfrontier;
+}
+
+#post-main {
+	text-align: center;
+}
+
 #content {
 	margin: 20px auto;
 	width: 760px;
@@ -140,7 +151,7 @@ a:hover {
 	float: right;
 	width: 300px;
 	border: groove SteelBlue;
-	padding: 0px;
+	padding: 10px;
 	margin-left: 20px;
 	margin-bottom: 20px;
 }
@@ -170,6 +181,8 @@ a:hover {
 /* Posts
 /*
 /*****************************************************************************/
+
+
 
 /* standard */
 .post pre {
