@@ -1,6 +1,8 @@
 <!-- Signature -->
 	<div id="footer">
-		<small>ehovers10@gmail.com</small>
+		<p class="alignleft"><a href="ehovers10@gmail.com">ehovers10@gmail.com</a></p>
+		<p class="alignright"><a href="#top" >return to top</a></p>
+
 	</div>
 
 </body>

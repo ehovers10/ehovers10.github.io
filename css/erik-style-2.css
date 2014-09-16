@@ -30,6 +30,12 @@ a:hover {
 	text-decoration: underline;
 }
 
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
 
 #wrap {
 	margin: auto;
@@ -169,12 +175,13 @@ a:hover {
 	margin: -20px auto 50px;
 	width: 800px;
 	position: relative;
-	padding-top: 10px;
+	<!--padding-top: 10px;
 	font-family: finalfrontier;
-	text-indent: 20px;
+	<!--text-indent: 20px;
 	<!--text-align: center;
-	color: #fff;
-	height: 20px;
+	<!--color: #fff;
+	height: 30px;
+	<!--font-size: small;
 	background: SteelBlue;
 	opacity: 0.9;
 	border: groove SteelBlue;
@@ -182,8 +189,9 @@ a:hover {
 	box-shadow: 10px 10px 5px #888888;
 }
 
-/*****************************************************************************/
-/*
+#footer p { padding-left: 20px; padding-right: 20px; font-size: small; color: #fff; }
+#footer a { color: #fff; }
+
 /* Posts
 /*
 /*****************************************************************************/
