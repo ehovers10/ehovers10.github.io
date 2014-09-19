@@ -30,6 +30,12 @@ a:hover {
 	text-decoration: underline;
 }
 
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
 
 #wrap {
 	margin: auto;
@@ -40,13 +46,13 @@ a:hover {
 }
 
 #header {
-	margin: 0 auto;
+	margin: 20px auto;
 	width: 800px;
 	height: 105px;
 	background: SteelBlue url('/images/bt-head-1.jpeg');
 	opacity: 1;
 	border: groove SteelBlue;
-	border-bottom: none;
+	<!--border-bottom: none;
 	line-height: 1em;
 	box-shadow: 10px 10px 5px #888888;
 }
@@ -68,7 +74,7 @@ a:hover {
 	width: 800px;
    background: url('/images/nice_snow.png'); 
 	border: groove SteelBlue; 
-	border-top: none;
+	<!--border-top: none;
 	box-shadow: 10px 10px 5px #888888;
 }
 
@@ -112,6 +118,17 @@ a:hover {
 	color: #fff;
 }
 
+#post-nav {
+	margin: 0 auto;
+	width: 800px;
+	text-align: center;
+	font-family: finalfrontier;
+}
+
+#post-main {
+	text-align: center;
+}
+
 #content {
 	margin: 20px auto;
 	width: 760px;
@@ -136,19 +153,35 @@ a:hover {
 	margin-bottom: 20px;
 }
 
+#side-bar {
+	float: right;
+	width: 300px;
+	background: #fff url('/images/green_cup.png');
+	border: groove SteelBlue;
+	padding: 10px;
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+
+#side-bar ul {
+	list-style-type: circle;
+}
+
 #content ul {
 	list-style-type: none;
 }
 
 #footer {
-	margin: -20px auto;
+	margin: -20px auto 50px;
 	width: 800px;
 	position: relative;
-	padding-top: 10px;
+	<!--padding-top: 10px;
 	font-family: finalfrontier;
-	text-align: center;
-	color: #fff;
-	height: 20px;
+	<!--text-indent: 20px;
+	<!--text-align: center;
+	<!--color: #fff;
+	height: 30px;
+	<!--font-size: small;
 	background: SteelBlue;
 	opacity: 0.9;
 	border: groove SteelBlue;
@@ -156,11 +189,14 @@ a:hover {
 	box-shadow: 10px 10px 5px #888888;
 }
 
-/*****************************************************************************/
-/*
+#footer p { padding-left: 20px; padding-right: 20px; padding-top: -30px;  font-size: small; color: #fff; }
+#footer a { color: #fff; }
+
 /* Posts
 /*
 /*****************************************************************************/
+
+
 
 /* standard */
 .post pre {

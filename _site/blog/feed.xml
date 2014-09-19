@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Erik's website</title>
+		<description>philosophy of language centric notes</description>		
+		<link>http://erikhoversten.org</link>
+		<atom:link href="http://erikhoversten.org/blog/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Baseball adages and comparison classes</title>
+				<description>&lt;p&gt;As in many sports, baseball coaches attempt to combine education and inspiration by way of adages intended to distill complex strategy into a simple phrase.  Among the stalwarts of this tradition are &lt;em&gt;run out every ball put in play&lt;/em&gt; and &lt;em&gt;on a ball hit in the air, make your first step be backwards&lt;/em&gt;.  The axiom I&amp;#39;d like to focus on today is:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Don&amp;#39;t make the last out at third base.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Well-entrenched adages reach a point at which they are beyond either reproach or justification.  They come to work their way into the culture of play, perhaps even altering the history of the game to align with their suggestion.  Luckily for heretics of tradition, the sabermetric turn has produced a number of baseball gadflies, not content to let traditional wisdom avoid the shears of statistical analysis.  Quite a while back, I came across a pair of posts by &lt;a href=&quot;http://blog.chron.com/unofficialscorer/2009/02/more-on-the-last-out-at-third-base-goodbye-to-a-friend/&quot;&gt;The Unofficial Scorer&lt;/a&gt; taking on the issue of making the last out at third.  In addition to providing some rigorous data and coming up with a clever way of extracting information relevant to the question at hand, Levine pointed out that whether the advice is sound or not depends on what we understand it to mean.  What I find most interesting are the facts that this adage is highly ambiguous and that the sentence doesn&amp;#39;t wear its semantic import on its syntactic sleeve.&lt;/p&gt;
+
+&lt;p&gt;The first thing to point out is that the adage is much weaker than seems to be warranted by the context of giving advice for success in baseball.  After all, if one wants to guarantee baseball success, you might as well follow the more general principle:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Don&amp;#39;t make any out at any base at any point in the game.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In general, the laws governing a practice are those principles that optimize the constraints &lt;em&gt;strength&lt;/em&gt; and &lt;em&gt;informativeness&lt;/em&gt;, and whatever this more general principle gains in strength it sacrifices much more in informativeness.  Our original principle may not cover as many instances a baseball player can find herself in, but its much more useful for an actual player trying to make decisions at the speed of play.&lt;/p&gt;
+
+&lt;p&gt;I take it that the informativeness of our principle comes from an implicit comparative structure that it carries.  Prescriptive rules such as this gain their force from the suggestion that abiding by the explicitly mentioned plan of action is &lt;em&gt;better&lt;/em&gt; than not doing so and implementing any of a class of nearby plans of action.  So, in assessing the appropriateness of the rule, an essential step is determining the &lt;em&gt;comparison class&lt;/em&gt; of nearby plans that it implicitly suggests are of lesser quality.  The ambiguity involved in the last out at third adage comes from the fact that context allows for the relevance of several distinct comparison classes.  One way to pull out the options is by adding an explicit focus structure to the surface representation of the adage:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Avoid making the &lt;em&gt;last&lt;/em&gt; out at third base, as opposed to worrying about the &lt;em&gt;first&lt;/em&gt; or &lt;em&gt;second&lt;/em&gt; out.&lt;/li&gt;
+&lt;li&gt;Avoid making the last out at &lt;em&gt;third base&lt;/em&gt;, as opposed to worrying about the last out at &lt;em&gt;first base&lt;/em&gt;, &lt;em&gt;second base&lt;/em&gt;, or &lt;em&gt;home&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Avoid making &lt;em&gt;last out at third base&lt;/em&gt;, as opposed to worrying about any other base/out pair.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;It should be clear that these are representations of conceptually distinct adages, as one can implement a long term strategy that follows one principle without following the others.  But our original adage is also ambiguous in another way.  This second kind of ambiguity arises from the evaluative character of prescriptive norms.  To evaluate one&amp;#39;s adherence to the rule, we must determine a &lt;em&gt;standard of evaluation&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;In his analysis of the adage, Levine emphasizes a different ambiguity, which he cashes out as an issue of whether the norm is meant to track the &lt;em&gt;risk&lt;/em&gt; of trying for third base or the &lt;em&gt;loss&lt;/em&gt; associated with an out at third base.  An individual decides on the basis of risk when their decision is made on the basis of the expected value of attempting for third versus the expected value of staying at second.  &lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Risk: V(safe-at-third)P(safe-at-third) + V(out-at-third)P(out-at-third) = V(safe-at-second)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The decision to try for third is the correct one when the subjective probability of successfully taking third is high enough to tip the equality in &lt;em&gt;Risk&lt;/em&gt; toward the left-hand side.  According to Levine&amp;#39;s analysis, the requisite subjective probability is indeed higher when there are two outs than when there are zero or one.&lt;/p&gt;
+
+&lt;p&gt;But there is an alternative decision technique available. The adage seems to be asking us to compare the devestatingness of each out in an inning.  That is, how much does one give up in getting out at third versus the alternative of not attmpting for it.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Loss: V(safe-at-second) - V(out-at-third) = Value-sacrificed&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If this evaluation schema is operative, then an individual will be more willing to give up an out when the associated sacrifice is lower.  But interestingly, Levine&amp;#39;s analysis suggests that the sacrifice associated with an out at third base is actually lower when there are two outs as opposed to zero or one.  This is mostly due to the fact that the run potential is lower generally when a team already has two outs.&lt;/p&gt;
+
+&lt;p&gt;I take it that each of these evaluation techniques is valid for different interests, and because the results they give in terms of how individuals with those different interests would respond to our adage, the adage is &lt;em&gt;evaluatively&lt;/em&gt;uous as well as being &lt;em&gt;comparison class&lt;/em&gt; ambiguous.&lt;/p&gt;
+
+&lt;p&gt;But is &lt;em&gt;ambiguity&lt;/em&gt; really the correct analysis of the fact that this one adage can have quite differing import?  Semanticists are often loathe to appeal to ambiguity to explain interpretive variability because it seems to violate an accepted theoretical virtue of parsimony.  Each distinct meaning that a word or phrase can have requires language users to store a new entry in their lexicon, but it seems less cognitively demanding if users can store a single rule from which they can derive distinct interpretations in recognizably distinct linguistic contexts.&lt;/p&gt;
+
+&lt;p&gt;The suggested ambiguity in our adage is no different, and luckily, well established semantic machinery is available for us to explain the various interpretations in terms of a single semantic rule.  The key component in the solution is the &lt;em&gt;modal&lt;/em&gt; nature of the adage.  The adage is meant to cover any number of situations a base runner could find herself in, whether actual or merely hypothetical.  The human ability to form plans on the basis of hypotheticals is known as &lt;em&gt;modal reasoning&lt;/em&gt;.  According to a widely accepted view of the semantics of modality due to Angelika Kratzer, sentences involving modal bits are sensitive to the context in which they are used in two ways.  First, context supplies a common ground, modeled as a set of propositions that encode the things that the parties to the conversation are taking for granted.  Second, context supplies an ordering source, modeled as a different set of propositions that represent a preferred state of affairs, what we might think of as the ideal possibility relvative to the system of rules our modal is concerned with.  Thus, we can think of the logical form of modal sentences along the following lines:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Modal(c --&amp;gt; common ground)(c --&amp;gt; ordering source)proposition&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The idea is that modals require input from the surrounding content at two stages, and this contextual input opens the possibility for the sentence to have a variety of interpretations.  But despite this variety, a competent user of the language needs only to learn a single rule for how to interpret any modal sentence.&lt;/p&gt;
+
+&lt;p&gt;This picture of modal sentences gives a near perfect explanation of the ambiguities we discovered in our baseball adage.  The comparison class ambiguity maps onto the role of context in supplying a common ground.  Whether we interpret the adage as telling us which outs we should avoid making or at which base we should avoid making an out depends on what things we are taking for granted.  A base runner who knows how many outs there are and is trying to decide in the moment whether to stretch a double into a triple, will have a different use for the adage than the player who is visualizing the next day&amp;#39;s game and trying to imagine what he would do in different scenarios he could find himself in.&lt;/p&gt;
+
+&lt;p&gt;But even when we have resolved the common ground, the adage is still subject to the evaluative ambiguity.  This ambiuguity maps onto the role of context in fixing an ordering source.  Depending on what we take to be the ideal way for a base runner to make their decision, we may focus on the risk involved in trying for third, or we may concern ourselves with the potential loss associated with being called out.  Each of these strategies is potentially useful in decision making, and the adage can be interpreted differently depending on which option is highlighted in the current context.&lt;/p&gt;
+</description>
+				<pubDate>Sun, 14 Sep 2014 09:15:00 -0400</pubDate>
+				<link>http://erikhoversten.org/2014/09/14/baseball-adages.html</link>
+				<guid isPermaLink="true">http://erikhoversten.org/2014/09/14/baseball-adages.html</guid>
+			</item>
+		
+			<item>
+				<title>Jamesian inquiry</title>
+				<description>&lt;p&gt;William James famously drew a distinction between two independent and sometimes conflicting goals for those engaged in the pursuit of knowledge.  The first is to acquire true beliefs.  The second is to avoid believing falsehoods.  One could meet the goal of believing truths simply by believing everything, but doing so sacrifices entirely the second goal.  And one could meet the goal of avoiding falsehoods by believing nothing at all, thereby forfeiting the virtue of believing truths. As James saw it, a strategy of inquiry that floats between these extremes is the path we ought to search for.&lt;/p&gt;
+
+&lt;p&gt;James admits that the second goal, that of avoiding false belief, seems to carry more sway, especially in the realm of scientific inquiry.  Belief is conceptually tied to action, and while acting on false belief is frought with peril, failing to act due to failure to believe more rarely leads to trouble.  But sometimes non-action is itself action, and peril can find those who remain in one place as well as those who run into its path.  James&amp;#39; project was to characterize the situations in which inquiry optimization favors the goal of truth acquisition, even at the potential expense of error avoidance.  His proposal, famously, was that for situations in which one&amp;#39;s belief choice is &lt;em&gt;live&lt;/em&gt;, &lt;em&gt;forced&lt;/em&gt;, and &lt;em&gt;momentous&lt;/em&gt;, the will to believe outstrips the fear of being wrong. Unfortunately, this category leaves out most quotidian inquiries; perhaps some people ponder the existence of God on a daily basis, but most of us are happy just to complete our grocery shopping all in one trip.&lt;/p&gt;
+
+&lt;p&gt;So, it&amp;#39;s not clear that the Jamesian model can be applied to inquiry generally.  In so far as the goal of inquiry is ultimately knowledgeable action, it may be better to take the conservative approach of only modifying the shared information state in the presence of certainty. Still, the interpretation of &lt;code&gt;live&amp;#39;&amp;#39;,&lt;/code&gt;momentous&amp;#39;&amp;#39; and ``forced&amp;#39;&amp;#39; all depend on the relevant context.  Few, if any, decisions are forced &lt;em&gt;simpliciter&lt;/em&gt;, but many seem unavoidable given simple background considerations.  I don&amp;#39;t have to pick up either seitan or tofu from the store, but given certain desires I have -- to get protein without harming too many folks along the way, I&amp;#39;ve got to make up my mind before the store closes.  So, one could expand James&amp;#39; proposal to cover certain everyday inquiries simply by taking his criteria to involve restricted quantification over possibilities.&lt;/p&gt;
+
+&lt;p&gt;But the adventurous inquirer need not accept context&amp;#39;s life preserver.  Even James, the arch supported of faith-based belief, has restricted his spectulative endeavors too far.  Inquiry need not be momentous or forced for the jump to conclusions to be fruitful.  James&amp;#39; model makes inquiry an optimization task, between taking on too many falsehoods and leaving out too many truths.  And it is a task that is undertaken by fallible individuals in real time.  It is &lt;em&gt;because&lt;/em&gt; not every inquiry is momentous that striving for truth (and risking falsehood) is sometimes to be prefered. Inquiries can withstand failures.  This is in part because not every choice is a matter of life or death, but also because inquiries are packaged with corrective feedback mechanisms.  The principle  one of which is the inquirer&amp;#39;s fellow interlocutors.&lt;/p&gt;
+
+&lt;p&gt;Disagreement is the tool by which interlocutors can check each other&amp;#39;s flights of fancy.  And, I maintain, it is a tool we both know how to wield, and are prepared to let others weild against us.  The primary role of joint inquiry is to expedite what would be an extremely tedious task if attempted alone.  Even alone, the task can be sped up via judicious application of speculative intellectual leaps; though the risk involved cannot be wholly eliminated.  The collaborative facet of joint inquiry provides extra motivation for assuming the risk -- the cooperative interlocutor, to the extent she is able, will pull you back from the ledge by voicing her disagreement. &lt;/p&gt;
+
+&lt;p&gt;David Lewis spoke of language as a convention of truth and trust in a community.  His idea was that our shared language is supported by a tacit agreement to speak truthfully, and to trust that others will do so as well.  While the Jamesian accepts the importance of speaking truthfully, she maintains that the convention may sometimes call for speaking rather than remaining silent even when truth cannot be guaranteed.  The importance of trust remains paramount, but it is not just the hearers&amp;#39; trust in the speaker to utter truly.  It is also the speaker&amp;#39;s trust in his hearer&amp;#39;s to correct him when he doesn&amp;#39;t.&lt;/p&gt;
+</description>
+				<pubDate>Fri, 12 Sep 2014 11:45:00 -0400</pubDate>
+				<link>http://erikhoversten.org/2014/09/12/jamesian-inquiry.html</link>
+				<guid isPermaLink="true">http://erikhoversten.org/2014/09/12/jamesian-inquiry.html</guid>
+			</item>
+		
+			<item>
+				<title>Contextualism and shared content</title>
+				<description>&lt;p&gt;On one way of understanding the conceptual terrain, &lt;em&gt;contextualism&lt;/em&gt; and &lt;em&gt;relativism&lt;/em&gt; differ on which context is relevant to the assessment of a contribution to the discourse.  In normal communicative exchanges, there are two salient contexts whose features can plausibly impact interpretation-- the context of the speaker and the context of the audience. And in normal communicative exchanges, there will be considerable overlap between these contexts.  However, certain differences can develop, and the choice of which context to feed to the semantic machinery can make a difference to the interpretation of contributions to the discourse.&lt;/p&gt;
+
+&lt;p&gt;Another way of defining the distinction between contextalism and relativism has to do not with what context is relevant but at what stage of interpretation context becomes relevant. In a two-dimensional semantic framework like that developed by David Kaplan, expressions are assigned a character and a content.  An expression&amp;#39;s character determines its content, perhaps in conjunction with elements of context.  And its content in turn determines an extension (a truth value, in the case of sentences), again potentially in conjunction with context.  An expression is said to be contextual if context is operative at the character-to-content stage; it is relative if context is involved in the content-to-extension stage; and an expression can potentially be both contextual and relative.&lt;/p&gt;
+
+&lt;p&gt;John MacFarlane has helpfully united these two conceptual space carvings by introducing four classes of context sensitive expression.  Expressions are indexically contextual if they are contextual is both senses, indexically relative if they are relative in the first sense, contextual in the second; nonindexically contextual if contextual in the first sense, relative in the second; and nonindexically relative if relative in both senses.&lt;/p&gt;
+
+&lt;p&gt;A primary challenge for indexical contextualism as an adequate theory of apparently context sensitive expressions is its ability to account for intuitions regarding discourse continuity.  The primary example of this sort of issue involves what some people refer to as &amp;quot;genuine disagreement&amp;quot;.  In a disagreement, two individuals take conflicting stances on some issue.  In genuine, as opposed to spurious, disagreement, the conflict is taken to be mediated by the presence in the conversational context of some some sort of content, to which the disagreeing parties apply differing truth values (or toward which they take on incompatible commitments of some broader sort).&lt;/p&gt;
+
+&lt;p&gt;Because contextualism inserts contextual values directly into the semantic content of the expression in question, the commitments that individual accrue are sensitive to the context within which they reside.  Thus, the disagreemetn is rendered spurious by excising the requisite shared content.&lt;/p&gt;
+
+&lt;p&gt;Nonindexical contextualism and relativism can retain shared content because context only factors in after content is determined.  While speakers certainly accrue commitments on the basis of the extensions of their utterances, so long as they also have commitments tied to the content of what they say, there is opportunity for the nonindexical theories to locate the disagreement.&lt;/p&gt;
+
+&lt;p&gt;The story of the disagreement is somewhat different on an indexical relativist account.  We can easily make sense of why an audience member may express disagreement with a speaker&amp;#39;s utterance.  Since the audience&amp;#39;s context determines the content, if the utterance so filled out conflicts with their context internal judgement, disagreement will be forthcoming.  But since any utterance they make expressing that disagreement will have a content determined in part by the original speaker&amp;#39;s context, the disagreement will have little weight.  Here, too, shared content is lost.&lt;/p&gt;
+</description>
+				<pubDate>Thu, 11 Sep 2014 17:45:00 -0400</pubDate>
+				<link>http://erikhoversten.org/2014/09/11/contextualism-shared-content.html</link>
+				<guid isPermaLink="true">http://erikhoversten.org/2014/09/11/contextualism-shared-content.html</guid>
+			</item>
+		
+			<item>
+				<title>Correctibles, posits, or leaps?</title>
+				<description>&lt;p&gt;I&amp;#39;ve been thinking a lot lately about a class of expression that I&amp;#39;m calling &amp;quot;correctibles&amp;quot;.  The idea behind these expressions (or perhaps better, use of expressions) is that they exhibit a certain resiliance to correction.  For instance, I think that generics and certain relative expressions are in this class.&lt;/p&gt;
+
+&lt;p&gt;If I say &amp;quot;Cows give milk&amp;quot;, and you challenge me with &amp;quot;What about bulls?&amp;quot;, it may not be out of line for me to respond, &amp;quot;I didn&amp;#39;t say all cows!&amp;quot;  Your challenge has force, but my original contribution can sail through at least mostly intact.  Similarly, if you say &amp;quot;I know that my car is parked out back&amp;quot;, and I challenge you to prove you aren&amp;#39;t a brain in a vat, you could probably retort, &amp;quot;I didn&amp;#39;t say I could convince a skeptic!&amp;quot;&lt;/p&gt;
+
+&lt;p&gt;Assuming there&amp;#39;s a genuine linguistic phenomenon here and that a uniform class of (use of) expressions can be determined, I think these correctibles can give us some interesting insight into discourse dynamics.  The idea is that correctibles have a corrective potential built into their semantic contribution.  Speakers may choose to use a correctible knowing that they may be challenged on it.  And the impact of its use may depend on whether a challenge arises.  Thus, correctibles provide a nice example of the collaborative effort of discourse development.  The nature of my contribution can depend on how you choose to make use of it.&lt;/p&gt;
+
+&lt;p&gt;The collaborative nature of the communicative exchange seems pretty obvious, but the particularly disputative aspect of corrective communication has some cool motivations.  Two of my favorites are John Stuart Mill&amp;#39;s approach to disagreement, and William James&amp;#39; notion of the will to believe.&lt;/p&gt;
+
+&lt;p&gt;James points out that the project of inquiry has two, potentially conflicting, motivations: the desire to believe truths, and the desire to avoid believing falsehoods.  Sometimes, jumping to a conclusion that goes beyond our evidence may better serve the goals of inquiry, even when there&amp;#39;s a risk of the conclusion being false.&lt;/p&gt;
+
+&lt;p&gt;The collaborative inquiry has the same motivations, and sometimes putting something out there, even if it isn&amp;#39;t known to be true, can be valuable to the exchange as a whole.  This can be done with all the more confidence when one can trust in her interlocutor to correct such posits to the best of her ability.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;m not sure about the name &amp;quot;correctible&amp;quot;.  I&amp;#39;m thinking that, in honor of James, a fittingly provocative name may be &amp;quot;leap&amp;quot;.&lt;/p&gt;
+</description>
+				<pubDate>Wed, 10 Sep 2014 13:14:00 -0400</pubDate>
+				<link>http://erikhoversten.org/2014/09/10/correctibles-posits-leaps.html</link>
+				<guid isPermaLink="true">http://erikhoversten.org/2014/09/10/correctibles-posits-leaps.html</guid>
+			</item>
+		
+	</channel>
+</rss>

@@ -1,3 +1,6 @@
 name: Erik's website
 markdown: redcarpet
 pygments: true
+
+description: philosophy of language centric notes
+url: http://erikhoversten.org
