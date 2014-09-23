@@ -67,7 +67,7 @@ a:hover {
 
 #header h1 { padding-left: 20px; padding-top: 22px;  font-size: 30px; color: #fff; }
 #header h1 a { font-size: 22px; color: #FFF; text-decoration: none; }
-#header h2 { padding-right: 20px; padding-bottom: 4px; font-size: 17px; color: #fff; float: right; }
+#header h2 { padding-right: 20px; padding-bottom: 4px; font-size: 17px; color: #fff; }
 
 #nav-bar { 
 	margin: 0 auto;
@@ -189,43 +189,7 @@ a:hover {
 	box-shadow: 10px 10px 5px #888888;
 }
 
-#footer p { padding-left: 20px; padding-right: 20px; padding-top: -30px;  font-size: small; color: #fff; }
+#footer p { padding-left: 20px; padding-right: 20px; font-size: small; color: #fff; }
 #footer a { color: #fff; }
 
-/* Posts
-/*
-/*****************************************************************************/
 
-
-
-/* standard */
-.post pre {
-  border: 1px solid #ddd;
-  background-color: #eef;
-  padding: 0 .4em;
-}
-
-.post ul, .post ol {
-  margin-left: 1.35em;
-}
-
-.post code {
-  border: 1px solid #ddd;
-  background-color: #eef;
-  padding: 0 .2em;
-}
-
-.post pre code {
-  border: none;
-}
-
-/* terminal */
-.post pre.terminal {
-  border: 1px solid #000;
-  background-color: #333;
-  color: #FFF;
-}
-
-.post pre.terminal code {
-  background-color: #333;
-}
