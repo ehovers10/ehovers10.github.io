@@ -11,12 +11,21 @@
 <!-- Header -->
 	<div id="header">
 		<div id="headbg">
-			<h1>erik hoversten</h1>
-			<h2>{{ page.subheading }}</h2>
+			<h1>{{ page.title }}</h1>
+			<h2 class="alignright">{{ page.subheading }}</h2>
 		</div>
 	</div>
 	
 <!-- Site navigation menu -->
+	<!--<div id="nav-bar" >
+		<a href="/" id="nav-home">erik's home</a><a href="./index.html" id="nav-ies14info">course info</a><a href="./resources.html" id="nav-ies14resources">resources</a><a href="./course-plan.html" id="ies14courseplan">course plan</a><a href="http://www.dropitto.me/ehoversten" target="_blank">submissions</a>
+	</div>-->
+	
+	<!-- Site navigation menu -->
+	{% assign tnav = site.pages | where: "category" , "ies14" | sort: 'date' %}
 	<div id="nav-bar">
-		<a href="/" id="nav-home">home</a><a href="/research/" id="nav-research">research</a><a href="/teaching/" id="nav-teach">teaching</a><a href="/personal/" id="nav-personal">personal</a>
+		<a href="/">erik's home</a>
+		{% for page in tnav %}
+			<a href="{{page.url}}">{{page.subheading}}</a>
+		{% endfor %}
 	</div>

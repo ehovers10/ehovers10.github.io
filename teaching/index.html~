@@ -1,7 +1,12 @@
 ---
 layout: elay1
 title: erik's teaching
+subheading: teaching
+category: esite
+date: 2014-09-27 03:00
 ---
+
+	{% include arrow-nav.html %}
 
 	<div id="content">
 	

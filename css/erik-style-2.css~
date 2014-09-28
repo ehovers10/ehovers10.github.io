@@ -22,6 +22,7 @@ h1,h2 {
 }
 
 a {
+	z-index: 10;
 	text-decoration: none;
 	color: #3B6EBF;
 }
@@ -59,7 +60,7 @@ a:hover {
 
 #headbg {
 	margin-top: -20px;
-	position: fixed;
+	position: inherit;
 	height: inherit;
 	background-color: SteelBlue;
 	opacity: 0.8;
@@ -90,27 +91,6 @@ a:hover {
 	<!--border-left: 1px solid SteelBlue;
 }
 
-#home a#nav-home,
-#research a#nav-research,
-#teach a#nav-teach,
-#personal a#nav-personal {
-	text-decoration: none;
-	<!--font-weight: bold;
-	<!--background-color: DarkSlateGray;
-	<!--opacity: 0.8;
-	<!--color: #fff;
-}
-
-#ies14info a#nav-ies14info,
-#ies14resources a#nav-ies14resources,
-#ies14courseplan a#nav-ies14courseplan {
-	text-decoration: none;
-	<!--font-weight: bold;
-	background-color: DarkSlateGray;
-	opacity: 0.8;
-	color: #fff;
-}
-
 #nav-bar a:hover {
 	text-decoration: none;
 	background-color: SteelBlue;
@@ -118,11 +98,30 @@ a:hover {
 	color: #fff;
 }
 
-#post-nav {
-	margin: 0 auto;
-	width: 800px;
-	text-align: center;
-	font-family: finalfrontier;
+#arrow-nav {
+	position: fixed;
+	top: 300px;
+	left: 50%;
+	margin-left: -475px;
+	width: 950px;
+	<!--text-align: center;
+	font-family: finalfrontier;	
+}
+
+#arrow-nav a:hover {
+	opacity: 1.0;
+}
+
+.arrow-navl {
+	position: inherit;
+	float: left;
+	border: none;
+}
+
+.arrow-navr {
+	position: inherit;
+	float: right;
+	border: none;
 }
 
 #post-main {
@@ -164,7 +163,7 @@ a:hover {
 }
 
 #side-bar ul {
-	list-style-type: circle;
+	<!--list-style-image: url('/images/eicon2.ico');
 }
 
 #content ul {

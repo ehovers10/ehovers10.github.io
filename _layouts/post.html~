@@ -2,11 +2,26 @@
 layout: elay1
 ---
 
-<div id="content">
-	<div id="post-nav">
-		<a href="{{page.previous.url}}">{{page.previous.title}}</a> | <a href="/blog/">Main</a> | <a href="{{page.next.url}}">{{page.next.title}}</a>
-	</div>
 
+<div id="post-nav">
+	
+	{% if page.previous %}
+	<div id="post-navl">
+		<a href="{{page.previous.url}}" ><img src="/images/enavbuttonl-50.png" alt="" title="{{page.previous.title}}"></a>
+	</div>
+	{% endif %}
+
+	{% if page.next %}
+	<div id="post-navr">
+		<a href="{{page.next.url}}" ><img src="/images/enavbuttonr-50.png" alt="" title="{{page.next.title}}"></a>
+	</div>
+	{% endif %}
+	
+		<!--<a href="{{page.previous.url}}">{{page.previous.title}}</a> | <a href="/blog/">Main</a> | <a href="{{page.next.url}}">{{page.next.title}}</a>
+		-->	
+</div>
+
+<div id="content">
 	<h2>{{ page.title }}</h2>
 	<h4>{{ page.date | date: "%Y-%m-%d" }}</h4>
 	
