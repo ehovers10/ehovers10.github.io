@@ -25,5 +25,7 @@
 	{% if page.next %}
 		<a href="{{page.next.url}}" ><img class="arrow-navr" src="/images/enavbuttonr-50.png" alt="" title="{{page.next.title}}"></a>
 	{% endif %}
+	
+
 
 </div>

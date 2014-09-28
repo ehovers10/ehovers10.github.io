@@ -125,6 +125,14 @@ a:hover {
 	border: none;
 }
 
+.arrow-navu {
+	position: inherit;
+	top: 300px;
+	float: right;
+	margin-right: -50px;
+	border: none;
+}
+
 #post-main {
 	text-align: center;
 }

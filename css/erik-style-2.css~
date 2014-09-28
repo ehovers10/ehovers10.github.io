@@ -22,6 +22,7 @@ h1,h2 {
 }
 
 a {
+	position: relative;
 	z-index: 10;
 	text-decoration: none;
 	color: #3B6EBF;
@@ -121,6 +122,14 @@ a:hover {
 .arrow-navr {
 	position: inherit;
 	float: right;
+	border: none;
+}
+
+.arrow-navu {
+	position: inherit;
+	top: 300px;
+	float: right;
+	margin-right: -25px;
 	border: none;
 }
 

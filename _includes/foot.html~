@@ -4,6 +4,10 @@
 		<p class="alignright"><a href="#top" >return to top</a></p>
 
 	</div>
+	
+	<a href="#top" ><img class="arrow-navu" src="/images/enavbuttonu-50.png" alt="" title="back to top"></a>
+	
+	<div style="clear: both;"></div>
 
 </body>
 </html>
