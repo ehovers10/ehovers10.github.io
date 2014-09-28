@@ -125,11 +125,11 @@ a:hover {
 	border: none;
 }
 
-.arrow-navu {
-	position: inherit;
-	top: 300px;
-	float: right;
-	margin-right: -25px;
+#to-top {
+	position: fixed;
+	bottom: 25px;
+	left: inherit;
+	padding-left: 450px;
 	border: none;
 }
 
