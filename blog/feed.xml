@@ -69,6 +69,38 @@
 
 		
 
+<div id="arrow-nav">	
+	
+<!--For main site pages-->	
+	
+	
+			
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+
+<!--For blog posts-->	
+	
+
+	
+
+	
+<!--For return to top-->
+	<div id="to-top">
+		<a href="#top" ><img src="/images/enavbuttonu-50.png" alt="" title="back to top"></a>
+	</div>
+	
+</div>
+
+<div id="content">
     <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
@@ -125,7 +157,7 @@
 
 &lt;p&gt;But is &lt;em&gt;ambiguity&lt;/em&gt; really the correct analysis of the fact that this one adage can have quite differing import?  Semanticists are often loathe to appeal to ambiguity to explain interpretive variability because it seems to violate an accepted theoretical virtue of parsimony.  Each distinct meaning that a word or phrase can have requires language users to store a new entry in their lexicon, but it seems less cognitively demanding if users can store a single rule from which they can derive distinct interpretations in recognizably distinct linguistic contexts.&lt;/p&gt;
 
-&lt;p&gt;The suggested ambiguity in our adage is no different, and luckily, well established semantic machinery is available for us to explain the various interpretations in terms of a single semantic rule.  The key component in the solution is the &lt;em&gt;modal&lt;/em&gt; nature of the adage.  The adage is meant to cover any number of situations a base runner could find herself in, whether actual or merely hypothetical.  The human ability to form plans on the basis of hypotheticals is known as &lt;em&gt;modal reasoning&lt;/em&gt;.  According to a widely accepted view of the semantics of modality due to Angelika Kratzer, sentences involving modal bits are sensitive to the context in which they are used in two ways.  First, context supplies a common ground, modeled as a set of propositions that encode the things that the parties to the conversation are taking for granted.  Second, context supplies an ordering source, modeled as a different set of propositions that represent a preferred state of affairs, what we might think of as the ideal possibility relvative to the system of rules our modal is concerned with.  Thus, we can think of the logical form of modal sentences along the following lines:&lt;/p&gt;
+&lt;p&gt;The suggested ambiguity in our adage is no different, and luckily, well established semantic machinery is available for us to explain the various interpretations in terms of a single semantic rule.  The key component in the solution is the &lt;em&gt;modal&lt;/em&gt; nature of the adage.  The adage is meant to cover any number of situations a base runner could find herself in, whether actual or merely hypothetical.  The human ability to form plans on the basis of hypotheticals is known as &lt;em&gt;modal reasoning&lt;/em&gt;.  According to a widely accepted view of the semantics of modality due to Angelika Kratzer &lt;a href=&quot;#kratzer2008&quot;&gt;(Kratzer, 2008)&lt;/a&gt;, sentences involving modal bits are sensitive to the context in which they are used in two ways.  First, context supplies a common ground, modeled as a set of propositions that encode the things that the parties to the conversation are taking for granted.  Second, context supplies an ordering source, modeled as a different set of propositions that represent a preferred state of affairs, what we might think of as the ideal possibility relvative to the system of rules our modal is concerned with.  Thus, we can think of the logical form of modal sentences along the following lines:&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Modal(c --&amp;gt; common ground)(c --&amp;gt; ordering source)proposition&lt;/p&gt;
@@ -136,6 +168,10 @@
 &lt;p&gt;This picture of modal sentences gives a near perfect explanation of the ambiguities we discovered in our baseball adage.  The comparison class ambiguity maps onto the role of context in supplying a common ground.  Whether we interpret the adage as telling us which outs we should avoid making or at which base we should avoid making an out depends on what things we are taking for granted.  A base runner who knows how many outs there are and is trying to decide in the moment whether to stretch a double into a triple, will have a different use for the adage than the player who is visualizing the next day&amp;#39;s game and trying to imagine what he would do in different scenarios he could find himself in.&lt;/p&gt;
 
 &lt;p&gt;But even when we have resolved the common ground, the adage is still subject to the evaluative ambiguity.  This ambiuguity maps onto the role of context in fixing an ordering source.  Depending on what we take to be the ideal way for a base runner to make their decision, we may focus on the risk involved in trying for third, or we may concern ourselves with the potential loss associated with being called out.  Each of these strategies is potentially useful in decision making, and the adage can be interpreted differently depending on which option is highlighted in the current context.&lt;/p&gt;
+
+&lt;h2&gt;references&lt;/h2&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;kratzer2008&quot;&gt;Kratzer, A. (2008). The Notional Category of Modality. In P. Portner &amp;amp; B. H. Partee (Eds.), &lt;i&gt;Formal Semantics: The essential readings&lt;/i&gt;. Blackwell Publishers Ltd.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
 				<pubDate>Sun, 14 Sep 2014 09:15:00 -0400</pubDate>
 				<link>http://erikhoversten.org/2014/09/14/baseball-adages.html</link>
@@ -205,6 +241,7 @@
 		
 	</channel>
 </rss>
+</div>
 
 <!-- Signature -->
 	<div id="footer">
