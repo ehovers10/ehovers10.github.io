@@ -1,9 +1,9 @@
 ---
 layout: elay1
-title: Semantics bibliography
+title: semantics bibliography
 ---
 
-{{ page.title }}
-================
+## {{ page.title }}
+
 
 {% bibliography %}
