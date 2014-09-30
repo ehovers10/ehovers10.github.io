@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>{{ page.title }}</title>
+		<link rel="stylesheet" href="/css/erik-style-2.css">
+	</head>
+
+<body id="home">
+
+<!-- Header -->
+	<div id="header">
+		<div id="headbg">
+			<h1>{{ page.title }}</h1>
+			<h2 class="alignright">{{ page.subheading }}</h2>
+		</div>
+	</div>
+	
+<!-- Site navigation menu -->
+	<!--<div id="nav-bar" >
+		<a href="/" id="nav-home">erik's home</a><a href="./index.html" id="nav-ies14info">course info</a><a href="./resources.html" id="nav-ies14resources">resources</a><a href="./course-plan.html" id="ies14courseplan">course plan</a><a href="http://www.dropitto.me/ehoversten" target="_blank">submissions</a>
+	</div>-->
+	
+	<!-- Site navigation menu -->
+	{% assign tnav = site.pages | where: "category" , "ies14" | sort: 'date' %}
+	<div id="nav-bar">
+		<a href="/">erik's home</a>
+		{% for page in tnav %}
+			<a href="{{page.url}}">{{page.subheading}}</a>
+		{% endfor %}
+	</div>

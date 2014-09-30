@@ -1,0 +1,34 @@
+<div id="arrow-nav">	
+	
+<!--For main site pages-->	
+	{% assign enav = site.pages | where: "category" , "esite" | sort: 'date' %}
+	{% assign num = enav.size %}
+			
+	{% for i in (0..num) %}
+		{% if page == enav[i] %}
+			{% assign l = i | minus: 1 %}
+				<a href="{{enav[l].url}}" ><img class="arrow-navl" src="/images/enavbuttonl-50.png" alt="" title="{{enav[l].subheading}}"></a>
+
+			{% assign r = i | plus: 1 %}
+				<!--{% unless i == num %}-->
+					<a href="{{enav[r].url}}" ><img class="arrow-navr" src="/images/enavbuttonr-50.png" alt="" title="{{enav[r].subheading}}"></a>
+				<!--{% endunless %}-->
+		{% endif %}
+	{% endfor %}
+
+<!--For blog posts-->	
+	{% if page.previous %}
+		<a href="{{page.previous.url}}" ><img class="arrow-navl" src="/images/enavbuttonl-50.png" alt="" title="{{page.previous.title}}"></a>
+	{% endif %}
+
+	{% if page.next %}
+		<a href="{{page.next.url}}" ><img class="arrow-navr" src="/images/enavbuttonr-50.png" alt="" title="{{page.next.title}}"></a>
+	{% endif %}
+
+	
+<!--For return to top-->
+	<div id="to-top">
+		<a href="#top" ><img src="/images/enavbuttonu-50.png" alt="" title="back to top"></a>
+	</div>
+	
+</div>

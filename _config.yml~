@@ -1,0 +1,10 @@
+name: Erik's website
+markdown: redcarpet
+hightlighter: pygments
+
+description: philosophy of language centric notes
+url: http://erikhoversten.org
+
+scholar:
+	source: ./_bibliography
+	bibliography: semantics.bib

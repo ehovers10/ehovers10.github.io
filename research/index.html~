@@ -1,0 +1,21 @@
+---
+layout: elay1
+title: erik's research
+subheading: research
+category: esite
+date: 2014-09-27 02:00
+---
+
+	<div id="content">
+	
+		<h2>overview</h2>
+		
+		<img src="/images/splash2.jpg" alt="" title="splash">
+		
+		<p>My primary research interests are in philosophy of language and cognitive science. More specifically, I'm interested in formal models of the influence of context on natural language interpretation. My dissertation explores ways of modeling linguistic <i>focus</i> as a tool used by interlocutors to collaboratively set the semantic value boundaries of expressions in their discourse. I think that the unique ways in which focus generally, and <i>contrastive topic</i> in particular, are implemented in conversation provide interesting motivation for characterizing the nature of semantic values as <i>updates</i> as opposed to <i>contents</i>. The class of phenomena I look at also have implications for the division of labor between the semantic and pragmatic interpretive effects of language use.</p>
+		
+		<h2>papers</h2>
+		
+		<p><a href="/research/hoversten-cv0914.pdf">Here is a copy of my CV.</a>  I will be posting more work here as it develops.  In the meantime, <a href="http://givingwhatwecan.org/" title="giving what we can">these folks</a> have some excellent proposals for you to check out.</p>
+
+	</div>
