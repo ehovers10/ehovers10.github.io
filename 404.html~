@@ -4,8 +4,20 @@ title: 404error
 permalink: /404.html
 ---
 
+<style>
+  p {
+     margin-bottom: 200px;
+  }
+</style>
+
 <div id="content">
 
-	<p>Our presuppositions aren't aligned.  I can't find the page you've requested.</p>
+	<h2>Our presuppositions aren't aligned.</h2>  
+	
+	<img src="/images/elephant.jpg" alt="" title="how many legs?">
+	
+	<p>I can't find the page you've requested.</p>
+	
+	
 	
 </div>

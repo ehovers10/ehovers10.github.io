@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Correctibles, posits, or leaps?"
+subheading: blog post
 date:   2014-09-10 13:14
 tags: semantics correctibles generics
 ---

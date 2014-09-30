@@ -2,11 +2,9 @@
 layout: elay1
 ---
 
-<div id="content">
-	<div id="post-nav">
-		<a href="{{page.previous.url}}">{{page.previous.title}}</a> | <center><a href="/blog/">Main</a></center> | <a href="{{page.next.url}}">{{page.next.title}}</a>
-	</div>
+{% include arrow-nav.html %}
 
+<div id="content">
 	<h2>{{ page.title }}</h2>
 	<h4>{{ page.date | date: "%Y-%m-%d" }}</h4>
 	

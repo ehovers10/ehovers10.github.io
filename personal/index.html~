@@ -2,6 +2,8 @@
 layout: elay1
 title: erik's personal page
 subheading: personal
+category: esite
+date: 2014-09-27 04:00
 ---
 
 	<div id="content">
@@ -38,9 +40,17 @@ subheading: personal
 		
 		<iframe src="https://app.box.com/embed_widget/s/ft2tykdrfd04pdhjiwse?view=icon&sort=name&direction=ASC&theme=blue" width="90%" height="400" data-style="border: groove SteelBlue;margin-bottom:5px;" allowfullscreen webkitallowfullscreen msallowfullscreen></iframe>
 		
-		<!--<h2>some of my favorite philosophy papers</h2>-->
+		<h2>some of my favorite philosophy papers</h2>
 		
+		<iframe src="https://app.box.com/embed_widget/s/biw8mbxo63swysqclivm?view=list&sort=name&direction=ASC&theme=blue" width="90%" height="400" data-style="border: groove SteelBlue;margin-bottom:5px;" allowfullscreen webkitallowfullscreen msallowfullscreen></iframe>
 		
+		<h2>a single song</h2>
+		
+		<object width="250" height="40" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="gsSong3335833928" name="gsSong3335833928"><param name="movie" value="http://grooveshark.com/songWidget.swf" /><param name="wmode" value="window" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="hostname=grooveshark.com&songID=33358339&style=metal&p=0" /><object type="application/x-shockwave-flash" data="http://grooveshark.com/songWidget.swf" width="250" height="40"><param name="wmode" value="window" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="hostname=grooveshark.com&songID=33358339&style=metal&p=0" /><span><a href="http://grooveshark.com/search/song?q=Spirit%20Family%20Reunion%20When%20My%20Name%20Is%20Spoken" title="When My Name Is Spoken by Spirit Family Reunion on Grooveshark">When My Name Is Spoken by Spirit Family Reunion on Grooveshark</a></span></object></object>
+		
+		<h2>a cover song by me</h2>
+		
+		<iframe width="50%" height="100" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/169063318&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
 		
 	</div>
 	

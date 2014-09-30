@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Jamesian inquiry"
+subheading: blog post
 date: 2014-09-12 11:45
 tags: [inquiry, disagreement, william james]
 ---

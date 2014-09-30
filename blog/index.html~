@@ -1,8 +1,9 @@
 ---
 layout: elay1
-title: erik hoversten
+title: erik's blog
 subheading: blog
-date: 2014-09-10 12:45
+category: esite
+date: 2014-09-27 05:00
 ---
 
 <div id="content">
@@ -20,7 +21,7 @@ date: 2014-09-10 12:45
 				{% for tag in post.tags %} 
 					{% unless etags contains tag %} 
 						{% capture etags %}{{ etags | append: tag | }}{% endcapture %}
-						<a href="/">{{ tag }}</a> |
+						<a href="">{{ tag }}</a> |
 					{% endunless %}
 				{% endfor %}
 			{% endfor %}

@@ -22,6 +22,8 @@ h1,h2 {
 }
 
 a {
+	position: relative;
+	z-index: 10;
 	text-decoration: none;
 	color: #3B6EBF;
 }
@@ -67,7 +69,7 @@ a:hover {
 
 #header h1 { padding-left: 20px; padding-top: 22px;  font-size: 30px; color: #fff; }
 #header h1 a { font-size: 22px; color: #FFF; text-decoration: none; }
-#header h2 { padding-right: 20px; padding-bottom: 4px; font-size: 17px; color: #fff; float: right; }
+#header h2 { padding-right: 20px; padding-bottom: 4px; font-size: 17px; color: #fff; }
 
 #nav-bar { 
 	margin: 0 auto;
@@ -90,27 +92,6 @@ a:hover {
 	<!--border-left: 1px solid SteelBlue;
 }
 
-#home a#nav-home,
-#research a#nav-research,
-#teach a#nav-teach,
-#personal a#nav-personal {
-	text-decoration: none;
-	<!--font-weight: bold;
-	<!--background-color: DarkSlateGray;
-	<!--opacity: 0.8;
-	<!--color: #fff;
-}
-
-#ies14info a#nav-ies14info,
-#ies14resources a#nav-ies14resources,
-#ies14courseplan a#nav-ies14courseplan {
-	text-decoration: none;
-	<!--font-weight: bold;
-	background-color: DarkSlateGray;
-	opacity: 0.8;
-	color: #fff;
-}
-
 #nav-bar a:hover {
 	text-decoration: none;
 	background-color: SteelBlue;
@@ -118,11 +99,38 @@ a:hover {
 	color: #fff;
 }
 
-#post-nav {
-	margin: 0 auto;
-	width: 800px;
-	text-align: center;
-	font-family: finalfrontier;
+#arrow-nav {
+	position: fixed;
+	top: 300px;
+	left: 50%;
+	margin-left: -475px;
+	width: 950px;
+	<!--text-align: center;
+	font-family: finalfrontier;	
+}
+
+#arrow-nav a:hover {
+	opacity: 1.0;
+}
+
+.arrow-navl {
+	position: inherit;
+	float: left;
+	border: none;
+}
+
+.arrow-navr {
+	position: inherit;
+	float: right;
+	border: none;
+}
+
+#to-top {
+	position: fixed;
+	bottom: 25px;
+	left: inherit;
+	padding-left: 425px;
+	border: none;
 }
 
 #post-main {
@@ -164,7 +172,7 @@ a:hover {
 }
 
 #side-bar ul {
-	list-style-type: circle;
+	<!--list-style-image: url('/images/eicon2.ico');
 }
 
 #content ul {
@@ -192,40 +200,4 @@ a:hover {
 #footer p { padding-left: 20px; padding-right: 20px; font-size: small; color: #fff; }
 #footer a { color: #fff; }
 
-/* Posts
-/*
-/*****************************************************************************/
 
-
-
-/* standard */
-.post pre {
-  border: 1px solid #ddd;
-  background-color: #eef;
-  padding: 0 .4em;
-}
-
-.post ul, .post ol {
-  margin-left: 1.35em;
-}
-
-.post code {
-  border: 1px solid #ddd;
-  background-color: #eef;
-  padding: 0 .2em;
-}
-
-.post pre code {
-  border: none;
-}
-
-/* terminal */
-.post pre.terminal {
-  border: 1px solid #000;
-  background-color: #333;
-  color: #FFF;
-}
-
-.post pre.terminal code {
-  background-color: #333;
-}
