@@ -5,8 +5,6 @@ subheading: home
 category: esite
 date: 2014-09-27 01:00
 ---
-
-	{% include arrow-nav.html %}
 	
 	<div id="content">
 	

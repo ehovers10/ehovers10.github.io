@@ -6,8 +6,6 @@ category: esite
 date: 2014-09-27 05:00
 ---
 
-	{% include arrow-nav.html %}
-
 <div id="content">
 
 	<div id="side-bar">

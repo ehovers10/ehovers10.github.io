@@ -2,12 +2,7 @@
 layout: elay1
 ---
 
-{% include arrow-nav.html %}
-
-<div id="content">
-	<h2>{{ page.title }}</h2>
-	<h4>{{ page.date | date: "%Y-%m-%d" }}</h4>
+<h2>{{ page.title }}</h2>
+<h4>{{ page.date | date: "%Y-%m-%d" }}</h4>
 	
-	{{ content }}
-	
-</div>
+{{ content }}
