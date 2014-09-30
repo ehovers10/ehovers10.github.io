@@ -15,7 +15,11 @@ date: 2014-09-27 02:00
 <h2>papers</h2>
 		
 	<p><a href="/research/hoversten-cv0914.pdf">Here is a copy of my CV.</a>  I will be posting more work here as it develops.  In the meantime, <a href="http://givingwhatwecan.org/" title="giving what we can">these folks</a> have some excellent proposals for you to check out.</p>
+	
+<h2>an abstract</h2>
+
+	<iframe src="https://app.box.com/embed_widget/s/79ljrx3mqjxgaa2a2lh3?view=&sort=&direction=ASC&theme=blue" width="330" height="400" frameborder="0"allowfullscreen webkitallowfullscreen msallowfullscreen></iframe>
 		
 <h2>Reference lists</h2>
 		
-	<p><a href="/research/semantics-bib.md">Here</a> is a semantics bibliography.</p>
+	<p><a href="/research/semantics-bib.html">Here</a> is a semantics bibliography.</p>
