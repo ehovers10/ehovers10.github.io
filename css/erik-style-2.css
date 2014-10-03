@@ -99,6 +99,13 @@ a:hover {
 	color: #fff;
 }
 
+#nav-bar a:active {
+	text-decoration: none;
+	background-color: SlateGray;
+	opacity: 1;
+	color: #fff;
+}
+
 #arrow-nav {
 	position: fixed;
 	top: 300px;

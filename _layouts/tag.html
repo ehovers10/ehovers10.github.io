@@ -1,0 +1,21 @@
+---
+layout: elay1
+---
+
+<h4>Posts tagged with: {{ page.tag }}</h4>
+
+{% for post in page.posts limit:25 %}
+
+	<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+	
+	<h4>{{ post.date | date: "%m/%d/%Y" }} | {{ post | tags }}</h4>
+
+	<p>{{ post.excerpt }}</p>
+
+	<p><a href="{{ post.url }}">...</a></p>
+	
+	<hr>
+
+{% endfor %}
+
+<h4><a href="/blog/">return to main page</a></h4>

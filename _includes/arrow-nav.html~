@@ -2,7 +2,7 @@
 	
 <!--For main site pages-->	
 	{% assign enav = site.pages | where: "category" , "esite" | sort: 'date' %}
-	{% assign num = enav.size %}
+	{% assign num = enav.size | minus: 1 %}
 			
 	{% for i in (0..num) %}
 		{% if page == enav[i] %}

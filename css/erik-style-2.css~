@@ -129,7 +129,7 @@ a:hover {
 	position: fixed;
 	bottom: 25px;
 	left: inherit;
-	padding-left: 450px;
+	padding-left: 425px;
 	border: none;
 }
 
