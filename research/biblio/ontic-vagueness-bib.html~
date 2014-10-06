@@ -1,9 +1,11 @@
 ---
-layout: child
+layout: elay1
 title: ontic vagueness
 subheading: bibliography
 parent: research
 ---
+
+<h2>{{page.title}} {{page.subheading}}</h2>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
@@ -1106,3 +1108,5 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
 </table>
 
  <small>Created by <a href="http://jabref.sourceforge.net">JabRef</a> on 05/10/2014.</small>
+
+{% include return-to-parent %}
