@@ -1,0 +1,1113 @@
+---
+layout: elay1
+title: ontic vagueness bibliography
+subheading: bibliography
+parent: research
+---
+
+<h2>{{page.title}}</h2>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+<!--
+// QuickSearch script for JabRef HTML export (no Abstract/BibTeX)
+// Version: 3.0
+//
+// Copyright (c) 2006-2011, Mark Schenk
+//
+// This software is distributed under a Creative Commons Attribution 3.0 License
+// http://creativecommons.org/licenses/by/3.0/
+//
+// Features:
+// - intuitive find-as-you-type searching
+//    ~ case insensitive
+//    ~ ignore diacritics (optional)
+//
+// - search with/without Regular Expressions
+// - match BibTeX key
+//
+
+// Search settings
+var noSquiggles = true; 	// ignore diacritics when searching
+var searchRegExp = false; 	// enable RegExp searches
+
+
+if (window.addEventListener) {
+	window.addEventListener("load",initSearch,false); }
+else if (window.attachEvent) {
+	window.attachEvent("onload", initSearch); }
+
+function initSearch() {
+	// check for quick search table and searchfield
+	if (!document.getElementById('qs_table')||!document.getElementById('quicksearch')) { return; }
+
+	// load all the rows and sort into arrays
+	loadTableData();
+	
+	//find the query field
+	qsfield = document.getElementById('qs_field');
+
+	// previous search term; used for speed optimisation
+	prevSearch = '';
+
+	//find statistics location
+	stats = document.getElementById('stat');
+	setStatistics(-1);
+	
+	// set up preferences
+	initPreferences();
+
+	// shows the searchfield
+	document.getElementById('quicksearch').style.display = 'block';
+	document.getElementById('qs_field').onkeyup = quickSearch;
+}
+
+function loadTableData() {
+	// find table and appropriate rows
+	searchTable = document.getElementById('qs_table');
+	var allRows = searchTable.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+	// split all rows into entryRows and infoRows (e.g. abstract, review, bibtex)
+	entryRows = new Array();
+
+	// get data from each row
+	entryRowsData = new Array();
+	
+	BibTeXKeys = new Array();
+	
+	for (var i=0, k=0, j=0; i<allRows.length;i++) {
+		if (allRows[i].className.match(/entry/)) {
+			entryRows[j] = allRows[i];
+			entryRowsData[j] = stripDiacritics(getTextContent(allRows[i]));
+			allRows[i].id ? BibTeXKeys[j] = allRows[i].id : allRows[i].id = 'autokey_'+j;
+			j ++;
+		}
+	}
+	//number of entries and rows
+	numEntries = entryRows.length;
+}
+
+function quickSearch(){
+	
+	tInput = qsfield;
+
+	if (tInput.value.length == 0) {
+		showAll();
+		setStatistics(-1);
+		qsfield.className = '';
+		return;
+	} else {
+		t = stripDiacritics(tInput.value);
+
+		if(!searchRegExp) { t = escapeRegExp(t); }
+			
+		// only search for valid RegExp
+		try {
+			textRegExp = new RegExp(t,"i");
+			qsfield.className = '';
+		}
+			catch(err) {
+			prevSearch = tInput.value;
+			qsfield.className = 'invalidsearch';
+			return;
+		}
+	}
+	
+	// count number of hits
+	var hits = 0;
+
+	// start looping through all entry rows
+	for (var i = 0; cRow = entryRows[i]; i++){
+
+		// only show search the cells if it isn't already hidden OR if the search term is getting shorter, then search all
+		if(cRow.className.indexOf('noshow')==-1 || tInput.value.length <= prevSearch.length){
+			var found = false; 
+
+			if (entryRowsData[i].search(textRegExp) != -1 || BibTeXKeys[i].search(textRegExp) != -1){ 
+				found = true;
+			}
+			
+			if (found){
+				cRow.className = 'entry show';
+				hits++;
+			} else {
+				cRow.className = 'entry noshow';
+			}
+		}
+	}
+
+	// update statistics
+	setStatistics(hits)
+	
+	// set previous search value
+	prevSearch = tInput.value;
+}
+
+
+// Strip Diacritics from text
+// http://stackoverflow.com/questions/990904/javascript-remove-accents-in-strings
+
+// String containing replacement characters for stripping accents 
+var stripstring = 
+    'AAAAAAACEEEEIIII'+
+    'DNOOOOO.OUUUUY..'+
+    'aaaaaaaceeeeiiii'+
+    'dnooooo.ouuuuy.y'+
+    'AaAaAaCcCcCcCcDd'+
+    'DdEeEeEeEeEeGgGg'+
+    'GgGgHhHhIiIiIiIi'+
+    'IiIiJjKkkLlLlLlL'+
+    'lJlNnNnNnnNnOoOo'+
+    'OoOoRrRrRrSsSsSs'+
+    'SsTtTtTtUuUuUuUu'+
+    'UuUuWwYyYZzZzZz.';
+
+function stripDiacritics(str){
+
+    if(noSquiggles==false){
+        return str;
+    }
+
+    var answer='';
+    for(var i=0;i<str.length;i++){
+        var ch=str[i];
+        var chindex=ch.charCodeAt(0)-192;   // Index of character code in the strip string
+        if(chindex>=0 && chindex<stripstring.length){
+            // Character is within our table, so we can strip the accent...
+            var outch=stripstring.charAt(chindex);
+            // ...unless it was shown as a '.'
+            if(outch!='.')ch=outch;
+        }
+        answer+=ch;
+    }
+    return answer;
+}
+
+// http://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+// NOTE: must escape every \ in the export code because of the JabRef Export...
+function escapeRegExp(str) {
+  return str.replace(/[-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+}
+
+function setStatistics (hits) {
+	if(hits < 0) { hits=numEntries; }
+	if(stats) { stats.firstChild.data = hits + '/' + numEntries}
+}
+
+function getTextContent(node) {
+	// Function written by Arve Bersvendsen
+	// http://www.virtuelvis.com
+	
+	if (node.nodeType == 3) {
+	return node.nodeValue;
+	} // text node
+	if (node.nodeType == 1 && node.className != "infolinks") { // element node
+	var text = [];
+	for (var chld = node.firstChild;chld;chld=chld.nextSibling) {
+		text.push(getTextContent(chld));
+	}
+	return text.join("");
+	} return ""; // some other node, won't contain text nodes.
+}
+
+function showAll(){
+	for (var i = 0; i < numEntries; i++){ entryRows[i].className = 'entry show'; }
+}
+
+function clearQS() {
+	qsfield.value = '';
+	showAll();
+}
+
+function redoQS(){
+	showAll();
+	quickSearch(qsfield);
+}
+
+function updateSetting(obj){
+	var option = obj.id;
+	var checked = obj.value;
+
+	switch(option)
+	 {
+	 case "opt_useRegExp":
+	   searchRegExp=!searchRegExp;
+	   redoQS();
+	   break;
+	 case "opt_noAccents":
+	   noSquiggles=!noSquiggles;
+	   loadTableData();
+	   redoQS();
+	   break;
+	 }
+}
+
+function initPreferences(){
+	if(noSquiggles){document.getElementById("opt_noAccents").checked = true;}
+	if(searchRegExp){document.getElementById("opt_useRegExp").checked = true;}
+}
+
+function toggleSettings(){
+	var togglebutton = document.getElementById('showsettings');
+	var settings = document.getElementById('settings');
+	
+	if(settings.className == "hidden"){
+		settings.className = "show";
+		togglebutton.innerText = "close settings";
+		togglebutton.textContent = "close settings";
+	}else{
+		settings.className = "hidden";
+		togglebutton.innerText = "settings...";		
+		togglebutton.textContent = "settings...";
+	}
+}
+
+-->
+</script>
+<style type="text/css">
+body { background-color: white; font-family: Arial, sans-serif; font-size: 13px; line-height: 1.2; padding: 1em; color: #2E2E2E; margin: auto 2em; }
+
+form#quicksearch { width: auto; border-style: solid; border-color: gray; border-width: 1px 0px; padding: 0.7em 0.5em; display:none; position:relative; }
+span#searchstat {padding-left: 1em;}
+
+div#settings { margin-top:0.7em; /* border-bottom: 1px transparent solid; background-color: #efefef; border: 1px grey solid; */ }
+div#settings ul {margin: 0; padding: 0; }
+div#settings li {margin: 0; padding: 0 1em 0 0; display: inline; list-style: none; }
+div#settings li + li { border-left: 2px #efefef solid; padding-left: 0.5em;}
+div#settings input { margin-bottom: 0px;}
+
+div#settings.hidden {display:none;}
+
+#showsettings { border: 1px grey solid; padding: 0 0.5em; float:right; line-height: 1.6em; text-align: right; }
+#showsettings:hover { cursor: pointer; }
+
+.invalidsearch { background-color: red; }
+input[type="button"] { background-color: #efefef; border: 1px #2E2E2E solid;}
+
+table { width: 100%; empty-cells: show; border-spacing: 0em 0.2em; margin: 1em 0em; border-style: none; }
+th, td { border: 1px gray solid; border-width: 1px 1px; padding: 0.5em; vertical-align: top; text-align: left; }
+th { background-color: #efefef; }
+td + td, th + th { border-left: none; }
+
+td a { color: navy; text-decoration: none; }
+td a:hover  { text-decoration: underline; }
+
+tr.noshow { display: none;}
+tr.highlight td { background-color: #EFEFEF; border-top: 2px #2E2E2E solid; font-weight: bold; }
+tr.abstract td, tr.review td, tr.bibtex td { background-color: #EFEFEF; text-align: justify; border-bottom: 2px #2E2E2E solid; }
+tr.nextshow td { border-bottom: 1px gray solid; }
+
+tr.bibtex pre { width: 100%; overflow: auto; white-space: pre-wrap;}
+p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
+
+@media print {
+	p.infolinks, #qs_settings, #quicksearch, t.bibtex { display: none !important; }
+	tr { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<form action="" id="quicksearch">
+<input type="text" id="qs_field" autocomplete="off" placeholder="Type to search..." /> <input type="button" onclick="clearQS()" value="clear" />
+<span id="searchstat">Matching entries: <span id="stat">0</span></span>
+<div id="showsettings" onclick="toggleSettings()">settings...</div>
+<div id="settings" class="hidden">
+<ul>
+<li><input type="checkbox" class="search_setting" id="opt_useRegExp" onchange="updateSetting(this)"><label for="opt_useRegExp"> use RegExp</label></li>
+<li><input type="checkbox" class="search_setting" id="opt_noAccents" onchange="updateSetting(this)"><label for="opt_noAccents"> ignore accents</label></li>
+</ul>
+</div>
+</form>
+<table id="qs_table" border="1">
+<thead><tr><th width="20%">Author</th><th width="30%">Title</th><th width="5%">Year</th><th width="30%">Journal/Proceedings</th><th width="10%">Reftype</th><th width="5%">DOI/URL</th></tr></thead>
+<tbody><tr id="adams1979" class="entry">
+	<td>Adams, R.M.</td>
+	<td>Primitive Ththisn and primitive Identity</td>
+	<td>1979</td>
+	<td>The Journal of Philosophy<br/>Vol. 76(1), pp. 5-26&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="armstrong1989" class="entry">
+	<td>Armstrong, D.</td>
+	<td>Universals: An Opinionated Introduction</td>
+	<td>1989</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="armstrong1997" class="entry">
+	<td>Armstrong, D.M.</td>
+	<td>A World of States of Affairs</td>
+	<td>1997</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="armstrong1993" class="entry">
+	<td>Armstrong, D.M.</td>
+	<td>A World of States of Affairs</td>
+	<td>1993</td>
+	<td>Philosophical Perspectives<br/>Vol. 7, pp. 429-440&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://www.jstor.org/stable/2214133">URL</a>&nbsp;</td>
+</tr>
+<tr id="armstrong1991" class="entry">
+	<td>Armstrong, D.M.</td>
+	<td>Classes are States of Affairs</td>
+	<td>1991</td>
+	<td>Mind<br/>Vol. 100(2), pp. 189-200&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://www.jstor.org/stable/2254866">URL</a>&nbsp;</td>
+</tr>
+<tr id="armstrong1986" class="entry">
+	<td>Armstrong, D.M.</td>
+	<td>In defence of structural universals</td>
+	<td>1986</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 64(1), pp. 85-88&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1080/00048408612342261">DOI</a> <a href="http://dx.doi.org/10.1080/00048408612342261">URL</a>&nbsp;</td>
+</tr>
+<tr id="barnes2007" class="entry">
+	<td>Barnes, E.</td>
+	<td>Conceptual Room for Ontic Vagueness</td>
+	<td>2007</td>
+	<td><i>School</i>: University of St. Andrews&nbsp;</td>
+	<td>phdthesis</td>
+	<td><a href="http://hdl.handle.net/10023/348">URL</a>&nbsp;</td>
+</tr>
+<tr id="barnes2005" class="entry">
+	<td>Barnes, E.</td>
+	<td>Vagueness in sparseness: a study in property ontology</td>
+	<td>2005</td>
+	<td>Analysis<br/>Vol. 64(4), pp. 315-321&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="barnes" class="entry">
+	<td>Barnes, E. and Williams, J.R.G.</td>
+	<td>A theory of metaphysical indeterminacy</td>
+	<td></td>
+	<td>&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="barnes-1" class="entry">
+	<td>Barnes, E.J. and Williams, J.R.G.</td>
+	<td>Vague Parts and Vague Identity</td>
+	<td></td>
+	<td>&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="" class="entry">
+	<td>Bealer, G.</td>
+	<td>A theory of concepts and concept possession</td>
+	<td>1998</td>
+	<td>Philosophical Issues<br/>Vol. 9, pp. 261-301&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://www.jstor.org/stable/1522977">URL</a>&nbsp;</td>
+</tr>
+<tr id="bealer1982" class="entry">
+	<td>Bealer, G.</td>
+	<td>Quality and Concept</td>
+	<td>1982</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="bennett1981" class="entry">
+	<td>Bennett, J.</td>
+	<td>Spinoza's Mind-Body Identity Thesis</td>
+	<td>1981</td>
+	<td>The Journal of Philosophy<br/>Vol. 78(10), pp. 573-584&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://www.jstor.org/stable/2026192?origin=JSTOR-pdf">URL</a>&nbsp;</td>
+</tr>
+<tr id="bigelow1989" class="entry">
+	<td>Bigelow, J. and Pargetter, R.</td>
+	<td>A theory of structural universals</td>
+	<td>1989</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 67(1), pp. 1-11&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1080/00048408912343641">DOI</a> <a href="http://dx.doi.org/10.1080/00048408912343641">URL</a>&nbsp;</td>
+</tr>
+<tr id="blackburn2005" class="entry">
+	<td>Blackburn, S.</td>
+	<td>Truth: A Guide</td>
+	<td>2005</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="clarke1981" class="entry">
+	<td>Clarke, B.L.</td>
+	<td>A Calculus of Individuals Based on 'Connection'</td>
+	<td>1981</td>
+	<td>Notre Dame Journal of Formal Logic<br/>Vol. 22(3), pp. 204-218&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="dellarocca1996" class="entry">
+	<td>DellaRocca, M.</td>
+	<td>Representation and the Mind-Body Problem in Spinoza</td>
+	<td>1996</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="dummett2006" class="entry">
+	<td>Dummett, M.</td>
+	<td>Thought and Reality</td>
+	<td>2006</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="egan2004" class="entry">
+	<td>Egan, A.</td>
+	<td>Second-order predication and the metaphysics of properties</td>
+	<td>2004</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 82(1), pp. 48-66&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="evans1978" class="entry">
+	<td>Evans, G.</td>
+	<td>Can There be Vague Objects?</td>
+	<td>1978</td>
+	<td>Analysis<br/>Vol. 38&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="fine2008" class="entry">
+	<td>Fine, K.</td>
+	<td>The Impossibility of Vagueness</td>
+	<td>2008</td>
+	<td>Philosophical Perspectives<br/>Vol. 22, pp. 111-136&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="fodor1996" class="entry">
+	<td>Fodor, J.A. and Lepore, E.</td>
+	<td>What Cannot be Evaluated Cannot be Evaluated and it Cannot be Supervalued Either</td>
+	<td>1996</td>
+	<td>The Journal of Philosophy<br/>Vol. 93(10), pp. 516-535&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://www.jstor.org/stable/2940838">URL</a>&nbsp;</td>
+</tr>
+<tr id="forrest1986" class="entry">
+	<td>Forrest, P.</td>
+	<td>Neither Magic nor Mereology: A reply to Lewis</td>
+	<td>1986</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 64(1), pp. 89-91&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1080/00048408612342271">DOI</a> <a href="http://dx.doi.org/10.1080/00048408612342271">URL</a>&nbsp;</td>
+</tr>
+<tr id="gibbard1975" class="entry">
+	<td>Gibbard, A.</td>
+	<td>Contingent Identity</td>
+	<td>1975</td>
+	<td>Journal of Philosophical Logic<br/>Vol. 4&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="goodman1977" class="entry">
+	<td>Goodman, N.</td>
+	<td>The Structure of Appearance</td>
+	<td>1977</td>
+	<td><br/>Vol. LIII&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="grayling2007" class="entry">
+	<td>Grayling, A.C.</td>
+	<td>Truth, Meaning and Realism</td>
+	<td>2007</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="hawley2002" class="entry">
+	<td>Hawley, K.</td>
+	<td>Vagueness and Existence</td>
+	<td>2002</td>
+	<td>Proceedings of the Aristotelian Soceity<br/>Vol. 102, pp. 125-140&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="hawley2001" class="entry">
+	<td>Hawley, K.</td>
+	<td>How Things Persist</td>
+	<td>2001</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="hawthorne2006" class="entry">
+	<td>Hawthorne, J.</td>
+	<td>Metaphysical Essays</td>
+	<td>2006</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="heidegger1959" class="entry">
+	<td>Heidegger, M.</td>
+	<td>An Introduction to Metaphysics</td>
+	<td>1959</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="jackson1998" class="entry">
+	<td>Jackson, F.</td>
+	<td>From Metaphysics to Ethics</td>
+	<td>1998</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="johnston1992" class="entry">
+	<td>Johnston, M.</td>
+	<td>Constitution is not Identitiy</td>
+	<td>1992</td>
+	<td>Mind<br/>Vol. 101(401)&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="king2007" class="entry">
+	<td>King, J.C.</td>
+	<td>The Nature and Structure of Content</td>
+	<td>2007</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="korman" class="entry">
+	<td>Korman, D.Z.</td>
+	<td>Strange Kinds, Familiar Kinds, and the Carge of Arbitrariness</td>
+	<td></td>
+	<td>Oxford Studies in Metaphysics&nbsp;</td>
+	<td>incollection</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="kripke1980" class="entry">
+	<td>Kripke, S.</td>
+	<td>Naming and Necessity</td>
+	<td>1980</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="lewis1993" class="entry">
+	<td>Lewis, D.</td>
+	<td>Many, But Almost One</td>
+	<td>1993</td>
+	<td>Ontology, Causality, and Mind: Essays in Honor of D. M. Armstrong&nbsp;</td>
+	<td>incollection</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="Lewis2003b" class="entry">
+	<td>Lewis, D.</td>
+	<td>Things qua Truthmakers</td>
+	<td>2003</td>
+	<td>Real Metaphysics: Essays in Honour of D. H. Mellor, pp. 25-38&nbsp;</td>
+	<td>incollection</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="Lewis2004c" class="entry">
+	<td>Lewis, D.</td>
+	<td>Tensed Quantifiers</td>
+	<td>2004</td>
+	<td><br/>Vol. 1Oxford Studies in Metaphysics, pp. 3-14&nbsp;</td>
+	<td>incollection</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="Lewis1999a" class="entry">
+	<td>Lewis, D.</td>
+	<td>Papers in Metaphysics and Epistemology</td>
+	<td>1999</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="Lewis1999b" class="entry">
+	<td>Lewis, D.</td>
+	<td>Why Conditionalize?</td>
+	<td>1999</td>
+	<td>Papers in Metaphysics and Epistemology, pp. 403-407&nbsp;</td>
+	<td>incollection</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="lewis1988" class="entry">
+	<td>Lewis, D.</td>
+	<td>Vague Identity: Evans Misunderstood</td>
+	<td>1988</td>
+	<td>Analysis<br/>Vol. 48, pp. 128-130&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="lewis1986-1" class="entry">
+	<td>Lewis, D.</td>
+	<td>Comment on Armstrong and Forrest</td>
+	<td>1986</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 64(1), pp. 92-93&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1080/00048408612342281">DOI</a> <a href="http://dx.doi.org/10.1080/00048408612342281">URL</a>&nbsp;</td>
+</tr>
+<tr id="lewis1986-3" class="entry">
+	<td>Lewis, D.</td>
+	<td>On the Plurality of Worlds</td>
+	<td>1986</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="lewis1983-1" class="entry">
+	<td>Lewis, D.</td>
+	<td>New Work For a Theory of Universals</td>
+	<td>1983</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 61(4), pp. 343-377&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="lewis1982" class="entry">
+	<td>Lewis, D.</td>
+	<td>Logic for Equivocators</td>
+	<td>1982</td>
+	<td>Nous<br/>Vol. 16(3), pp. 431-441&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="lewis1979" class="entry">
+	<td>Lewis, D.</td>
+	<td>Attitudes de dicto and de se</td>
+	<td>1979</td>
+	<td>Philosophical Review<br/>Vol. 88(4), pp. 513-543&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://www.jstor.org/stable/2184843">URL</a>&nbsp;</td>
+</tr>
+<tr id="Lewis2003Rosen" class="entry">
+	<td>Lewis, D. and Rosen, G.</td>
+	<td>Postscript to `Things qua Truthmakers': Negative Existentials</td>
+	<td>2003</td>
+	<td>Real Metaphysics: Essays in Honour of D. H. Mellor, pp. 39-42&nbsp;</td>
+	<td>incollection</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="lin2006" class="entry">
+	<td>Lin, M.</td>
+	<td>Substance, Attribute, and Mode in Spinoza</td>
+	<td>2006</td>
+	<td>Philosophy Compass<br/>Vol. 1/2, pp. 144-153&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1111/j.1747-9991.2006.00015.x">DOI</a> &nbsp;</td>
+</tr>
+<tr id="lowe1995" class="entry">
+	<td>Lowe, E.J.</td>
+	<td>The Problem of the Many and the Vagueness of Constitution</td>
+	<td>1995</td>
+	<td>Analysis<br/>Vol. 55&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="lowe1982" class="entry">
+	<td>Lowe, E.J.</td>
+	<td>The Paradox of 1000 Cats</td>
+	<td>1982</td>
+	<td>Analysis<br/>Vol. 42&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="markosian2000" class="entry">
+	<td>Markosian, N.</td>
+	<td>Sorensen's Argument Against Vague Objects</td>
+	<td>2000</td>
+	<td>Philosophical Studies<br/>Vol. 97, pp. 1-9&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="markosian1998" class="entry">
+	<td>Markosian, N.</td>
+	<td>Simples</td>
+	<td>1998</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 76(2), pp. 213-228&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1080/00048409812348361">DOI</a> <a href="http://dx.doi.org/10.1080/00048409812348361">URL</a>&nbsp;</td>
+</tr>
+<tr id="markosian1998-1" class="entry">
+	<td>Markosian, N.</td>
+	<td>Brutal Composition</td>
+	<td>1998</td>
+	<td>Philosophical Studies<br/>Vol. 92&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="marshall2009" class="entry">
+	<td>Marshall, C.R.</td>
+	<td>The Mind and the Body as `One and the Same Thing' in Spinoza</td>
+	<td>2009</td>
+	<td>British Journal for the History of Philosophy<br/>Vol. 17(5), pp. 897-919&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1080/09608780903135030">DOI</a> <a href="http://dx.doi.org/10.1080/09608780903135030">URL</a>&nbsp;</td>
+</tr>
+<tr id="maudlin1997" class="entry">
+	<td>Maudlin, T.</td>
+	<td>Descrying the world in the wave function</td>
+	<td>1997</td>
+	<td>The Monist<br/>Vol. 80(1), pp. 3-23&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://www.jstor.org.proxy.libraries.rutgers.edu/stable/27903509">URL</a>&nbsp;</td>
+</tr>
+<tr id="mcgee2000" class="entry">
+	<td>McGee, V. and McLaughlin, B.</td>
+	<td>The Lessons of the Many</td>
+	<td>2000</td>
+	<td>Philosophical Topics<br/>Vol. 28&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="mcgee1994" class="entry">
+	<td>McGee, V. and McLaughlin, B.</td>
+	<td>Distinctions without a Difference</td>
+	<td>1994</td>
+	<td>The Southern Journal of Philosophy<br/>Vol. 33, pp. 203-251&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="mcginn1999" class="entry">
+	<td>McGinn, C.</td>
+	<td>Knowledge and Reality</td>
+	<td>1999</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="mckinnon2003" class="entry">
+	<td>McKinnon, N.</td>
+	<td>Vague Simples</td>
+	<td>2003</td>
+	<td>Pacific Philosophical Quarterly<br/>Vol. 84, pp. 394-397&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="mckinnon2002" class="entry">
+	<td>McKinnon, N.</td>
+	<td>Supervaluations and the Problem of the Many</td>
+	<td>2002</td>
+	<td>The Philosophical Quarterly<br/>Vol. 52(208), pp. 320-339&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://www.jstor.org/stable/3543049">URL</a>&nbsp;</td>
+</tr>
+<tr id="mele2009" class="entry">
+	<td>Mele, A.R.</td>
+	<td>Effective Intentions: The Power of the Conscious WIll</td>
+	<td>2009</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="merricks2001" class="entry">
+	<td>Merricks, T.</td>
+	<td>Varieties of Vagueness</td>
+	<td>2001</td>
+	<td>Philosophy and Phenomenological Research<br/>Vol. 62&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="moore2008" class="entry">
+	<td>Moore, J.G.</td>
+	<td>A Modal Argument against Vague Objects</td>
+	<td>2008</td>
+	<td>Philosophers' Imprint<br/>Vol. 8(12)&nbsp;</td>
+	<td>article</td>
+	<td><a href="www.philosophersimprint.org/008012">URL</a>&nbsp;</td>
+</tr>
+<tr id="nozick1981" class="entry">
+	<td>Nozick, R.</td>
+	<td>Philosophical Explanations</td>
+	<td>1981</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="parsons" class="entry">
+	<td>Parsons, J.</td>
+	<td>Distributional Properties</td>
+	<td></td>
+	<td>&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="quine2008" class="entry">
+	<td>Quine, W.V.</td>
+	<td>Confessions of a Confirmed Extensionalist and Other Essays</td>
+	<td>2008</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="quine1960" class="entry">
+	<td>Quine, W.V.O.</td>
+	<td>Word &amp; Object</td>
+	<td>1960</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="russell1923" class="entry">
+	<td>Russell, B.</td>
+	<td>Vagueness</td>
+	<td>1923</td>
+	<td>Australasian Journal of Philosophy and Psychology<br/>Vol. 1&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="sainsbury1991" class="entry">
+	<td>Sainsbury, M.</td>
+	<td>Is There Higher-Order Vagueness?</td>
+	<td>1991</td>
+	<td>The Philosophical Quarterly<br/>Vol. 41(163), pp. 167-182&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://www.jstor.org/stable/2219591">URL</a>&nbsp;</td>
+</tr>
+<tr id="sainsbury1995" class="entry">
+	<td>Sainsbury, R.M.</td>
+	<td>Paradoxes</td>
+	<td>1995</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="sainsbury1994" class="entry">
+	<td>Sainsbury, R.M.</td>
+	<td>Why the World Cannot be Vague</td>
+	<td>1994</td>
+	<td>The Southern Journal of Philosophy<br/>Vol. 33, Supplement, pp. 63-81&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="schaffer" class="entry">
+	<td>Schaffer, J.</td>
+	<td>Monism: The Priority of the Whole</td>
+	<td></td>
+	<td>&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://plato.stanford.edu/entries/monism/">URL</a>&nbsp;</td>
+</tr>
+<tr id="shein2009" class="entry">
+	<td>Shein, N.</td>
+	<td>The False Dichotomy Between Objective and Subjective Interpretations of Spinoza's Theory of Attributes</td>
+	<td>2009</td>
+	<td>British Journal for the History of Philosophy<br/>Vol. 17(3), pp. 505-532&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1080/09608780902986631">DOI</a> <a href="http://dx.doi.org/10.1080/09608780902986631">URL</a>&nbsp;</td>
+</tr>
+<tr id="sidelle2002" class="entry">
+	<td>Sidelle, A.</td>
+	<td>Is there a true metaphysics of material objects?</td>
+	<td>2002</td>
+	<td>Philosophical Issues<br/>Vol. 12, pp. 118-145&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="sider2007" class="entry">
+	<td>Sider, T.</td>
+	<td>Parthood</td>
+	<td>2007</td>
+	<td>Philosophical Review<br/>Vol. 116(1), pp. 51-91&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1215/00318108-2006-022">DOI</a> &nbsp;</td>
+</tr>
+<tr id="sider2001" class="entry">
+	<td>Sider, T.</td>
+	<td>Maximality and Intrinsic Properties</td>
+	<td>2001</td>
+	<td>Philosophy and Phenomenological Research<br/>Vol. 63(2), pp. 357-364&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://www.jstor.org/stable/3071069">URL</a>&nbsp;</td>
+</tr>
+<tr id="sider2001-1" class="entry">
+	<td>Sider, T.</td>
+	<td>Four Dimensionalism</td>
+	<td>2001</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="sider1997" class="entry">
+	<td>Sider, T.</td>
+	<td>All the World's a Stage</td>
+	<td>1997</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 75, pp. 433-453&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="simons1987" class="entry">
+	<td>Simons, P.</td>
+	<td>Parts: A Study in Ontology</td>
+	<td>1987</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="sorensen2000" class="entry">
+	<td>Sorensen, R.</td>
+	<td>Direct Reference and Vague Identity</td>
+	<td>2000</td>
+	<td>Philosophical Topics<br/>Vol. 28&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="stalnaker2003" class="entry">
+	<td>Stalnaker, R.</td>
+	<td>Ways a World Might Be</td>
+	<td>2003</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="stalnaker2003b" class="entry">
+	<td>Stalnaker, R.</td>
+	<td>Ways a World Might Be: Metaphysical and Anti-Metaphysical Essays</td>
+	<td>2003</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="stalnaker2001" class="entry">
+	<td>Stalnaker, R.</td>
+	<td>Review: Metaphysics Without Conceptual Analysis</td>
+	<td>2001</td>
+	<td>Philosophy and Phenomenological Research<br/>Vol. 62(3), pp. 631-636&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="strawson1959" class="entry">
+	<td>Strawson, P.</td>
+	<td>Individuals: An essay in descriptive metaphysics</td>
+	<td>1959</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="tye1994" class="entry">
+	<td>Tye, M.</td>
+	<td>Why the Vague Need Not be Higher-Order Vague</td>
+	<td>1994</td>
+	<td>Mind<br/>Vol. 103(409), pp. 43-45&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://www.jstor.org/stable/2253958">URL</a>&nbsp;</td>
+</tr>
+<tr id="unger1980" class="entry">
+	<td>Unger, P.</td>
+	<td>The Problem of the Many</td>
+	<td>1980</td>
+	<td>Midwest Studies on Philosophy<br/>Vol. 5, pp. 411-467&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="weatherson2003" class="entry">
+	<td>Weatherson, B.</td>
+	<td>Many Many Problems</td>
+	<td>2003</td>
+	<td>The Philosophical Quarterly<br/>Vol. 53(213), pp. 481-501&nbsp;</td>
+	<td>article</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="wiggins1968" class="entry">
+	<td>Wiggins, D.</td>
+	<td>On Being in the Same Place at the Same Time</td>
+	<td>1968</td>
+	<td>The Philosophical Review<br/>Vol. 77(1), pp. 90-95&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://www.jstor.org/stable/2183184">URL</a>&nbsp;</td>
+</tr>
+<tr id="williams2008" class="entry">
+	<td>Williams, J.R.G.</td>
+	<td>Ontic Vagueness and Metaphysical Indeterminacy</td>
+	<td>2008</td>
+	<td>Philosophy Compass<br/>Vol. 3(4), pp. 763-788&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1111/j.1747-9991.2008.00151.x">DOI</a> &nbsp;</td>
+</tr>
+<tr id="williams2008-1" class="entry">
+	<td>Williams, J.R.G.</td>
+	<td>Multiple Actualities and Ontically Vague Identity</td>
+	<td>2008</td>
+	<td>The Philosophical Quarterly<br/>Vol. 58(230), pp. 134-154&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1111/j.1467-9213.2007.583.x">DOI</a> &nbsp;</td>
+</tr>
+<tr id="williamson2003" class="entry">
+	<td>Williamson, T.</td>
+	<td>Vagueness in Reality</td>
+	<td>2003</td>
+	<td>The Oxford Handbook of Metaphysics&nbsp;</td>
+	<td>incollection</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="williamson1994" class="entry">
+	<td>Williamson, T.</td>
+	<td>Vagueness</td>
+	<td>1994</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="wittgenstein2001" class="entry">
+	<td>Wittgenstein, L.</td>
+	<td>Philosophical Investigations</td>
+	<td>2001</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="wittgenstein1961" class="entry">
+	<td>Wittgenstein, L.</td>
+	<td>Tractatus Logico-philosophicus</td>
+	<td>1961</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="alston1963" class="entry">
+	<td></td>
+	<td>Religious Belief and Philosophical Thought: Readings in the Philosophy of Religion</td>
+	<td>1963</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="alston1974" class="entry">
+	<td></td>
+	<td>The Problems of Philosophy</td>
+	<td>1974</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="perry2007" class="entry">
+	<td></td>
+	<td>Introduction to Philosophy: Classical and Contemporary Readings</td>
+	<td>2007</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="smith2007" class="entry">
+	<td></td>
+	<td>Questions of Taste: The Philosophy of Wine</td>
+	<td>2007</td>
+	<td>&nbsp;</td>
+	<td>book</td>
+	<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+
+ <small>Created by <a href="http://jabref.sourceforge.net">JabRef</a> on 05/10/2014.</small>
+
+{% include return-to-parent.html %}

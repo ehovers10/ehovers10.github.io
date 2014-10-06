@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="Generator" content="Kate, the KDE Advanced Text Editor" />
+<title>tikz-venn-diagrams.tex</title>
+</head>
+<body>
+<pre style='color:#1f1c1b;background-color:#ffffff;'>
+<span style='color:#898887;'>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span style='color:#898887;'>%% Represent categorical logic graphically %%</span>
+<span style='color:#898887;'>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+
+<b><span style='color:#800000;'>\usepackage</span></b>{<span style='color:#0000d0;'>tikz</span>}
+<b><span style='color:#800000;'>\usepackage</span></b>{<span style='color:#0000d0;'>xstring</span>}
+
+<span style='color:#800000;'>\usetikzlibrary</span>{shapes,backgrounds}
+<span style='color:#800000;'>\tikzstyle</span>{every node}=[font=<span style='color:#800000;'>\tiny</span>] 
+
+<span style='color:#898887;'>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span style='color:#898887;'>%% Draw squares of Opposition %%</span>
+<span style='color:#898887;'>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+
+<span style='color:#800000;'>\def</span>\oppsquare{(-1.5,1) node[above left]{$All$} -- (1.5,1) node[above right]{$No$} -- (1.5,-1) node[below right]{$Some-not$} -- (-1.5,-1) node[below left]{$Some$} -- (-1.5,1)}
+<span style='color:#800000;'>\def</span>\oppcross{(-1.5,1) -- (1.5,-1) node[sloped,above,pos=0.3]{contra} node[sloped,above,pos=0.7]{dictory} (-1.5,-1) -- (1.5,1) node[sloped,above,pos=0.3]{contra} node[sloped,above,pos=0.7]{dictory}}
+
+<span style='color:#800000;'>\def</span>\sqroppMod{<span style='color:#898887;'>%</span>
+  \begin{scope}
+    \draw \oppsquare;
+    \draw \oppcross;
+    \draw (-1.75,0) node[rotate=90] {undet.};
+    \draw (0,1.25) node {undet.};
+    \draw (0,-1.25) node {undet.};
+    \draw (1.75,0) node[rotate=90] {undet.};
+  \end{scope}
+}
+
+<span style='color:#800000;'>\def</span>\sqroppTrad{<span style='color:#898887;'>%</span>
+  \begin{scope}
+    \draw \oppsquare;
+    \draw \oppcross;
+    \draw (-1.75,0) node[rotate=90] {subalt.};
+    \draw (0,1.25) node {contrary};
+    \draw (0,-1.25) node {subcontrary};
+    \draw (1.75,0) node[rotate=90] {subalt.};
+  \end{scope}
+}
+
+<span style='color:#898887;'>%%%%%%%%%%% Turn categorical props into Venn diagrams %%%%%%%%%%%%%%%</span>
+<span style='color:#898887;'>%% \catvenn{title:&lt;y/n&gt;}{quantifier:&lt;All/No/Some&gt;}{quality:&lt;not/&gt;} %%</span>
+<span style='color:#898887;'>%%         {complement:&lt;non-/&gt;}{subject class}                     %%</span>
+<span style='color:#898887;'>%%         {complement:&lt;non-/&gt;}{predicate class}                   %%</span>
+<span style='color:#898887;'>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+
+<span style='color:#898887;'>%%%%%%%%%%%%%</span>
+<span style='color:#898887;'>%% Circles %%</span>
+<span style='color:#898887;'>%%%%%%%%%%%%%</span>
+
+<span style='color:#898887;'>%% Venn circles</span>
+<span style='color:#800000;'>\def</span>\firstcircle{(0,0) circle (1cm)} 
+<span style='color:#800000;'>\def</span>\secondcircle{(0:1.5cm) circle (1cm)}
+<span style='color:#800000;'>\def</span>\thirdcircle{(60:1.5cm) circle (1cm)}
+
+<span style='color:#898887;'>%% Overlapping and disjoint circles</span>
+<span style='color:#800000;'>\def</span>\firstcircleN{(0,0) circle (.75cm) node [below left=.25in] {$A$}}
+<span style='color:#800000;'>\def</span>\secondcircleN{(0:2cm) circle (.75cm) node [below right=.25in] {$B$}}
+<span style='color:#800000;'>\def</span>\firstcircleA{(0,0) circle (1.25cm) node [above right] {$A$}}
+<span style='color:#800000;'>\def</span>\secondcircleA{(.125,0) circle (.75cm) node [below left=.25in] {$B$}}
+
+<span style='color:#898887;'>%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span style='color:#898887;'>%% Venn diagram template %%</span>
+<span style='color:#898887;'>%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+
+<span style='color:#800000;'>\newcommand</span>{<span style='color:#0000d0;'>\vennbox</span>}[2]{<span style='color:#898887;'>%</span>
+  <span style='color:#800000;'>\draw</span> (-1.5,-1.5) rectangle (3,1.5);
+  <span style='color:#800000;'>\draw</span> <span style='color:#800000;'>\firstcircle</span> node [below left=.25in] {#1};
+  <span style='color:#800000;'>\draw</span> <span style='color:#800000;'>\secondcircle</span> node [below right=.25in] {#2};
+}
+
+<span style='color:#898887;'>%%%%%%%%%%%%%%%%%%%%</span>
+<span style='color:#898887;'>%% Universal Defs %%</span>
+<span style='color:#898887;'>%%%%%%%%%%%%%%%%%%%%</span>
+
+<span style='color:#800000;'>\def</span>\fillleft{<span style='color:#898887;'>%</span>
+  \begin{scope}[even odd rule, fill opacity=0.5]
+    \clip \secondcircle (-1,-1) rectangle (1,1);
+    \fill[blue] \firstcircle;
+  \end{scope}
+}
+
+<span style='color:#800000;'>\def</span>\fillmiddle{<span style='color:#898887;'>%</span>
+  \begin{scope}[fill opacity=0.5]
+    \clip \firstcircle;
+    \fill[blue] \secondcircle;
+  \end{scope}
+}
+
+<span style='color:#800000;'>\def</span>\fillright{<span style='color:#898887;'>%</span>
+  \begin{scope}[even odd rule, fill opacity=0.5]
+    \clip \firstcircle (-1,-1) rectangle (2.5,1);
+    \fill[blue] \secondcircle;
+  \end{scope}
+}
+
+<span style='color:#800000;'>\def</span>\fillbox{<span style='color:#898887;'>%</span>
+  \begin{scope}
+    \fill[fill opacity=0.5, blue] (-1.5,-1.5) rectangle (3,1.5);
+    \fill[fill opacity=1, white] \firstcircle \secondcircle;
+  \end{scope}
+}
+
+<span style='color:#898887;'>%%%%%%%%%%%%%%%%%%%%%%</span>
+<span style='color:#898887;'>%% Existential Defs %%</span>
+<span style='color:#898887;'>%%%%%%%%%%%%%%%%%%%%%%</span>
+
+<span style='color:#800000;'>\def</span>\xleft{<span style='color:#898887;'>%</span>
+  \node {x};
+}
+
+<span style='color:#800000;'>\def</span>\xmiddle{<span style='color:#898887;'>%</span>
+  \node [right=.6cm] {x};
+}
+
+<span style='color:#800000;'>\def</span>\xright{<span style='color:#898887;'>%</span>
+  \node [right=1.5cm] {x};
+}
+
+<span style='color:#800000;'>\def</span>\xbox{<span style='color:#898887;'>%</span>
+ \node [below right=1.1cm] {x};
+}
+
+<span style='color:#898887;'>%%%%%%%%%%%%%%%%%%%</span>
+<span style='color:#898887;'>%% Draw diagrams %%</span>
+<span style='color:#898887;'>%%%%%%%%%%%%%%%%%%%</span>
+
+<span style='color:#800000;'>\newcommand</span>{<span style='color:#0000d0;'>\catvenn</span>}[7]{<span style='color:#898887;'>%</span>
+  <span style='color:#800000;'>\IfEqCase</span>{#2}{<span style='color:#898887;'>%</span>
+    {All}{<span style='color:#898887;'>%</span>
+      <span style='color:#800000;'>\IfEqCase</span>{#4}{<span style='color:#898887;'>%</span>
+	{non-}{<span style='color:#898887;'>%</span>
+	  <span style='color:#800000;'>\IfEqCase</span>{#6}{<span style='color:#898887;'>%</span>
+	    {non-}{<span style='color:#800000;'>\fillright</span>}<span style='color:#898887;'>%</span>
+	    {}{<span style='color:#800000;'>\fillbox</span>}<span style='color:#898887;'>%</span>
+	  }[<span style='color:#800000;'>\PackageError</span>{catvenn}{Undefined option to tree: pred-non}{}]<span style='color:#898887;'>%</span>
+	}<span style='color:#898887;'>%</span>
+	{}{<span style='color:#898887;'>%</span>
+	  <span style='color:#800000;'>\IfEqCase</span>{#6}{<span style='color:#898887;'>%</span>
+	    {non-}{<span style='color:#800000;'>\fillmiddle</span>}<span style='color:#898887;'>%</span>
+	    {}{<span style='color:#800000;'>\fillleft</span>}<span style='color:#898887;'>%</span>
+	  }[<span style='color:#800000;'>\PackageError</span>{catvenn}{Undefined option to tree: pred-non}{}]<span style='color:#898887;'>%</span>
+	}<span style='color:#898887;'>%</span>
+      }[<span style='color:#800000;'>\PackageError</span>{catvenn}{Undefined option to tree: subj-non}{}]<span style='color:#898887;'>%</span>
+    }<span style='color:#898887;'>%</span>
+    {No}{<span style='color:#898887;'>%</span>
+      <span style='color:#800000;'>\IfEqCase</span>{#4}{<span style='color:#898887;'>%</span>
+	{non-}{<span style='color:#898887;'>%</span>
+	  <span style='color:#800000;'>\IfEqCase</span>{#6}{<span style='color:#898887;'>%</span>
+	    {non-}{<span style='color:#800000;'>\fillbox</span>}<span style='color:#898887;'>%</span>
+	    {}{<span style='color:#800000;'>\fillright</span>}<span style='color:#898887;'>%</span>
+	  }[<span style='color:#800000;'>\PackageError</span>{catvenn}{Undefined option to tree: pred-non}{}]<span style='color:#898887;'>%</span>
+	}<span style='color:#898887;'>%</span>
+	{}{<span style='color:#898887;'>%</span>
+	  <span style='color:#800000;'>\IfEqCase</span>{#6}{<span style='color:#898887;'>%</span>
+	    {non-}{<span style='color:#800000;'>\fillleft</span>}<span style='color:#898887;'>%</span>
+	    {}{<span style='color:#800000;'>\fillmiddle</span>}<span style='color:#898887;'>%</span>
+	  }[<span style='color:#800000;'>\PackageError</span>{catvenn}{Undefined option to tree: pred-non}{}]<span style='color:#898887;'>%</span>
+	}<span style='color:#898887;'>%</span>
+      }[<span style='color:#800000;'>\PackageError</span>{catvenn}{Undefined option to tree: subj-non}{}]<span style='color:#898887;'>%</span>
+    }<span style='color:#898887;'>%</span>
+    {Some}{<span style='color:#898887;'>%</span>
+      <span style='color:#800000;'>\IfEqCase</span>{#3}{<span style='color:#898887;'>%</span>
+	{not}{<span style='color:#898887;'>%</span>
+	  <span style='color:#800000;'>\IfEqCase</span>{#4}{<span style='color:#898887;'>%</span>
+	    {non-}{<span style='color:#898887;'>%</span>
+	      <span style='color:#800000;'>\IfEqCase</span>{#6}{<span style='color:#898887;'>%</span>
+		{non-}{<span style='color:#800000;'>\xright</span>}<span style='color:#898887;'>%</span>
+		{}{<span style='color:#800000;'>\xbox</span>}<span style='color:#898887;'>%</span>
+	      }[<span style='color:#800000;'>\PackageError</span>{catvenn}{Undefined option to tree: pred-non}{}]<span style='color:#898887;'>%</span>
+	    }<span style='color:#898887;'>%</span>
+	    {}{<span style='color:#898887;'>%</span>
+	      <span style='color:#800000;'>\IfEqCase</span>{#6}{<span style='color:#898887;'>%</span>
+		{non-}{<span style='color:#800000;'>\xmiddle</span>}<span style='color:#898887;'>%</span>
+		{}{<span style='color:#800000;'>\xleft</span>}<span style='color:#898887;'>%</span>
+	      }[<span style='color:#800000;'>\PackageError</span>{catvenn}{Undefined option to tree: pred-non}{}]<span style='color:#898887;'>%</span>
+	    }<span style='color:#898887;'>%</span>
+	  }[<span style='color:#800000;'>\PackageError</span>{catvenn}{Undefined option to tree: subj-non}{}]<span style='color:#898887;'>%</span>
+	}<span style='color:#898887;'>%</span>
+	{}{<span style='color:#898887;'>%</span>
+	  <span style='color:#800000;'>\IfEqCase</span>{#4}{<span style='color:#898887;'>%</span>
+	    {non-}{<span style='color:#898887;'>%</span>
+	      <span style='color:#800000;'>\IfEqCase</span>{#6}{<span style='color:#898887;'>%</span>
+		{non-}{<span style='color:#800000;'>\xbox</span>}<span style='color:#898887;'>%</span>
+		{}{<span style='color:#800000;'>\xright</span>}<span style='color:#898887;'>%</span>
+	      }[<span style='color:#800000;'>\PackageError</span>{catvenn}{Undefined option to tree: pred-non}{}]<span style='color:#898887;'>%</span>
+	    }<span style='color:#898887;'>%</span>
+	    {}{<span style='color:#898887;'>%</span>
+	      <span style='color:#800000;'>\IfEqCase</span>{#6}{<span style='color:#898887;'>%</span>
+		{non-}{<span style='color:#800000;'>\xleft</span>}<span style='color:#898887;'>%</span>
+		{}{<span style='color:#800000;'>\xmiddle</span>}<span style='color:#898887;'>%</span>
+	      }[<span style='color:#800000;'>\PackageError</span>{catvenn}{Undefined option to tree: pred-non}{}]<span style='color:#898887;'>%</span>
+	    }<span style='color:#898887;'>%</span>
+	  }[<span style='color:#800000;'>\PackageError</span>{catvenn}{Undefined option to tree: subj-non}{}]<span style='color:#898887;'>%</span>
+	}<span style='color:#898887;'>%</span>
+      }[<span style='color:#800000;'>\PackageError</span>{catvenn}{Undefined option to tree: not}{}]<span style='color:#898887;'>%</span>
+    }<span style='color:#898887;'>%</span>
+  }[<span style='color:#800000;'>\PackageError</span>{catvenn}{Undefined option to tree: quant}{}]<span style='color:#898887;'>%</span>
+  
+  <span style='color:#800000;'>\IfEqCase</span>{#1}{<span style='color:#898887;'>%</span>
+    {y}{<span style='color:#800000;'>\draw</span> (0,1.25) node {#2 #4#5 are #3 #6#7};}<span style='color:#898887;'>%</span>
+    {n}{}<span style='color:#898887;'>%</span>
+  }[<span style='color:#800000;'>\PackageError</span>{catvenn}{Undefined option to tree: title}{}]<span style='color:#898887;'>%</span>
+  
+  <span style='color:#800000;'>\vennbox</span>{#5}{#7}<span style='color:#898887;'>%</span>
+}<span style='color:#898887;'>%</span>
+</pre>
+</body>
+</html>
