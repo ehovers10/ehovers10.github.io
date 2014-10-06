@@ -168,6 +168,8 @@ a:hover {
 	margin-bottom: 20px;
 }
 
+#content td { padding-left: 20px; }
+
 #side-bar {
 	float: right;
 	width: 300px;
@@ -183,7 +185,7 @@ a:hover {
 }
 
 #content ul {
-	list-style-type: none;
+	list-style-type: circle;
 }
 
 #footer {
