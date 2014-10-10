@@ -18,4 +18,5 @@ date: 2014-09-27 01:00
 	
 <h2>test</h2>
 
+{% assign enav = site.pages | where: "category" , "esite" | sort: 'date' %}
 <p>{{ enav | map: 'title' }}</p>

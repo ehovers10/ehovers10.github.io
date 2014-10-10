@@ -15,8 +15,3 @@ date: 2014-09-27 01:00
 <h2>about this site</h2>
 		
 	<p>On this site, you will (soon) find links to some of <a href="/research/" title="erik's research">my philosophical work</a>, which is focused on investigating formal models of the influence of context on natural language interpretation.  In addition, if you are looking for information for one of <a href="/teaching/" title="erik's courses">my classes</a>, you can access resources relevant to the course. I've also started <a href="/blog/" title="erik's blog">blogging</a> a little bit. Right now, the output is mostly notes on or small snippets from my dissertation.</p>
-	
-<h2>test</h2>
-
-{% assign enav = site.pages | where: "category" , "esite" | sort: 'date' %}
-<p>{{ enav | map: 'title' }}</p>
