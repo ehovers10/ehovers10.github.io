@@ -1,0 +1,5 @@
+function toggleAbs(paper) {
+
+	className.indexOf('paper noshow') == -1?className = 'paper noshow':className = 'paper show';
+
+}

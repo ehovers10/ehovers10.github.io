@@ -2,6 +2,7 @@
 layout: post
 title:  "Baseball adages and comparison classes"
 subheading: blog post
+parent: blog
 date: 2014-09-14 09:15
 tags: [sports, contrast, modality]
 ---

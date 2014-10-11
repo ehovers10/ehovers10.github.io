@@ -11,23 +11,11 @@
 
 <body>
 
-<!-- Arrow navigation -->
-	{% include arrow-nav.html %}
-
 <!-- Header -->
 	<div id="header">
 		<div id="headbg">
-			<h1>erik hoversten</h1>
-			<h2 class="alignright">{{ page.subheading }}</h2>
+			<h1 class="alignleft">{{page.title}}</h1>
+			<div style="clear: both;"></div>
+			<h2 class="alignright">{{page.subheading}}</h2>
 		</div>
 	</div>
-	
-<!-- Site navigation menu -->
-	<div id="nav-bar">
-		{% assign enav = site.pages | where: "category" , "esite" | sort: 'date' %}
-		{% for page in enav %}
-			<a href="{{page.url}}">{{page.subheading}}</a>
-		{% endfor %}
-	</div>
-
-		

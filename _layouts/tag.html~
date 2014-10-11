@@ -17,5 +17,3 @@ layout: elay1
 	<hr>
 
 {% endfor %}
-
-<h4><a href="/blog/">return to main page</a></h4>

@@ -1,425 +1,12 @@
----
-layout: elay1
-title: david lewis
-subheading: bibliography
-parent: research
----
-
-<h2>{{page.title}} {{page.subheading}}</h2>
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript">
-<!--
-// QuickSearch script for JabRef HTML export 
-// Version: 3.0
-//
-// Copyright (c) 2006-2011, Mark Schenk
-//
-// This software is distributed under a Creative Commons Attribution 3.0 License
-// http://creativecommons.org/licenses/by/3.0/
-//
-// Features:
-// - intuitive find-as-you-type searching
-//    ~ case insensitive
-//    ~ ignore diacritics (optional)
-//
-// - search with/without Regular Expressions
-// - match BibTeX key
-//
-
-// Search settings
-var searchAbstract = true;	// search in abstract
-var searchReview = true;	// search in review
-
-var noSquiggles = true; 	// ignore diacritics when searching
-var searchRegExp = false; 	// enable RegExp searches
-
-
-if (window.addEventListener) {
-	window.addEventListener("load",initSearch,false); }
-else if (window.attachEvent) {
-	window.attachEvent("onload", initSearch); }
-
-function initSearch() {
-	// check for quick search table and searchfield
-	if (!document.getElementById('qs_table')||!document.getElementById('quicksearch')) { return; }
-
-	// load all the rows and sort into arrays
-	loadTableData();
-	
-	//find the query field
-	qsfield = document.getElementById('qs_field');
-
-	// previous search term; used for speed optimisation
-	prevSearch = '';
-
-	//find statistics location
-	stats = document.getElementById('stat');
-	setStatistics(-1);
-	
-	// set up preferences
-	initPreferences();
-
-	// shows the searchfield
-	document.getElementById('quicksearch').style.display = 'block';
-	document.getElementById('qs_field').onkeyup = quickSearch;
-}
-
-function loadTableData() {
-	// find table and appropriate rows
-	searchTable = document.getElementById('qs_table');
-	var allRows = searchTable.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
-
-	// split all rows into entryRows and infoRows (e.g. abstract, review, bibtex)
-	entryRows = new Array(); infoRows = new Array(); absRows = new Array(); revRows = new Array();
-
-	// get data from each row
-	entryRowsData = new Array(); absRowsData = new Array(); revRowsData = new Array(); 
-	
-	BibTeXKeys = new Array();
-	
-	for (var i=0, k=0, j=0; i<allRows.length;i++) {
-		if (allRows[i].className.match(/entry/)) {
-			entryRows[j] = allRows[i];
-			entryRowsData[j] = stripDiacritics(getTextContent(allRows[i]));
-			allRows[i].id ? BibTeXKeys[j] = allRows[i].id : allRows[i].id = 'autokey_'+j;
-			j ++;
-		} else {
-			infoRows[k++] = allRows[i];
-			// check for abstract/review
-			if (allRows[i].className.match(/abstract/)) {
-				absRows.push(allRows[i]);
-				absRowsData[j-1] = stripDiacritics(getTextContent(allRows[i]));
-			} else if (allRows[i].className.match(/review/)) {
-				revRows.push(allRows[i]);
-				revRowsData[j-1] = stripDiacritics(getTextContent(allRows[i]));
-			}
-		}
-	}
-	//number of entries and rows
-	numEntries = entryRows.length;
-	numInfo = infoRows.length;
-	numAbs = absRows.length;
-	numRev = revRows.length;
-}
-
-function quickSearch(){
-	
-	tInput = qsfield;
-
-	if (tInput.value.length == 0) {
-		showAll();
-		setStatistics(-1);
-		qsfield.className = '';
-		return;
-	} else {
-		t = stripDiacritics(tInput.value);
-
-		if(!searchRegExp) { t = escapeRegExp(t); }
-			
-		// only search for valid RegExp
-		try {
-			textRegExp = new RegExp(t,"i");
-			closeAllInfo();
-			qsfield.className = '';
-		}
-			catch(err) {
-			prevSearch = tInput.value;
-			qsfield.className = 'invalidsearch';
-			return;
-		}
-	}
-	
-	// count number of hits
-	var hits = 0;
-
-	// start looping through all entry rows
-	for (var i = 0; cRow = entryRows[i]; i++){
-
-		// only show search the cells if it isn't already hidden OR if the search term is getting shorter, then search all
-		if(cRow.className.indexOf('noshow')==-1 || tInput.value.length <= prevSearch.length){
-			var found = false; 
-
-			if (entryRowsData[i].search(textRegExp) != -1 || BibTeXKeys[i].search(textRegExp) != -1){ 
-				found = true;
-			} else {
-				if(searchAbstract && absRowsData[i]!=undefined) {
-					if (absRowsData[i].search(textRegExp) != -1){ found=true; } 
-				}
-				if(searchReview && revRowsData[i]!=undefined) {
-					if (revRowsData[i].search(textRegExp) != -1){ found=true; } 
-				}
-			}
-			
-			if (found){
-				cRow.className = 'entry show';
-				hits++;
-			} else {
-				cRow.className = 'entry noshow';
-			}
-		}
-	}
-
-	// update statistics
-	setStatistics(hits)
-	
-	// set previous search value
-	prevSearch = tInput.value;
-}
-
-
-// Strip Diacritics from text
-// http://stackoverflow.com/questions/990904/javascript-remove-accents-in-strings
-
-// String containing replacement characters for stripping accents 
-var stripstring = 
-    'AAAAAAACEEEEIIII'+
-    'DNOOOOO.OUUUUY..'+
-    'aaaaaaaceeeeiiii'+
-    'dnooooo.ouuuuy.y'+
-    'AaAaAaCcCcCcCcDd'+
-    'DdEeEeEeEeEeGgGg'+
-    'GgGgHhHhIiIiIiIi'+
-    'IiIiJjKkkLlLlLlL'+
-    'lJlNnNnNnnNnOoOo'+
-    'OoOoRrRrRrSsSsSs'+
-    'SsTtTtTtUuUuUuUu'+
-    'UuUuWwYyYZzZzZz.';
-
-function stripDiacritics(str){
-
-    if(noSquiggles==false){
-        return str;
-    }
-
-    var answer='';
-    for(var i=0;i<str.length;i++){
-        var ch=str[i];
-        var chindex=ch.charCodeAt(0)-192;   // Index of character code in the strip string
-        if(chindex>=0 && chindex<stripstring.length){
-            // Character is within our table, so we can strip the accent...
-            var outch=stripstring.charAt(chindex);
-            // ...unless it was shown as a '.'
-            if(outch!='.')ch=outch;
-        }
-        answer+=ch;
-    }
-    return answer;
-}
-
-// http://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
-// NOTE: must escape every \ in the export code because of the JabRef Export...
-function escapeRegExp(str) {
-  return str.replace(/[-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-}
-
-function toggleInfo(articleid,info) {
-
-	var entry = document.getElementById(articleid);
-	var abs = document.getElementById('abs_'+articleid);
-	var rev = document.getElementById('rev_'+articleid);
-	var bib = document.getElementById('bib_'+articleid);
-	
-	if (abs && info == 'abstract') {
-		abs.className.indexOf('noshow') == -1?abs.className = 'abstract noshow':abs.className = 'abstract show';
-	} else if (rev && info == 'review') {
-		rev.className.indexOf('noshow') == -1?rev.className = 'review noshow':rev.className = 'review show';
-	} else if (bib && info == 'bibtex') {
-		bib.className.indexOf('noshow') == -1?bib.className = 'bibtex noshow':bib.className = 'bibtex show';
-	} else { 
-		return;
-	}
-
-	// check if one or the other is available
-	var revshow; var absshow; var bibshow;
-	(abs && abs.className.indexOf('noshow') == -1)? absshow = true: absshow = false;
-	(rev && rev.className.indexOf('noshow') == -1)? revshow = true: revshow = false;	
-	(bib && bib.className.indexOf('noshow') == -1)? bibshow = true: bibshow = false;
-	
-	// highlight original entry
-	if(entry) {
-		if (revshow || absshow || bibshow) {
-		entry.className = 'entry highlight show';
-		} else {
-		entry.className = 'entry show';
-		}
-	}
-	
-	// When there's a combination of abstract/review/bibtex showing, need to add class for correct styling
-	if(absshow) {
-		(revshow||bibshow)?abs.className = 'abstract nextshow':abs.className = 'abstract';
-	} 
-	if (revshow) {
-		bibshow?rev.className = 'review nextshow': rev.className = 'review';
-	}	
-	
-}
-
-function setStatistics (hits) {
-	if(hits < 0) { hits=numEntries; }
-	if(stats) { stats.firstChild.data = hits + '/' + numEntries}
-}
-
-function getTextContent(node) {
-	// Function written by Arve Bersvendsen
-	// http://www.virtuelvis.com
-	
-	if (node.nodeType == 3) {
-	return node.nodeValue;
-	} // text node
-	if (node.nodeType == 1 && node.className != "infolinks") { // element node
-	var text = [];
-	for (var chld = node.firstChild;chld;chld=chld.nextSibling) {
-		text.push(getTextContent(chld));
-	}
-	return text.join("");
-	} return ""; // some other node, won't contain text nodes.
-}
-
-function showAll(){
-	closeAllInfo();
-	for (var i = 0; i < numEntries; i++){ entryRows[i].className = 'entry show'; }
-}
-
-function closeAllInfo(){
-	for (var i=0; i < numInfo; i++){
-		if (infoRows[i].className.indexOf('noshow') ==-1) {
-			infoRows[i].className = infoRows[i].className + ' noshow';
-		}
-	}
-}
-
-function clearQS() {
-	qsfield.value = '';
-	showAll();
-}
-
-function redoQS(){
-	showAll();
-	quickSearch(qsfield);
-}
-
-function updateSetting(obj){
-	var option = obj.id;
-	var checked = obj.value;
-
-	switch(option)
-	 {
-	 case "opt_searchAbs":
-	   searchAbstract=!searchAbstract;
-	   redoQS();
-	   break;
-	 case "opt_searchRev":
-	   searchReview=!searchReview;
-	   redoQS();
-	   break;
-	 case "opt_useRegExp":
-	   searchRegExp=!searchRegExp;
-	   redoQS();
-	   break;
-	 case "opt_noAccents":
-	   noSquiggles=!noSquiggles;
-	   loadTableData();
-	   redoQS();
-	   break;
-	 }
-}
-
-function initPreferences(){
-	if(searchAbstract){document.getElementById("opt_searchAbs").checked = true;}
-	if(searchReview){document.getElementById("opt_searchRev").checked = true;}
-	if(noSquiggles){document.getElementById("opt_noAccents").checked = true;}
-	if(searchRegExp){document.getElementById("opt_useRegExp").checked = true;}
-	
-	if(numAbs==0) {document.getElementById("opt_searchAbs").parentNode.style.display = 'none';}
-	if(numRev==0) {document.getElementById("opt_searchRev").parentNode.style.display = 'none';}
-}
-
-function toggleSettings(){
-	var togglebutton = document.getElementById('showsettings');
-	var settings = document.getElementById('settings');
-	
-	if(settings.className == "hidden"){
-		settings.className = "show";
-		togglebutton.innerText = "close settings";
-		togglebutton.textContent = "close settings";
-	}else{
-		settings.className = "hidden";
-		togglebutton.innerText = "settings...";		
-		togglebutton.textContent = "settings...";
-	}
-}
-
--->
-</script>
-<style type="text/css">
-
-form#quicksearch { width: auto; border-style: solid; border-color: gray; border-width: 1px 0px; padding: 0.7em 0.5em; display:none; position:relative; }
-span#searchstat {padding-left: 1em;}
-
-div#settings { margin-top:0.7em; /* border-bottom: 1px transparent solid; background-color: #efefef; border: 1px grey solid; */ }
-div#settings ul {margin: 0; padding: 0; }
-div#settings li {margin: 0; padding: 0 1em 0 0; display: inline; list-style: none; }
-div#settings li + li { border-left: 2px #efefef solid; padding-left: 0.5em;}
-div#settings input { margin-bottom: 0px;}
-
-div#settings.hidden {display:none;}
-
-#showsettings { border: 1px grey solid; padding: 0 0.5em; float:right; line-height: 1.6em; text-align: right; }
-#showsettings:hover { cursor: pointer; }
-
-.invalidsearch { background-color: red; }
-input[type="button"] { background-color: #efefef; border: 1px #2E2E2E solid;}
-
-table { width: 100%; empty-cells: show; border-spacing: 0em 0.2em; margin: 1em 0em; border-style: none; }
-th, td { border: none; border-bottom: 1px SteelBlue solid; border-width: 1px 1px; padding: 0.5em; vertical-align: top; text-align: left; }
-th { background-color: #efefef; }
-td + td, th + th { border-left: none; }
-
-td a { color: navy; text-decoration: none; }
-td a:hover  { text-decoration: underline; }
-
-tr.noshow { display: none;}
-tr.highlight td { background-color: #EFEFEF; border-top: 2px #2E2E2E solid; font-weight: bold; }
-tr.abstract td, tr.review td, tr.bibtex td { background-color: #EFEFEF; text-align: justify; border-bottom: 2px #2E2E2E solid; }
-tr.nextshow td { border-bottom: 1px gray solid; }
-
-tr.bibtex pre { width: 100%; overflow: auto; white-space: pre-wrap;}
-p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
-
-@media print {
-	p.infolinks, #qs_settings, #quicksearch, t.bibtex { display: none !important; }
-	tr { page-break-inside: avoid; }
-}
-</style>
-</head>
-<body>
-
-<form action="" id="quicksearch">
-<input type="text" id="qs_field" autocomplete="off" placeholder="Type to search..." /> <input type="button" onclick="clearQS()" value="clear" />
-<span id="searchstat">Matching entries: <span id="stat">0</span></span>
-<div id="showsettings" onclick="toggleSettings()">settings...</div>
-<div id="settings" class="hidden">
-<ul>
-<li><input type="checkbox" class="search_setting" id="opt_searchAbs" onchange="updateSetting(this)"><label for="opt_searchAbs"> include abstract</label></li>
-<li><input type="checkbox" class="search_setting" id="opt_searchRev" onchange="updateSetting(this)"><label for="opt_searchRev"> include review</label></li>
-<li><input type="checkbox" class="search_setting" id="opt_useRegExp" onchange="updateSetting(this)"><label for="opt_useRegExp"> use RegExp</label></li>
-<li><input type="checkbox" class="search_setting" id="opt_noAccents" onchange="updateSetting(this)"><label for="opt_noAccents"> ignore accents</label></li>
-</ul>
-</div>
-</form>
-<table id="qs_table" border="1">
-<thead><tr><th width="20%">Author</th><th width="30%">Title</th><th width="5%">Year</th><th width="30%">Journal/Proceedings</th><th width="10%">Reftype</th><th width="5%">DOI/URL</th></tr></thead>
-<tbody><tr id="Lewis1968Hodges" class="entry">
+<tr id="Lewis1968Hodges" class="entry">
 	<td>Hodges, W. and Lewis, D.</td>
-	<td>Finitude and Infinitude in the Atomic Calculus of Individuals <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1968Hodges','bibtex')">BibTeX</a>]</p></td>
+	<td>Finitude and Infinitude in the Atomic Calculus of Individuals</td>
 	<td>1968</td>
-	<td>No&ucirc;s<br/>Vol. 2(4), pp. 405-410&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>No&ucirc;s<br/>Vol. 2(4)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1968Hodges','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1968Hodges" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1968Hodges,
   author = {Wilfrid Hodges and David Lewis},
@@ -432,17 +19,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPL 180-185}
 }
 </pre></td>
-</tr>
-<tr id="Lewis2001Langton" class="entry">
+</tr><tr id="Lewis2001Langton" class="entry">
 	<td>Langton, R. and Lewis, D.</td>
-	<td>Marshall and Parsons on 'Intrinsic' <p class="infolinks">[<a href="javascript:toggleInfo('Lewis2001Langton','bibtex')">BibTeX</a>]</p></td>
+	<td>Marshall and Parsons on 'Intrinsic'</td>
 	<td>2001</td>
-	<td>Philosophy and Phenomenological Research<br/>Vol. 63(2), pp. 353-355&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophy and Phenomenological Research<br/>Vol. 63(2)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis2001Langton','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis2001Langton" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis2001Langton,
   author = {Rae Langton and David Lewis},
@@ -454,17 +39,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {353-355}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1998Langton" class="entry">
+</tr><tr id="Lewis1998Langton" class="entry">
 	<td>Langton, R. and Lewis, D.</td>
-	<td>Defining 'Intrinsic' <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1998Langton','bibtex')">BibTeX</a>]</p></td>
+	<td>Defining 'Intrinsic'</td>
 	<td>1998</td>
-	<td>Philosophy and Phenomenological Research<br/>Vol. 58(2), pp. 333-345&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophy and Phenomenological Research<br/>Vol. 58(2)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1998Langton','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1998Langton" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1998Langton,
   author = {Rae Langton and David Lewis},
@@ -477,17 +60,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 116-132}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1982b" class="entry">
+</tr><tr id="Lewis1982b" class="entry">
 	<td>LeCatt, B.</td>
-	<td>Censored Vision <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1982b','bibtex')">BibTeX</a>]</p></td>
+	<td>Censored Vision</td>
 	<td>1982</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 60(2), pp. 158-162&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 60(2)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1982b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1982b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1982b,
   author = {Bruce LeCatt},
@@ -500,17 +81,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {Written by David Lewis, but published under the name `Bruce LeCatt'}
 }
 </pre></td>
-</tr>
-<tr id="Lewis2007" class="entry">
+</tr><tr id="Lewis2007" class="entry">
 	<td>Lewis, D.</td>
-	<td>Divine Evil <p class="infolinks">[<a href="javascript:toggleInfo('Lewis2007','bibtex')">BibTeX</a>]</p></td>
+	<td>Divine Evil</td>
 	<td>2007</td>
-	<td>Philosophers Without Gods, pp. 231-242&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>Philosophers Without Gods&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis2007','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis2007" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis2007,
   author = {David Lewis},
@@ -521,17 +100,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {231-242}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1980c" class="entry">
+</tr><tr id="Lewis1980c" class="entry">
 	<td>Lewis, D.</td>
-	<td>Mad Pain and Martian Pain <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1980c','bibtex')">BibTeX</a>]</p></td>
+	<td>Mad Pain and Martian Pain</td>
 	<td>1980</td>
-	<td><br/>Vol. IReadings in the Philosophy of Psychology, pp. 216-232&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td><br/>Vol. IReadings in the Philosophy of Psychology&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1980c','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1980c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis1980c,
   author = {David Lewis},
@@ -544,17 +121,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPI 122-130}
 }
 </pre></td>
-</tr>
-<tr id="Lewis2009" class="entry">
+</tr><tr id="Lewis2009" class="entry">
 	<td>Lewis, D.</td>
-	<td>Ramseyan Humility <p class="infolinks">[<a href="javascript:toggleInfo('Lewis2009','bibtex')">BibTeX</a>]</p></td>
+	<td>Ramseyan Humility</td>
 	<td>2009</td>
-	<td>Conceptual Analysis and Philosophical Naturalism, pp. 203-222&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>Conceptual Analysis and Philosophical Naturalism&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis2009','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis2009" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis2009,
   author = {David Lewis},
@@ -565,17 +140,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {203-222}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1993c" class="entry">
+</tr><tr id="Lewis1993c" class="entry">
 	<td>Lewis, D.</td>
-	<td>Many, But Almost One <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1993c','bibtex')">BibTeX</a>]</p></td>
+	<td>Many, But Almost One</td>
 	<td>1993</td>
-	<td>Ontology, Causality, and Mind: Essays on the Philosophy of D. M. Armstrong, pp. 23-38&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>Ontology, Causality, and Mind: Essays on the Philosophy of D. M. Armstrong&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1993c','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1993c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis1993c,
   author = {David Lewis},
@@ -587,17 +160,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 164-182}
 }
 </pre></td>
-</tr>
-<tr id="Lewis2004a" class="entry">
+</tr><tr id="Lewis2004a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Causation as Influence <p class="infolinks">[<a href="javascript:toggleInfo('Lewis2004a','bibtex')">BibTeX</a>]</p></td>
+	<td>Causation as Influence</td>
 	<td>2004</td>
-	<td>Causation and Counterfactuals, pp. 75-106&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>Causation and Counterfactuals&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis2004a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis2004a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis2004a,
   author = {David Lewis},
@@ -608,17 +179,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {75-106}
 }
 </pre></td>
-</tr>
-<tr id="Lewis2004d" class="entry">
+</tr><tr id="Lewis2004d" class="entry">
 	<td>Lewis, D.</td>
-	<td>Void and Object <p class="infolinks">[<a href="javascript:toggleInfo('Lewis2004d','bibtex')">BibTeX</a>]</p></td>
+	<td>Void and Object</td>
 	<td>2004</td>
-	<td>Causation and Counterfactuals, pp. 277-290&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>Causation and Counterfactuals&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis2004d','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis2004d" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis2004d,
   author = {David Lewis},
@@ -629,17 +198,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {277-290}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1994b" class="entry">
+</tr><tr id="Lewis1994b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Reduction of Mind <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1994b','bibtex')">BibTeX</a>]</p></td>
+	<td>Reduction of Mind</td>
 	<td>1994</td>
-	<td>A Companion to the Philosophy of Mind, pp. 412-431&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>A Companion to the Philosophy of Mind&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1994b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1994b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis1994b,
   author = {David Lewis},
@@ -651,17 +218,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 291-324}
 }
 </pre></td>
-</tr>
-<tr id="Lewis2005" class="entry">
+</tr><tr id="Lewis2005" class="entry">
 	<td>Lewis, D.</td>
-	<td>Quasi-Realism is Fictionalism <p class="infolinks">[<a href="javascript:toggleInfo('Lewis2005','bibtex')">BibTeX</a>]</p></td>
+	<td>Quasi-Realism is Fictionalism</td>
 	<td>2005</td>
-	<td>Moral Fictionalism, pp. 314-321&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>Moral Fictionalism&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis2005','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis2005" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis2005,
   author = {David Lewis},
@@ -672,17 +237,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {314-321}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1980b" class="entry">
+</tr><tr id="Lewis1980b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Index, Context, and Content <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1980b','bibtex')">BibTeX</a>]</p></td>
+	<td>Index, Context, and Content</td>
 	<td>1980</td>
-	<td>Philosophy and Grammar, pp. 79-100&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>Philosophy and Grammar&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1980b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1980b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis1980b,
   author = {David Lewis},
@@ -694,17 +257,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPL 21-44}
 }
 </pre></td>
-</tr>
-<tr id="Lewis2003b" class="entry">
+</tr><tr id="Lewis2003b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Things qua Truthmakers <p class="infolinks">[<a href="javascript:toggleInfo('Lewis2003b','bibtex')">BibTeX</a>]</p></td>
+	<td>Things qua Truthmakers</td>
 	<td>2003</td>
-	<td>Real Metaphysics: Essays in Honour of D. H. Mellor, pp. 25-38&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>Real Metaphysics: Essays in Honour of D. H. Mellor&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis2003b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis2003b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis2003b,
   author = {David Lewis},
@@ -715,17 +276,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {25-38}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1984a" class="entry">
+</tr><tr id="Lewis1984a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Devil's Bargains and the Real World <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1984a','bibtex')">BibTeX</a>]</p></td>
+	<td>Devil's Bargains and the Real World</td>
 	<td>1984</td>
-	<td>The Security Gamble: Deterrence in the Nuclear Age, pp. 141-154&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>The Security Gamble: Deterrence in the Nuclear Age&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1984a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1984a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis1984a,
   author = {David Lewis},
@@ -737,17 +296,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PESP 201-218}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1974a" class="entry">
+</tr><tr id="Lewis1974a" class="entry">
 	<td>Lewis, D.</td>
-	<td>'Tensions <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1974a','bibtex')">BibTeX</a>]</p></td>
+	<td>'Tensions</td>
 	<td>1974</td>
-	<td>Semantics and Philosophy, pp. 49-61&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>Semantics and Philosophy&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1974a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1974a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis1974a,
   author = {David Lewis},
@@ -759,17 +316,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPI 250-260}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1982a" class="entry">
+</tr><tr id="Lewis1982a" class="entry">
 	<td>Lewis, D.</td>
-	<td>`Whether' Report <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1982a','bibtex')">BibTeX</a>]</p></td>
+	<td>`Whether' Report</td>
 	<td>1982</td>
-	<td>320311: Philosophical Essays Dedicated to Lennart Aqvist on his Fiftieth Birthday, pp. 194-206&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>320311: Philosophical Essays Dedicated to Lennart Aqvist on his Fiftieth Birthday&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1982a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1982a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis1982a,
   author = {David Lewis},
@@ -781,17 +336,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPL 45-56}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1981f" class="entry">
+</tr><tr id="Lewis1981f" class="entry">
 	<td>Lewis, D.</td>
-	<td>Nachwort (1978) <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1981f','bibtex')">BibTeX</a>]</p></td>
+	<td>Nachwort (1978)</td>
 	<td>1981</td>
-	<td>Kausalit&auml;t: Neue Texte, pp. 124-126&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>Kausalit&auml;t: Neue Texte&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1981f','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1981f" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis1981f,
   author = {David Lewis},
@@ -803,17 +356,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {A postscript to a German translation of teLewis1973b}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1976c" class="entry">
+</tr><tr id="Lewis1976c" class="entry">
 	<td>Lewis, D.</td>
-	<td>Survival and Identity <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1976c','bibtex')">BibTeX</a>]</p></td>
+	<td>Survival and Identity</td>
 	<td>1976</td>
-	<td>The Identities of Persons, pp. 17-40&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>The Identities of Persons&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1976c','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1976c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis1976c,
   author = {David Lewis},
@@ -825,17 +376,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPI 55-72}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1971e" class="entry">
+</tr><tr id="Lewis1971e" class="entry">
 	<td>Lewis, D.</td>
-	<td>An Argument for the Identity Theory <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1971e','bibtex')">BibTeX</a>]</p></td>
+	<td>An Argument for the Identity Theory</td>
 	<td>1971</td>
-	<td>Materialism and the Mind-Body Problem, pp. 162-171&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>Materialism and the Mind-Body Problem&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1971e','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1971e" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis1971e,
   author = {David Lewis},
@@ -847,17 +396,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPI 99-107}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1979a" class="entry">
+</tr><tr id="Lewis1979a" class="entry">
 	<td>Lewis, D.</td>
-	<td>A Problem about Permission <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1979a','bibtex')">BibTeX</a>]</p></td>
+	<td>A Problem about Permission</td>
 	<td>1979</td>
-	<td>Essays in Honour of Jaakko Hintikka on the occasion of his fiftieth birthday on January 12, 1979, pp. 163-175&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>Essays in Honour of Jaakko Hintikka on the occasion of his fiftieth birthday on January 12, 1979&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1979a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1979a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis1979a,
   author = {David Lewis},
@@ -869,17 +416,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PESP 20-33}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1989c" class="entry">
+</tr><tr id="Lewis1989c" class="entry">
 	<td>Lewis, D.</td>
-	<td>Finite Counterforce <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1989c','bibtex')">BibTeX</a>]</p></td>
+	<td>Finite Counterforce</td>
 	<td>1989</td>
-	<td>Nuclear Deterrence and Moral Restraint, pp. 51-114&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>Nuclear Deterrence and Moral Restraint&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1989c','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1989c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis1989c,
   author = {David Lewis},
@@ -890,17 +435,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {51-114}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1974d" class="entry">
+</tr><tr id="Lewis1974d" class="entry">
 	<td>Lewis, D.</td>
-	<td>Semantic Analyses for Dyadic Deontic Logic <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1974d','bibtex')">BibTeX</a>]</p></td>
+	<td>Semantic Analyses for Dyadic Deontic Logic</td>
 	<td>1974</td>
-	<td>Logical Theory and Semantic Analysis: Essays Dedicated to Stig Kanger on His Fiftieth Birthday, pp. 1-14&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>Logical Theory and Semantic Analysis: Essays Dedicated to Stig Kanger on His Fiftieth Birthday&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1974d','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1974d" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis1974d,
   author = {David Lewis},
@@ -912,17 +455,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PESP 5-19}
 }
 </pre></td>
-</tr>
-<tr id="Lewis2004c" class="entry">
+</tr><tr id="Lewis2004c" class="entry">
 	<td>Lewis, D.</td>
-	<td>Tensed Quantifiers <p class="infolinks">[<a href="javascript:toggleInfo('Lewis2004c','bibtex')">BibTeX</a>]</p></td>
+	<td>Tensed Quantifiers</td>
 	<td>2004</td>
-	<td><br/>Vol. 1Oxford Studies in Metaphysics, pp. 3-14&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td><br/>Vol. 1Oxford Studies in Metaphysics&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis2004c','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis2004c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis2004c,
   author = {David Lewis},
@@ -934,17 +475,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {3-14}
 }
 </pre></td>
-</tr>
-<tr id="Lewis2004b" class="entry">
+</tr><tr id="Lewis2004b" class="entry">
 	<td>Lewis, D.</td>
-	<td>How Many Lives has Schr&ouml;dinger's Cat? <p class="infolinks">[<a href="javascript:toggleInfo('Lewis2004b','bibtex')">BibTeX</a>]</p></td>
+	<td>How Many Lives has Schr&ouml;dinger's Cat?</td>
 	<td>2004</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 82(1), pp. 3-22&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 82(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis2004b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis2004b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis2004b,
   author = {David Lewis},
@@ -956,17 +495,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {3-22}
 }
 </pre></td>
-</tr>
-<tr id="Lewis2004e" class="entry">
+</tr><tr id="Lewis2004e" class="entry">
 	<td>Lewis, D.</td>
-	<td>Letters to Priest and Beall <p class="infolinks">[<a href="javascript:toggleInfo('Lewis2004e','bibtex')">BibTeX</a>]</p></td>
+	<td>Letters to Priest and Beall</td>
 	<td>2004</td>
-	<td>The Law of Non-Contradiction, pp. 176-177&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>The Law of Non-Contradiction&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis2004e','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis2004e" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis2004e,
   author = {Lewis, David},
@@ -977,17 +514,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {176-177}
 }
 </pre></td>
-</tr>
-<tr id="Lewis2003a" class="entry">
+</tr><tr id="Lewis2003a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Rights to Rights <p class="infolinks">[<a href="javascript:toggleInfo('Lewis2003a','bibtex')">BibTeX</a>]</p></td>
+	<td>Rights to Rights</td>
 	<td>2003</td>
-	<td>Theoria<br/>Vol. 69(3), pp. 160-165&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Theoria<br/>Vol. 69(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis2003a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis2003a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis2003a,
   author = {David Lewis},
@@ -999,17 +534,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {160-165}
 }
 </pre></td>
-</tr>
-<tr id="Lewis2002a" class="entry">
+</tr><tr id="Lewis2002a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Tensing the Copula <p class="infolinks">[<a href="javascript:toggleInfo('Lewis2002a','bibtex')">BibTeX</a>]</p></td>
+	<td>Tensing the Copula</td>
 	<td>2002</td>
-	<td>Mind<br/>Vol. 111(441), pp. 1-14&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Mind<br/>Vol. 111(441)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis2002a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis2002a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis2002a,
   author = {David Lewis},
@@ -1021,17 +554,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {1-14}
 }
 </pre></td>
-</tr>
-<tr id="Lewis2002b" class="entry">
+</tr><tr id="Lewis2002b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Tharps Third Theorem <p class="infolinks">[<a href="javascript:toggleInfo('Lewis2002b','bibtex')">BibTeX</a>]</p></td>
+	<td>Tharps Third Theorem</td>
 	<td>2002</td>
-	<td>Analysis<br/>Vol. 62(2), pp. 95-97&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Analysis<br/>Vol. 62(2)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis2002b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis2002b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis2002b,
   author = {David Lewis},
@@ -1043,17 +574,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {95-97}
 }
 </pre></td>
-</tr>
-<tr id="Lewis2001a" class="entry">
+</tr><tr id="Lewis2001a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Forget about the Correspondence Theory of Truthtextquoteright <p class="infolinks">[<a href="javascript:toggleInfo('Lewis2001a','bibtex')">BibTeX</a>]</p></td>
+	<td>Forget about the Correspondence Theory of Truthtextquoteright</td>
 	<td>2001</td>
-	<td>Analysis<br/>Vol. 61(4), pp. 275-280&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Analysis<br/>Vol. 61(4)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis2001a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis2001a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis2001a,
   author = {David Lewis},
@@ -1065,17 +594,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {275-280}
 }
 </pre></td>
-</tr>
-<tr id="Lewis2001b" class="entry">
+</tr><tr id="Lewis2001b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Redefining 'Intrinsic' <p class="infolinks">[<a href="javascript:toggleInfo('Lewis2001b','bibtex')">BibTeX</a>]</p></td>
+	<td>Redefining 'Intrinsic'</td>
 	<td>2001</td>
-	<td>Philosophy and Phenomenological Research<br/>Vol. 63(2), pp. 381-398&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophy and Phenomenological Research<br/>Vol. 63(2)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis2001b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis2001b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis2001b,
   author = {David Lewis},
@@ -1087,17 +614,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {381-398}
 }
 </pre></td>
-</tr>
-<tr id="Lewis2001c" class="entry">
+</tr><tr id="Lewis2001c" class="entry">
 	<td>Lewis, D.</td>
-	<td>Sleeping Beauty: Reply to Elga <p class="infolinks">[<a href="javascript:toggleInfo('Lewis2001c','bibtex')">BibTeX</a>]</p></td>
+	<td>Sleeping Beauty: Reply to Elga</td>
 	<td>2001</td>
-	<td>Analysis<br/>Vol. 61(3), pp. 171-176&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Analysis<br/>Vol. 61(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis2001c','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis2001c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis2001c,
   author = {David Lewis},
@@ -1109,17 +634,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {171-176}
 }
 </pre></td>
-</tr>
-<tr id="Lewis2001d" class="entry">
+</tr><tr id="Lewis2001d" class="entry">
 	<td>Lewis, D.</td>
-	<td>Truthmaking and Difference-Making <p class="infolinks">[<a href="javascript:toggleInfo('Lewis2001d','bibtex')">BibTeX</a>]</p></td>
+	<td>Truthmaking and Difference-Making</td>
 	<td>2001</td>
-	<td>No&ucirc;s<br/>Vol. 35(4), pp. 602-615&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>No&ucirc;s<br/>Vol. 35(4)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis2001d','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis2001d" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis2001d,
   author = {David Lewis},
@@ -1131,17 +654,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {602-615}
 }
 </pre></td>
-</tr>
-<tr id="Lewis2000a" class="entry">
+</tr><tr id="Lewis2000a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Papers in Ethics and Social Philosophy <p class="infolinks">[<a href="javascript:toggleInfo('Lewis2000a','bibtex')">BibTeX</a>]</p></td>
+	<td>Papers in Ethics and Social Philosophy</td>
 	<td>2000</td>
 	<td>&nbsp;</td>
-	<td>book</td>
-	<td>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis2000a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis2000a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @book{Lewis2000a,
   author = {David Lewis},
@@ -1150,17 +671,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   year = {2000}
 }
 </pre></td>
-</tr>
-<tr id="Lewis2000b" class="entry">
+</tr><tr id="Lewis2000b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Causation as influence <p class="infolinks">[<a href="javascript:toggleInfo('Lewis2000b','bibtex')">BibTeX</a>]</p></td>
+	<td>Causation as influence</td>
 	<td>2000</td>
-	<td>Journal of Philosophy<br/>Vol. 97(4), pp. 182-197&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Journal of Philosophy<br/>Vol. 97(4)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis2000b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis2000b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis2000b,
   author = {David Lewis},
@@ -1173,17 +692,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {This is an abridged version. The full version is teLewis2004a.}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1999a" class="entry">
+</tr><tr id="Lewis1999a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Papers in Metaphysics and Epistemology <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1999a','bibtex')">BibTeX</a>]</p></td>
+	<td>Papers in Metaphysics and Epistemology</td>
 	<td>1999</td>
 	<td>&nbsp;</td>
-	<td>book</td>
-	<td>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1999a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1999a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @book{Lewis1999a,
   author = {David Lewis},
@@ -1192,17 +709,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   year = {1999}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1999b" class="entry">
+</tr><tr id="Lewis1999b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Why Conditionalize? <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1999b','bibtex')">BibTeX</a>]</p></td>
+	<td>Why Conditionalize?</td>
 	<td>1999</td>
-	<td>Papers in Metaphysics and Epistemology, pp. 403-407&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>Papers in Metaphysics and Epistemology&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1999b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1999b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis1999b,
   author = {David Lewis},
@@ -1214,17 +729,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {Originally written as a course handout in 1972.}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1999c" class="entry">
+</tr><tr id="Lewis1999c" class="entry">
 	<td>Lewis, D.</td>
-	<td>Zimmerman and the Spinning Sphere <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1999c','bibtex')">BibTeX</a>]</p></td>
+	<td>Zimmerman and the Spinning Sphere</td>
 	<td>1999</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 77(2), pp. 209-212&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 77(2)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1999c','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1999c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1999c,
   author = {David Lewis},
@@ -1236,17 +749,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {209-212}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1998a" class="entry">
+</tr><tr id="Lewis1998a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Papers in Philosophical Logic <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1998a','bibtex')">BibTeX</a>]</p></td>
+	<td>Papers in Philosophical Logic</td>
 	<td>1998</td>
 	<td>&nbsp;</td>
-	<td>book</td>
-	<td>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1998a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1998a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @book{Lewis1998a,
   author = {David Lewis},
@@ -1255,17 +766,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   year = {1998}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1998b" class="entry">
+</tr><tr id="Lewis1998b" class="entry">
 	<td>Lewis, D.</td>
-	<td>A World of Truthmakers? <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1998b','bibtex')">BibTeX</a>]</p></td>
+	<td>A World of Truthmakers?</td>
 	<td>1998</td>
-	<td>Times Literary Supplement<br/>Vol. 4950, pp. 30-33&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Times Literary Supplement<br/>Vol. 4950&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1998b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1998b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1998b,
   author = {David Lewis},
@@ -1277,17 +786,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {A review of D. M. Armstrong's <em>Truth and Truthmakers</em>. Originally published under the mistaken title ``The Truthmakers''. PME 215-220}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1997a" class="entry">
+</tr><tr id="Lewis1997a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Do We Believe in Penal Substitution? <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1997a','bibtex')">BibTeX</a>]</p></td>
+	<td>Do We Believe in Penal Substitution?</td>
 	<td>1997</td>
-	<td>Philosophical Papers<br/>Vol. 26(3), pp. 203-209&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophical Papers<br/>Vol. 26(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1997a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1997a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1997a,
   author = {David Lewis},
@@ -1300,17 +807,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PESP 128-135}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1997b" class="entry">
+</tr><tr id="Lewis1997b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Finkish Dispositions <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1997b','bibtex')">BibTeX</a>]</p></td>
+	<td>Finkish Dispositions</td>
 	<td>1997</td>
-	<td>Philosophical Quarterly<br/>Vol. 47(187), pp. 143-158&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophical Quarterly<br/>Vol. 47(187)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1997b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1997b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1997b,
   author = {David Lewis},
@@ -1323,17 +828,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 133-151}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1997c" class="entry">
+</tr><tr id="Lewis1997c" class="entry">
 	<td>Lewis, D.</td>
-	<td>Naming the Colours <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1997c','bibtex')">BibTeX</a>]</p></td>
+	<td>Naming the Colours</td>
 	<td>1997</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 75(3), pp. 325-42&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 75(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1997c','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1997c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1997c,
   author = {David Lewis},
@@ -1346,17 +849,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 332-358}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1996a" class="entry">
+</tr><tr id="Lewis1996a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Desire as Belief II <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1996a','bibtex')">BibTeX</a>]</p></td>
+	<td>Desire as Belief II</td>
 	<td>1996</td>
-	<td>Mind<br/>Vol. 105(418), pp. 303-13&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Mind<br/>Vol. 105(418)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1996a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1996a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1996a,
   author = {David Lewis},
@@ -1369,17 +870,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PESP 55-67}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1996b" class="entry">
+</tr><tr id="Lewis1996b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Elusive Knowledge <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1996b','bibtex')">BibTeX</a>]</p></td>
+	<td>Elusive Knowledge</td>
 	<td>1996</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 74(4), pp. 549-567&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 74(4)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1996b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1996b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1996b,
   author = {David Lewis},
@@ -1392,17 +891,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 418-446}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1996c" class="entry">
+</tr><tr id="Lewis1996c" class="entry">
 	<td>Lewis, D.</td>
-	<td>Maudlin and Modal Mystery <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1996c','bibtex')">BibTeX</a>]</p></td>
+	<td>Maudlin and Modal Mystery</td>
 	<td>1996</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 74(4), pp. 683-684&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 74(4)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1996c','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1996c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1996c,
   author = {David Lewis},
@@ -1415,17 +912,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 221-223}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1996d" class="entry">
+</tr><tr id="Lewis1996d" class="entry">
 	<td>Lewis, D.</td>
-	<td>Illusory Innocence: Review of Peter Unger, <em>Living High and Letting Die</em> <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1996d','bibtex')">BibTeX</a>]</p></td>
+	<td>Illusory Innocence: Review of Peter Unger, <em>Living High and Letting Die</em></td>
 	<td>1996</td>
-	<td>Eureka Street<br/>Vol. 6(10), pp. 35-36&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Eureka Street<br/>Vol. 6(10)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1996d','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1996d" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1996d,
   author = {David Lewis},
@@ -1438,17 +933,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PESP 152-158}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1995a" class="entry">
+</tr><tr id="Lewis1995a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Ern Malley's Namesake <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1995a','bibtex')">BibTeX</a>]</p></td>
+	<td>Ern Malley's Namesake</td>
 	<td>1995</td>
-	<td>Quadrant<br/>Vol. 39, pp. 14-15&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Quadrant<br/>Vol. 39&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1995a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1995a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1995a,
   author = {David Lewis},
@@ -1459,17 +952,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {14-15}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1995b" class="entry">
+</tr><tr id="Lewis1995b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Should a Materialist Believe in Qualia? <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1995b','bibtex')">BibTeX</a>]</p></td>
+	<td>Should a Materialist Believe in Qualia?</td>
 	<td>1995</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 73(2), pp. 140-44&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 73(2)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1995b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1995b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1995b,
   author = {David Lewis},
@@ -1482,17 +973,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 325-331}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1994a" class="entry">
+</tr><tr id="Lewis1994a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Humean Supervenience Debugged <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1994a','bibtex')">BibTeX</a>]</p></td>
+	<td>Humean Supervenience Debugged</td>
 	<td>1994</td>
-	<td>Mind<br/>Vol. 103(412), pp. 473-490&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Mind<br/>Vol. 103(412)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1994a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1994a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1994a,
   author = {David Lewis},
@@ -1505,17 +994,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 224-247}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1993a" class="entry">
+</tr><tr id="Lewis1993a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Counterpart Theory, Quantified Modal Logic and Extra Argument Places <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1993a','bibtex')">BibTeX</a>]</p></td>
+	<td>Counterpart Theory, Quantified Modal Logic and Extra Argument Places</td>
 	<td>1993</td>
-	<td>Analysis<br/>Vol. 53(1), pp. 69-71&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Analysis<br/>Vol. 53(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1993a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1993a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1993a,
   author = {David Lewis},
@@ -1527,17 +1014,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {69-71}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1993b" class="entry">
+</tr><tr id="Lewis1993b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Evil for Freedom's Sake? <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1993b','bibtex')">BibTeX</a>]</p></td>
+	<td>Evil for Freedom's Sake?</td>
 	<td>1993</td>
-	<td>Philosophical Papers<br/>Vol. 22(3), pp. 149-172&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophical Papers<br/>Vol. 22(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1993b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1993b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1993b,
   author = {David Lewis},
@@ -1550,17 +1035,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PESP 101-127}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1993d" class="entry">
+</tr><tr id="Lewis1993d" class="entry">
 	<td>Lewis, D.</td>
-	<td>Mathematics is Megethology <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1993d','bibtex')">BibTeX</a>]</p></td>
+	<td>Mathematics is Megethology</td>
 	<td>1993</td>
-	<td>Philosophia Mathematica<br/>Vol. 3(1), pp. 3-23&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophia Mathematica<br/>Vol. 3(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1993d','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1993d" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1993d,
   author = {David Lewis},
@@ -1573,17 +1056,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPL 203-230}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1992a" class="entry">
+</tr><tr id="Lewis1992a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Meaning without Use: Reply to Hawthorne <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1992a','bibtex')">BibTeX</a>]</p></td>
+	<td>Meaning without Use: Reply to Hawthorne</td>
 	<td>1992</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 70(1), pp. 106-110&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 70(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1992a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1992a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1992a,
   author = {David Lewis},
@@ -1596,17 +1077,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PESP 145-151}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1992b" class="entry">
+</tr><tr id="Lewis1992b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Critical Notice of David Armstrong, <em>A Combinatorial Theory of Possibility</em> <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1992b','bibtex')">BibTeX</a>]</p></td>
+	<td>Critical Notice of David Armstrong, <em>A Combinatorial Theory of Possibility</em></td>
 	<td>1992</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 70(2), pp. 211-224&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 70(2)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1992b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1992b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1992b,
   author = {David Lewis},
@@ -1619,17 +1098,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 196-214}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1991a" class="entry">
+</tr><tr id="Lewis1991a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Parts of Classes <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1991a','bibtex')">BibTeX</a>]</p></td>
+	<td>Parts of Classes</td>
 	<td>1991</td>
 	<td>&nbsp;</td>
-	<td>book</td>
-	<td>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1991a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1991a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @book{Lewis1991a,
   author = {David Lewis},
@@ -1638,17 +1115,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   year = {1991}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1990" class="entry">
+</tr><tr id="Lewis1990" class="entry">
 	<td>Lewis, D.</td>
-	<td>Noneism or Allism? <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1990','bibtex')">BibTeX</a>]</p></td>
+	<td>Noneism or Allism?</td>
 	<td>1990</td>
-	<td>Mind<br/>Vol. 99(393), pp. 23-31&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Mind<br/>Vol. 99(393)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1990','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1990" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1990,
   author = {David Lewis},
@@ -1661,17 +1136,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 152-163}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1989a" class="entry">
+</tr><tr id="Lewis1989a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Academic Appointments: Why Ignore the Advantage of Being Right? <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1989a','bibtex')">BibTeX</a>]</p></td>
+	<td>Academic Appointments: Why Ignore the Advantage of Being Right?</td>
 	<td>1989</td>
 	<td>Ormond Papers<br/>Vol. 6&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1989a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1989a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1989a,
   author = {David Lewis},
@@ -1682,17 +1155,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PESP 187-200}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1989b" class="entry">
+</tr><tr id="Lewis1989b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Dispositional Theories of Value <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1989b','bibtex')">BibTeX</a>]</p></td>
+	<td>Dispositional Theories of Value</td>
 	<td>1989</td>
-	<td>Proceedings of the Aristotelian Society<br/>Vol. Supplementary Volume 63, pp. 113-137&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Proceedings of the Aristotelian Society<br/>Vol. Supplementary Volume 63&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1989b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1989b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1989b,
   author = {David Lewis},
@@ -1704,17 +1175,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PESP 68-94}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1989d" class="entry">
+</tr><tr id="Lewis1989d" class="entry">
 	<td>Lewis, D.</td>
-	<td>Mill and Milquetoast <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1989d','bibtex')">BibTeX</a>]</p></td>
+	<td>Mill and Milquetoast</td>
 	<td>1989</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 67(2), pp. 152-171&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 67(2)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1989d','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1989d" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1989d,
   author = {David Lewis},
@@ -1727,17 +1196,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PESP 159-186}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1989e" class="entry">
+</tr><tr id="Lewis1989e" class="entry">
 	<td>Lewis, D.</td>
-	<td>Review of John Bigelow, <em>The Reality of Numbers</em> <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1989e','bibtex')">BibTeX</a>]</p></td>
+	<td>Review of John Bigelow, <em>The Reality of Numbers</em></td>
 	<td>1989</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 67(4), pp. 487-489&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 67(4)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1989e','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1989e" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1989e,
   author = {David Lewis},
@@ -1749,17 +1216,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {487-489}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1988a" class="entry">
+</tr><tr id="Lewis1988a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Ayer's First Empiricist Criterion of Meaning: Why Does it Fail? <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1988a','bibtex')">BibTeX</a>]</p></td>
+	<td>Ayer's First Empiricist Criterion of Meaning: Why Does it Fail?</td>
 	<td>1988</td>
-	<td>Analysis<br/>Vol. 48(1), pp. 1-3&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Analysis<br/>Vol. 48(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1988a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1988a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1988a,
   author = {David Lewis},
@@ -1772,17 +1237,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPL 156-158}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1988b" class="entry">
+</tr><tr id="Lewis1988b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Desire as Belief <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1988b','bibtex')">BibTeX</a>]</p></td>
+	<td>Desire as Belief</td>
 	<td>1988</td>
-	<td>Mind<br/>Vol. 97(387), pp. 323-32&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Mind<br/>Vol. 97(387)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1988b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1988b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1988b,
   author = {David Lewis},
@@ -1795,17 +1258,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PESP 42-54}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1988c" class="entry">
+</tr><tr id="Lewis1988c" class="entry">
 	<td>Lewis, D.</td>
-	<td>Rearrangement of Particles: Reply to Lowe <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1988c','bibtex')">BibTeX</a>]</p></td>
+	<td>Rearrangement of Particles: Reply to Lowe</td>
 	<td>1988</td>
-	<td>Analysis<br/>Vol. 48(1), pp. 65-72&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Analysis<br/>Vol. 48(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1988c','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1988c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1988c,
   author = {David Lewis},
@@ -1818,17 +1279,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 187-195}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1988d" class="entry">
+</tr><tr id="Lewis1988d" class="entry">
 	<td>Lewis, D.</td>
-	<td>Relevant Implication <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1988d','bibtex')">BibTeX</a>]</p></td>
+	<td>Relevant Implication</td>
 	<td>1988</td>
-	<td>Theoria<br/>Vol. 54(3), pp. 162-174&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Theoria<br/>Vol. 54(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1988d','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1988d" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1988d,
   author = {David Lewis},
@@ -1841,17 +1300,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPL 111-124}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1988e" class="entry">
+</tr><tr id="Lewis1988e" class="entry">
 	<td>Lewis, D.</td>
-	<td>Statements Partly About Observation <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1988e','bibtex')">BibTeX</a>]</p></td>
+	<td>Statements Partly About Observation</td>
 	<td>1988</td>
-	<td>Philosophical Papers<br/>Vol. 17(1), pp. 1-31&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophical Papers<br/>Vol. 17(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1988e','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1988e" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1988e,
   author = {David Lewis},
@@ -1864,17 +1321,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPL 125-155}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1988f" class="entry">
+</tr><tr id="Lewis1988f" class="entry">
 	<td>Lewis, D.</td>
-	<td>The Trap's Dilemma <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1988f','bibtex')">BibTeX</a>]</p></td>
+	<td>The Trap's Dilemma</td>
 	<td>1988</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 66(2), pp. 220-223&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 66(2)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1988f','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1988f" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1988f,
   author = {David Lewis},
@@ -1887,17 +1342,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PESP 95-100}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1988g" class="entry">
+</tr><tr id="Lewis1988g" class="entry">
 	<td>Lewis, D.</td>
-	<td>Vague Identity: Evans Misunderstood <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1988g','bibtex')">BibTeX</a>]</p></td>
+	<td>Vague Identity: Evans Misunderstood</td>
 	<td>1988</td>
-	<td>Analysis<br/>Vol. 48(3), pp. 128-130&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Analysis<br/>Vol. 48(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1988g','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1988g" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1988g,
   author = {David Lewis},
@@ -1909,17 +1362,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {128-130}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1988h" class="entry">
+</tr><tr id="Lewis1988h" class="entry">
 	<td>Lewis, D.</td>
-	<td>What Experience Teaches <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1988h','bibtex')">BibTeX</a>]</p></td>
+	<td>What Experience Teaches</td>
 	<td>1988</td>
-	<td>Proceedings of the Russellian Society<br/>Vol. 13(1), pp. 29-57&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Proceedings of the Russellian Society<br/>Vol. 13(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1988h','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1988h" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1988h,
   author = {David Lewis},
@@ -1932,17 +1383,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 262-290}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1987" class="entry">
+</tr><tr id="Lewis1987" class="entry">
 	<td>Lewis, D.</td>
-	<td>The Punishment that Leaves Something to Chance <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1987','bibtex')">BibTeX</a>]</p></td>
+	<td>The Punishment that Leaves Something to Chance</td>
 	<td>1987</td>
-	<td>Proceedings of the Russellian Society<br/>Vol. 12, pp. 81-97&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Proceedings of the Russellian Society<br/>Vol. 12&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1987','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1987" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1987,
   author = {David Lewis},
@@ -1954,17 +1403,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PESP 227-243}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1986a" class="entry">
+</tr><tr id="Lewis1986a" class="entry">
 	<td>Lewis, D.</td>
-	<td>On the Plurality of Worlds <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1986a','bibtex')">BibTeX</a>]</p></td>
+	<td>On the Plurality of Worlds</td>
 	<td>1986</td>
 	<td>&nbsp;</td>
-	<td>book</td>
-	<td>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1986a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1986a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @book{Lewis1986a,
   author = {David Lewis},
@@ -1973,17 +1420,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   year = {1986}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1986b" class="entry">
+</tr><tr id="Lewis1986b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Philosophical Papers <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1986b','bibtex')">BibTeX</a>]</p></td>
+	<td>Philosophical Papers</td>
 	<td>1986</td>
 	<td><br/>Vol. II&nbsp;</td>
-	<td>book</td>
-	<td>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1986b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1986b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @book{Lewis1986b,
   author = {David Lewis},
@@ -1993,17 +1438,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   volume = {II}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1986c" class="entry">
+</tr><tr id="Lewis1986c" class="entry">
 	<td>Lewis, D.</td>
-	<td>A Comment on Armstrong and Forrest <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1986c','bibtex')">BibTeX</a>]</p></td>
+	<td>A Comment on Armstrong and Forrest</td>
 	<td>1986</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 64(1), pp. 92-93&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 64(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1986c','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1986c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1986c,
   author = {David Lewis},
@@ -2016,17 +1459,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 108-110}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1986d" class="entry">
+</tr><tr id="Lewis1986d" class="entry">
 	<td>Lewis, D.</td>
-	<td>Against Structural Universals <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1986d','bibtex')">BibTeX</a>]</p></td>
+	<td>Against Structural Universals</td>
 	<td>1986</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 64(1), pp. 25-46&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 64(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1986d','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1986d" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1986d,
   author = {David Lewis},
@@ -2039,17 +1480,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 78-107}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1986e" class="entry">
+</tr><tr id="Lewis1986e" class="entry">
 	<td>Lewis, D.</td>
-	<td>Buy like a MADman, Use Like a NUT <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1986e','bibtex')">BibTeX</a>]</p></td>
+	<td>Buy like a MADman, Use Like a NUT</td>
 	<td>1986</td>
-	<td>QQ<br/>Vol. 6(2), pp. 5-8&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>QQ<br/>Vol. 6(2)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1986e','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1986e" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1986e,
   author = {David Lewis},
@@ -2062,17 +1501,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {This is an abridged version of teLewis1989c. PESP 219-226}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1986f" class="entry">
+</tr><tr id="Lewis1986f" class="entry">
 	<td>Lewis, D.</td>
-	<td>Causal Explanation <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1986f','bibtex')">BibTeX</a>]</p></td>
+	<td>Causal Explanation</td>
 	<td>1986</td>
-	<td><br/>Vol. IIPhilosophical Papers, pp. 214-240&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td><br/>Vol. IIPhilosophical Papers&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1986f','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1986f" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis1986f,
   author = {David Lewis},
@@ -2084,17 +1521,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {214-240}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1986g" class="entry">
+</tr><tr id="Lewis1986g" class="entry">
 	<td>Lewis, D.</td>
-	<td>Events <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1986g','bibtex')">BibTeX</a>]</p></td>
+	<td>Events</td>
 	<td>1986</td>
-	<td><br/>Vol. IIPhilosophical Papers, pp. 241-269&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td><br/>Vol. IIPhilosophical Papers&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1986g','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1986g" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis1986g,
   author = {David Lewis},
@@ -2106,17 +1541,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {241-269}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1986h" class="entry">
+</tr><tr id="Lewis1986h" class="entry">
 	<td>Lewis, D.</td>
-	<td>Probabilities of Conditionals and Conditional Probabilities II <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1986h','bibtex')">BibTeX</a>]</p></td>
+	<td>Probabilities of Conditionals and Conditional Probabilities II</td>
 	<td>1986</td>
-	<td>Philosophical Review<br/>Vol. 95(4), pp. 581-589&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophical Review<br/>Vol. 95(4)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1986h','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1986h" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1986h,
   author = {David Lewis},
@@ -2129,20 +1562,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPL 57-65}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1984b" class="entry">
+</tr><tr id="Lewis1984b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Putnam's Paradox <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1984b','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Lewis1984b','bibtex')">BibTeX</a>]</p></td>
+	<td>Putnam's Paradox</td>
 	<td>1984</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 62(3), pp. 221-236&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
-</tr>
-<tr id="abs_Lewis1984b" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: This Article does not have an abstract</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 62(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1984b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1984b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1984b,
   author = {David Lewis},
@@ -2155,17 +1583,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 56-77}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1983a" class="entry">
+</tr><tr id="Lewis1983a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Philosophical Papers <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1983a','bibtex')">BibTeX</a>]</p></td>
+	<td>Philosophical Papers</td>
 	<td>1983</td>
 	<td><br/>Vol. I&nbsp;</td>
-	<td>book</td>
-	<td>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1983a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1983a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @book{Lewis1983a,
   author = {David Lewis},
@@ -2175,17 +1601,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   volume = {I}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1983b" class="entry">
+</tr><tr id="Lewis1983b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Extrinsic Properties <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1983b','bibtex')">BibTeX</a>]</p></td>
+	<td>Extrinsic Properties</td>
 	<td>1983</td>
-	<td>Philosophical Studies<br/>Vol. 44(2), pp. 197-200&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophical Studies<br/>Vol. 44(2)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1983b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1983b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1983b,
   author = {David Lewis},
@@ -2198,17 +1622,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 111-115}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1983c" class="entry">
+</tr><tr id="Lewis1983c" class="entry">
 	<td>Lewis, D.</td>
-	<td>Individuation by Acquaintance and by Stipulation <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1983c','bibtex')">BibTeX</a>]</p></td>
+	<td>Individuation by Acquaintance and by Stipulation</td>
 	<td>1983</td>
-	<td>Philosophical Review<br/>Vol. 92(1), pp. 3-32&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophical Review<br/>Vol. 92(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1983c','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1983c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1983c,
   author = {David Lewis},
@@ -2221,17 +1643,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 373-402}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1983d" class="entry">
+</tr><tr id="Lewis1983d" class="entry">
 	<td>Lewis, D.</td>
-	<td>Levi against U-Maximization <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1983d','bibtex')">BibTeX</a>]</p></td>
+	<td>Levi against U-Maximization</td>
 	<td>1983</td>
-	<td>Journal of Philosophy<br/>Vol. 80(9), pp. 531-534&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Journal of Philosophy<br/>Vol. 80(9)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1983d','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1983d" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1983d,
   author = {David Lewis},
@@ -2243,20 +1663,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {531-534}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1983e" class="entry">
+</tr><tr id="Lewis1983e" class="entry">
 	<td>Lewis, D.</td>
-	<td>New Work for a Theory of Universals <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1983e','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Lewis1983e','bibtex')">BibTeX</a>]</p></td>
+	<td>New Work for a Theory of Universals</td>
 	<td>1983</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 61(4), pp. 343-377&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
-</tr>
-<tr id="abs_Lewis1983e" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: This Article does not have an abstract</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 61(4)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1983e','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1983e" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1983e,
   author = {David Lewis},
@@ -2269,17 +1684,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 8-55}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1982c" class="entry">
+</tr><tr id="Lewis1982c" class="entry">
 	<td>Lewis, D.</td>
-	<td>Logic for Equivocators <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1982c','bibtex')">BibTeX</a>]</p></td>
+	<td>Logic for Equivocators</td>
 	<td>1982</td>
-	<td>No&ucirc;s<br/>Vol. 16(3), pp. 431-441&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>No&ucirc;s<br/>Vol. 16(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1982c','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1982c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1982c,
   author = {David Lewis},
@@ -2292,17 +1705,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPL 97-110}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1981a" class="entry">
+</tr><tr id="Lewis1981a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Are we Free to Break the Laws? <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1981a','bibtex')">BibTeX</a>]</p></td>
+	<td>Are we Free to Break the Laws?</td>
 	<td>1981</td>
-	<td>Theoria<br/>Vol. 47(3), pp. 113-121&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Theoria<br/>Vol. 47(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1981a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1981a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1981a,
   author = {David Lewis},
@@ -2315,17 +1726,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPII 291-298}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1981b" class="entry">
+</tr><tr id="Lewis1981b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Causal Decision Theory <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1981b','bibtex')">BibTeX</a>]</p></td>
+	<td>Causal Decision Theory</td>
 	<td>1981</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 59(1), pp. 5-30&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 59(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1981b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1981b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1981b,
   author = {David Lewis},
@@ -2338,17 +1747,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPII 305-337}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1981c" class="entry">
+</tr><tr id="Lewis1981c" class="entry">
 	<td>Lewis, D.</td>
-	<td>Ordering Semantics and Premise Semantics for Counterfactuals <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1981c','bibtex')">BibTeX</a>]</p></td>
+	<td>Ordering Semantics and Premise Semantics for Counterfactuals</td>
 	<td>1981</td>
-	<td>Journal of Philosophical Logic<br/>Vol. 10(2), pp. 217-234&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Journal of Philosophical Logic<br/>Vol. 10(2)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1981c','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1981c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1981c,
   author = {David Lewis},
@@ -2361,17 +1768,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPL 77-96}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1981d" class="entry">
+</tr><tr id="Lewis1981d" class="entry">
 	<td>Lewis, D.</td>
-	<td>What Puzzling Pierre Does Not Believe <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1981d','bibtex')">BibTeX</a>]</p></td>
+	<td>What Puzzling Pierre Does Not Believe</td>
 	<td>1981</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 59(3), pp. 283-289&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 59(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1981d','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1981d" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1981d,
   author = {David Lewis},
@@ -2384,17 +1789,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 408-417}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1981e" class="entry">
+</tr><tr id="Lewis1981e" class="entry">
 	<td>Lewis, D.</td>
-	<td>Why Ain'cha Rich? <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1981e','bibtex')">BibTeX</a>]</p></td>
+	<td>Why Ain'cha Rich?</td>
 	<td>1981</td>
-	<td>No&ucirc;s<br/>Vol. 15(3), pp. 377-380&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>No&ucirc;s<br/>Vol. 15(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1981e','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1981e" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1981e,
   author = {David Lewis},
@@ -2407,17 +1810,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PESP 37-41}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1980a" class="entry">
+</tr><tr id="Lewis1980a" class="entry">
 	<td>Lewis, D.</td>
-	<td>A Subjectivist's Guide to Objective Chance <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1980a','bibtex')">BibTeX</a>]</p></td>
+	<td>A Subjectivist's Guide to Objective Chance</td>
 	<td>1980</td>
-	<td><br/>Vol. 2Studies in Inductive Logic and Probability, pp. 83-132&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td><br/>Vol. 2Studies in Inductive Logic and Probability&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1980a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1980a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis1980a,
   author = {David Lewis},
@@ -2430,20 +1831,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPII 83-113}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1980d" class="entry">
+</tr><tr id="Lewis1980d" class="entry">
 	<td>Lewis, D.</td>
-	<td>Veridical Hallucination and Prosthetic Vision <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1980d','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Lewis1980d','bibtex')">BibTeX</a>]</p></td>
+	<td>Veridical Hallucination and Prosthetic Vision</td>
 	<td>1980</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 58(3), pp. 239-249&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
-</tr>
-<tr id="abs_Lewis1980d" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: This Article does not have an abstract</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 58(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1980d','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1980d" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1980d,
   author = {David Lewis},
@@ -2456,17 +1852,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPII 273-286}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1979b" class="entry">
+</tr><tr id="Lewis1979b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Attitudes <em>De Dicto</em> and <em>De Se</em> <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1979b','bibtex')">BibTeX</a>]</p></td>
+	<td>Attitudes <em>De Dicto</em> and <em>De Se</em></td>
 	<td>1979</td>
-	<td>Philosophical Review<br/>Vol. 88(4), pp. 513-543&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophical Review<br/>Vol. 88(4)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1979b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1979b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1979b,
   author = {David Lewis},
@@ -2479,17 +1873,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPI 133-156}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1979c" class="entry">
+</tr><tr id="Lewis1979c" class="entry">
 	<td>Lewis, D.</td>
-	<td>Counterfactual Dependence and Time's Arrow <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1979c','bibtex')">BibTeX</a>]</p></td>
+	<td>Counterfactual Dependence and Time's Arrow</td>
 	<td>1979</td>
-	<td>No&ucirc;s<br/>Vol. 13(4), pp. 455-476&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>No&ucirc;s<br/>Vol. 13(4)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1979c','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1979c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1979c,
   author = {David Lewis},
@@ -2502,17 +1894,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPII 32-52}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1979d" class="entry">
+</tr><tr id="Lewis1979d" class="entry">
 	<td>Lewis, D.</td>
-	<td>Lucas against Mechanism II <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1979d','bibtex')">BibTeX</a>]</p></td>
+	<td>Lucas against Mechanism II</td>
 	<td>1979</td>
-	<td>Canadian Journal of Philosophy<br/>Vol. 9(3), pp. 373-6&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Canadian Journal of Philosophy<br/>Vol. 9(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1979d','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1979d" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1979d,
   author = {David Lewis},
@@ -2525,17 +1915,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPL 170-173}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1979e" class="entry">
+</tr><tr id="Lewis1979e" class="entry">
 	<td>Lewis, D.</td>
-	<td>Prisoners' Dilemma is a Newcomb Problem <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1979e','bibtex')">BibTeX</a>]</p></td>
+	<td>Prisoners' Dilemma is a Newcomb Problem</td>
 	<td>1979</td>
-	<td>Philosophy and Public Affairs<br/>Vol. 8(3), pp. 235-240&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophy and Public Affairs<br/>Vol. 8(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1979e','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1979e" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1979e,
   author = {David Lewis},
@@ -2548,17 +1936,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPII 299-304}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1979f" class="entry">
+</tr><tr id="Lewis1979f" class="entry">
 	<td>Lewis, D.</td>
-	<td>Scorekeeping in a Language Game <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1979f','bibtex')">BibTeX</a>]</p></td>
+	<td>Scorekeeping in a Language Game</td>
 	<td>1979</td>
-	<td>Journal of Philosophical Logic<br/>Vol. 8(1), pp. 339-359&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Journal of Philosophical Logic<br/>Vol. 8(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1979f','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1979f" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1979f,
   author = {David Lewis},
@@ -2571,17 +1957,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPI 233-249}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1978a" class="entry">
+</tr><tr id="Lewis1978a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Reply to McMichael <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1978a','bibtex')">BibTeX</a>]</p></td>
+	<td>Reply to McMichael</td>
 	<td>1978</td>
-	<td>Analysis<br/>Vol. 38(2), pp. 85-86&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Analysis<br/>Vol. 38(2)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1978a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1978a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1978a,
   author = {David Lewis},
@@ -2594,17 +1978,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PESP 34-36}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1978b" class="entry">
+</tr><tr id="Lewis1978b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Truth in Fiction <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1978b','bibtex')">BibTeX</a>]</p></td>
+	<td>Truth in Fiction</td>
 	<td>1978</td>
-	<td>American Philosophical Quarterly<br/>Vol. 15(1), pp. 37-46&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>American Philosophical Quarterly<br/>Vol. 15(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1978b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1978b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1978b,
   author = {David Lewis},
@@ -2617,17 +1999,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPI 261-275}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1977" class="entry">
+</tr><tr id="Lewis1977" class="entry">
 	<td>Lewis, D.</td>
-	<td>Possible-World Semantics for Counterfactual Logics: A Rejoinder <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1977','bibtex')">BibTeX</a>]</p></td>
+	<td>Possible-World Semantics for Counterfactual Logics: A Rejoinder</td>
 	<td>1977</td>
-	<td>Journal of Philosophical Logic<br/>Vol. 6(3), pp. 359-363&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Journal of Philosophical Logic<br/>Vol. 6(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1977','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1977" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1977,
   author = {David Lewis},
@@ -2639,17 +2019,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {359-363}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1976a" class="entry">
+</tr><tr id="Lewis1976a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Convention: Reply to Jamieson <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1976a','bibtex')">BibTeX</a>]</p></td>
+	<td>Convention: Reply to Jamieson</td>
 	<td>1976</td>
-	<td>Canadian Journal of Philosophy<br/>Vol. 6(1), pp. 113-120&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Canadian Journal of Philosophy<br/>Vol. 6(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1976a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1976a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1976a,
   author = {David Lewis},
@@ -2662,17 +2040,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PESP 136-144}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1976b" class="entry">
+</tr><tr id="Lewis1976b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Probabilities of Conditionals and Conditional Probabilities <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1976b','bibtex')">BibTeX</a>]</p></td>
+	<td>Probabilities of Conditionals and Conditional Probabilities</td>
 	<td>1976</td>
-	<td>Philosophical Review<br/>Vol. 85(3), pp. 297-315&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophical Review<br/>Vol. 85(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1976b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1976b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1976b,
   author = {David Lewis},
@@ -2685,17 +2061,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPII 133-152}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1976d" class="entry">
+</tr><tr id="Lewis1976d" class="entry">
 	<td>Lewis, D.</td>
-	<td>The Paradoxes of Time Travel <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1976d','bibtex')">BibTeX</a>]</p></td>
+	<td>The Paradoxes of Time Travel</td>
 	<td>1976</td>
-	<td>American Philosophical Quarterly<br/>Vol. 13(2), pp. 145-152&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>American Philosophical Quarterly<br/>Vol. 13(2)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1976d','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1976d" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1976d,
   author = {David Lewis},
@@ -2708,17 +2082,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPII 67-80}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1975a" class="entry">
+</tr><tr id="Lewis1975a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Adverbs of Quantification <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1975a','bibtex')">BibTeX</a>]</p></td>
+	<td>Adverbs of Quantification</td>
 	<td>1975</td>
-	<td>Formal Semantics of Natural Language, pp. 3-15&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>Formal Semantics of Natural Language&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1975a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1975a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis1975a,
   author = {David Lewis},
@@ -2730,17 +2102,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPL 5-20}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1975b" class="entry">
+</tr><tr id="Lewis1975b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Languages and Language <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1975b','bibtex')">BibTeX</a>]</p></td>
+	<td>Languages and Language</td>
 	<td>1975</td>
-	<td><br/>Vol. 7Minnesota Studies in the Philosophy of Science, pp. 3-35&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td><br/>Vol. 7Minnesota Studies in the Philosophy of Science&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1975b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1975b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis1975b,
   author = {David Lewis},
@@ -2753,17 +2123,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPI 163-188}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1974b" class="entry">
+</tr><tr id="Lewis1974b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Intensional Logics without Interative Axioms <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1974b','bibtex')">BibTeX</a>]</p></td>
+	<td>Intensional Logics without Interative Axioms</td>
 	<td>1974</td>
-	<td>Journal of Philosophical Logic<br/>Vol. 3(4), pp. 457-466&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Journal of Philosophical Logic<br/>Vol. 3(4)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1974b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1974b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1974b,
   author = {David Lewis},
@@ -2776,17 +2144,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPL 66-76}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1974c" class="entry">
+</tr><tr id="Lewis1974c" class="entry">
 	<td>Lewis, D.</td>
-	<td>Radical Interpretation <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1974c','bibtex')">BibTeX</a>]</p></td>
+	<td>Radical Interpretation</td>
 	<td>1974</td>
-	<td>Synthese<br/>Vol. 27(3-4), pp. 331-344&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Synthese<br/>Vol. 27(3-4)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1974c','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1974c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1974c,
   author = {David Lewis},
@@ -2799,17 +2165,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPI 108-118}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1974e" class="entry">
+</tr><tr id="Lewis1974e" class="entry">
 	<td>Lewis, D.</td>
-	<td>Spielman and Lewis on Inductive Immodesty <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1974e','bibtex')">BibTeX</a>]</p></td>
+	<td>Spielman and Lewis on Inductive Immodesty</td>
 	<td>1974</td>
-	<td>Philosophy of Science<br/>Vol. 41(1), pp. 84-85&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophy of Science<br/>Vol. 41(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1974e','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1974e" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1974e,
   author = {David Lewis},
@@ -2821,17 +2185,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {84-85}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1973a" class="entry">
+</tr><tr id="Lewis1973a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Counterfactuals <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1973a','bibtex')">BibTeX</a>]</p></td>
+	<td>Counterfactuals</td>
 	<td>1973</td>
 	<td>&nbsp;</td>
-	<td>book</td>
-	<td>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1973a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1973a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @book{Lewis1973a,
   author = {David Lewis},
@@ -2840,17 +2202,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   year = {1973}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1973b" class="entry">
+</tr><tr id="Lewis1973b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Causation <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1973b','bibtex')">BibTeX</a>]</p></td>
+	<td>Causation</td>
 	<td>1973</td>
-	<td>Journal of Philosophy<br/>Vol. 70(17), pp. 556-567&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Journal of Philosophy<br/>Vol. 70(17)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1973b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1973b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1973b,
   author = {David Lewis},
@@ -2863,17 +2223,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPII 159-172}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1973c" class="entry">
+</tr><tr id="Lewis1973c" class="entry">
 	<td>Lewis, D.</td>
-	<td>Counterfactuals and Comparative Possibility <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1973c','bibtex')">BibTeX</a>]</p></td>
+	<td>Counterfactuals and Comparative Possibility</td>
 	<td>1973</td>
-	<td>Journal of Philosophical Logic<br/>Vol. 2(4), pp. 418-446&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Journal of Philosophical Logic<br/>Vol. 2(4)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1973c','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1973c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1973c,
   author = {David Lewis},
@@ -2886,17 +2244,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPII 3-31}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1973d" class="entry">
+</tr><tr id="Lewis1973d" class="entry">
 	<td>Lewis, D.</td>
-	<td>Lingue e Lingua <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1973d','bibtex')">BibTeX</a>]</p></td>
+	<td>Lingue e Lingua</td>
 	<td>1973</td>
-	<td>Versus<br/>Vol. 4, pp. 2-21&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Versus<br/>Vol. 4&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1973d','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1973d" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1973d,
   author = {David Lewis},
@@ -2908,17 +2264,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {A revised version of this was published in English as teLewis1975b}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1972a" class="entry">
+</tr><tr id="Lewis1972a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Psychophysical and Theoretical Identifications <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1972a','bibtex')">BibTeX</a>]</p></td>
+	<td>Psychophysical and Theoretical Identifications</td>
 	<td>1972</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 50(4), pp. 249-58&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 50(4)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1972a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1972a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1972a,
   author = {David Lewis},
@@ -2931,17 +2285,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 248-261}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1972b" class="entry">
+</tr><tr id="Lewis1972b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Utilitarianism and Truthfulness <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1972b','bibtex')">BibTeX</a>]</p></td>
+	<td>Utilitarianism and Truthfulness</td>
 	<td>1972</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 50(1), pp. 17-19&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 50(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1972b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1972b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1972b,
   author = {David Lewis},
@@ -2954,17 +2306,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPII 340-342}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1971a" class="entry">
+</tr><tr id="Lewis1971a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Analog and Digital <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1971a','bibtex')">BibTeX</a>]</p></td>
+	<td>Analog and Digital</td>
 	<td>1971</td>
-	<td>No&ucirc;s<br/>Vol. 5(3), pp. 321-327&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>No&ucirc;s<br/>Vol. 5(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1971a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1971a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1971a,
   author = {David Lewis},
@@ -2977,17 +2327,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPL 159-165}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1971b" class="entry">
+</tr><tr id="Lewis1971b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Completeness and Decidability of Three Logics of Counterfactual Conditionals <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1971b','bibtex')">BibTeX</a>]</p></td>
+	<td>Completeness and Decidability of Three Logics of Counterfactual Conditionals</td>
 	<td>1971</td>
-	<td>Theoria<br/>Vol. 37(1), pp. 74-85&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Theoria<br/>Vol. 37(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1971b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1971b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1971b,
   author = {David Lewis},
@@ -2999,17 +2347,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {74-85}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1971c" class="entry">
+</tr><tr id="Lewis1971c" class="entry">
 	<td>Lewis, D.</td>
-	<td>Counterparts of Persons and Their Bodies <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1971c','bibtex')">BibTeX</a>]</p></td>
+	<td>Counterparts of Persons and Their Bodies</td>
 	<td>1971</td>
-	<td>Journal of Philosophy<br/>Vol. 68(7), pp. 203-211&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Journal of Philosophy<br/>Vol. 68(7)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1971c','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1971c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1971c,
   author = {David Lewis},
@@ -3022,17 +2368,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPI 47-54}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1971d" class="entry">
+</tr><tr id="Lewis1971d" class="entry">
 	<td>Lewis, D.</td>
-	<td>Immodest Inductive Methods <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1971d','bibtex')">BibTeX</a>]</p></td>
+	<td>Immodest Inductive Methods</td>
 	<td>1971</td>
-	<td>Philosophy of Science<br/>Vol. 38(1), pp. 54-63&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophy of Science<br/>Vol. 38(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1971d','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1971d" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1971d,
   author = {David Lewis},
@@ -3044,17 +2388,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {54-63}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1970a" class="entry">
+</tr><tr id="Lewis1970a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Anselm and Actuality <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1970a','bibtex')">BibTeX</a>]</p></td>
+	<td>Anselm and Actuality</td>
 	<td>1970</td>
-	<td>No&ucirc;s<br/>Vol. 4(2), pp. 175-188&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>No&ucirc;s<br/>Vol. 4(2)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1970a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1970a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1970a,
   author = {David Lewis},
@@ -3067,17 +2409,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPI 10-20}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1970b" class="entry">
+</tr><tr id="Lewis1970b" class="entry">
 	<td>Lewis, D.</td>
-	<td>General Semantics <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1970b','bibtex')">BibTeX</a>]</p></td>
+	<td>General Semantics</td>
 	<td>1970</td>
-	<td>Synthese<br/>Vol. 22(1-2), pp. 18-67&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Synthese<br/>Vol. 22(1-2)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1970b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1970b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1970b,
   author = {David Lewis},
@@ -3090,17 +2430,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPI 189-229}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1970c" class="entry">
+</tr><tr id="Lewis1970c" class="entry">
 	<td>Lewis, D.</td>
-	<td>How to Define Theoretical Terms <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1970c','bibtex')">BibTeX</a>]</p></td>
+	<td>How to Define Theoretical Terms</td>
 	<td>1970</td>
-	<td>Journal of Philosophy<br/>Vol. 67(13), pp. 427-446&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Journal of Philosophy<br/>Vol. 67(13)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1970c','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1970c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1970c,
   author = {David Lewis},
@@ -3113,17 +2451,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPI 78-95}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1970d" class="entry">
+</tr><tr id="Lewis1970d" class="entry">
 	<td>Lewis, D.</td>
-	<td>Nominalistic Set Theory <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1970d','bibtex')">BibTeX</a>]</p></td>
+	<td>Nominalistic Set Theory</td>
 	<td>1970</td>
-	<td>No&ucirc;s<br/>Vol. 4(3), pp. 225-240&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>No&ucirc;s<br/>Vol. 4(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1970d','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1970d" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1970d,
   author = {David Lewis},
@@ -3136,17 +2472,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPL 186-202}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1969a" class="entry">
+</tr><tr id="Lewis1969a" class="entry">
 	<td>Lewis, D.</td>
-	<td>Convention: A Philosophical Study <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1969a','bibtex')">BibTeX</a>]</p></td>
+	<td>Convention: A Philosophical Study</td>
 	<td>1969</td>
 	<td>&nbsp;</td>
-	<td>book</td>
-	<td>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1969a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1969a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @book{Lewis1969a,
   author = {David Lewis},
@@ -3155,17 +2489,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   year = {1969}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1969b" class="entry">
+</tr><tr id="Lewis1969b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Lucas against Mechanism <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1969b','bibtex')">BibTeX</a>]</p></td>
+	<td>Lucas against Mechanism</td>
 	<td>1969</td>
-	<td>Philosophy<br/>Vol. 44(June), pp. 231-3&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophy<br/>Vol. 44(June)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1969b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1969b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1969b,
   author = {David Lewis},
@@ -3178,17 +2510,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPL 166-169}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1969c" class="entry">
+</tr><tr id="Lewis1969c" class="entry">
 	<td>Lewis, D.</td>
-	<td>Policing the <em>Aufbau</em> <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1969c','bibtex')">BibTeX</a>]</p></td>
+	<td>Policing the <em>Aufbau</em></td>
 	<td>1969</td>
-	<td>Philosophical Studies<br/>Vol. 20(1-2), pp. 13-17&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophical Studies<br/>Vol. 20(1-2)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1969c','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1969c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1969c,
   author = {David Lewis},
@@ -3201,17 +2531,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPL 174-179}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1969d" class="entry">
+</tr><tr id="Lewis1969d" class="entry">
 	<td>Lewis, D.</td>
-	<td>Review of W. H. Capitan and D. D. Merill, eds. <em>Art, Mind and Religion</em> <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1969d','bibtex')">BibTeX</a>]</p></td>
+	<td>Review of W. H. Capitan and D. D. Merill, eds. <em>Art, Mind and Religion</em></td>
 	<td>1969</td>
-	<td>Journal of Philosophy<br/>Vol. 66(1), pp. 22-27&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Journal of Philosophy<br/>Vol. 66(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1969d','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1969d" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1969d,
   author = {David Lewis},
@@ -3223,17 +2551,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {22-27}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1968-LEWCTA" class="entry">
+</tr><tr id="Lewis1968-LEWCTA" class="entry">
 	<td>Lewis, D.</td>
-	<td>Counterpart Theory and Quantified Modal Logic <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1968-LEWCTA','bibtex')">BibTeX</a>]</p></td>
+	<td>Counterpart Theory and Quantified Modal Logic</td>
 	<td>1968</td>
-	<td>Journal of Philosophy<br/>Vol. 65(5), pp. 113-126&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Journal of Philosophy<br/>Vol. 65(5)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1968-LEWCTA','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1968-LEWCTA" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1968-LEWCTA,
   author = {David Lewis},
@@ -3246,17 +2572,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPI 26-39}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1966a" class="entry">
+</tr><tr id="Lewis1966a" class="entry">
 	<td>Lewis, D.</td>
-	<td>An Argument for the Identity Theory <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1966a','bibtex')">BibTeX</a>]</p></td>
+	<td>An Argument for the Identity Theory</td>
 	<td>1966</td>
-	<td>Journal of Philosophy<br/>Vol. 63(2), pp. 17-25&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Journal of Philosophy<br/>Vol. 63(2)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1966a','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1966a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1966a,
   author = {David Lewis},
@@ -3269,17 +2593,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {Reprinted with additions as teLewis1971e}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1966b" class="entry">
+</tr><tr id="Lewis1966b" class="entry">
 	<td>Lewis, D.</td>
-	<td>Percepts and Color Mosaics in Visual Experience <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1966b','bibtex')">BibTeX</a>]</p></td>
+	<td>Percepts and Color Mosaics in Visual Experience</td>
 	<td>1966</td>
-	<td>Philosophical Review<br/>Vol. 75(3), pp. 357-368&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophical Review<br/>Vol. 75(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1966b','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1966b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1966b,
   author = {David Lewis},
@@ -3292,17 +2614,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 359-372}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1996Lewis" class="entry">
+</tr><tr id="Lewis1996Lewis" class="entry">
 	<td>Lewis, D. and Lewis, S.</td>
-	<td>Review of Roberto Casati and Achille Varzi, <em>Holes</em> <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1996Lewis','bibtex')">BibTeX</a>]</p></td>
+	<td>Review of Roberto Casati and Achille Varzi, <em>Holes</em></td>
 	<td>1996</td>
-	<td>Philosophical Review<br/>Vol. 105(1), pp. 77-79&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophical Review<br/>Vol. 105(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1996Lewis','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1996Lewis" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1996Lewis,
   author = {David Lewis and Stephanie Lewis},
@@ -3315,17 +2635,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PME 183-186}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1975Lewis" class="entry">
+</tr><tr id="Lewis1975Lewis" class="entry">
 	<td>Lewis, D. and Lewis, S.</td>
-	<td>Review of <em>Contemporary Philosophy in Scandanavia</em> <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1975Lewis','bibtex')">BibTeX</a>]</p></td>
+	<td>Review of <em>Contemporary Philosophy in Scandanavia</em></td>
 	<td>1975</td>
-	<td>Theoria<br/>Vol. 41(1), pp. 39-60&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Theoria<br/>Vol. 41(1)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1975Lewis','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1975Lewis" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1975Lewis,
   author = {David Lewis and Stephanie Lewis},
@@ -3337,17 +2655,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   pages = {39-60}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1970Lewis" class="entry">
+</tr><tr id="Lewis1970Lewis" class="entry">
 	<td>Lewis, D. and Lewis, S.</td>
-	<td>Holes <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1970Lewis','bibtex')">BibTeX</a>]</p></td>
+	<td>Holes</td>
 	<td>1970</td>
-	<td>Australasian Journal of Philosophy<br/>Vol. 48(2), pp. 206-212&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 48(2)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1970Lewis','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1970Lewis" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1970Lewis,
   author = {David Lewis and Stephanie Lewis},
@@ -3360,17 +2676,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PPI 3-9}
 }
 </pre></td>
-</tr>
-<tr id="Lewis1966Richardson" class="entry">
+</tr><tr id="Lewis1966Richardson" class="entry">
 	<td>Lewis, D. and Richardson, J.S.</td>
-	<td>Scriven on Human Unpredictability <p class="infolinks">[<a href="javascript:toggleInfo('Lewis1966Richardson','bibtex')">BibTeX</a>]</p></td>
+	<td>Scriven on Human Unpredictability</td>
 	<td>1966</td>
-	<td>Philosophical Studies<br/>Vol. 17(5), pp. 69-74&nbsp;</td>
-	<td>article</td>
-	<td>&nbsp;</td>
+	<td>Philosophical Studies<br/>Vol. 17(5)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis1966Richardson','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis1966Richardson" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @article{Lewis1966Richardson,
   author = {David Lewis and Jane Shelby Richardson},
@@ -3383,17 +2697,15 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
   note = {PESP 244-250}
 }
 </pre></td>
-</tr>
-<tr id="Lewis2003Rosen" class="entry">
+</tr><tr id="Lewis2003Rosen" class="entry">
 	<td>Lewis, D. and Rosen, G.</td>
-	<td>Postscript to `Things qua Truthmakers': Negative Existentials <p class="infolinks">[<a href="javascript:toggleInfo('Lewis2003Rosen','bibtex')">BibTeX</a>]</p></td>
+	<td>Postscript to `Things qua Truthmakers': Negative Existentials</td>
 	<td>2003</td>
-	<td>Real Metaphysics: Essays in Honour of D. H. Mellor, pp. 39-42&nbsp;</td>
-	<td>incollection</td>
-	<td>&nbsp;</td>
+	<td>Real Metaphysics: Essays in Honour of D. H. Mellor&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('Lewis2003Rosen','bibtex')">BibTeX</a></p>&nbsp;</td>
 </tr>
 <tr id="bib_Lewis2003Rosen" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
+<td></td><td colspan="4"><b>BibTeX</b>:
 <pre>
 @incollection{Lewis2003Rosen,
   author = {David Lewis and Gideon Rosen},
@@ -3405,9 +2717,3 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
 }
 </pre></td>
 </tr>
-</tbody>
-</table>
-
- <small>Created by <a href="http://jabref.sourceforge.net">JabRef</a> on 05/10/2014.</small>
-
-{% include return-to-parent.html %}
