@@ -1,0 +1,2794 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>semantics and pragmatics</title>
+		<link rel="stylesheet" href="/css/erik-style-2.css">
+		<link rel="stylesheet" href="/css/latex.css">
+		<link rel="shortcut icon" href="/images/eicon2.ico" >
+	</head>
+	
+	<a name="top"></a>
+
+<body>
+
+<!-- Header -->
+	<div id="header">
+		<div id="headbg">
+			<h1 class="alignleft">semantics and pragmatics</h1>
+			<div style="clear: both;"></div>
+			<h2 class="alignright">bibliography</h2>
+		</div>
+	</div>
+
+
+<!-- Site navigation menu -->
+	<div id="nav-bar">
+		
+		
+		
+		
+		
+		
+		
+			<a href="/index.html">home</a>
+		
+			<a href="/research/index.html">research</a>
+		
+			<a href="/teaching/index.html">teaching</a>
+		
+			<a href="/personal/index.html">personal</a>
+		
+			<a href="/blog/index.html">blog</a>
+		
+		
+		<div class="alignright"><form id="search" method="get" action="http://duckduckgo.com/">
+   <input type="hidden" name="sites" value="erikhoversten.org/"/>
+   <input type="hidden" name="kae" value="d"/>
+   <input type="hidden" name="km" value="m"/>
+   <input type="hidden" name="ka" value="h"/>
+   <input type="hidden" name="k7" value="#f5f5f5"/>
+   <input type="hidden" name="k8" value="#2F4F4F"/>
+   <input type="hidden" name="kj" value="#4682B4"/>
+   <input type="hidden" name="ky" value="#B0C4DE"/>
+   <input type="hidden" name="kx" value="#4682B4"/>
+   <input type="hidden" name="kt" value="Helvetica"/>
+   <input type="hidden" name="t" value="erikhoversten.org"/>
+   <input type="text" name="q" maxlength="55" placeholder="  search this site"/>
+   <!--<input type="submit" value="Go" />-->
+</form></div>
+	</div>
+	
+<!-- Arrow navigation -->
+	<div id="arrow-nav">	
+	
+<!--For main site pages-->	
+	
+	
+			
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+
+<!--For blog posts-->	
+	
+
+	
+
+	
+<!--For return to top-->
+	<div id="to-top">
+		<a href="#top" ><img src="/images/enavbuttonu-50.png" alt="" title="back to top"></a>
+	</div>
+	
+</div>
+
+<div id="content">
+    <h2>semantics and pragmatics bibliography</h2>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+<!--
+// QuickSearch script for JabRef HTML export 
+// Version: 3.0
+//
+// Copyright (c) 2006-2011, Mark Schenk
+//
+// This software is distributed under a Creative Commons Attribution 3.0 License
+// http://creativecommons.org/licenses/by/3.0/
+//
+// Features:
+// - intuitive find-as-you-type searching
+//    ~ case insensitive
+//    ~ ignore diacritics (optional)
+//
+// - search with/without Regular Expressions
+// - match BibTeX key
+//
+
+// Search settings
+var searchAbstract = true;	// search in abstract
+var searchReview = true;	// search in review
+
+var noSquiggles = true; 	// ignore diacritics when searching
+var searchRegExp = false; 	// enable RegExp searches
+
+
+if (window.addEventListener) {
+	window.addEventListener("load",initSearch,false); }
+else if (window.attachEvent) {
+	window.attachEvent("onload", initSearch); }
+
+function initSearch() {
+	// check for quick search table and searchfield
+	if (!document.getElementById('qs_table')||!document.getElementById('quicksearch')) { return; }
+
+	// load all the rows and sort into arrays
+	loadTableData();
+	
+	//find the query field
+	qsfield = document.getElementById('qs_field');
+
+	// previous search term; used for speed optimisation
+	prevSearch = '';
+
+	//find statistics location
+	stats = document.getElementById('stat');
+	setStatistics(-1);
+	
+	// set up preferences
+	initPreferences();
+
+	// shows the searchfield
+	document.getElementById('quicksearch').style.display = 'block';
+	document.getElementById('qs_field').onkeyup = quickSearch;
+}
+
+function loadTableData() {
+	// find table and appropriate rows
+	searchTable = document.getElementById('qs_table');
+	var allRows = searchTable.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+	// split all rows into entryRows and infoRows (e.g. abstract, review, bibtex)
+	entryRows = new Array(); infoRows = new Array(); absRows = new Array(); revRows = new Array();
+
+	// get data from each row
+	entryRowsData = new Array(); absRowsData = new Array(); revRowsData = new Array(); 
+	
+	BibTeXKeys = new Array();
+	
+	for (var i=0, k=0, j=0; i<allRows.length;i++) {
+		if (allRows[i].className.match(/entry/)) {
+			entryRows[j] = allRows[i];
+			entryRowsData[j] = stripDiacritics(getTextContent(allRows[i]));
+			allRows[i].id ? BibTeXKeys[j] = allRows[i].id : allRows[i].id = 'autokey_'+j;
+			j ++;
+		} else {
+			infoRows[k++] = allRows[i];
+			// check for abstract/review
+			if (allRows[i].className.match(/abstract/)) {
+				absRows.push(allRows[i]);
+				absRowsData[j-1] = stripDiacritics(getTextContent(allRows[i]));
+			} else if (allRows[i].className.match(/review/)) {
+				revRows.push(allRows[i]);
+				revRowsData[j-1] = stripDiacritics(getTextContent(allRows[i]));
+			}
+		}
+	}
+	//number of entries and rows
+	numEntries = entryRows.length;
+	numInfo = infoRows.length;
+	numAbs = absRows.length;
+	numRev = revRows.length;
+}
+
+function quickSearch(){
+	
+	tInput = qsfield;
+
+	if (tInput.value.length == 0) {
+		showAll();
+		setStatistics(-1);
+		qsfield.className = '';
+		return;
+	} else {
+		t = stripDiacritics(tInput.value);
+
+		if(!searchRegExp) { t = escapeRegExp(t); }
+			
+		// only search for valid RegExp
+		try {
+			textRegExp = new RegExp(t,"i");
+			closeAllInfo();
+			qsfield.className = '';
+		}
+			catch(err) {
+			prevSearch = tInput.value;
+			qsfield.className = 'invalidsearch';
+			return;
+		}
+	}
+	
+	// count number of hits
+	var hits = 0;
+
+	// start looping through all entry rows
+	for (var i = 0; cRow = entryRows[i]; i++){
+
+		// only show search the cells if it isn't already hidden OR if the search term is getting shorter, then search all
+		if(cRow.className.indexOf('noshow')==-1 || tInput.value.length <= prevSearch.length){
+			var found = false; 
+
+			if (entryRowsData[i].search(textRegExp) != -1 || BibTeXKeys[i].search(textRegExp) != -1){ 
+				found = true;
+			} else {
+				if(searchAbstract && absRowsData[i]!=undefined) {
+					if (absRowsData[i].search(textRegExp) != -1){ found=true; } 
+				}
+				if(searchReview && revRowsData[i]!=undefined) {
+					if (revRowsData[i].search(textRegExp) != -1){ found=true; } 
+				}
+			}
+			
+			if (found){
+				cRow.className = 'entry show';
+				hits++;
+			} else {
+				cRow.className = 'entry noshow';
+			}
+		}
+	}
+
+	// update statistics
+	setStatistics(hits)
+	
+	// set previous search value
+	prevSearch = tInput.value;
+}
+
+
+// Strip Diacritics from text
+// http://stackoverflow.com/questions/990904/javascript-remove-accents-in-strings
+
+// String containing replacement characters for stripping accents 
+var stripstring = 
+    'AAAAAAACEEEEIIII'+
+    'DNOOOOO.OUUUUY..'+
+    'aaaaaaaceeeeiiii'+
+    'dnooooo.ouuuuy.y'+
+    'AaAaAaCcCcCcCcDd'+
+    'DdEeEeEeEeEeGgGg'+
+    'GgGgHhHhIiIiIiIi'+
+    'IiIiJjKkkLlLlLlL'+
+    'lJlNnNnNnnNnOoOo'+
+    'OoOoRrRrRrSsSsSs'+
+    'SsTtTtTtUuUuUuUu'+
+    'UuUuWwYyYZzZzZz.';
+
+function stripDiacritics(str){
+
+    if(noSquiggles==false){
+        return str;
+    }
+
+    var answer='';
+    for(var i=0;i<str.length;i++){
+        var ch=str[i];
+        var chindex=ch.charCodeAt(0)-192;   // Index of character code in the strip string
+        if(chindex>=0 && chindex<stripstring.length){
+            // Character is within our table, so we can strip the accent...
+            var outch=stripstring.charAt(chindex);
+            // ...unless it was shown as a '.'
+            if(outch!='.')ch=outch;
+        }
+        answer+=ch;
+    }
+    return answer;
+}
+
+// http://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+// NOTE: must escape every \ in the export code because of the JabRef Export...
+function escapeRegExp(str) {
+  return str.replace(/[-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+}
+
+function toggleInfo(articleid,info) {
+
+	var entry = document.getElementById(articleid);
+	var abs = document.getElementById('abs_'+articleid);
+	var rev = document.getElementById('rev_'+articleid);
+	var bib = document.getElementById('bib_'+articleid);
+	
+	if (abs && info == 'abstract') {
+		abs.className.indexOf('noshow') == -1?abs.className = 'abstract noshow':abs.className = 'abstract show';
+	} else if (rev && info == 'review') {
+		rev.className.indexOf('noshow') == -1?rev.className = 'review noshow':rev.className = 'review show';
+	} else if (bib && info == 'bibtex') {
+		bib.className.indexOf('noshow') == -1?bib.className = 'bibtex noshow':bib.className = 'bibtex show';
+	} else { 
+		return;
+	}
+
+	// check if one or the other is available
+	var revshow; var absshow; var bibshow;
+	(abs && abs.className.indexOf('noshow') == -1)? absshow = true: absshow = false;
+	(rev && rev.className.indexOf('noshow') == -1)? revshow = true: revshow = false;	
+	(bib && bib.className.indexOf('noshow') == -1)? bibshow = true: bibshow = false;
+	
+	// highlight original entry
+	if(entry) {
+		if (revshow || absshow || bibshow) {
+		entry.className = 'entry highlight show';
+		} else {
+		entry.className = 'entry show';
+		}
+	}
+	
+	// When there's a combination of abstract/review/bibtex showing, need to add class for correct styling
+	if(absshow) {
+		(revshow||bibshow)?abs.className = 'abstract nextshow':abs.className = 'abstract';
+	} 
+	if (revshow) {
+		bibshow?rev.className = 'review nextshow': rev.className = 'review';
+	}	
+	
+}
+
+function setStatistics (hits) {
+	if(hits < 0) { hits=numEntries; }
+	if(stats) { stats.firstChild.data = hits + '/' + numEntries}
+}
+
+function getTextContent(node) {
+	// Function written by Arve Bersvendsen
+	// http://www.virtuelvis.com
+	
+	if (node.nodeType == 3) {
+	return node.nodeValue;
+	} // text node
+	if (node.nodeType == 1 && node.className != "infolinks") { // element node
+	var text = [];
+	for (var chld = node.firstChild;chld;chld=chld.nextSibling) {
+		text.push(getTextContent(chld));
+	}
+	return text.join("");
+	} return ""; // some other node, won't contain text nodes.
+}
+
+function showAll(){
+	closeAllInfo();
+	for (var i = 0; i < numEntries; i++){ entryRows[i].className = 'entry show'; }
+}
+
+function closeAllInfo(){
+	for (var i=0; i < numInfo; i++){
+		if (infoRows[i].className.indexOf('noshow') ==-1) {
+			infoRows[i].className = infoRows[i].className + ' noshow';
+		}
+	}
+}
+
+function clearQS() {
+	qsfield.value = '';
+	showAll();
+}
+
+function redoQS(){
+	showAll();
+	quickSearch(qsfield);
+}
+
+function updateSetting(obj){
+	var option = obj.id;
+	var checked = obj.value;
+
+	switch(option)
+	 {
+	 case "opt_searchAbs":
+	   searchAbstract=!searchAbstract;
+	   redoQS();
+	   break;
+	 case "opt_searchRev":
+	   searchReview=!searchReview;
+	   redoQS();
+	   break;
+	 case "opt_useRegExp":
+	   searchRegExp=!searchRegExp;
+	   redoQS();
+	   break;
+	 case "opt_noAccents":
+	   noSquiggles=!noSquiggles;
+	   loadTableData();
+	   redoQS();
+	   break;
+	 }
+}
+
+function initPreferences(){
+	if(searchAbstract){document.getElementById("opt_searchAbs").checked = true;}
+	if(searchReview){document.getElementById("opt_searchRev").checked = true;}
+	if(noSquiggles){document.getElementById("opt_noAccents").checked = true;}
+	if(searchRegExp){document.getElementById("opt_useRegExp").checked = true;}
+	
+	if(numAbs==0) {document.getElementById("opt_searchAbs").parentNode.style.display = 'none';}
+	if(numRev==0) {document.getElementById("opt_searchRev").parentNode.style.display = 'none';}	
+}
+
+function toggleSettings(){
+	var togglebutton = document.getElementById('showsettings');
+	var settings = document.getElementById('settings');
+	
+	if(settings.className == "hidden"){
+		settings.className = "show";
+		togglebutton.innerText = "close settings";
+		togglebutton.textContent = "close settings";
+	}else{
+		settings.className = "hidden";
+		togglebutton.innerText = "settings...";		
+		togglebutton.textContent = "settings...";
+	}
+}
+
+-->
+</script>
+<style type="text/css">
+
+
+form#quicksearch { width: auto; border-style: solid; border-color: gray; border-width: 1px 0px; padding: 0.7em 0.5em; display:none; position:relative; }
+span#searchstat {padding-left: 1em;}
+
+div#settings { margin-top:0.7em; /* border-bottom: 1px transparent solid; background-color: #efefef; border: 1px grey solid; */ }
+div#settings ul {margin: 0; padding: 0; }
+div#settings li {margin: 0; padding: 0 1em 0 0; display: inline; list-style: none; }
+div#settings li + li { border-left: 2px #efefef solid; padding-left: 0.5em;}
+div#settings input { margin-bottom: 0px;}
+
+div#settings.hidden {display:none;}
+
+#showsettings { border: 1px grey solid; padding: 0 0.5em; float:right; line-height: 1.6em; text-align: right; }
+#showsettings:hover { cursor: pointer; }
+
+.invalidsearch { background-color: red; }
+input[type="button"] { background-color: #efefef; border: 1px #2E2E2E solid;}
+
+table { border: 1px gray none; width: 100%; empty-cells: show; border-spacing: 0em 0.1em; margin: 1em 0em; }
+th, td { border: none; padding: 0.5em; vertical-align: top; text-align: justify; }
+
+td a { color: navy; text-decoration: none; }
+td a:hover  { text-decoration: underline; }
+
+tr.noshow { display: none;}
+tr.highlight td { background-color: #EFEFEF; border-top: 2px #2E2E2E solid; font-weight: bold; }
+tr.abstract td, tr.review td, tr.bibtex td { background-color: #EFEFEF; text-align: justify; border-bottom: 2px #2E2E2E solid; }
+tr.nextshow td { border-bottom-style: none; }
+
+tr.bibtex pre { width: 100%; overflow: auto; white-space: pre-wrap;}
+p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
+
+@media print {
+	p.infolinks, #qs_settings, #quicksearch, t.bibtex { display: none !important; }
+	tr { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<form action="" id="quicksearch">
+<input type="text" id="qs_field" autocomplete="off" placeholder="Type to search..." /> <input type="button" onclick="clearQS()" value="clear" />
+<span id="searchstat">Matching entries: <span id="stat">0</span></span>
+<div id="showsettings" onclick="toggleSettings()">settings...</div>
+<div id="settings" class="hidden">
+<ul>
+<li><input type="checkbox" class="search_setting" id="opt_searchAbs" onchange="updateSetting(this)"><label for="opt_searchAbs"> include abstract</label></li>
+<li><input type="checkbox" class="search_setting" id="opt_searchRev" onchange="updateSetting(this)"><label for="opt_searchRev"> include review</label></li>
+<li><input type="checkbox" class="search_setting" id="opt_useRegExp" onchange="updateSetting(this)"><label for="opt_useRegExp"> use RegExp</label></li>
+<li><input type="checkbox" class="search_setting" id="opt_noAccents" onchange="updateSetting(this)"><label for="opt_noAccents"> ignore accents</label></li>
+</ul>
+</div>
+</form>
+<table id="qs_table" border="1">
+<tbody>
+<tr id="aloni2010" class="entry">
+	<td>Aloni M and &Eacute;gr&eacute; P (2010), <i>"Alternative Questions and Knowledge Attributions"</i>, The Philosophical Quarterly., January, 2010.  Vol. 60(238)
+	<p class="infolinks"> [<a href="javascript:toggleInfo('aloni2010','bibtex')">BibTeX</a>] [<a href="http://dx.doi.org/10.1111/j.1467-9213.2008.606.x" target="_blank">DOI</a>]</p>
+	</td>
+</tr>
+<tr id="bib_aloni2010" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{aloni2010,
+  author = {Maria Aloni and Paul &Eacute;gr&eacute;},
+  title = {Alternative Questions and Knowledge Attributions},
+  journal = {The Philosophical Quarterly},
+  year = {2010},
+  volume = {60},
+  number = {238},
+  doi = {10.1111/j.1467-9213.2008.606.x}
+}
+</pre></td>
+</tr>
+<tr id="anand2008" class="entry">
+	<td>Anand P (2008), <i>"Dream Report Pronouns, Local Binding and Attitudes De Se"</i>, In Proceedings of SALT 17.  CLC Publications.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('anand2008','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_anand2008" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{anand2008,
+  author = {Pranav Anand},
+  title = {Dream Report Pronouns, Local Binding and Attitudes De Se},
+  booktitle = {Proceedings of SALT 17},
+  publisher = {CLC Publications},
+  year = {2008}
+}
+</pre></td>
+</tr>
+<tr id="anand2006" class="entry">
+	<td>Anand P (2006), <i>"De De Se"</i>. Thesis at: Massachusetts Institute of Technology. 
+	<p class="infolinks"> [<a href="javascript:toggleInfo('anand2006','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_anand2006" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@phdthesis{anand2006,
+  author = {Pranav Anand},
+  title = {De De Se},
+  school = {Massachusetts Institute of Technology},
+  year = {2006}
+}
+</pre></td>
+</tr>
+<tr id="NewEntry2" class="entry">
+	<td>Anand P and Nevins A (2004), <i>"Shifty Indexicals in Changing Contexts"</i>, In Proceedings of SALT 14.  CLC Publications.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('NewEntry2','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_NewEntry2" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{NewEntry2,
+  author = {Pranav Anand and Andrew Nevins},
+  title = {Shifty Indexicals in Changing Contexts},
+  booktitle = {Proceedings of SALT 14},
+  publisher = {CLC Publications},
+  year = {2004}
+}
+</pre></td>
+</tr>
+<tr id="atlas1977" class="entry">
+	<td>Atlas JD (1977), <i>"Negation, Ambiguity, and Presupposition"</i>, Linguistics and Philosophy.  Vol. 1(3), pp. 321-336.
+	<p class="infolinks">[<a href="javascript:toggleInfo('atlas1977','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('atlas1977','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_atlas1977" class="abstract noshow">
+	<td><b>Abstract</b>:  In this paper I argue for the Atlas-Kempson Thesis that sentences of the form The A is not B are not ambiguous but rather semantically general (Quine), non-specific (Zwicky and Sadock), or vague (G. Lakoff). This observation refutes the 1970 Davidson-Harman hypothesis that underlying structures, as full semantic representations, are logical forms. It undermines the conception of semantical presupposition, removes a support for the existence of truth-value gaps for presuppositional sentences (the remaining arguments for which are viciously circular), and lifts the Russell-Strawson dispute of 1950--1964 from stalemate to a formulation in which a resolution is possible for the first time. Suggestions of Davidson, Montague, Stalnaker, Kaplan and H. P. Grice are shown to be inadequate semantic descriptions of negative, presuppositional sentences. I briefly discuss the radical Pragmatics view of my 1975 publications and suggest that it too fails to do justice to the linguistic data. I speculate that Semantic Representations should be given the form (more or less) of computer programs, describable in Dana Scott's mathematical semantics for programming languages</td>
+</tr>
+<tr id="bib_atlas1977" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{atlas1977,
+  author = {Jay David Atlas},
+  title = {Negation, Ambiguity, and Presupposition},
+  journal = {Linguistics and Philosophy},
+  year = {1977},
+  volume = {1},
+  number = {3},
+  pages = {321--336}
+}
+</pre></td>
+</tr>
+<tr id="barker1997" class="entry">
+	<td>Barker SJ (1997), <i>"E-Type Pronouns, DRT, Dynamic Semantics and the Quantifier/Variable-Binding Model"</i>, Linguistics and Philosophy.  Vol. 20(2), pp. 195-228. Springer Netherlands.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('barker1997','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_barker1997" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{barker1997,
+  author = {S. J. Barker},
+  title = {E-Type Pronouns, DRT, Dynamic Semantics and the Quantifier/Variable-Binding Model},
+  journal = {Linguistics and Philosophy},
+  publisher = {Springer Netherlands},
+  year = {1997},
+  volume = {20},
+  number = {2},
+  pages = {195--228}
+}
+</pre></td>
+</tr>
+<tr id="beaver2001" class="entry">
+	<td>Beaver D (2001), <i>"Presupposition and assertion in dynamic semantics"</i>  CSLI Publications.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('beaver2001','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_beaver2001" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@book{beaver2001,
+  author = {David Beaver},
+  editor = {Robin Cooper and Maarten de Rijke},
+  title = {Presupposition and assertion in dynamic semantics},
+  publisher = {CSLI Publications},
+  year = {2001}
+}
+</pre></td>
+</tr>
+<tr id="beaver2003" class="entry">
+	<td>Beaver D and Clark B (2003), <i>"Always and Only: Why not all Focus-Sensitive Operators are Alike"</i>, Natural Language Semantics., December, 2003.  Vol. 11(4), pp. 323-362.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('beaver2003','bibtex')">BibTeX</a>] [<a href="http://dx.doi.org/10.1023/A:1025542629721" target="_blank">DOI</a>]</p>
+	</td>
+</tr>
+<tr id="bib_beaver2003" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{beaver2003,
+  author = {David Beaver and Brady Clark},
+  title = {Always and Only: Why not all Focus-Sensitive Operators are Alike},
+  journal = {Natural Language Semantics},
+  year = {2003},
+  volume = {11},
+  number = {4},
+  pages = {323--362},
+  doi = {10.1023/A:1025542629721}
+}
+</pre></td>
+</tr>
+<tr id="beaver2001a" class="entry">
+	<td>Beaver D and Krahmer E (2001), <i>"A Partial Account of Presupposition Projection"</i>, Journal of Logic, Language and Information.  Vol. 10(2), pp. 147-182. Springer Netherlands.
+	<p class="infolinks">[<a href="javascript:toggleInfo('beaver2001a','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('beaver2001a','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_beaver2001a" class="abstract noshow">
+	<td><b>Abstract</b>:  In this paper it is shown how a partial semantics for presuppositions can be given which is empirically more satisfactory than its predecessors, and how this semantics can be integrated with a technically sound, compositional grammar in the Montagovian fashion. Additionally, it is argued that the classical objection to partial accounts of presupposition projection, namely that they lack flexibility,textquotedblright is based on a misconception. Partial logics can give rise to flexible predictions without postulating any ad hoc ambiguities. Finally, it is shown how the partial foundation can be combined with a dynamic system of common-ground maintenance to account for accommodation</td>
+</tr>
+<tr id="bib_beaver2001a" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{beaver2001a,
+  author = {David Beaver and Emiel Krahmer},
+  title = {A Partial Account of Presupposition Projection},
+  journal = {Journal of Logic, Language and Information},
+  publisher = {Springer Netherlands},
+  year = {2001},
+  volume = {10},
+  number = {2},
+  pages = {147--182}
+}
+</pre></td>
+</tr>
+<tr id="beck2006" class="entry">
+	<td>Beck S (2006), <i>"Intervention effects follow from focus interpretation"</i>, Natural Language Semantics.  Vol. 14, pp. 1-56.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('beck2006','bibtex')">BibTeX</a>] [<a href="http://dx.doi.org/10.1007/s11050-005-4532-y" target="_blank">DOI</a>]</p>
+	</td>
+</tr>
+<tr id="bib_beck2006" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{beck2006,
+  author = {Sigrid Beck},
+  title = {Intervention effects follow from focus interpretation},
+  journal = {Natural Language Semantics},
+  year = {2006},
+  volume = {14},
+  pages = {1-56},
+  doi = {10.1007/s11050-005-4532-y}
+}
+</pre></td>
+</tr>
+<tr id="beck2006a" class="entry">
+	<td>Beck S (2006), <i>"Focus on Again"</i>, Linguistics and Philosophy.  Vol. 29(3), pp. 277-314.
+	<p class="infolinks">[<a href="javascript:toggleInfo('beck2006a','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('beck2006a','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_beck2006a" class="abstract noshow">
+	<td><b>Abstract</b>:  This paper examines the effect that focus has on repetitive versus restitutive again. It is argued that a pragmatic explanation of the effect is the right strategy. The explanation builds largely on a standard focus semantics. To this we add an anaphoric analysis of agains presupposition and a detailed analysis of the alternatives triggered when focus falls on again</td>
+</tr>
+<tr id="bib_beck2006a" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{beck2006a,
+  author = {Sigrid Beck},
+  title = {Focus on Again},
+  journal = {Linguistics and Philosophy},
+  year = {2006},
+  volume = {29},
+  number = {3},
+  pages = {277--314}
+}
+</pre></td>
+</tr>
+<tr id="benthem1982" class="entry">
+	<td>van Benthem J and van Eijck J (1982), <i>"The Dynamics of Interpretation"</i>, Journal of Semantics.  Vol. 1(1), pp. 3-20.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('benthem1982','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_benthem1982" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{benthem1982,
+  author = {Johan van Benthem and Jan van Eijck},
+  title = {The Dynamics of Interpretation},
+  journal = {Journal of Semantics},
+  year = {1982},
+  volume = {1},
+  number = {1},
+  pages = {3--20}
+}
+</pre></td>
+</tr>
+<tr id="bezuidenhout2006" class="entry">
+	<td>Bezuidenhout A (2006), <i>"The coherence of contextualism"</i>, Mind &amp; Language.  Vol. 21, pp. 1-10.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('bezuidenhout2006','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_bezuidenhout2006" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{bezuidenhout2006,
+  author = {Anne Bezuidenhout},
+  title = {The coherence of contextualism},
+  journal = {Mind &amp; Language},
+  year = {2006},
+  volume = {21},
+  pages = {1-10},
+  note = {Review of Insensitive Semantics}
+}
+</pre></td>
+</tr>
+<tr id="bittner2011" class="entry">
+	<td>Bittner M (2011), <i>"Time and modality without tenses or modals"</i>, In Tenses across Languages.  Niemeyer, Tubingen.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('bittner2011','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_bittner2011" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@incollection{bittner2011,
+  author = {Maria Bittner},
+  editor = {R. Musan &amp; M. Rathert},
+  title = {Time and modality without tenses or modals},
+  booktitle = {Tenses across Languages},
+  publisher = {Niemeyer, Tubingen},
+  year = {2011}
+}
+</pre></td>
+</tr>
+<tr id="bittner" class="entry">
+	<td>Bittner M (), <i>"Anaphora Without Indices: Dynamics of Centering"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('bittner','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('bittner','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_bittner" class="abstract noshow">
+	<td><b>Abstract</b>: The standard way to represent anaphoric dependencies is to co-index the anaphor with its antecedent in the syntactic input to semantic rules, which then interpret such indices as variables. Dynamic theories (e.g. Kamps DRT, Heims File Change Semantics, Muskenss Compositional DRT, etc) combine syntactic coindexation with semantic left-to-right asymmetry. This captures the fact that the anaphor gets its referent from the antecedent and not vice versa. Formally, a text updates the input state of information to the output state. In particular, an indexed antecedent updates the entity assigned to its index, and the output entity is then picked up as the referent by any subsequent co-indexed anaphor. The elephant in the room is that the all-important indices have no audible reflex in any natural language---e.g. no language contrasts !"!"vs. !"!amp;Adding to the embarrassment, actual anaphoric contrasts are not interpreted like contrasting variables in formal logics---e.g. zero (i.e. missing argument) vs. pronoun  in Mandarin Chinese; or proximate vs. obviative 3rd person in languages with grammatical obviation (e.g., amp;'(vs. ') in Kalaallisut). Yet actual anaphoric systems render anaphora unambiguous (Mandarin, Kalaallisut), or much less ambiguous than predicted (English), by mechanisms that index-based theories have no tools to explicate. A yet another mystery for index-based theories is why anaphora resolution does not get increasingly harder as discourse progresses, since every sentence adds to the set of potential antecedents. Yet, intuitively, in a long novel a pronoun at the end is just as easy to resolve as a pronoun in paragraph one.  Intuitively, this is because a pronoun refers to a salient antecedent, and the set of currently salient antecedents changes but does not grow. Previous attempts to implement this common-sense idea (centering theory of Grosz et al 1995 and related work) have been criticized into oblivion (see e.g..</td>
+</tr>
+<tr id="bib_bittner" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{bittner,
+  author = {Maria Bittner},
+  title = {Anaphora Without Indices: Dynamics of Centering}
+}
+</pre></td>
+</tr>
+<tr id="bittner-notes" class="entry">
+	<td>Bittner M (), <i>"Lecture notes on plurals in dynamic semantics"</i> 
+	<p class="infolinks"> [<a href="javascript:toggleInfo('bittner-notes','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_bittner-notes" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{bittner-notes,
+  author = {Maria Bittner},
+  title = {Lecture notes on plurals in dynamic semantics},
+  note = {from Rutgers graduate course: semantics 3, fall 2010}
+}
+</pre></td>
+</tr>
+<tr id="bittner2001" class="entry">
+	<td>Bittner M (2001), <i>"Surface Composition as Bridging"</i>, Journal of Semantics.  Vol. 18(2), pp. 127-177.
+	<p class="infolinks">[<a href="javascript:toggleInfo('bittner2001','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('bittner2001','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_bittner2001" class="abstract noshow">
+	<td><b>Abstract</b>: The development of explicit theories of dynamic context change has led to a fundamentally new perspective on the interpretation of discourse. In this paper I show that this development also opens up the possibility of approaching subclausal composition along similar lines. More specifically, I argue that a dynamic theory where type-driven rules apply directly to overt surface structures and fill in missing information by building anaphoric bridges is more faithful to natural language semantics than the classical Montagovian approach</td>
+</tr>
+<tr id="bib_bittner2001" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{bittner2001,
+  author = {Maria Bittner},
+  title = {Surface Composition as Bridging},
+  journal = {Journal of Semantics},
+  year = {2001},
+  volume = {18},
+  number = {2},
+  pages = {127--177}
+}
+</pre></td>
+</tr>
+<tr id="boisvert2006" class="entry">
+	<td>Boisvert D and Ludwig K (2006), <i>"Semantics for Non-Declaratives"</i>, In The Oxford Handbook of the Philosophy of Language.  Oxford University Press.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('boisvert2006','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_boisvert2006" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@incollection{boisvert2006,
+  author = {Daniel Boisvert and Kirk Ludwig},
+  editor = {Barry Smith and Ernie Lepore},
+  title = {Semantics for Non-Declaratives},
+  booktitle = {The Oxford Handbook of the Philosophy of Language},
+  publisher = {Oxford University Press},
+  year = {2006}
+}
+</pre></td>
+</tr>
+<tr id="bonomi1993" class="entry">
+	<td>Bonomi A and Casalegno P (1993), <i>"Only: Association with Focus in Event Semantics"</i>, Natural Language Semantics.  Vol. 2, pp. 1-45.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('bonomi1993','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_bonomi1993" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{bonomi1993,
+  author = {Andrea Bonomi and Paolo Casalegno},
+  title = {Only: Association with Focus in Event Semantics},
+  journal = {Natural Language Semantics},
+  year = {1993},
+  volume = {2},
+  pages = {1--45}
+}
+</pre></td>
+</tr>
+<tr id="borg2004" class="entry">
+	<td>Borg E (2004), <i>"Minimal Semantics"</i>  Oxford University Press.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('borg2004','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_borg2004" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@book{borg2004,
+  author = {Emma Borg},
+  title = {Minimal Semantics},
+  publisher = {Oxford University Press},
+  year = {2004}
+}
+</pre></td>
+</tr>
+<tr id="bos2004" class="entry">
+	<td>Bos J (2004), <i>"Computational Semantics in Discourse: Underspecification, Resolution, and Inference"</i>, Journal of Logic, Language and Information.  Vol. 13(2), pp. 139-157. Springer Netherlands.
+	<p class="infolinks">[<a href="javascript:toggleInfo('bos2004','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('bos2004','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_bos2004" class="abstract noshow">
+	<td><b>Abstract</b>: In this paper I introduce a formalism for natural language understandingbased on a computational implementation of Discourse RepresentationTheory. The formalism covers a wide variety of semantic phenomena(including scope and lexical ambiguities, anaphora and presupposition),is computationally attractive, and has a genuine inference component. Itcombines a well-established linguistic formalism (DRT) with advancedtechniques to deal with ambiguity (underspecification), and isinnovative in the use of first-order theorem proving techniques.The architecture of the formalism for natural language understandingthat I advocate consists of three levels of processing:underspecification, resolution, andinference. Each of these levels has a distinct function andtherefore employs a different kind of semantic representation. Themappings between these different representations define the interfacesbetween the levels.</td>
+</tr>
+<tr id="bib_bos2004" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{bos2004,
+  author = {Johan Bos},
+  title = {Computational Semantics in Discourse: Underspecification, Resolution, and Inference},
+  journal = {Journal of Logic, Language and Information},
+  publisher = {Springer Netherlands},
+  year = {2004},
+  volume = {13},
+  number = {2},
+  pages = {139--157}
+}
+</pre></td>
+</tr>
+<tr id="brasoveanu" class="entry">
+	<td>Brasoveanu A (), <i>"Decomposing modal quantification"</i> 
+	<p class="infolinks"> [<a href="javascript:toggleInfo('brasoveanu','bibtex')">BibTeX</a>] [<a href="http://www.west.net/~stewart/lwsample%5Bq%5D.htm" target="_blank">URL</a>]</p>
+	</td>
+</tr>
+<tr id="bib_brasoveanu" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{brasoveanu,
+  author = {Adrien Brasoveanu},
+  title = {Decomposing modal quantification},
+  note = {to be published in Journal of Semantics},
+  url = {http://www.west.net/~stewart/lwsample%5Bq%5D.htm}
+}
+</pre></td>
+</tr>
+<tr id="brasoveanua" class="entry">
+	<td>Brasoveanu A (), <i>"Structured Anaphora to Quantifier Domains: A Unified Account of Quantificational and Modal Subordination"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('brasoveanua','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('brasoveanua','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_brasoveanua" class="abstract noshow">
+	<td><b>Abstract</b>: The paper proposes an account of the contrast (noticed in Karttunen 1976) between the interpretations of the following two discourses: Harvey courts a girl at every convention. She is very pretty. vs. She always comes to the banquet with him.. The initial sentence is ambiguous between two quantifier scopings, but the first discourse as a whole allows only for the wide-scope indefinite reading, while the second allows for both. This cross-sentential interaction between quantifier scope and anaphora is captured by means of a new dynamic system couched in classical type logic, which extends Compositional DRT (Muskens 1996) with plural information states (modeled, following van den Berg 1996, as sets of variable assignments). Given the underlying type logic, compositionality at sub-clausal level follows automatically and standard techniques from Montague semantics become available. The paper also shows that modal subordination (A wolf might come in. It would eat Harvey first) can be analyzed in a parallel way, i.e. the system captures the anaphoric and quantificational parallels between the individual and modal domains argued for in Stone (1999) (among others). In the process, we see that modal / individual-level quantifiers enter anaphoric connections as a matter of course, usually functioning simultaneously as both indefinites and pronouns.</td>
+</tr>
+<tr id="bib_brasoveanua" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{brasoveanua,
+  author = {Adrian Brasoveanu},
+  title = {Structured Anaphora to Quantifier Domains: A Unified Account of Quantificational and Modal Subordination}
+}
+</pre></td>
+</tr>
+<tr id="cappelen2005" class="entry">
+	<td>Cappelen H and Lepore E (2005), <i>"Insensitive Semantics"</i>  Blackwell Publishing.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('cappelen2005','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_cappelen2005" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@book{cappelen2005,
+  author = {Herman Cappelen and Ernest Lepore},
+  title = {Insensitive Semantics},
+  publisher = {Blackwell Publishing},
+  year = {2005}
+}
+</pre></td>
+</tr>
+<tr id="carston1998" class="entry">
+	<td>Carston R (1998), <i>"Negation, `Presupposition' and the Semantics/ Pragmatics Distinction"</i>, Journal of Linguistics.  Vol. 34, pp. 309-350.
+	<p class="infolinks">[<a href="javascript:toggleInfo('carston1998','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('carston1998','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_carston1998" class="abstract noshow">
+	<td><b>Abstract</b>: A cognitive pragmatic approach is taken to some long-standing problem cases of negation, the so-called presupposition denial cases. It is argued that a full account of the processes and levels of representation involved in their interpretation typically requires the sequential pragmatic derivation of two different propositions expressed. The first is one in which the presupposition is preserved and, following the rejection of this, the second involves the echoic (metalinguistic) use of material falling in the scope of the negation. The semantic base for these processes is the standard anti-presuppositionalist wide-scope negation. A different view, developed by Burton-Roberts (1989a, 1989b), takes presupposition to be a semantic relation encoded in natural language and so argues for a negation operator that does not cancel presuppositions. This view is shown to be flawed, in that it makes the false prediction that presupposition denial cases are semantic contradictions and it is based on too narrow a view of the role of pragmatic inferencing.</td>
+</tr>
+<tr id="bib_carston1998" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{carston1998,
+  author = {Robyn Carston},
+  title = {Negation, `Presupposition' and the Semantics/ Pragmatics Distinction},
+  journal = {Journal of Linguistics},
+  year = {1998},
+  volume = {34},
+  pages = {309--350}
+}
+</pre></td>
+</tr>
+<tr id="chierchia1995" class="entry">
+	<td>Chierchia G (1995), <i>"Dynamics of Meaning: Anaphora, Presupposition, and the Theory of Grammar"</i>  University of Chicago Press.
+	<p class="infolinks">[<a href="javascript:toggleInfo('chierchia1995','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('chierchia1995','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_chierchia1995" class="abstract noshow">
+	<td><b>Abstract</b>: In The Dynamics of Meaning , Gennaro Chierchia tackles central issues in dynamic semantics and extends the general framework. Chapter 1 introduces the notion of dynamic semantics and discusses in detail the phenomena that have been used to motivate it, such as "donkey" sentences and adverbs of quantification. The second chapter explores in greater depth the interpretation of indefinites and issues related to presuppositions of uniqueness and the "E-type strategy." In Chapter 3, Chierchia extends the dynamic approach to the domain of syntactic theory, considering a range of empirical problems that includes backwards anaphora, reconstruction effects, and weak crossover. The final chapter develops the formal system of dynamic semantics to deal with central issues of definites and presupposition. Chierchia shows that an approach based on a principled enrichment of the mechanisms dealing with meaning is to be preferred on empirical grounds over approaches that depend on an enrichment of the syntactic apparatus. Dynamics of Meaning illustrates how seemingly abstract stances on the nature of meaning can have significant and far-reaching linguistic consequences, leading to the detection of new facts and influencing our understanding of the syntax/semantics/pragmatics interface.</td>
+</tr>
+<tr id="bib_chierchia1995" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@book{chierchia1995,
+  author = {Gennaro Chierchia},
+  title = {Dynamics of Meaning: Anaphora, Presupposition, and the Theory of Grammar},
+  publisher = {University of Chicago Press},
+  year = {1995}
+}
+</pre></td>
+</tr>
+<tr id="chierchia2000" class="entry">
+	<td>Chierchia G and McConnell-Ginet S (2000), <i>"Meaning and Grammar: An Introduction to Semantics"</i>  MIT Press.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('chierchia2000','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_chierchia2000" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@book{chierchia2000,
+  author = {Gennaro Chierchia and Sally McConnell-Ginet},
+  title = {Meaning and Grammar: An Introduction to Semantics},
+  publisher = {MIT Press},
+  year = {2000},
+  edition = {2nd}
+}
+</pre></td>
+</tr>
+<tr id="cooper" class="entry">
+	<td>Cooper R (), <i>"Records and Record Types in Semantic Theory"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('cooper','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('cooper','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_cooper" class="abstract noshow">
+	<td><b>Abstract</b>: I will explore possibilities for formulating linguistic semantics in terms of records and record types of the kind used in recent developments of Martin-Lof type theory (Betarte, 1998, Betarte and Tasistro, 1998, Coquand, Pollock and Takeyama, 2003, Tasistro, 1997). I will suggest that they give us the tools to develop a theory which includes aspects of Montague semantics, using the lambda calculus1, Discourse Representation Theory (DRT)2, situation semantics3 and Head-Driven Phrase Structure Grammar (HPSG)4 in a single theory. I will also argue that formulating these theories in terms of record types may provide us not only with a unied approach but also with certain improvements over the individual theories.</td>
+</tr>
+<tr id="bib_cooper" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{cooper,
+  author = {Robin Cooper},
+  title = {Records and Record Types in Semantic Theory}
+}
+</pre></td>
+</tr>
+<tr id="dekker1996" class="entry">
+	<td>Dekker P (1996), <i>"The Values of Variables in Dynamic Semantics"</i>, Linguistics and Philosophy.  Vol. 19(3), pp. 211-257.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('dekker1996','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_dekker1996" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{dekker1996,
+  author = {Paul Dekker},
+  title = {The Values of Variables in Dynamic Semantics},
+  journal = {Linguistics and Philosophy},
+  year = {1996},
+  volume = {19},
+  number = {3},
+  pages = {211--257}
+}
+</pre></td>
+</tr>
+<tr id="derdoes1997" class="entry">
+	<td>van Der Does J, Groeneveld W and Veltman F (1997), <i>"An Update on ``Might''"</i>, Journal of Logic, Language and Information.  Vol. 6(4), pp. 361-380. Springer Netherlands.
+	<p class="infolinks">[<a href="javascript:toggleInfo('derdoes1997','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('derdoes1997','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_derdoes1997" class="abstract noshow">
+	<td><b>Abstract</b>: This paper is on the update semantics for might of Veltman (1996). Threeconsequence relations are introduced and studied in an abstract setting.Next we present sequent-style systems for each of the consequence relations.We show the logics to be complete and decidable. The paper ends with asyntactic cut elimination result</td>
+</tr>
+<tr id="bib_derdoes1997" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{derdoes1997,
+  author = {Jaap van Der Does and Willem Groeneveld and Frank Veltman},
+  title = {An Update on ``Might''},
+  journal = {Journal of Logic, Language and Information},
+  publisher = {Springer Netherlands},
+  year = {1997},
+  volume = {6},
+  number = {4},
+  pages = {361--380}
+}
+</pre></td>
+</tr>
+<tr id="derose2004" class="entry">
+	<td>DeRose K (2004), <i>"Single socreboard semantics"</i>, Philosophical Studies.  Vol. 119, pp. 1-21.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('derose2004','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_derose2004" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{derose2004,
+  author = {Keith DeRose},
+  title = {Single socreboard semantics},
+  journal = {Philosophical Studies},
+  year = {2004},
+  volume = {119},
+  pages = {1-21}
+}
+</pre></td>
+</tr>
+<tr id="dever" class="entry">
+	<td>Dever J (), <i>"Three Modes of, and Five Morals Regarding, Displaced Semantic Processing, with Special Attention to the Role of Variables (and a Final Plug for Dynamic Semantics)"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('dever','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('dever','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_dever" class="abstract noshow">
+	<td><b>Abstract</b>: There is a puzzle regarding the semantics of quantification that is well-known among linguists and formal semanticists, but which has received relatively little attention from philosophers. The puzzle emerges most naturally if our semantic theory is categorical, satisfying two mutually supporting requirements.</td>
+</tr>
+<tr id="bib_dever" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{dever,
+  author = {Josh Dever},
+  title = {Three Modes of, and Five Morals Regarding, Displaced Semantic Processing, with Special Attention to the Role of Variables (and a Final Plug for Dynamic Semantics)}
+}
+</pre></td>
+</tr>
+<tr id="egan2007a" class="entry">
+	<td>Egan A (2007), <i>"Epistemic Modals, Relativism and Assertion"</i>, Philosophical Studies.  Vol. 133(1), pp. 1-22.
+	<p class="infolinks">[<a href="javascript:toggleInfo('egan2007a','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('egan2007a','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_egan2007a" class="abstract noshow">
+	<td><b>Abstract</b>: I think that there are good reasons to adopt a relativist semantics for epistemic modal claims such as ``the treasure might be under the palm tree'', according to which such utterances determine a truth value relative to something finer-grained than just a world (or a $<$world, time$>$ pair). Anyone who is inclined to relativise truth to more than just worlds and times faces a problem about assertion. It's easy to be puzzled about just what purpose would be served by assertions of this kind, and how to understand what we'd be up to in our use of sentences like ``the treasure might be under the palm tree'', if they have such peculiar truth conditions. After providing a very quick argument to motivate a relativist view of epistemic modals, I bring out and attempt to resolve this problem in making sense of the role of assertions with relativist truth conditions. Solving this problem should be helpful in two ways: first, it eliminates an apparently forceful objection to relativism, and second, spelling out the relativist account of assertion and communication will help to make clear just what the relativist position is, exactly, and why it's interesting.</td>
+</tr>
+<tr id="bib_egan2007a" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{egan2007a,
+  author = {Andy Egan},
+  title = {Epistemic Modals, Relativism and Assertion},
+  journal = {Philosophical Studies},
+  year = {2007},
+  volume = {133},
+  number = {1},
+  pages = {1--22}
+}
+</pre></td>
+</tr>
+<tr id="eijck" class="entry">
+	<td>van Eijck J (), <i>"The Epistemics of Presupposition Projection"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('eijck','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('eijck','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_eijck" class="abstract noshow">
+	<td><b>Abstract</b>: We carry out (formalize) the Karttunen-Stalnaker pragmatic account of presupposition projection within a state-of-the art version of dynamic epistemic logic. It turns out that the basic projection facts can all be derived from a Gricean maxim be informative This sheds light on a recent controversy on the appropriateness of dynamic semantics as a tool for analysing presupposition</td>
+</tr>
+<tr id="bib_eijck" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{eijck,
+  author = {Jan van Eijck},
+  title = {The Epistemics of Presupposition Projection}
+}
+</pre></td>
+</tr>
+<tr id="eijckc" class="entry">
+	<td>van Eijck J (), <i>"Context and the Composition of Meaning"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('eijckc','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('eijckc','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_eijckc" class="abstract noshow">
+	<td><b>Abstract</b>: Key ingredients in discourse meaning are reference markers: objects in the formal representation that the discourse is about. It is well-known that reference markers are not like rst order variables. Indeed, it is the received view that reference markers are like the variables in imperative programming languages. However, in a computational semantics of discourse that treats reference markers as dynamically boundtextquoteright variables, every noun phrase will get linked to a dynamic variable, so it will give rise to a marker index. Where do these indices come from? How do we handle them when combining (or merging pieces of discourse? We will argue that reference markers are better treated as indices into context, and we will present a theory of context and context extension based on this view. In context semantics, noun phrases do not come with xed indices, so the merge problem does not arise. This solves a vexing issue with coordination that causes trouble for all current versions of compositional discourse representation theory.</td>
+</tr>
+<tr id="bib_eijckc" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{eijckc,
+  author = {Jan van Eijck},
+  title = {Context and the Composition of Meaning}
+}
+</pre></td>
+</tr>
+<tr id="eijck1992" class="entry">
+	<td>Eijck J and Vries F-J (1992), <i>"Dynamic Interpretation and HOARE Deduction"</i>, Journal of Logic, Language and Information.  Vol. 1(1)
+	<p class="infolinks">[<a href="javascript:toggleInfo('eijck1992','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('eijck1992','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_eijck1992" class="abstract noshow">
+	<td><b>Abstract</b>: In this paper we present a dynamic assignment language which extends the dynamic predicate logic of Groenendijk and Stokhof [1991: 39--100] with assignment and with generalized quantifiers. The use of this dynamic assignment language for natural language analysis, along the lines of o.c. and [Barwise, 1987: 1--29], is demonstrated by examples. We show that our representation language permits us to treat a wide variety of donkey sentences: conditionals with a donkey pronoun in their consequent and quantified sentences with donkey pronouns anywhere in the scope of the quantifier. It is also demonstrated that our account does not suffer from the so-called proportion problem.Discussions about the correctness or incorrectness of proposals for dynamic interpretation of language have been hampered in the past by the difficulty of seeing through the ramifications of the dynamic semantic clauses (phrased in terms of input-output behaviour) in non-trivial cases. To remedy this, we supplement the dynamic semantics of our representation language with an axiom system in the style of Hoare. While the representation languages of barwise and Groenendijk and Stokhof were not axiomatized, the rules we propose form a deduction system for the dynamic assignment language which is proved correct and complete with respect to the semantics.</td>
+</tr>
+<tr id="bib_eijck1992" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{eijck1992,
+  author = {Jan Eijck and Fer-Jan Vries},
+  title = {Dynamic Interpretation and HOARE Deduction},
+  journal = {Journal of Logic, Language and Information},
+  year = {1992},
+  volume = {1},
+  number = {1}
+}
+</pre></td>
+</tr>
+<tr id="fernando2001" class="entry">
+	<td>Fernando T (2001), <i>"A Type Reduction From Proof-Conditional to Dynamic Semantics"</i>, Journal of Philosophical Logic.  Vol. 30(2), pp. 121-153. Springer Netherlands.
+	<p class="infolinks">[<a href="javascript:toggleInfo('fernando2001','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('fernando2001','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_fernando2001" class="abstract noshow">
+	<td><b>Abstract</b>: Dynamic and proof-conditional approaches to discourse (exemplified by Discourse Representation Theory and Type-Theoretical Grammar, respectively) are related through translations and transitions labeled by first-order formulas with anaphoric twists. Type-theoretic contexts are defined relative to a signature and instantiated model-theoretically, subject to change.</td>
+</tr>
+<tr id="bib_fernando2001" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{fernando2001,
+  author = {Tim Fernando},
+  title = {A Type Reduction From Proof-Conditional to Dynamic Semantics},
+  journal = {Journal of Philosophical Logic},
+  publisher = {Springer Netherlands},
+  year = {2001},
+  volume = {30},
+  number = {2},
+  pages = {121--153}
+}
+</pre></td>
+</tr>
+<tr id="fintel" class="entry">
+	<td>von Fintel K (), <i>"What is Presupposition Accommodation?"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('fintel','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('fintel','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_fintel" class="abstract noshow">
+	<td><b>Abstract</b>: In his paper What is a Context of Utterance? Christopher Gauker (1998) argues that the phenomenon of informative presuppositions is incompatible with the pragmatictextquotedblright view of presuppositions as involving requirements on the common ground, the body of shared assumptions of the participants in a conversation. This is a surprising claim since most proponents of this view have in fact dealt with informative presuppositions by appealing to a process called presupposition accommodation. Gaukers attack shows the need to clarify the nature of this process.</td>
+</tr>
+<tr id="bib_fintel" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{fintel,
+  author = {Kai von Fintel},
+  title = {What is Presupposition Accommodation?}
+}
+</pre></td>
+</tr>
+<tr id="fintela" class="entry">
+	<td>von Fintel K (), <i>"The Presupposition of Subjunctive Conditionals"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('fintela','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('fintela','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_fintela" class="abstract noshow">
+	<td><b>Abstract</b>: Why are some conditionals subjunctive? It is often assumed that at least one crucial difference is that subjunctive conditionals presuppose that their antecedent is false, that they are counterfactual (Lakoff 1970). The traditional theory has apparently been refuted. Perhaps the clearest counter-example is one given by Alan Anderson (1951: 37): If Jones had taken arsenic, he would have shown just exactly those symptoms which he does in fact show. A typical place to use such a subjunctive conditional would be in the course of an argument that tries to bolster the hypothesis that Jones did in fact take arsenic. But then it would of course be self-defeating to presuppose that the hypothesis is false. Thus, something else must be going on.</td>
+</tr>
+<tr id="bib_fintela" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{fintela,
+  author = {Kai von Fintel},
+  title = {The Presupposition of Subjunctive Conditionals}
+}
+</pre></td>
+</tr>
+<tr id="fintel2008" class="entry">
+	<td>von Fintel K (2008), <i>"What is Presupposition Accommodation, Again?"</i>, Philosophical Perspectives.  Vol. 22(1), pp. 137-170.
+	<p class="infolinks">[<a href="javascript:toggleInfo('fintel2008','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('fintel2008','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_fintel2008" class="abstract noshow">
+	<td><b>Abstract</b>: In his paper What is a Context of Utterance? Christopher Gauker (1998) argues that the phenomenon of informative presuppositions is incompatible with the pragmatictextquotedblright view of presuppositions as involving requirements on the common ground, the body of shared assumptions of the participants in a conversation. This is a surprising claim since most proponents of this view have in fact dealt with informative presuppositions by appealing to a process called presupposition accommodation. Gaukers attack shows the need to clarify the nature of this process</td>
+</tr>
+<tr id="bib_fintel2008" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{fintel2008,
+  author = {Kai von Fintel},
+  title = {What is Presupposition Accommodation, Again?},
+  journal = {Philosophical Perspectives},
+  year = {2008},
+  volume = {22},
+  number = {1},
+  pages = {137--170}
+}
+</pre></td>
+</tr>
+<tr id="von_fintel2011" class="entry">
+	<td>von Fintel K and Gillies T (2011), <i>"Might made right"</i>, In Epistemic Modality.  Oxford University Press.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('von_fintel2011','bibtex')">BibTeX</a>] [<a href="http://rci.rutgers.edu/~thony/fintel-gillies-2008-mmr.pdf" target="_blank">URL</a>]</p>
+	</td>
+</tr>
+<tr id="bib_von_fintel2011" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@incollection{von_fintel2011,
+  author = {Kai von Fintel and Thony Gillies},
+  editor = {Andy Egan and Brian Weatherson},
+  title = {Might made right},
+  booktitle = {Epistemic Modality},
+  publisher = {Oxford University Press},
+  year = {2011},
+  url = {http://rci.rutgers.edu/~thony/fintel-gillies-2008-mmr.pdf}
+}
+</pre></td>
+</tr>
+<tr id="von_fintel2007" class="entry">
+	<td>von Fintel K and Gillies T (2007), <i>"An opinionated guide to epistemic modality"</i>, In Oxford Studies in Epistemology 2.  Oxford University Press.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('von_fintel2007','bibtex')">BibTeX</a>] [<a href="http://rci.rutgers.edu/~thony/fintel-gillies.ose2-final.pdf" target="_blank">URL</a>]</p>
+	</td>
+</tr>
+<tr id="bib_von_fintel2007" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@incollection{von_fintel2007,
+  author = {Kai von Fintel and Thony Gillies},
+  editor = {Tamar Gendler and John Hawthorne},
+  title = {An opinionated guide to epistemic modality},
+  booktitle = {Oxford Studies in Epistemology 2},
+  publisher = {Oxford University Press},
+  year = {2007},
+  url = {http://rci.rutgers.edu/~thony/fintel-gillies.ose2-final.pdf}
+}
+</pre></td>
+</tr>
+<tr id="von_fintel2010" class="entry">
+	<td>von Fintel K and Gillies T (2010), <i>"Must...Stay...Strong!"</i>, Natural Language Semantics.  Vol. 18(4), pp. 351-383.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('von_fintel2010','bibtex')">BibTeX</a>] [<a href="http://dx.doi.org/10.1007/s11050-010-9058-2" target="_blank">DOI</a>] [<a href="http://dspace.mit.edu/handle/1721.1/65909" target="_blank">URL</a>]</p>
+	</td>
+</tr>
+<tr id="bib_von_fintel2010" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{von_fintel2010,
+  author = {Kai von Fintel and Thony Gillies},
+  title = {Must...Stay...Strong!},
+  journal = {Natural Language Semantics},
+  year = {2010},
+  volume = {18},
+  number = {4},
+  pages = {351--383},
+  url = {http://dspace.mit.edu/handle/1721.1/65909},
+  doi = {10.1007/s11050-010-9058-2}
+}
+</pre></td>
+</tr>
+<tr id="von_fintel2010" class="entry">
+	<td>von Fintel K and Gillies T (2010), <i>"Must...Stay...Strong!"</i>, Natural Language Semantics.  Vol. 18(4), pp. 351-383.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('von_fintel2010','bibtex')">BibTeX</a>] [<a href="http://dx.doi.org/10.1007/s11050-010-9058-2" target="_blank">DOI</a>] [<a href="http://dspace.mit.edu/handle/1721.1/65909" target="_blank">URL</a>]</p>
+	</td>
+</tr>
+<tr id="bib_von_fintel2010" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{von_fintel2010,
+  author = {Kai von Fintel and Thony Gillies},
+  title = {Must...Stay...Strong!},
+  journal = {Natural Language Semantics},
+  year = {2010},
+  volume = {18},
+  number = {4},
+  pages = {351--383},
+  url = {http://dspace.mit.edu/handle/1721.1/65909},
+  doi = {10.1007/s11050-010-9058-2}
+}
+</pre></td>
+</tr>
+<tr id="von_fintel2008" class="entry">
+	<td>von Fintel K and Gillies T (2008), <i>"CIA Leaks"</i>, Philosophical Review.  Vol. 117(1), pp. 77-98.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('von_fintel2008','bibtex')">BibTeX</a>] [<a href="http://dx.doi.org/10.1215/00318108-2007-025" target="_blank">DOI</a>] [<a href="http://rci.rutgers.edu/~thony/cia_leaks_phil_review-jan08.pdf" target="_blank">URL</a>]</p>
+	</td>
+</tr>
+<tr id="bib_von_fintel2008" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{von_fintel2008,
+  author = {Kai von Fintel and Thony Gillies},
+  title = {CIA Leaks},
+  journal = {Philosophical Review},
+  year = {2008},
+  volume = {117},
+  number = {1},
+  pages = {77--98},
+  url = {http://rci.rutgers.edu/~thony/cia_leaks_phil_review-jan08.pdf},
+  doi = {10.1215/00318108-2007-025}
+}
+</pre></td>
+</tr>
+<tr id="gardenfors2005b" class="entry">
+	<td>G&auml;rdenfors P (2005), <i>"The Dynamics of Thought"</i> , pp. 201-213. Springer.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('gardenfors2005b','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_gardenfors2005b" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inbook{gardenfors2005b,
+  author = {Peter G&auml;rdenfors},
+  title = {The Dynamics of Thought},
+  publisher = {Springer},
+  year = {2005},
+  pages = {201-213}
+}
+</pre></td>
+</tr>
+<tr id="gauker" class="entry">
+	<td>Gauker C (), <i>"Comments on Dynamic Semantics"</i> , pp. 298-328.
+	<p class="infolinks">[<a href="javascript:toggleInfo('gauker','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('gauker','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_gauker" class="abstract noshow">
+	<td><b>Abstract</b>: This is the text of my comments on the project of dynamic semantics for the session on that topic at the Central Division APA meeting on April 21, 2007. The other speakers were Jeroen Groenendijk, Frank Veltman and Thony Gillies. I question the philosophical basis for dynamic semantics. My doubts have to do with the nature of information states and the norms of semantics. I also question the data that inspire the project. In particular, I question the data concerning presupposition and the data concerning modal operators and conditionals.</td>
+</tr>
+<tr id="bib_gauker" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{gauker,
+  author = {Christopher Gauker},
+  title = {Comments on Dynamic Semantics},
+  pages = {298--328}
+}
+</pre></td>
+</tr>
+<tr id="gauker2008" class="entry">
+	<td>Gauker C (2008), <i>"Against Accommodation: Heim, van der Sandt, and the Presupposition Projection Problem"</i>, No&ucirc;s.  Vol. 42(1), pp. 171-205.
+	<p class="infolinks">[<a href="javascript:toggleInfo('gauker2008','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('gauker2008','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_gauker2008" class="abstract noshow">
+	<td><b>Abstract</b>: This paper criticizes the dominant approaches to presupposition projection and proposes an alternative. Both the update semantics of Heim and the discourse representation theory of van der Sandt have problems in explicating the presuppositions of disjunctions. Moreover, Heim's approach is committed to a conception of accommodation that founders on the problem of informative presuppositions, and van der Sandt's approach is committed to a conception of accommodation that generates over-interpretations of utterances. The present approach borrows Karttunen's idea that instead of associating presuppositions with sentences, we should define the conditions that contexts must meet in order to satisfy-the-presuppositions-of a sentence. However, in place of Karttunen's conception of contexts in terms of common ground, the present theory substitutes a conception of contexts as objective entities that are independent of the attitudes of the interlocutors. Contexts, so conceived, may be defined as containing sets of relevant possibilities. This allows us to define the conditions under which a context satisfies-the-presuppositions-of a disjunction.</td>
+</tr>
+<tr id="bib_gauker2008" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{gauker2008,
+  author = {Christopher Gauker},
+  title = {Against Accommodation: Heim, van der Sandt, and the Presupposition Projection Problem},
+  journal = {No&ucirc;s},
+  year = {2008},
+  volume = {42},
+  number = {1},
+  pages = {171--205}
+}
+</pre></td>
+</tr>
+<tr id="gillies2010" class="entry">
+	<td>Gillies AS (2010), <i>"Iffiness"</i>, Semantics and Pragmatics., January, 2010.  Vol. 3(4), pp. 1-42.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('gillies2010','bibtex')">BibTeX</a>] [<a href="http://dx.doi.org/10.3765/sp.3.4" target="_blank">DOI</a>]</p>
+	</td>
+</tr>
+<tr id="bib_gillies2010" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{gillies2010,
+  author = {Anthony S. Gillies},
+  title = {Iffiness},
+  journal = {Semantics and Pragmatics},
+  year = {2010},
+  volume = {3},
+  number = {4},
+  pages = {1--42},
+  doi = {10.3765/sp.3.4}
+}
+</pre></td>
+</tr>
+<tr id="glanzberg2005" class="entry">
+	<td>Glanzberg M (2005), <i>"Focus: A Case Study on the Semantics-Pragmatics Boundary"</i>, In Semantics versus Pragmatics. , pp. 72-110. Oxford University Press.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('glanzberg2005','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_glanzberg2005" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@incollection{glanzberg2005,
+  author = {Michael Glanzberg},
+  editor = {Zoltan Gendler Szabo},
+  title = {Focus: A Case Study on the Semantics-Pragmatics Boundary},
+  booktitle = {Semantics versus Pragmatics},
+  publisher = {Oxford University Press},
+  year = {2005},
+  pages = {72--110}
+}
+</pre></td>
+</tr>
+<tr id="graben2006" class="entry">
+	<td>beim Graben P (2006), <i>"Pragmatic Information in Dynamic Semantics"</i>, Mind and Matter.  Vol. 4(2), pp. 169-193.
+	<p class="infolinks">[<a href="javascript:toggleInfo('graben2006','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('graben2006','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_graben2006" class="abstract noshow">
+	<td><b>Abstract</b>: In 1972,Ernst Ulrich and Christine von Weizs acker introduced the concept of pragmatic information with three desiderata:(i) Pragmatic information should assess the impact of a message upon its receiver;(ii)Pragmatic information should vanish in the limits of complete (non-interpretable)'novelty 'and complete 'confirmation';(iii)Pragmatic information should exhibit non-classical properties since novelty and confirmation behave similarly to Fourier pairs of complementary operators in quantum mechanics. It will be shown how these three desiderata can be naturally fulfilled within the framework of Gardenfors' dynamic semantics of Bayesian belief models.(i)The meaning of a message is its impact upon the epistemic states of a cognitive agent. A pragmatic information measure can then be quanti .ed by the average information gain for the transition from a prior to a posterior state.(ii)Total novelty can be represented by the identical proposition, total con- .rmation by the logical consequence of propositions. In both cases, pragmatic information vanishes.(iii)For operators that are neither idempotent nor commuting, novelty and confirmation relative to a message sequence can be defined within Gardenfors' theory of belief revisions.The proposed approach is consistent with measures of relevance derived from statistical decision theory and it contains Bar-Hillel 's and Carnap's theory of semantic information as a special case.</td>
+</tr>
+<tr id="bib_graben2006" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{graben2006,
+  author = {Peter beim Graben},
+  title = {Pragmatic Information in Dynamic Semantics},
+  journal = {Mind and Matter},
+  year = {2006},
+  volume = {4},
+  number = {2},
+  pages = {169--193}
+}
+</pre></td>
+</tr>
+<tr id="groenendijk1991" class="entry">
+	<td>Groenendijk J and Stokhof M (1991), <i>"Dynamic Predicate Logic"</i>, Linguistics and Philosophy.  Vol. 14(1), pp. 39-100.
+	<p class="infolinks">[<a href="javascript:toggleInfo('groenendijk1991','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('groenendijk1991','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_groenendijk1991" class="abstract noshow">
+	<td><b>Abstract</b>: This paper is devoted to the formulation and investigation of a dynamic semantic interpretation of the language of rst-order predicate logic. The resulting system, which will be referred to as dynamic predicate logic is intended as a rst step towards a compositional, non-representational theory of discourse semantics. In the last decade, various theories of discourse semantics have emerged within the paradigm of model-theoretic semantics. A common feature of these theories is a tendency to do away with the principle of compositionality, a principle which, implicitly or explicitly, has dominated semantics since the days of Frege. Therefore the question naturally arises whether non-compositionality is in any way a necessary feature of discourse semantics. Since we subscribe to the interpretation of compositionality as constituting primarily a methodological principle, we consider this to be a methodological rather than an empirical question. As a consequence, the emphasis in the present paper lies on developing an alternative compositional semantics of discourse, which is empirically equivalent to its non-compositional brethren, but which diers from them in a principled methodological way. Hence, no attempts are made to improve on existing theories empirically. Nevertheless, as we indicate in section 5, the development of a compositional alternative may in the end have empirical consequences, too. First of all, it can be argued that the dynamic view on interpretation developed in this paper suggests natural and relatively easy to formulate extensions which enable one to deal with a wider range of phenomena than can be dealt with in existing theories. Moreover, the various approaches to the model-theoretic semantics of discourse that have been developed during the last decade, have constituted a fresh starttextquoteright in the sense that much of what had been accomplished before was ignored, at least for a start. Of course, this is a justied strategy if one feels one is trying to develop a radically dierent approach to recalcitrant problems. However, there comes a time when such new approaches have to be compared with the older one, and when an assessment of the pros and cons of each has to be made. One of the main problems in semantics today, we feel, is that a semantic theory such as Montague grammar, and an approach like Kamps discourse representation theory, are hard to compare, let alone that it is possible to unify their insights and results..</td>
+</tr>
+<tr id="bib_groenendijk1991" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{groenendijk1991,
+  author = {Jeroen Groenendijk and Martin Stokhof},
+  title = {Dynamic Predicate Logic},
+  journal = {Linguistics and Philosophy},
+  year = {1991},
+  volume = {14},
+  number = {1},
+  pages = {39--100}
+}
+</pre></td>
+</tr>
+<tr id="groeneveld1994" class="entry">
+	<td>Groeneveld W (1994), <i>"Dynamic Semantics and Circular Propositions"</i>, Journal of Philosophical Logic.  Vol. 23(3), pp. 267-306.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('groeneveld1994','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_groeneveld1994" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{groeneveld1994,
+  author = {Willem Groeneveld},
+  title = {Dynamic Semantics and Circular Propositions},
+  journal = {Journal of Philosophical Logic},
+  year = {1994},
+  volume = {23},
+  number = {3},
+  pages = {267--306}
+}
+</pre></td>
+</tr>
+<tr id="keenan2006" class="entry">
+	<td>Keenan E (2006), <i>"Quantifiers: Semantics"</i>, In Encyclopedia of Language and Linguistics. , pp. 302-308. Elsevier.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('keenan2006','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_keenan2006" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@incollection{keenan2006,
+  author = {Edward Keenan},
+  editor = {Keith Brown},
+  title = {Quantifiers: Semantics},
+  booktitle = {Encyclopedia of Language and Linguistics},
+  publisher = {Elsevier},
+  year = {2006},
+  pages = {302--308}
+}
+</pre></td>
+</tr>
+<tr id="king2005" class="entry">
+	<td>King JC and Stanley J (2005), <i>"Semantics, Pragmatics, and the Role of Semantic Content"</i>, In Semantics versus Pragmatics. , pp. 111-164. Oxford University Press.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('king2005','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_king2005" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@incollection{king2005,
+  author = {Jeffrey C King and Jason Stanley},
+  editor = {Zoltan Gendler Szabo},
+  title = {Semantics, Pragmatics, and the Role of Semantic Content},
+  booktitle = {Semantics versus Pragmatics},
+  publisher = {Oxford University Press},
+  year = {2005},
+  pages = {111--164}
+}
+</pre></td>
+</tr>
+<tr id="klinedinstforthcoming" class="entry">
+	<td>Klinedinst N and Rothschild D (forthcoming), <i>"Connectives Without Truth Tables"</i>, Natural Language Semantics. 
+	<p class="infolinks">[<a href="javascript:toggleInfo('klinedinstforthcoming','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('klinedinstforthcoming','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_klinedinstforthcoming" class="abstract noshow">
+	<td><b>Abstract</b>: We note that there are certain uses of both 'and' and 'or' that cannot be explained on their normal truth-table meanings (even when supplemented with sophisticated pragmatic tools). These include examples such as the following: 1) The cops show up, and a fight will break out. = If the cops show up, a fight will break out. 2) I have no friends, or I would throw a party. = I have no friends. If I did have friends, I would throw a party. To explain these uses we give an analysis of what we call the 'dynamic' effects of connectives, which arise even when they have their normal truth-table meaning. We argue that the special uses in 1) and 2) are instances where the connectives have just their dynamic effects without having their truth-table meaning.</td>
+</tr>
+<tr id="bib_klinedinstforthcoming" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{klinedinstforthcoming,
+  author = {Nathan Klinedinst and Daniel Rothschild},
+  title = {Connectives Without Truth Tables},
+  journal = {Natural Language Semantics},
+  year = {forthcoming}
+}
+</pre></td>
+</tr>
+<tr id="kohlhase" class="entry">
+	<td>Kohlhase M (), <i>"Towards a Dynamic Type Theory"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('kohlhase','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('kohlhase','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_kohlhase" class="abstract noshow">
+	<td><b>Abstract</b>: Over the past few years, there have been a series of attempts Zee89, GS90, EK95, Mus94, KKP95] to combine the Montagovian type theoretic framework Mon74] with dynamic approaches, such as DRT Kam81]. The motivation for these developments is to obtain a general logical framework for discourse semantics that combines compositionality and dynamic binding.</td>
+</tr>
+<tr id="bib_kohlhase" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{kohlhase,
+  author = {Michael Kohlhase},
+  title = {Towards a Dynamic Type Theory}
+}
+</pre></td>
+</tr>
+<tr id="kovalerchukforthcoming" class="entry">
+	<td>Kovalerchuk B, Perlovsky L and Wheeler G (forthcoming), <i>"Modeling of Phenomena and Dynamic Logic of Phenomena"</i>, Journal of Applied Non-Classical Logic. 
+	<p class="infolinks">[<a href="javascript:toggleInfo('kovalerchukforthcoming','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('kovalerchukforthcoming','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_kovalerchukforthcoming" class="abstract noshow">
+	<td><b>Abstract</b>: Modeling a complex phenomena such as the mind presents tremendous computational complexity challenges. Modeling field theory (MFT) addresses these challenges in a non-traditional way. The main idea behind MFT is to match levels of uncertainty of the model (also, a problem or some theory) with levels of uncertainty of the evaluation criterion used to identify that model. When a model becomes more certain, then the evaluation criterion is adjusted dynamically to match that change to the model. This process is called the Dynamic Logic of Phenomena (DLP) for model construction and it mimics processes of the mind and natural evolution. This paper provides a formal description of DLP by specifying its syntax, semantics, and reasoning system. We also outline links between DLP and other logical approaches. Computational complexity issues that motivate this work are presented using an example of polynomial models.</td>
+</tr>
+<tr id="bib_kovalerchukforthcoming" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{kovalerchukforthcoming,
+  author = {Boris Kovalerchuk and Leonid Perlovsky and Gregory Wheeler},
+  title = {Modeling of Phenomena and Dynamic Logic of Phenomena},
+  journal = {Journal of Applied Non-Classical Logic},
+  year = {forthcoming}
+}
+</pre></td>
+</tr>
+<tr id="kratzer2008" class="entry">
+	<td>Kratzer A (2008), <i>"The Notional Category of Modality"</i>, In Formal Semantics: The essential readings.  Blackwell Publishers Ltd..
+	<p class="infolinks"> [<a href="javascript:toggleInfo('kratzer2008','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_kratzer2008" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@incollection{kratzer2008,
+  author = {Angelika Kratzer},
+  editor = {P. Portner and B. H. Partee},
+  title = {The Notional Category of Modality},
+  booktitle = {Formal Semantics: The essential readings},
+  publisher = {Blackwell Publishers Ltd.},
+  year = {2008}
+}
+</pre></td>
+</tr>
+<tr id="landman1984" class="entry">
+	<td>Landman F and Veltman F (1984), <i>"Varieties of Formal Semantics: Proceedings of the Fourth Amsterdam Colloquium, September 1982"</i>  Foris Publications.
+	<p class="infolinks">[<a href="javascript:toggleInfo('landman1984','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('landman1984','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_landman1984" class="abstract noshow">
+	<td><b>Abstract</b>: Some Generalizations of Categorical Grammars Emmon Bach 0. INTRODUCTION The last decade of work in syntax has seen a marked demotion in the importance of ...</td>
+</tr>
+<tr id="bib_landman1984" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@book{landman1984,
+  author = {Fred Landman and Frank Veltman},
+  title = {Varieties of Formal Semantics: Proceedings of the Fourth Amsterdam Colloquium, September 1982},
+  publisher = {Foris Publications},
+  year = {1984}
+}
+</pre></td>
+</tr>
+<tr id="lascarides" class="entry">
+	<td>Lascarides A (), <i>"The Semantics and Pragmatics of Presupposition"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('lascarides','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('lascarides','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_lascarides" class="abstract noshow">
+	<td><b>Abstract</b>: In this paper, we offer a novel analysis of presuppositions, paying particular attention to the interaction between the knowledge resources that are required to interpret them. The analysis has two main features. First, we capture an analogy between presuppositions, anaphora and scope ambiguity (cf. van der Sandt, 1992), by utilising semantic underspecification (cf. Reyle, 1993). Second, resolving this underspecification requires reasoning about how the presupposition is rhetorically connected to the discourse context. This has several consequences. First, since pragmatic information plays a role in computing the rhetorical relation, it also constrains the interpretation of presuppositions. Our account therefore goes beyond existing ones, and provides a forum for analysing problematic data, that require pragmatic reasoning. Second, binding presuppositions to the context via rhetorical links replaces accommodating them, in the sense of adding them to the context (cf. Lewis, 1979). Thus, unlike previous theories, we don't resort to interpretation mechanisms that are peculiar to presuppositions. Rather, they are handled entirely in terms of the discourse update procedure. We formalise this approach in SDRT (Asher 1993, Lascarides and Asher 1993), and demonstrate that it provides a rich framework for interpreting presuppositions, where semantic and pragmatic constraints are integrated.</td>
+</tr>
+<tr id="bib_lascarides" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{lascarides,
+  author = {Alex Lascarides},
+  title = {The Semantics and Pragmatics of Presupposition}
+}
+</pre></td>
+</tr>
+<tr id="lasersohn1993" class="entry">
+	<td>Lasersohn P (1993), <i>"Existence Presuppositions and Background Knowledge"</i>, Journal of Semantics.  Vol. 10(2), pp. 113-122.
+	<p class="infolinks">[<a href="javascript:toggleInfo('lasersohn1993','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('lasersohn1993','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_lasersohn1993" class="abstract noshow">
+	<td><b>Abstract</b>: Argues that the intuition of a truth value gap in cases of presupposition failure depends on the discourse information state, and in particular whether sufficient information is in the common ground to preclude the truth of the sentence on independent grounds; formalizes this analysis in a semantics using data lattices.</td>
+</tr>
+<tr id="bib_lasersohn1993" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{lasersohn1993,
+  author = {Peter Lasersohn},
+  title = {Existence Presuppositions and Background Knowledge},
+  journal = {Journal of Semantics},
+  year = {1993},
+  volume = {10},
+  number = {2},
+  pages = {113--122}
+}
+</pre></td>
+</tr>
+<tr id="lepore2006-1" class="entry">
+	<td>Lepore E (2006), <i>"Truth Conditional Semantics and Meaning"</i>, In Encyclopedia of Language and Linguistics.  Vol. 13, pp. 120-124. Elsevier.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('lepore2006-1','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_lepore2006-1" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@incollection{lepore2006-1,
+  author = {Ernie Lepore},
+  editor = {Keith Brown},
+  title = {Truth Conditional Semantics and Meaning},
+  booktitle = {Encyclopedia of Language and Linguistics},
+  publisher = {Elsevier},
+  year = {2006},
+  volume = {13},
+  pages = {120--124},
+  edition = {2}
+}
+</pre></td>
+</tr>
+<tr id="lepore1989-1" class="entry">
+	<td>Lepore E and Loewer B (1989), <i>"What Davidson Should have Said"</i>, In Information, Semantics, and Epistemology.  Vol. 14, pp. 3-26. Black.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('lepore1989-1','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_lepore1989-1" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@incollection{lepore1989-1,
+  author = {Ernie Lepore and Barry Loewer},
+  editor = {E. Villanueva},
+  title = {What Davidson Should have Said},
+  booktitle = {Information, Semantics, and Epistemology},
+  publisher = {Black},
+  year = {1989},
+  volume = {14},
+  pages = {3--26}
+}
+</pre></td>
+</tr>
+<tr id="lepore2003" class="entry">
+	<td>Lepore E and Ludwig K (2003), <i>"Outline for a Truth-Conditional Semantics for Tense"</i>, In Time, Tense, and Reference. , pp. 49-106. MIT Press.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('lepore2003','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_lepore2003" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@incollection{lepore2003,
+  author = {Ernie Lepore and Kirk Ludwig},
+  editor = {Aleksander Jokic and Quentin Smith},
+  title = {Outline for a Truth-Conditional Semantics for Tense},
+  booktitle = {Time, Tense, and Reference},
+  publisher = {MIT Press},
+  year = {2003},
+  pages = {49--106}
+}
+</pre></td>
+</tr>
+<tr id="Lewis1974a" class="entry">
+	<td>Lewis D (1974), <i>"'Tensions"</i>, In Semantics and Philosophy. New York , pp. 49-61. New York University Press.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('Lewis1974a','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_Lewis1974a" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@incollection{Lewis1974a,
+  author = {David Lewis},
+  editor = {Milton K. Munitz and Peter K. Unger},
+  title = {'Tensions},
+  booktitle = {Semantics and Philosophy},
+  publisher = {New York University Press},
+  year = {1974},
+  pages = {49--61},
+  note = {PPI 250-260}
+}
+</pre></td>
+</tr>
+<tr id="Lewis1981c" class="entry">
+	<td>Lewis D (1981), <i>"Ordering Semantics and Premise Semantics for Counterfactuals"</i>, Journal of Philosophical Logic.  Vol. 10(2), pp. 217-234.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('Lewis1981c','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_Lewis1981c" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{Lewis1981c,
+  author = {David Lewis},
+  title = {Ordering Semantics and Premise Semantics for Counterfactuals},
+  journal = {Journal of Philosophical Logic},
+  year = {1981},
+  volume = {10},
+  number = {2},
+  pages = {217--234},
+  note = {PPL 77-96}
+}
+</pre></td>
+</tr>
+<tr id="Lewis1977" class="entry">
+	<td>Lewis D (1977), <i>"Possible-World Semantics for Counterfactual Logics: A Rejoinder"</i>, Journal of Philosophical Logic.  Vol. 6(3), pp. 359-363.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('Lewis1977','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_Lewis1977" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{Lewis1977,
+  author = {David Lewis},
+  title = {Possible-World Semantics for Counterfactual Logics: A Rejoinder},
+  journal = {Journal of Philosophical Logic},
+  year = {1977},
+  volume = {6},
+  number = {3},
+  pages = {359--363}
+}
+</pre></td>
+</tr>
+<tr id="Lewis1975a" class="entry">
+	<td>Lewis D (1975), <i>"Adverbs of Quantification"</i>, In Formal Semantics of Natural Language. Cambridge , pp. 3-15. Cambridge University Press.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('Lewis1975a','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_Lewis1975a" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@incollection{Lewis1975a,
+  author = {David Lewis},
+  title = {Adverbs of Quantification},
+  booktitle = {Formal Semantics of Natural Language},
+  publisher = {Cambridge University Press},
+  year = {1975},
+  pages = {3--15},
+  note = {PPL 5-20}
+}
+</pre></td>
+</tr>
+<tr id="Lewis1970b" class="entry">
+	<td>Lewis D (1970), <i>"General Semantics"</i>, Synthese.  Vol. 22(1-2), pp. 18-67.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('Lewis1970b','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_Lewis1970b" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{Lewis1970b,
+  author = {David Lewis},
+  title = {General Semantics},
+  journal = {Synthese},
+  year = {1970},
+  volume = {22},
+  number = {1-2},
+  pages = {18--67},
+  note = {PPI 189-229}
+}
+</pre></td>
+</tr>
+<tr id="maier2009" class="entry">
+	<td>Maier E (2009), <i>"Proper Names and Indexicals Trigger Rigid Presuppositions"</i>, Journal of Semantics.  Vol. 26, pp. 253-315.
+	<p class="infolinks">[<a href="javascript:toggleInfo('maier2009','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('maier2009','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_maier2009" class="abstract noshow">
+	<td><b>Abstract</b>: I provide a novel semantic analysis of proper names and indexicals, combining insights from the competing traditions of referentialism, championed by Kripke and Kaplan, and descriptivism, introduced by Frege and Russell, and more recently resurrected by Geurts and Elbourne, among others. From the referentialist tradition, I borrow the proof that names and indexicals are not synonymous to any definite description but pick their referent from the context directly. From the descriptivist tradition, I take the observation that names, and to some extent indexicals, have uses that are best understood by analogy with anaphora and definite descriptions, that is, following Geurts, in terms of presupposition projection. The hybrid analysis that I propose is couched in Layered Discourse Representation Theory. Proper names and indexicals trigger presuppositions in a dedicated layer, which is semantically interpreted as providing a contextual anchor for the interpretation of the other layers. For the proper resolution of DRSs with layered presuppositions, I add two constraints to van der Sandt's algorithm. The resulting proposal accounts for both the classic philosophical examples and the new linguistic data, preserving a unified account of the preferred rigid interpretation of both names and indexicals, while leaving room for non-referential readings under contextual pressure.</td>
+</tr>
+<tr id="bib_maier2009" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{maier2009,
+  author = {Emar Maier},
+  title = {Proper Names and Indexicals Trigger Rigid Presuppositions},
+  journal = {Journal of Semantics},
+  year = {2009},
+  volume = {26},
+  pages = {253--315}
+}
+</pre></td>
+</tr>
+<tr id="meulen1998" class="entry">
+	<td>ter Meulen AGB (1998), <i>"Semantic Realism, Rigid Designation, and Dynamic Semantics"</i>, Behavioral and Brain Sciences.  Vol. 21(1), pp. 85-86.
+	<p class="infolinks">[<a href="javascript:toggleInfo('meulen1998','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('meulen1998','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_meulen1998" class="abstract noshow">
+	<td><b>Abstract</b>: Semantic realism fits Millikan's account of kind terms in its focus on information-theoretic abilities and strategic ways of gathering information in human communication. Instead of the traditional logical necessity, we should interpret rigid designation in a dynamic semantics as a legislative act to constrain possible ways in which our belief may change.</td>
+</tr>
+<tr id="bib_meulen1998" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{meulen1998,
+  author = {Alice G. B. ter Meulen},
+  title = {Semantic Realism, Rigid Designation, and Dynamic Semantics},
+  journal = {Behavioral and Brain Sciences},
+  year = {1998},
+  volume = {21},
+  number = {1},
+  pages = {85--86}
+}
+</pre></td>
+</tr>
+<tr id="moltmann2006" class="entry">
+	<td>Moltmann F (2006), <i>"Presuppositions and Quantifier Domains"</i>, Synthese.  Vol. 149(1), pp. 179-224.
+	<p class="infolinks">[<a href="javascript:toggleInfo('moltmann2006','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('moltmann2006','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_moltmann2006" class="abstract noshow">
+	<td><b>Abstract</b>: In this paper, I will argue for a new account of presuppositions which is based on double indexing as well as minimal representational contexts providing antecedent material for anaphoric presuppositions, rather than notions of context defined in terms of the interlocutorstextquoteright pragmatic presuppositions or the information accumulated from the preceding discourse. This account applies in particular to new phenomena concerning the presupposition of quantifier domains. But it is also intended to be an account of presuppositions in general. The account differs from the Satisfaction Theory and the Binding Theory of presuppositions in that it can be viewed as a conservative extension of traditional static semantics and in that it does not involve the notion of pragmatic presupposition.</td>
+</tr>
+<tr id="bib_moltmann2006" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{moltmann2006,
+  author = {Friederike Moltmann},
+  title = {Presuppositions and Quantifier Domains},
+  journal = {Synthese},
+  year = {2006},
+  volume = {149},
+  number = {1},
+  pages = {179--224}
+}
+</pre></td>
+</tr>
+<tr id="moltmann2006a" class="entry">
+	<td>Moltmann F (2006), <i>"Unbound Anaphoric Pronouns: E-Type, Dynamic, and Structured-Propositions Approaches"</i>, Synthese.  Vol. 153(2), pp. 199-260.
+	<p class="infolinks">[<a href="javascript:toggleInfo('moltmann2006a','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('moltmann2006a','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_moltmann2006a" class="abstract noshow">
+	<td><b>Abstract</b>: Unbound anaphoric pronouns or E-type pronounstextquoteright have presented notorious problems for semantic theory, leading to the development of dynamic semantics, where the primary function of a sentence is not considered that of expressing a proposition that may act as the object of propositional attitudes, but rather that of changing the current information state. The older, E-typetextquoteright account of unbound anaphora leaves the traditional notion of proposition intact and takes the unbound anaphor to be replaced by a full NP whose semantics is assumed to be known (e.g. a definite description). In this paper, I argue that there are serious problems with any version of the E-type account as well as the (original form of the) dynamic account. I will explore a new account based on structured propositions, which can be considered a conservative extension of a traditional proposition-based semantics, but which at the same time incorporates some crucial insights of the dynamic account.</td>
+</tr>
+<tr id="bib_moltmann2006a" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{moltmann2006a,
+  author = {Friederike Moltmann},
+  title = {Unbound Anaphoric Pronouns: E-Type, Dynamic, and Structured-Propositions Approaches},
+  journal = {Synthese},
+  year = {2006},
+  volume = {153},
+  number = {2},
+  pages = {199--260}
+}
+</pre></td>
+</tr>
+<tr id="murray2014" class="entry">
+	<td>Murray SE (2014), <i>"Varieties of update"</i>, Semantics and Pragmatics., March, 2014.  Vol. 7(2), pp. 1-53.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('murray2014','bibtex')">BibTeX</a>] [<a href="http://dx.doi.org/10.3765/sp.7.2" target="_blank">DOI</a>]</p>
+	</td>
+</tr>
+<tr id="bib_murray2014" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{murray2014,
+  author = {Sarah E. Murray},
+  title = {Varieties of update},
+  journal = {Semantics and Pragmatics},
+  year = {2014},
+  volume = {7},
+  number = {2},
+  pages = {1--53},
+  doi = {10.3765/sp.7.2}
+}
+</pre></td>
+</tr>
+<tr id="muskens2011" class="entry">
+	<td>Muskens R (2011), <i>"A Squib on Anaphora and Coindexing"</i>, Linguistics and Philosophy.  Vol. 34(1), pp. 85-89.
+	<p class="infolinks">[<a href="javascript:toggleInfo('muskens2011','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('muskens2011','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_muskens2011" class="abstract noshow">
+	<td><b>Abstract</b>: There are two kinds of semantic theories of anaphora. Some, such as Heims File Change Semantics, Groenendijk and Stokhofs Dynamic Predicate Logic, or Muskenstextquoteright Compositional DRT (CDRT), seem to require full coindexing of anaphora and their antecedents prior to interpretation. Others, such as Kamps Discourse Representation Theory (DRT), do not require this coindexing and seem to have an important advantage here. In this squib I will sketch a procedure that the first group of theories may help themselves to so that they can interleave interpretation and coindexing in DRTs way</td>
+</tr>
+<tr id="bib_muskens2011" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{muskens2011,
+  author = {Reinhard Muskens},
+  title = {A Squib on Anaphora and Coindexing},
+  journal = {Linguistics and Philosophy},
+  year = {2011},
+  volume = {34},
+  number = {1},
+  pages = {85--89}
+}
+</pre></td>
+</tr>
+<tr id="nouwen2007" class="entry">
+	<td>Nouwen R (2007), <i>"On Dependent Pronouns and Dynamic Semantics"</i>, Journal of Philosophical Logic.  Vol. 36(2), pp. 123-154.
+	<p class="infolinks">[<a href="javascript:toggleInfo('nouwen2007','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('nouwen2007','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_nouwen2007" class="abstract noshow">
+	<td><b>Abstract</b>: Within natural language semantics, pronouns are often thought to correspond to variables whose values are contributed by contextual assignment functions. This paper concerns the application of this idea to cases where the antecedent of a pronoun is a plural quantifiers. The paper discusses the modelling of accessibility patterns of quantifier antecedents in a dynamic theory of interpretation. The goal is to reach a semantics of quantificational dependency which yields a fully semantic notion of pronominal accessibility. I argue that certain dependency phenomena that arise in quantificationally created contexts require a representation of context wherein the labelling of antecedents is not rigid but rather dynamic itself. I propose a stack-based alternative to classic assignment functions, along the lines of Vermeulen (1993) and van Eijck (2001), and give a dynamic semantics of quantification which correctly accommodates the problematic anaphoric phenomena.</td>
+</tr>
+<tr id="bib_nouwen2007" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{nouwen2007,
+  author = {Rick Nouwen},
+  title = {On Dependent Pronouns and Dynamic Semantics},
+  journal = {Journal of Philosophical Logic},
+  year = {2007},
+  volume = {36},
+  number = {2},
+  pages = {123--154}
+}
+</pre></td>
+</tr>
+<tr id="nunberg1995" class="entry">
+	<td>Nunberg G (1995), <i>"Transfers of Meaning"</i>, Journal of Semantics.  Vol. 12, pp. 109-132.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('nunberg1995','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_nunberg1995" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{nunberg1995,
+  author = {Geoffrey Nunberg},
+  title = {Transfers of Meaning},
+  journal = {Journal of Semantics},
+  year = {1995},
+  volume = {12},
+  pages = {109--132}
+}
+</pre></td>
+</tr>
+<tr id="pearson" class="entry">
+	<td>Pearson H (), <i>"Presupposition Accommodation in Local Contexts: Why Global Accommodation is Not Enough"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('pearson','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('pearson','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_pearson" class="abstract noshow">
+	<td><b>Abstract</b>: It is a somewhat vexed question whether presuppositions are always accommodated into the global context of utterance of the sentence, or whether they may sometimes be accommodated into a local context - the context of some subsentential constituent. Von Fintel (2008) argues that there is no local accommodation. He shows that presuppositions in the scope of universally quantified sentences, which have traditionally been handled via local accommodation (eg Heim 1983), can be accounted for by assuming that conversational participants select a domain of quantification such that every relevant element of it has the property required by the presupposition in the scope. It is shown that this domain selection mechanism cannot account for a related set of data involving presupposition triggers in the restrictor rather than scope of the universal. We also discuss the relationship between quantified sentences and conditionals, and general consequences for the theory of presupposition accommodation</td>
+</tr>
+<tr id="bib_pearson" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{pearson,
+  author = {Hazel Pearson},
+  title = {Presupposition Accommodation in Local Contexts: Why Global Accommodation is Not Enough}
+}
+</pre></td>
+</tr>
+<tr id="peregrin2003" class="entry">
+	<td>Peregrin J (2003), <i>"Meaning: The Dynamic Turn"</i>  Elsevier Science.
+	<p class="infolinks">[<a href="javascript:toggleInfo('peregrin2003','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('peregrin2003','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_peregrin2003" class="abstract noshow">
+	<td><b>Abstract</b>: In recent decades, many theories of formal semantics of natural language have undergone what can be called a dynamic turn: they have moved from treating language as a static system to considering it 'in action' and to taking meanings as crucially involving 'context-change potentials'. The theories, however, usually concentrate much more on the hows of the turn than on its whys and as a result, the conceptual foundations of dynamic semantics are much less elaborated than its technical side. This book, based on a conference held in Prague in September 2001, is a contribution to filling this gap: it consists of papers addressing, from various sides, the foundational questions of the dynamic theories of meaning. It includes contributions of writers who are commonly held as authorities concerning the turn, who, however, here concentrate more on the why's than on the how's of dynamic semantics. Hence the book should be of interest both for those who want to know what the turn is about, and for those who are not satisfied with knowing the technical side of dynamic semantics and want to know its point.</td>
+</tr>
+<tr id="bib_peregrin2003" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@book{peregrin2003,
+  author = {Jaroslav Peregrin},
+  title = {Meaning: The Dynamic Turn},
+  publisher = {Elsevier Science},
+  year = {2003}
+}
+</pre></td>
+</tr>
+<tr id="peters1979" class="entry">
+	<td>Peters S (1979), <i>"A Truth-Conditional Formulation of Karttunen's Account of Presupposition"</i>, Synthese.  Vol. 40(2), pp. 301-316.
+	<p class="infolinks">[<a href="javascript:toggleInfo('peters1979','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('peters1979','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_peters1979" class="abstract noshow">
+	<td><b>Abstract</b>: Karttunen's seminal 1973 article Presuppositions of compound sentences, lays the groundwork for the elegant and fruitful theory of this subject which he subsequently presented in (1974). In (1973, pp. 185--8), however, he fallaciously argued that the regularities he discovered concerning the behavior of and, or, and if ... then in English cannot be embodied in any three-valued logic giving a truth-functional interpretation to these connectives. The present paper refutes Karttunen's argument by exhibiting an interpretation with the desired properties, and shows further how the full articulation of his 1974 system can be developed naturally within a truth-conditional semantics for English if bivalence is abandoned --- contrary to what Karttunen expected.</td>
+</tr>
+<tr id="bib_peters1979" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{peters1979,
+  author = {Stanley Peters},
+  title = {A Truth-Conditional Formulation of Karttunen's Account of Presupposition},
+  journal = {Synthese},
+  year = {1979},
+  volume = {40},
+  number = {2},
+  pages = {301--316}
+}
+</pre></td>
+</tr>
+<tr id="roberts1998" class="entry">
+	<td>Roberts C (1998), <i>"Focus, the Flow of Information, and Universal Grammar"</i>, In Syntax and Semantics: The Limits of Syntax.  Vol. 29 Academic Press.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('roberts1998','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_roberts1998" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@incollection{roberts1998,
+  author = {Craige Roberts},
+  editor = {Peter Culicover and Louise McNally},
+  title = {Focus, the Flow of Information, and Universal Grammar},
+  booktitle = {Syntax and Semantics: The Limits of Syntax},
+  publisher = {Academic Press},
+  year = {1998},
+  volume = {29}
+}
+</pre></td>
+</tr>
+<tr id="rochemont1998" class="entry">
+	<td>Rochemont M (1998), <i>"Phonological Focu and Structural Focus"</i>, In Syntax and Semantics: The Limits of Syntax.  Vol. 29 Academic Press.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('rochemont1998','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_rochemont1998" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@incollection{rochemont1998,
+  author = {Michael Rochemont},
+  editor = {Peter Culicover and Louise McNally},
+  title = {Phonological Focu and Structural Focus},
+  booktitle = {Syntax and Semantics: The Limits of Syntax},
+  publisher = {Academic Press},
+  year = {1998},
+  volume = {29}
+}
+</pre></td>
+</tr>
+<tr id="rooth1992" class="entry">
+	<td>Rooth M (1992), <i>"A Theory of Focus Interpretation"</i>, Natural Language Semantics.  Vol. 1, pp. 75-116.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('rooth1992','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_rooth1992" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{rooth1992,
+  author = {Mats Rooth},
+  title = {A Theory of Focus Interpretation},
+  journal = {Natural Language Semantics},
+  year = {1992},
+  volume = {1},
+  pages = {75--116}
+}
+</pre></td>
+</tr>
+<tr id="rooy2001" class="entry">
+	<td>Rooy RV (2001), <i>"Exhaustivity in Dynamic Semantics; Referential and Descriptive Pronouns"</i>, Linguistics and Philosophy.  Vol. 24(5), pp. 621-657.
+	<p class="infolinks">[<a href="javascript:toggleInfo('rooy2001','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('rooy2001','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_rooy2001" class="abstract noshow">
+	<td><b>Abstract</b>: In this paper I argue that anaphoric pronouns should always be interpreted exhaustively. I propose that pronouns are either used referentially and refer to the speaker's referents of their antecedent indefinites, or descriptively and go proxy for the description recoverable from its antecedent clause. I show how this view can be implemented within a dynamic semantics, and how it can account for various examples that seemed to be problematic for the view that for all unbound pronouns there always should be a notion of exhaustivity/uniqueness involved. The uniqueness assumption for the use of singular pronouns is also shown to be important to explain what the discourse referents used in dynamic semantics represent.</td>
+</tr>
+<tr id="bib_rooy2001" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{rooy2001,
+  author = {Robert Van Rooy},
+  title = {Exhaustivity in Dynamic Semantics; Referential and Descriptive Pronouns},
+  journal = {Linguistics and Philosophy},
+  year = {2001},
+  volume = {24},
+  number = {5},
+  pages = {621--657}
+}
+</pre></td>
+</tr>
+<tr id="rothschilda" class="entry">
+	<td>Rothschild D (), <i>"Making Dynamics Semantics Explanatory: Presupposition Projection"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('rothschilda','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('rothschilda','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_rothschilda" class="abstract noshow">
+	<td><b>Abstract</b>: Understanding the pattern by which complex sentences inherit the presuppositions of their parts (presupposition projection) has been a major topic in formal pragmatics since the 1970s. Heims classic paper On the Projection Problem for Presuppositionstextquotedblright (1983) proposed a replacement of truth-conditional semantics with a dynamic semantics that treats meanings as instructions to update the common ground. Heims system predicts the basic pattern of presupposition projection quite accurately. The classic objection to this program (including other versions of dynamic semantics) is that the treatment of binary connectives is stipulative, and other, equally natural treatments fail to make the right predictions about presupposition projection. I give a variation on Heims system that is designed to escape this objection. I show that the most liberal possible version of this variant is equivalent to a strong-Kleene system in terms of its definedness conditions.</td>
+</tr>
+<tr id="bib_rothschilda" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{rothschilda,
+  author = {Daniel Rothschild},
+  title = {Making Dynamics Semantics Explanatory: Presupposition Projection}
+}
+</pre></td>
+</tr>
+<tr id="rothschild2011" class="entry">
+	<td>Rothschild D (2011), <i>"Explaining Presupposition Projection with Dynamic Semantics"</i>, Semantics and Pragmatics.  Vol. 4(3), pp. 1-43.
+	<p class="infolinks">[<a href="javascript:toggleInfo('rothschild2011','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('rothschild2011','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_rothschild2011" class="abstract noshow">
+	<td><b>Abstract</b>: Presents a version of dynamic semantics for a language with presuppositions that predicts basic facts about presupposition projection in a non-stipulative way.</td>
+</tr>
+<tr id="bib_rothschild2011" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{rothschild2011,
+  author = {Daniel Rothschild},
+  title = {Explaining Presupposition Projection with Dynamic Semantics},
+  journal = {Semantics and Pragmatics},
+  year = {2011},
+  volume = {4},
+  number = {3},
+  pages = {1--43}
+}
+</pre></td>
+</tr>
+<tr id="schaffer+szabo" class="entry">
+	<td>Schaffer J and Szab&oacute; ZG (), <i>"Epistemic Comparativism: A contextualist semantics for knowledge ascriptions"</i>, Forthcoming. 
+	<p class="infolinks"> [<a href="javascript:toggleInfo('schaffer+szabo','bibtex')">BibTeX</a>] [<a href="http://www.jonathanschaffer.org/comparativism.pdf" target="_blank">URL</a>]</p>
+	</td>
+</tr>
+<tr id="bib_schaffer+szabo" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{schaffer+szabo,
+  author = {Jonathan Schaffer and Zolt&aacute;n Gendler Szab&oacute;},
+  title = {Epistemic Comparativism: A contextualist semantics for knowledge ascriptions},
+  journal = {Forthcoming},
+  note = {Draft dated April 24, 2011},
+  url = {http://www.jonathanschaffer.org/comparativism.pdf}
+}
+</pre></td>
+</tr>
+<tr id="schlenkera" class="entry">
+	<td>Schlenker P (), <i>"Be Articulate: A Pragmatic Theory of Presupposition Projection"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('schlenkera','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('schlenkera','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_schlenkera" class="abstract noshow">
+	<td><b>Abstract</b>: Abstract: In the 1980s, the analysis of presupposition projection contributed to a dynamic turntextquoteright in semantics: the classical notion of meanings as truth conditions was replaced with a dynamic notion of meanings as Context Change Potentials (Heim 1983). We argue that this move was misguided, and we offer an alternative in which presupposition projection follows from the combination of a fully classical semantics and a new pragmatic principle, which we call Be Articulate. This principle requires that a meaning pptextquoteright conceptualized as involving a pre-condition p (its presupposition should be articulated as textellipsis (p and pp textellipsis (e.g. textellipsis it is raining and John knows it rather than as textellipsis pptextquoteright  unless the full conjunction is ruled out because the first or the second conjunct is semantically idle. In particular, textellipsis (p and pptextellipsis is infelicitous - and hence textellipsis pptextquoteright textellipsis is acceptable - if one can determine as soon as p and is uttered that no matter how the sentence ends these words could be eliminated without affecting its contextual meaning. An equivalence theorem guarantees that this condition suffices to derive Heims results in almost all cases. Extensions of the condition lead to several new predictions, in particular concerning some symmetric readingstextquoteright (e.g. If the bathroom is not hidden, this house has no bathroom), as well as presupposition projection in quantified structures, which displays a complex interaction between the nature of the trigger and the monotonicity of the quantifier.</td>
+</tr>
+<tr id="bib_schlenkera" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{schlenkera,
+  author = {Philippe Schlenker},
+  title = {Be Articulate: A Pragmatic Theory of Presupposition Projection}
+}
+</pre></td>
+</tr>
+<tr id="schlenker2010" class="entry">
+	<td>Schlenker P (2010), <i>"Local Contexts and Local Meanings"</i>, Philosophical Studies.  Vol. 151, pp. 115-142.
+	<p class="infolinks">[<a href="javascript:toggleInfo('schlenker2010','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('schlenker2010','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_schlenker2010" class="abstract noshow">
+	<td><b>Abstract</b>: Stalnaker ( 1978 ) made two seminal claims about presuppositions. The most influential one was that presupposition projection is computed by a pragmatic mechanism based on a notion of local contexttextquoteright . Due to conceptual and technical difficulties, however, the latter notion was reinterpreted in purely semantic terms within dynamic semanticstextquoteright (Heim 1983 ). The second claim was that some instances of presupposition generation should also be explained in pragmatic terms . But despite various attempts, the definition of a precise triggering algorithmtextquoteright has remained somewhat elusive. We discuss possible extensions of both claims. First, we offer a reconstruction of local contextstextquoteright which circumvents some of the difficulties faced by Stalnakers original analysis. We preserve the idea that local contexts are computed by a pragmatic mechanism that aggregates the information that follows from an incomplete sentence given the global context; but we crucially rely on a modified notion of entailment (R-entailment, whose plausibility should be assessed on independent grounds. Second, we speculate that local contexts might prove necessary (though by no means sufficient) to understand how some presuppositions are triggered. In a nutshell, we suggest that a presupposition is triggered when the semantic contribution of an expression to its local context is in some sense heterogeneous Without giving an analysis of the latter notion, we note that this architecture implies that presuppositions should be triggered on the basis of the meaning that an expression has relative to its local context (what we call its local meaning; we sketch some possible consequences of this analysis</td>
+</tr>
+<tr id="bib_schlenker2010" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{schlenker2010,
+  author = {Philippe Schlenker},
+  title = {Local Contexts and Local Meanings},
+  journal = {Philosophical Studies},
+  year = {2010},
+  volume = {151},
+  pages = {115--142}
+}
+</pre></td>
+</tr>
+<tr id="schlenker2007" class="entry">
+	<td>Schlenker P (2007), <i>"Anti-Dynamics: Presupposition Projection Without Dynamic Semantics"</i>, Journal of Logic, Language and Information.  Vol. 16(3), pp. 325-356.
+	<p class="infolinks">[<a href="javascript:toggleInfo('schlenker2007','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('schlenker2007','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_schlenker2007" class="abstract noshow">
+	<td><b>Abstract</b>: Heim 1983 suggested that the analysis of presupposition projection requires that the classical notion of meanings as truth conditions be replaced with a dynamic notion of meanings as Context Change Potentials. But as several researchers (including Heim herself) later noted, the dynamic framework is insufficiently predictive: although it allows one to state that, say, the dynamic effect of F and G is to first update a Context Set C with F and then with G (i.e., C[F and G] = C[F][G]), it fails to explain why there couldnt be a devianttextquoteright conjunction and* which performed these operations in the opposite order (i.e., C[F and* G] = C[G][F]). We provide a formal introduction to a competing framework, the Transparency theory, which addresses this problem. Unlike dynamic semantics, our analysis is fully classical, i.e., bivalent and static. And it derives the projective behavior of connectives from their bivalent meaning and their syntax. We concentrate on the formal properties of a simple version of the theory, and we prove that (i) full equivalence with Heims results is guaranteed in the propositional case (Theorem 1), and that (ii) the equivalence can be extended to the quantificational case (for any generalized quantifiers), but only when certain conditions are met (Theorem 2).</td>
+</tr>
+<tr id="bib_schlenker2007" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{schlenker2007,
+  author = {Philippe Schlenker},
+  title = {Anti-Dynamics: Presupposition Projection Without Dynamic Semantics},
+  journal = {Journal of Logic, Language and Information},
+  year = {2007},
+  volume = {16},
+  number = {3},
+  pages = {325--356}
+}
+</pre></td>
+</tr>
+<tr id="schoubyeforthcoming" class="entry">
+	<td>Schoubye AJ (forthcoming), <i>"Ghosts, Murderers, and the Semantics of Descriptions"</i>, No&ucirc;s. 
+	<p class="infolinks">[<a href="javascript:toggleInfo('schoubyeforthcoming','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('schoubyeforthcoming','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_schoubyeforthcoming" class="abstract noshow">
+	<td><b>Abstract</b>: It is widely agreed that sentences containing a non-denoting description embedded in the scope of a propositional attitude verb have true de dicto interpretations, and Russells (1905) analysis of definite descriptions is often praised for its simple analysis of such cases, cf. e.g. Neale (1990). However, several people, incl. Elbourne (2005, 2010), Heim (1991), and Kripke (2005), have contested this by arguing that Russells analysis yields incorrect predictions in non-doxastic attitude contexts. Heim and Elbourne have subsequently argued that once certain facts about presupposition projection are fully appreciated, the Frege/Strawson analysis of definite descriptions has an explanatory advantage. In this paper, I argue that both Russells analysis and the Frege/Strawson analysis face a serious problem when it comes to the interaction of attitude verbs and definite descriptions. I argue that the problem observed by Elbourne, Heim, and Kripke is much more general than standardly assumed and that a solution requires a revision of the semantics of definite and indefinite descriptions. I outline the conditions that are required to solve the problem and present an analysis couched in dynamic semantics which can provide a solution. I conclude by discussing some further issues related to propositional attitude verbs that complicate a fully general solution to the problem.</td>
+</tr>
+<tr id="bib_schoubyeforthcoming" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{schoubyeforthcoming,
+  author = {Anders Johan Schoubye},
+  title = {Ghosts, Murderers, and the Semantics of Descriptions},
+  journal = {No&ucirc;s},
+  year = {forthcoming}
+}
+</pre></td>
+</tr>
+<tr id="schwarzschild1999" class="entry">
+	<td>Schwarzschild R (1999), <i>"Givenness, AvoidF, and Other Constraints on the Placement of Accent"</i>, Natural Language Semantics.  Vol. 7, pp. 141-177.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('schwarzschild1999','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_schwarzschild1999" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{schwarzschild1999,
+  author = {Roger Schwarzschild},
+  title = {Givenness, AvoidF, and Other Constraints on the Placement of Accent},
+  journal = {Natural Language Semantics},
+  year = {1999},
+  volume = {7},
+  pages = {141--177}
+}
+</pre></td>
+</tr>
+<tr id="spenader2009" class="entry">
+	<td>Spenader J and Maier E (2009), <i>"Contrast as Denial in Multi-Dimensional Semantics"</i>, Journal of Pragmatics.  Vol. 41, pp. 1707-26.
+	<p class="infolinks">[<a href="javascript:toggleInfo('spenader2009','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('spenader2009','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_spenader2009" class="abstract noshow">
+	<td><b>Abstract</b>: We argue that contrastive statements have the same underlying semantics and affect the context in the same way as denials. We substantiate this claim by giving a unified account of the two phenomena that treats contrast as a subtype of denial. This analysis crucially requires a dynamic semantics view of context-dependence with a multi-dimensional representation of information.</td>
+</tr>
+<tr id="bib_spenader2009" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{spenader2009,
+  author = {Jennifer Spenader and Emar Maier},
+  title = {Contrast as Denial in Multi-Dimensional Semantics},
+  journal = {Journal of Pragmatics},
+  year = {2009},
+  volume = {41},
+  pages = {1707--26}
+}
+</pre></td>
+</tr>
+<tr id="stalnaker2006a" class="entry">
+	<td>Stalnaker R (2006), <i>"Assertion Revisited: On the Interpretation of Two-Dimensional Modal Semantics"</i>, In Two-Dimensional Semantics.  Vol. 118(1/2), pp. 299-322. Oxford: Clarendon Press.
+	<p class="infolinks">[<a href="javascript:toggleInfo('stalnaker2006a','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('stalnaker2006a','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_stalnaker2006a" class="abstract noshow">
+	<td><b>Abstract</b>: This paper concerns the applications of two-dimensional modal semantics to the explanation of the contents of speech and thought. Different interpretations and applications of the apparatus are contrasted. First, it is argued that David Kaplan's two-dimensional semantics for indexical expressions is different from the use that I made of a formally similar framework to represent the role of contingent information in the determination of what is said. But the two applications are complementary rather than conflicting. Second, my interpretation of the apparatus is contrasted with that of David Chalmers, Frank Jackson, and David Lewis. It is argued that this difference reflects a contrast between internalist and externalist approaches to the problem of intentionality</td>
+</tr>
+<tr id="bib_stalnaker2006a" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@incollection{stalnaker2006a,
+  author = {Robert Stalnaker},
+  title = {Assertion Revisited: On the Interpretation of Two-Dimensional Modal Semantics},
+  booktitle = {Two-Dimensional Semantics},
+  publisher = {Oxford: Clarendon Press},
+  year = {2006},
+  volume = {118},
+  number = {1/2},
+  pages = {299--322}
+}
+</pre></td>
+</tr>
+<tr id="stalnaker2004" class="entry">
+	<td>Stalnaker R (2004), <i>"Assertion Revisited: On the Interpretation of Two-Dimensional Modal Semantics"</i>, Philosophical Studies.  Vol. 118(1-2), pp. 299-322. Oxford: Clarendon Press.
+	<p class="infolinks">[<a href="javascript:toggleInfo('stalnaker2004','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('stalnaker2004','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_stalnaker2004" class="abstract noshow">
+	<td><b>Abstract</b>: This paper concerns the applications of two-dimensional modal semantics to the explanation of the contents of speech and thought. Different interpretations and applications of the apparatus are contrasted. First, it is argued that David Kaplan's two-dimensional semantics for indexical expressions is different from the use that I made of a formally similar framework to represent the role of contingent information in the determination of what is said. But the two applications are complementary rather than conflicting. Second, my interpretation of the apparatus is contrasted with that of David Chalmers, Frank Jackson, and David Lewis. It is argued that this difference reflects a contrast between internalist and externalist approaches to the problem of intentionality</td>
+</tr>
+<tr id="bib_stalnaker2004" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{stalnaker2004,
+  author = {Robert Stalnaker},
+  title = {Assertion Revisited: On the Interpretation of Two-Dimensional Modal Semantics},
+  journal = {Philosophical Studies},
+  publisher = {Oxford: Clarendon Press},
+  year = {2004},
+  volume = {118},
+  number = {1-2},
+  pages = {299--322}
+}
+</pre></td>
+</tr>
+<tr id="stalnaker1998d" class="entry">
+	<td>Stalnaker R (1998), <i>"Los Nombres y la Referencia: Semantica y Metasemantica"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('stalnaker1998d','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('stalnaker1998d','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_stalnaker1998d" class="abstract noshow">
+	<td><b>Abstract</b>: Kripke, in "Naming and Necessity", defended answers to two kinds of questions about names and reference: a Millian semantics that answers a question of descriptive semantics and a causal account of reference that answers a metasemantic question--a question about what makes a descriptive semantic theory correct. It is argued that the main philosophical work in Kripke's defense of his account of names and reference is done by distinguishing the questions of clarifying the alternative possible answers to them in a way that provides a rebuttal to philosophical arguments that a Millian semantics is impossible</td>
+</tr>
+<tr id="bib_stalnaker1998d" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{stalnaker1998d,
+  author = {Robert Stalnaker},
+  title = {Los Nombres y la Referencia: Semantica y Metasemantica},
+  year = {1998}
+}
+</pre></td>
+</tr>
+<tr id="stokhof" class="entry">
+	<td>Stokhof M (), <i>"Changing the Context. Dynamic Semantics and Discourse"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('stokhof','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('stokhof','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_stokhof" class="abstract noshow">
+	<td><b>Abstract</b>: This paper is an informal introduction to some aspects of dynamic semantics. It is a compilation of earlier reports on joint work with Frank Veltman. The opening section can also be found in Groenendijk et al. 1996a. Section 3 is drawn from Groenendijk et al. 1995a. Some of the discussion in section 4 derives from Groenendijk et al. 1996c.</td>
+</tr>
+<tr id="bib_stokhof" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{stokhof,
+  author = {Martin Stokhof},
+  title = {Changing the Context. Dynamic Semantics and Discourse}
+}
+</pre></td>
+</tr>
+<tr id="stokhofa" class="entry">
+	<td>Stokhof M (), <i>"Dynamic Montague Grammar"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('stokhofa','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('stokhofa','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_stokhofa" class="abstract noshow">
+	<td><b>Abstract</b>: In Groenendijk &amp; Stokhof [1989] a system of dynamic predicate logic (DPL) was developed, as a compositional alternative for classical discourse representation theory (DRT ). DPL shares with DRT the restriction of being a first-order system. In the present paper, we are mainly concerned with overcoming this limitation. We shall define a dynamic semantics for a typed language with abstraction which is compatible with the semantics DPL specifies for the language of first-order predicate logic. We shall propose to use this new logical system as the semantic component of a Montague-style grammar (referred to as dynamic Montague grammar, DMG), which will enable us to extend the compositionality of DPL to the subsentential level. Furthermore, we shall extend this analysis also in this sense that we shall add new, dynamic interpretations for logical constants which in DPL were treated in a static fashion. This will substantially increase the descriptive coverage of DMG.</td>
+</tr>
+<tr id="bib_stokhofa" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{stokhofa,
+  author = {Martin Stokhof},
+  title = {Dynamic Montague Grammar}
+}
+</pre></td>
+</tr>
+<tr id="szabo" class="entry">
+	<td>Szabo Z (), <i>"On Presupposition Accommodation"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('szabo','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('szabo','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_szabo" class="abstract noshow">
+	<td><b>Abstract</b>: These are the comments I gave at Ohio State in October 2006 on Kai von Fintels paper on presupposition accommodation.</td>
+</tr>
+<tr id="bib_szabo" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{szabo,
+  author = {Zoltan Szabo},
+  title = {On Presupposition Accommodation}
+}
+</pre></td>
+</tr>
+<tr id="tarski1956" class="entry">
+	<td>Tarski A (1956), <i>"Logic, Semantics, Metamathematics"</i>  Oxford, Clarendon Press.
+	<p class="infolinks">[<a href="javascript:toggleInfo('tarski1956','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('tarski1956','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_tarski1956" class="abstract noshow">
+	<td><b>Abstract</b>: I ON THE PRIMITIVE TERM OF LOGISTICf IN this article I propose to establish a theorem belonging to logistic concerning some connexions, not widely known, ...</td>
+</tr>
+<tr id="bib_tarski1956" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@book{tarski1956,
+  author = {Alfred Tarski},
+  title = {Logic, Semantics, Metamathematics},
+  publisher = {Oxford, Clarendon Press},
+  year = {1956}
+}
+</pre></td>
+</tr>
+<tr id="tarski1944a" class="entry">
+	<td>Tarski A (1944), <i>"The Semantic Conception of Truth: And the Foundations of Semantics"</i>, Philosophy and Phenomenological Research.  Vol. 4(3), pp. 341-376.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('tarski1944a','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_tarski1944a" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{tarski1944a,
+  author = {Alfred Tarski},
+  title = {The Semantic Conception of Truth: And the Foundations of Semantics},
+  journal = {Philosophy and Phenomenological Research},
+  year = {1944},
+  volume = {4},
+  number = {3},
+  pages = {341--376}
+}
+</pre></td>
+</tr>
+<tr id="vallduvi1998" class="entry">
+	<td>Vallduvi E and Vilkuna M (1998), <i>"On Rheme and Kontrast"</i>, In Syntax and Semantics: The Limits of Syntax.  Vol. 29, pp. 79-108. Academic Press.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('vallduvi1998','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_vallduvi1998" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@incollection{vallduvi1998,
+  author = {Enric Vallduvi and Maria Vilkuna},
+  editor = {Peter Culicover and Louise McNally},
+  title = {On Rheme and Kontrast},
+  booktitle = {Syntax and Semantics: The Limits of Syntax},
+  publisher = {Academic Press},
+  year = {1998},
+  volume = {29},
+  pages = {79--108}
+}
+</pre></td>
+</tr>
+<tr id="veltmana" class="entry">
+	<td>Veltman F (), <i>"This Might Be It"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('veltmana','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('veltmana','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_veltmana" class="abstract noshow">
+	<td><b>Abstract</b>: Discussions often end before the issues that started them have been resolved. For example, in the late sixties and early seventies, a hot topic in philosophical logic was the development of an adequate semantics for the language of modal predicate logic. However, the result of this discussion was not one single system that met with general agreement, but a collection of alternative systems, each defended most ably by its proponents</td>
+</tr>
+<tr id="bib_veltmana" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{veltmana,
+  author = {Frank Veltman},
+  title = {This Might Be It}
+}
+</pre></td>
+</tr>
+<tr id="veltmanf" class="entry">
+	<td>Veltman F (), <i>"Changez le Contexte!"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('veltmanf','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('veltmanf','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_veltmanf" class="abstract noshow">
+	<td><b>Abstract</b>: a la base de cet article a textasciiacute ettextasciiacute e prtextasciiacute esenttextasciiacute ee ` a la cinqui` eme Conference on Semantics and Linguistic Theorytextquoteright qui sest tenue ` a Austin, Texas, en Ftextasciiacute evrier 1995, et va paratextasciicircum&#305;tre dans les actes de celle-ci. Nous aimerions remercier les participants `</td>
+</tr>
+<tr id="bib_veltmanf" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{veltmanf,
+  author = {Frank Veltman},
+  title = {Changez le Contexte!}
+}
+</pre></td>
+</tr>
+<tr id="veltmang" class="entry">
+	<td>Veltman F (), <i>"Coreference and Modality in the Context of Multi-Speaker Discourse"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('veltmang','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('veltmang','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_veltmang" class="abstract noshow">
+	<td><b>Abstract</b>: Update semantics1 embodies a radical view on the relation between context and interpretation. The meaning of a sentence is identied with its context change potential, where contexts are identied with information states. The recursive denition of semantic interpretation is stated in terms of a process of updating an information state with a sentence. Meanings of sentences, then, are update functions. In general, these are partial functions, since the possibility to update with a sentence may depend on the fulllment of certain constraints (presuppositions, the presence of antecedents for anaphora, etc.). It is important to note that context and interpretation are interdependent: the interpretation process depends on the context, `</td>
+</tr>
+<tr id="bib_veltmang" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{veltmang,
+  author = {Frank Veltman},
+  title = {Coreference and Modality in the Context of Multi-Speaker Discourse}
+}
+</pre></td>
+</tr>
+<tr id="veltmanh" class="entry">
+	<td>Veltman F (), <i>"Coreference and Modality"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('veltmanh','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('veltmanh','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_veltmanh" class="abstract noshow">
+	<td><b>Abstract</b>: Of course, although this view on meaning was the prevailing one for almost a century, many of the people who initiated the enterprise of logical semantics, including people like Frege and Wittgenstein, had an open eye for all that it did not catch. However, the logical means which Frege, Wittgenstein, Russell, and the generation that succeeded them, had at their disposal were those of classical mathematical logic and set-theory, and these indeed are not very suited for an analysis of other aspects of meaning than those which the slogan covers. A real change in view then had to await the emergence of other concepts, which in due course became available mainly under the inuence of developments in computer science and cognate disciplines such as articial intelligence. And this is one of the reasons why it took almost a century before any serious and successful challenge of the view that meaning equals truthconditions from within logical semantics could emerge</td>
+</tr>
+<tr id="bib_veltmanh" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{veltmanh,
+  author = {Frank Veltman},
+  title = {Coreference and Modality}
+}
+</pre></td>
+</tr>
+<tr id="veltmani" class="entry">
+	<td>Veltman F (), <i>"Coreference and Contextually Restricted Quantication"</i> 
+	<p class="infolinks">[<a href="javascript:toggleInfo('veltmani','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('veltmani','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_veltmani" class="abstract noshow">
+	<td><b>Abstract</b>: The aim of this paper is to argue that update semantics is a natural framework for contextually restricted quantication, and to illustrate its use in the analysis of anaphoric denite descriptions and certain other anaphoric terms</td>
+</tr>
+<tr id="bib_veltmani" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@unpublished{veltmani,
+  author = {Frank Veltman},
+  title = {Coreference and Contextually Restricted Quantication}
+}
+</pre></td>
+</tr>
+<tr id="veltman2005" class="entry">
+	<td>Veltman F (2005), <i>"Making Counterfactual Assumptions"</i>, Journal of Semantics.  Vol. 22(2), pp. 159-180.
+	<p class="infolinks">[<a href="javascript:toggleInfo('veltman2005','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('veltman2005','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_veltman2005" class="abstract noshow">
+	<td><b>Abstract</b>: This paper provides an update semantics for counterfactual conditionals. It does so by giving a dynamic twist to the Premise Semanticstextquoteright for counterfactuals developed in Veltman (1976) and Kratzer (1981). It also offers an alternative solution to the problems with naive Premise Semantics discussed by Angelika Kratzer in Lumps of Thoughttextquoteright (Kratzer, 1989). Such an alternative is called for given the triviality results presented in Kanazawa et al. (2005, this issue)</td>
+</tr>
+<tr id="bib_veltman2005" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{veltman2005,
+  author = {Frank Veltman},
+  title = {Making Counterfactual Assumptions},
+  journal = {Journal of Semantics},
+  year = {2005},
+  volume = {22},
+  number = {2},
+  pages = {159--180}
+}
+</pre></td>
+</tr>
+<tr id="veltman1996" class="entry">
+	<td>Veltman F (1996), <i>"Defaults in Update Semantics"</i>, Journal of Philosophical Logic.  Vol. 25(3), pp. 221-261.
+	<p class="infolinks">[<a href="javascript:toggleInfo('veltman1996','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('veltman1996','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_veltman1996" class="abstract noshow">
+	<td><b>Abstract</b>: The aim of this paper is twofold: (i) to introduce the framework of update semantics and to explain what kind of semantic phenomena may successfully be analysed in it: (ii) to give a detailed analysis of one such phenomenon: default reasoning.</td>
+</tr>
+<tr id="bib_veltman1996" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{veltman1996,
+  author = {Frank Veltman},
+  title = {Defaults in Update Semantics},
+  journal = {Journal of Philosophical Logic},
+  year = {1996},
+  volume = {25},
+  number = {3},
+  pages = {221--261}
+}
+</pre></td>
+</tr>
+<tr id="vermeulen1995" class="entry">
+	<td>Vermeulen CFM (1995), <i>"Merging Without Mystery Or: Variables in Dynamics Semantics"</i>, Journal of Philosophical Logic.  Vol. 24(4), pp. 405-450.
+	<p class="infolinks">[<a href="javascript:toggleInfo('vermeulen1995','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('vermeulen1995','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_vermeulen1995" class="abstract noshow">
+	<td><b>Abstract</b>: In this paper we discuss the treatment of variables in dynamic semantics. Referent systems are introduced as a flexible mechanism for working with variables. In a referent system we carefully distinguish the variables themselves both from the machinery by which we manipulate them --- their names --- and from the information that we store in them --- their values. It is shown that the referent systems provide a natural basis for dynamic semantics. The semantics with referent systems is compared with the familiar formalisms in dynamic semantics,DRT andDPL.</td>
+</tr>
+<tr id="bib_vermeulen1995" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{vermeulen1995,
+  author = {C. F. M. Vermeulen},
+  title = {Merging Without Mystery Or: Variables in Dynamics Semantics},
+  journal = {Journal of Philosophical Logic},
+  year = {1995},
+  volume = {24},
+  number = {4},
+  pages = {405--450}
+}
+</pre></td>
+</tr>
+<tr id="vermeulen1993" class="entry">
+	<td>Vermeulen CFM (1993), <i>"Sequence Semantics for Dynamic Predicate Logic"</i>, Journal of Logic, Language and Information.  Vol. 2(3)
+	<p class="infolinks">[<a href="javascript:toggleInfo('vermeulen1993','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('vermeulen1993','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_vermeulen1993" class="abstract noshow">
+	<td><b>Abstract</b>: In this paper a semantics for dynamic predicate logic is developed that uses sequence valued assignments. This semantics is compared with the usual relational semantics for dynamic predicate logic: it is shown that the most important intuitions of the usual semantics are preserved. Then it is shown that the refined semantics reflects out intuitions about information growth. Some other issues in dynamic semantics are formulated and discussed in terms of the new sequence semantics.</td>
+</tr>
+<tr id="bib_vermeulen1993" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{vermeulen1993,
+  author = {C. F. M. Vermeulen},
+  title = {Sequence Semantics for Dynamic Predicate Logic},
+  journal = {Journal of Logic, Language and Information},
+  year = {1993},
+  volume = {2},
+  number = {3}
+}
+</pre></td>
+</tr>
+<tr id="visser2002" class="entry">
+	<td>Visser A (2002), <i>"The Donkey and the Monoid. Dynamic Semantics with Control Elements"</i>, Journal of Logic, Language and Information.  Vol. 11(1), pp. 107-131. Springer Netherlands.
+	<p class="infolinks">[<a href="javascript:toggleInfo('visser2002','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('visser2002','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_visser2002" class="abstract noshow">
+	<td><b>Abstract</b>: Dynamic Predicate Logic (DPL) is a variant of Predicate Logic introduced by Groenendijk and Stokhof. One rationale behind the introduction of DPL is that it is closer to Natural Language than ordinary Predicate Logic in the way it treats scope. In this paper I develop some variants of DPL that can more easily approximate Natural Language in some further aspects. Specifically I add flexibility in the treatment of polarity and and some further flexibility in the treatment of scope.</td>
+</tr>
+<tr id="bib_visser2002" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{visser2002,
+  author = {Albert Visser},
+  title = {The Donkey and the Monoid. Dynamic Semantics with Control Elements},
+  journal = {Journal of Logic, Language and Information},
+  publisher = {Springer Netherlands},
+  year = {2002},
+  volume = {11},
+  number = {1},
+  pages = {107--131}
+}
+</pre></td>
+</tr>
+<tr id="Wedgwood2007" class="entry">
+	<td>Wedgwood D (2007), <i>"Shared Assumptions: Semantic Minimalism and Relevance Theory"</i>, Journal of Linguistics.  Vol. 43(3), pp. pp. 647-681. Cambridge University Press.
+	<p class="infolinks">[<a href="javascript:toggleInfo('Wedgwood2007','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Wedgwood2007','bibtex')">BibTeX</a>] [<a href="http://www.jstor.org/stable/40058015" target="_blank">URL</a>]</p>
+	</td>
+</tr>
+<tr id="abs_Wedgwood2007" class="abstract noshow">
+	<td><b>Abstract</b>: Cappelen &amp; Lepore (2005, 2006a, 2007) note that linguistic communication requires 'shared content' and claim that Relevance Theory makes content sharing impossible. This criticism rests upon two important errors. The first is a flawed understanding of Relevance Theory, shown in the application of an omniscient third party perspective to parts of Relevance Theory that depend only upon subjective judgements made by the addressee of an utterance. The second is confusion about different definitions of content. Cappelen &amp; Lepore's evidence actually involves the communication of what they term Speech Act content, which need not be perfectly 'shared' according to their own position. Looking beyond this flawed criticism, a general comparison of Relevance Theory with Cappelen &amp; Lepore's semantic minimalism reveals significant parallels, pointing to a notable convergence of two distinct approaches--one cognitive-pragmatic, the other philosophical-semantic--on the rejection of currently dominant assumptions in linguistic semantics. The key remaining difference is Cappelen &amp; Lepore's claim that shared content is propositional. This contradicts other claims made for such content and in any case plays no active role in the explanation of communication. Cappelen &amp; Lepore's position thus poses no threat to Relevance Theory; rather, Relevance Theory can benefit from their philosophical analysis of the state of semantic theory.</td>
+</tr>
+<tr id="bib_Wedgwood2007" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{Wedgwood2007,
+  author = {Wedgwood, Daniel},
+  title = {Shared Assumptions: Semantic Minimalism and Relevance Theory},
+  journal = {Journal of Linguistics},
+  publisher = {Cambridge University Press},
+  year = {2007},
+  volume = {43},
+  number = {3},
+  pages = {pp. 647-681},
+  url = {http://www.jstor.org/stable/40058015}
+}
+</pre></td>
+</tr>
+<tr id="wettstein1991" class="entry">
+	<td>Wettstein H (1991), <i>"Has Semantics Rested on a Mistake?"</i>  Stanford University Press.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('wettstein1991','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_wettstein1991" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@book{wettstein1991,
+  author = {Howard Wettstein},
+  title = {Has Semantics Rested on a Mistake?},
+  publisher = {Stanford University Press},
+  year = {1991}
+}
+</pre></td>
+</tr>
+<tr id="Williamson1999a" class="entry">
+	<td>Williamson T (1999), <i>"On the Structure of Higher-Order Vagueness"</i>, Mind.  Vol. 108(429), pp. pp. 127-143. Oxford University Press on behalf of the Mind Association.
+	<p class="infolinks">[<a href="javascript:toggleInfo('Williamson1999a','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Williamson1999a','bibtex')">BibTeX</a>] [<a href="http://www.jstor.org/stable/2659905" target="_blank">URL</a>]</p>
+	</td>
+</tr>
+<tr id="abs_Williamson1999a" class="abstract noshow">
+	<td><b>Abstract</b>: Discussions of higher-order vagueness rarely define what it is for a term to have nth-order vagueness for n > 2. This paper provides a rigorous definition in a framework analogous to possible worlds semantics; it is neutral between epistemic and supervaluationist accounts of vagueness. The definition is shown to have various desirable properties. But under natural assumptions it is also shown that 2nd-order vagueness implies vagueness of all orders, and that a conjunction can have 2nd-order vagueness even if its conjuncts do not. Relations between the definition and other proposals are explored; reasons are given for preferring the present proposal</td>
+</tr>
+<tr id="bib_Williamson1999a" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{Williamson1999a,
+  author = {Williamson, Timothy},
+  title = {On the Structure of Higher-Order Vagueness},
+  journal = {Mind},
+  publisher = {Oxford University Press on behalf of the Mind Association},
+  year = {1999},
+  volume = {108},
+  number = {429},
+  pages = {pp. 127-143},
+  url = {http://www.jstor.org/stable/2659905}
+}
+</pre></td>
+</tr>
+<tr id="Williamson1998a" class="entry">
+	<td>Williamson T (1998), <i>"Conditionalizing on Knowledge"</i>, The British Journal for the Philosophy of Science.  Vol. 49(1), pp. pp. 89-121. Oxford University Press on behalf of The British Society for the Philosophy of Science.
+	<p class="infolinks">[<a href="javascript:toggleInfo('Williamson1998a','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Williamson1998a','bibtex')">BibTeX</a>] [<a href="http://www.jstor.org/stable/688145" target="_blank">URL</a>]</p>
+	</td>
+</tr>
+<tr id="abs_Williamson1998a" class="abstract noshow">
+	<td><b>Abstract</b>: A theory of evidential probability is developed from two assumptions: (1) the evidential probability of a proposition is its probability conditional on the total evidence; (2) one's total evidence is one's total knowledge. Evidential probability is distinguished from both subjective and objective probability. Loss as well as gain of evidence is permitted. Evidential probability is embedded within epistemic logic by means of possible worlds semantics for modal logic; this allows a natural theory of higher-order probability to be developed. In particular, it is emphasized that it is sometimes uncertain which propositions are part of one's total evidence; some surprising implications of this fact are drawn out.</td>
+</tr>
+<tr id="bib_Williamson1998a" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{Williamson1998a,
+  author = {Williamson, Timothy},
+  title = {Conditionalizing on Knowledge},
+  journal = {The British Journal for the Philosophy of Science},
+  publisher = {Oxford University Press on behalf of The British Society for the Philosophy of Science},
+  year = {1998},
+  volume = {49},
+  number = {1},
+  pages = {pp. 89-121},
+  url = {http://www.jstor.org/stable/688145}
+}
+</pre></td>
+</tr>
+</tbody>
+</table>
+
+<small>Created by <a href="http://jabref.sourceforge.net">JabRef</a> on 04/10/2014.</small>
+
+    
+    
+    	<h3><a href="/research/">return to research</a></h3>
+    
+</div>
+
+<!-- Signature -->
+	<div id="footer">
+		<p class="alignleft">ehovers10@gmail.com</p>
+	</div>
+	
+	
+	<div style="clear: both;"></div>
+
+</body>
+</html>

@@ -1,0 +1,262 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Represent categorical logic graphically %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{tikz}
+\usepackage{xstring}
+
+\usetikzlibrary{shapes,backgrounds}
+\tikzstyle{every node}=[font=\tiny] 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Draw squares of Opposition %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\oppsquare{(-1.5,1) node[above left]{$All$} -- (1.5,1) node[above right]{$No$} -- (1.5,-1) node[below right]{$Some-not$} -- (-1.5,-1) node[below left]{$Some$} -- (-1.5,1)}
+\def\oppcross{(-1.5,1) -- (1.5,-1) node[sloped,above,pos=0.3]{contra} node[sloped,above,pos=0.7]{dictory} (-1.5,-1) -- (1.5,1) node[sloped,above,pos=0.3]{contra} node[sloped,above,pos=0.7]{dictory}}
+
+\def\sqroppMod{%
+  \begin{scope}
+    \draw \oppsquare;
+    \draw \oppcross;
+    \draw (-1.75,0) node[rotate=90] {undet.};
+    \draw (0,1.25) node {undet.};
+    \draw (0,-1.25) node {undet.};
+    \draw (1.75,0) node[rotate=90] {undet.};
+  \end{scope}
+}
+
+\def\sqroppTrad{%
+  \begin{scope}
+    \draw \oppsquare;
+    \draw \oppcross;
+    \draw (-1.75,0) node[rotate=90] {subalt.};
+    \draw (0,1.25) node {contrary};
+    \draw (0,-1.25) node {subcontrary};
+    \draw (1.75,0) node[rotate=90] {subalt.};
+  \end{scope}
+}
+
+%%%%%%%%%%% Turn categorical props into Venn diagrams %%%%%%%%%%%%%%%
+%% \catvenn{title:<y/n>}{quantifier:<All/No/Some>}{quality:<not/>} %%
+%%         {complement:<non-/>}{subject class}                     %%
+%%         {complement:<non-/>}{predicate class}                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%
+%% Circles %%
+%%%%%%%%%%%%%
+
+%% Venn circles
+\def\firstcircle{(0,0) circle (1cm)} 
+\def\secondcircle{(0:1.5cm) circle (1cm)}
+\def\thirdcircle{(60:1.5cm) circle (1cm)}
+
+%% Overlapping and disjoint circles
+\def\firstcircleN{(0,0) circle (.75cm) node [below left=.25in] {$A$}}
+\def\secondcircleN{(0:2cm) circle (.75cm) node [below right=.25in] {$B$}}
+\def\firstcircleA{(0,0) circle (1.25cm) node [above right] {$A$}}
+\def\secondcircleA{(.125,0) circle (.75cm) node [below left=.25in] {$B$}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Venn diagram template %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\vennbox}[2]{%
+  \draw (-1.5,-1.5) rectangle (3,1.5);
+  \draw \firstcircle node [below left=.25in] {#1};
+  \draw \secondcircle node [below right=.25in] {#2};
+}
+
+\newcommand{\syllbox}[3]{%
+  \draw (-1.5,-1.5) rectangle (3,2.75);
+  \draw \firstcircle node [below left=.25in] {#1};
+  \draw \secondcircle node [below right=.25in] {#2};
+  \draw \thirdcircle node [above right=.25in] {#3};
+}
+
+%%%%%%%%%%%%%%%%%%%%
+%% Universal Defs %%
+%%%%%%%%%%%%%%%%%%%%
+
+\def\fillleft{%
+  \begin{scope}[even odd rule, fill opacity=0.5]
+    \clip \secondcircle (-1,-1) rectangle (1,1);
+    \fill[blue] \firstcircle;
+  \end{scope}
+}
+
+\def\fillmiddle{%
+  \begin{scope}[fill opacity=0.5]
+    \clip \firstcircle;
+    \fill[blue] \secondcircle;
+  \end{scope}
+}
+
+\def\fillright{%
+  \begin{scope}[even odd rule, fill opacity=0.5]
+    \clip \firstcircle (-1,-1) rectangle (2.5,1);
+    \fill[blue] \secondcircle;
+  \end{scope}
+}
+
+\def\fillbox{%
+  \begin{scope}
+    \fill[fill opacity=0.5, blue] (-1.5,-1.5) rectangle (3,1.5);
+    \fill[fill opacity=1, white] \firstcircle \secondcircle;
+  \end{scope}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%% Existential Defs %%
+%%%%%%%%%%%%%%%%%%%%%%
+
+\def\xleft{%
+  \node {x};
+}
+\def\xleftA{%
+\draw (0,0) node [draw,rounded corners] {x};
+}%
+
+\def\xmiddle{%
+  \node [right=.6cm] {x};
+}
+\def\xmidA{%
+  \draw (.75cm,0) node [draw,rounded corners] {x};
+}%
+
+\def\xright{%
+  \node [right=1.5cm] {x};
+}
+
+\def\xbox{%
+ \node [below right=1.1cm] {x};
+}
+
+%%%%%%%%%%%%%%%%%%%
+%% Draw diagrams %%
+%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\catvenn}[7]{%
+  \IfEqCase{#2}{%
+    {All}{%
+      \IfEqCase{#4}{%
+	{non-}{%
+	  \IfEqCase{#6}{%
+	    {non-}{\fillright}%
+	    {}{\fillbox}%
+	  }[\PackageError{catvenn}{Undefined option to tree: pred-non}{}]%
+	}%
+	{}{%
+	  \IfEqCase{#6}{%
+	    {non-}{\fillmiddle}%
+	    {}{\fillleft}%
+	  }[\PackageError{catvenn}{Undefined option to tree: pred-non}{}]%
+	}%
+      }[\PackageError{catvenn}{Undefined option to tree: subj-non}{}]%
+    }%
+    {No}{%
+      \IfEqCase{#4}{%
+	{non-}{%
+	  \IfEqCase{#6}{%
+	    {non-}{\fillbox}%
+	    {}{\fillright}%
+	  }[\PackageError{catvenn}{Undefined option to tree: pred-non}{}]%
+	}%
+	{}{%
+	  \IfEqCase{#6}{%
+	    {non-}{\fillleft}%
+	    {}{\fillmiddle}%
+	  }[\PackageError{catvenn}{Undefined option to tree: pred-non}{}]%
+	}%
+      }[\PackageError{catvenn}{Undefined option to tree: subj-non}{}]%
+    }%
+    {Some}{%
+      \IfEqCase{#3}{%
+	{not}{%
+	  \IfEqCase{#4}{%
+	    {non-}{%
+	      \IfEqCase{#6}{%
+		{non-}{\xright}%
+		{}{\xbox}%
+	      }[\PackageError{catvenn}{Undefined option to tree: pred-non}{}]%
+	    }%
+	    {}{%
+	      \IfEqCase{#6}{%
+		{non-}{\xmiddle}%
+		{}{\xleft}%
+	      }[\PackageError{catvenn}{Undefined option to tree: pred-non}{}]%
+	    }%
+	  }[\PackageError{catvenn}{Undefined option to tree: subj-non}{}]%
+	}%
+	{}{%
+	  \IfEqCase{#4}{%
+	    {non-}{%
+	      \IfEqCase{#6}{%
+		{non-}{\xbox}%
+		{}{\xright}%
+	      }[\PackageError{catvenn}{Undefined option to tree: pred-non}{}]%
+	    }%
+	    {}{%
+	      \IfEqCase{#6}{%
+		{non-}{\xleft}%
+		{}{\xmiddle}%
+	      }[\PackageError{catvenn}{Undefined option to tree: pred-non}{}]%
+	    }%
+	  }[\PackageError{catvenn}{Undefined option to tree: subj-non}{}]%
+	}%
+      }[\PackageError{catvenn}{Undefined option to tree: not}{}]%
+    }%
+  }[\PackageError{catvenn}{Undefined option to tree: quant}{}]%
+  
+  \IfEqCase{#1}{%
+    {y}{\draw (0,1.25) node {#2 #4#5 are #3 #6#7};}%
+    {n}{}%
+  }[\PackageError{catvenn}{Undefined option to tree: title}{}]%
+  
+  \vennbox{#5}{#7}%
+}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Categorical syllogisms %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\filltopleft}[1]{%
+  \begin{scope}[fill opacity=0.5]
+    \clip \firstcircle;
+    \fill[#1] \thirdcircle;
+  \end{scope}
+}
+
+\newcommand{\filltopright}[1]{%
+  \begin{scope}[fill opacity=0.5]
+    \clip \secondcircle;
+    \fill[#1] \thirdcircle;
+  \end{scope}
+}
+
+\def\filltopfirst{%
+  \begin{scope}[even odd rule, fill opacity=0.5]
+    \clip \firstcircle (-1.5,-1.5) rectangle (3,2.75);
+    \fill[green] \thirdcircle;
+  \end{scope}
+}
+
+\def\filltopsecond{%
+  \begin{scope}[even odd rule, fill opacity=0.5]
+    \clip \secondcircle (-1.5,-1.5) rectangle (3,2.75);
+    \fill[green] \thirdcircle;
+  \end{scope}
+}
+
+\def\xtopleft{%
+  \draw (60:.75cm) node [text=red] {x};
+}
+
+\def\xtopright{%
+  \draw (30:1.3cm) node {x};
+}
+
+\def\xtopmid{%
+  \draw (30:.85cm) node [text=red] {X};
+}
