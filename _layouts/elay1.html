@@ -1,9 +1,13 @@
 {% include head.html %}
 
-{% include arrow-nav.html %}
+{% include navigation.html %}
 
 <div id="content">
     {{ content }}
+    
+    {% if page.parent %}
+    	{% include return-to-parent.html %}
+    {% endif %}
 </div>
 
 {% include foot.html %}

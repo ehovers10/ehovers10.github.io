@@ -1,0 +1,19 @@
+<!-- Site navigation menu -->
+	<div id="nav-bar">
+		{% capture cat %}{% if page.category %}{{page.category}}{% else %}esite{% endif %}{% endcapture %}
+		
+		{% assign enav = site.pages | where: "category" , cat | sort: 'date' %}
+		
+		{% unless enav[0].title == "erik hoversten" %}
+			<a href="/">erik's home</a>
+		{% endunless %}
+		
+		{% for page in enav %}
+			<a href="{{page.url}}">{{page.subheading}}</a>
+		{% endfor %}
+		
+		<div class="alignright">{% include ddg-search.html %}</div>
+	</div>
+	
+<!-- Arrow navigation -->
+	{% include arrow-nav.html %}

@@ -1,0 +1,81 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%      Custom Beamer theme      %%
+%%   Logic, reason, persuasion   %%
+%% Rutgers University, fall 2014 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Four slides to a page in handout mode %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mode<handout>{%
+  \usepackage{pgfpages}
+  \pgfpagesuselayout{4 on 1}[letterpaper, landscape, border shrink=5mm]
+}
+
+%%%%%%%%%%%%%%%%%
+%% Font themes %%
+%%%%%%%%%%%%%%%%%
+
+\usefonttheme{structuresmallcapsserif}
+\usefonttheme{serif}
+
+%%%%%%%%%%%%%%%%%%
+%% Color themes %%
+%%%%%%%%%%%%%%%%%%
+
+%% Head and foot lines colors
+\setbeamercolor{erikcolor1}{fg=white,bg=blue!70!green}
+\setbeamercolor{erikcolor2}{fg=white,bg=blue!60!green!10!white}
+
+%% Titles color
+\setbeamercolor{frametitle}{fg=black,bg=green!30!blue!30!white}
+\setbeamercolor{title}{fg=black,bg=green!30!blue!30!white}
+
+%% Block color
+\setbeamercolor{block title}{fg=white,bg=blue!70!green}
+\setbeamercolor{block body}{fg=black,bg=green!30!blue!30!white}
+
+%% Background color
+\setbeamercolor{background canvas}{bg=}
+
+%% Covered items color
+\setbeamercovered{transparent}
+
+%%%%%%%%%%%%%%%%%%%%%
+%% Template themes %%
+%%%%%%%%%%%%%%%%%%%%%
+
+\usetheme{boxes}
+\useoutertheme{shadow}
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{navigation symbols}[vertical]
+\setbeamertemplate{section in head/foot shaded}[default][20]
+\setbeamertemplate{title}
+
+%% Headline 
+
+\setbeamertemplate{headline}{%
+  \begin{beamercolorbox}[ht=3ex,dp=1ex]{erikcolor1}
+    \insertshorttitle
+    %\insertsectionnavigationhorizontal{\textwidth}{}{}
+    %\usebeamerfont{title in head/foot}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[ht=3ex,dp=2ex]{erikcolor2}
+    \insertsectionnavigationhorizontal{\textwidth}{}{}
+    %\insertsubsectionnavigationhorizontal{\textwidth}{}{}
+    %\insertsubsection
+  \end{beamercolorbox}
+}
+
+%% Footline
+
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[ht=3ex,dp=1ex]{erikcolor1}
+    \insertshortinstitute[width=.33\textwidth,center]
+    \insertshortsubtitle[width=.33\textwidth,center]
+    \insertshortdate[width=.20\textwidth,center]
+    \hfill\insertframenumber\,/\,\inserttotalframenumber\;\;\;
+  \end{beamercolorbox}
+}

@@ -1,5 +1,8 @@
 {% include teach-head.html %}
 
+<div id="content">
     {{ content }}
+    {% include return-to-parent.html %}
+</div>
 
 {% include foot.html %}

@@ -2,6 +2,7 @@
 layout: post
 title:  "Baseball adages and comparison classes"
 subheading: blog post
+parent: blog
 date: 2014-09-14 09:15
 tags: [sports, contrast, modality]
 ---
@@ -42,7 +43,7 @@ I take it that each of these evaluation techniques is valid for different intere
 
 But is _ambiguity_ really the correct analysis of the fact that this one adage can have quite differing import?  Semanticists are often loathe to appeal to ambiguity to explain interpretive variability because it seems to violate an accepted theoretical virtue of parsimony.  Each distinct meaning that a word or phrase can have requires language users to store a new entry in their lexicon, but it seems less cognitively demanding if users can store a single rule from which they can derive distinct interpretations in recognizably distinct linguistic contexts.
 
-The suggested ambiguity in our adage is no different, and luckily, well established semantic machinery is available for us to explain the various interpretations in terms of a single semantic rule.  The key component in the solution is the _modal_ nature of the adage.  The adage is meant to cover any number of situations a base runner could find herself in, whether actual or merely hypothetical.  The human ability to form plans on the basis of hypotheticals is known as _modal reasoning_.  According to a widely accepted view of the semantics of modality due to Angelika Kratzer, sentences involving modal bits are sensitive to the context in which they are used in two ways.  First, context supplies a common ground, modeled as a set of propositions that encode the things that the parties to the conversation are taking for granted.  Second, context supplies an ordering source, modeled as a different set of propositions that represent a preferred state of affairs, what we might think of as the ideal possibility relvative to the system of rules our modal is concerned with.  Thus, we can think of the logical form of modal sentences along the following lines:
+The suggested ambiguity in our adage is no different, and luckily, well established semantic machinery is available for us to explain the various interpretations in terms of a single semantic rule.  The key component in the solution is the _modal_ nature of the adage.  The adage is meant to cover any number of situations a base runner could find herself in, whether actual or merely hypothetical.  The human ability to form plans on the basis of hypotheticals is known as _modal reasoning_.  According to a widely accepted view of the semantics of modality due to Angelika Kratzer {% cite kratzer2008 %}, sentences involving modal bits are sensitive to the context in which they are used in two ways.  First, context supplies a common ground, modeled as a set of propositions that encode the things that the parties to the conversation are taking for granted.  Second, context supplies an ordering source, modeled as a different set of propositions that represent a preferred state of affairs, what we might think of as the ideal possibility relvative to the system of rules our modal is concerned with.  Thus, we can think of the logical form of modal sentences along the following lines:
 
 >Modal(c --> common ground)(c --> ordering source)proposition
 

@@ -1,16 +1,15 @@
 ---
-layout: teachlay
+layout: elay1
 title: introduction to ethics, s14
 subheading: course info
 category: ies14
+parent: teaching
 date: 2014-09-27 01:00
 ---
 
-	<div id="content">
+<h2>course info</h2>
 	
-		<h2>course info</h2>
-	
-		<img src="/images/ethics-image.jpg" alt="">
+	<img src="/images/ethics-image.jpg" alt="">
 	
 		<table>
 			<tr>
@@ -39,10 +38,7 @@ date: 2014-09-27 01:00
 			</tr>
 		</table>
 		
-		<h2>calendar</h2>
+<h2>calendar</h2>
 	
-		<iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=netdnqdhqvsngd5cv5ehev3vr4%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FNew_York" style=" border: groove SteelBlue " width="90%" height="400" frameborder="0" scrolling="no"></iframe>
-		
-
-	</div>
+	<iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=netdnqdhqvsngd5cv5ehev3vr4%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FNew_York" style=" border: groove SteelBlue " width="90%" height="400" frameborder="0" scrolling="no"></iframe>
 	

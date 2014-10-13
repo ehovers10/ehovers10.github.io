@@ -6,5 +6,8 @@ description: philosophy of language centric notes
 url: http://erikhoversten.org
 
 scholar:
-	source: ./_bibliography
-	bibliography: semantics
+  source: ./_bibliography
+  bibliography: semantics
+  
+tag_page_layout: tag
+tag_page_dir: ./blog/tag

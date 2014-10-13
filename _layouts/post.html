@@ -3,6 +3,6 @@ layout: elay1
 ---
 
 <h2>{{ page.title }}</h2>
-<h4>{{ page.date | date: "%Y-%m-%d" }}</h4>
+<h4>{{ page.date | date: "%Y-%m-%d" }} | {{ page | tags }}</h4>
 	
 {{ content }}
