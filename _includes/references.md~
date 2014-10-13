@@ -1,3 +1,3 @@
 ## references
 
-{% bibliography --file semantics -- cited %}
+{% bibliography --file semantics --cited %}

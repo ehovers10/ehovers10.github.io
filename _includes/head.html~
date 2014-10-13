@@ -15,7 +15,6 @@
 	<div id="header">
 		<div id="headbg">
 			<h1 class="alignleft">{{page.title}}</h1>
-			<h2 class="alignright">{% include ddg-search.html %}</h2>
 			<div style="clear: both;"></div>
 			<h2 class="alignright">{{page.subheading}}</h2>
 		</div>
