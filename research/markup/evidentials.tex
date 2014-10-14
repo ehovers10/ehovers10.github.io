@@ -1,0 +1,315 @@
+%% A template for semantics homeworks %%
+
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage[letterpaper]{geometry}
+\usepackage{ctable}
+\usepackage{txfonts}
+%\usepackage{setspace}
+\usepackage{linguex}
+\usepackage{xyling}
+%\usepackage{qtree}
+%\usepackage[colorlinks]{hyperref}
+%\usepackage{lscape}
+%\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+\title{Semantics III}
+\author{Erik Hoversten}
+\date{\today}
+
+%% Margin Setting
+\geometry{hmargin={.5in,1in},vmargin={1in,1in}}
+%\setlength{\parindent}{0.0in}
+\setlength{\tabcolsep}{10pt}
+\setlength{\arraycolsep}{10pt}
+
+%% Header
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[L]{Sem III Presentation}
+\fancyhead[C]{Evidentials in UC$_{\omega}$}
+\fancyhead[R]{Hoversten}
+
+
+%% Helpful abbreviations %%
+%\newcommand{\DET}{\llbracket DET\rrbracket(A,B)}
+%\newcommand{\gy}{g[y/d]}
+\renewcommand{\llbracket}{[\![}
+\renewcommand{\rrbracket}{]\!]}
+\newcommand{\im}{\rrbracket_{\mathcal{M}}}
+\newcommand{\gs}{\mathcal{G}_{\mathcal{M}}}
+\newcommand{\din}{d\in\mathcal{D}_{\mathcal{M}}}
+\newcommand{\ddin}{d'\in\mathcal{D}_{e,\mathcal{M}}}
+\newcommand{\fin}{f\in\mathcal{D}_{et,\mathcal{M}}}
+\newcommand{\mean}{\{\langle g,h\rangle\;|\;}
+\newcommand{\mod}{$\mathcal{M}_1=\langle\mathcal{D}_1,\llbracket\cdot\rrbracket_1\rangle\;$}
+\newcommand{\modd}{$\mathcal{M}_2=\langle\mathcal{D}_2,\llbracket\cdot\rrbracket_2\rangle\;$}
+\newcommand{\dem}{\mathcal{D}_{e,\mathcal{M}}}
+\newcommand{\dsm}{\mathcal{D}_{s,\mathcal{M}}}
+\newcommand{\la}{\lambda}
+\newcommand{\bs}{\backslash}
+\newcommand{\tw}{\top\omega}
+\newcommand{\bw}{\bot\omega}
+\newcommand{\td}{\top\delta}
+\newcommand{\bd}{\bot\delta}
+\newcommand{\tp}{\top\Omega}
+\newcommand{\bp}{\bot\Omega}
+\newcommand{\sang}{^{\{\}}\llbracket sang\rrbracket}
+\newcommand{\crt}{^{\{\}}\llbracket \mathbb{crt}\rrbracket}
+
+\begin{document}
+
+Direct evidential
+
+%The Model
+\vspace{5mm}
+\begin{tabular}{lllllll}
+$(\mathcal{M})$ & Model & & & & & \\
+& & $w_0$ & $w_1$ & $w_2$ & $w_3$ & $w_4$ \\
+& Ann (a) sang & 1 & 1 & 1& 0 & 0 \\
+& Speaker is sure that Ann sang & 0 & 0 & 1 & 1& 0 \\
+& Speaker heard that Ann sang & 0 & 1 & 1 & 0 & 0 \\
+& Speaker is sure Ann didn't sing & 0 & 1 & 0 & 0 & 0 \\
+\end{tabular}
+
+%The initial info. state
+\vspace{5mm}
+$\begin{array}{ll}
+(c_0) & ^{st}p_{0-3} := ^{\chi}\{\langle\langle w,p_{0-3}\rangle,\langle\rangle\rangle\;|\;w\in ^{\{\}}p_{0-3}\} \\
+=: & c_0 \\
+& \langle\langle w_0,p_{0-3}\rangle,\langle\rangle\rangle \\
+& \langle\langle w_1,p_{0-3}\rangle,\langle\rangle\rangle \\
+& \langle\langle w_2,p_{0-3}\rangle,\langle\rangle\rangle \\
+& \langle\langle w_3,p_{0-3}\rangle,\langle\rangle\rangle \\
+\end{array}$
+
+% The common ground
+\vspace{5mm}
+$\begin{array}{ll}
+\textrm{CG}(c_0) & \textrm{Common Ground} \\
+= & \{\llbracket\tw\rrbracket(i)\;|\;i\in ^{\{\}}c_0\} \\
+= & \{w_0,w_1,w_2,w_3\} \\
+\end{array}$
+
+% Speech act
+\vspace{5mm}
+\begin{tabular}{ll}
+(1) & Ann sang, I'm sure.
+\end{tabular}
+
+%Presentation of at-issue
+\vspace{5mm}
+$\begin{array}{llll}
+(1') & ^{\top}[x\;|\;x=\mathbf{a}]; & [w\;|\;sang_{\tw}\langle\td\rangle]; & [p\;|\;p=\bw\parallel] \\
+& c_1 & c_2 & c_3 \\
+& \langle\langle a,w_0,p_{0-3}\rangle,\langle\rangle\rangle & \langle\langle a,w_0,p_{0-3}\rangle,\langle w_0\rangle\rangle & \langle\langle a,w_0,p_{0-3}\rangle,\langle p_{0-2},w_0\rangle\rangle \\
+& & \langle\langle a,w_0,p_{0-3}\rangle,\langle w_1\rangle\rangle & \langle\langle a,w_0,p_{0-3}\rangle,\langle p_{0-2},w_1\rangle\rangle \\
+& & \langle\langle a,w_0,p_{0-3}\rangle,\langle w_2\rangle\rangle & \langle\langle a,w_0,p_{0-3}\rangle,\langle p_{0-2},w_2\rangle\rangle \\
+& \langle\langle a,w_1,p_{0-3}\rangle,\langle\rangle\rangle & \langle\langle a,w_1,p_{0-3}\rangle,\langle w_0\rangle\rangle & \langle\langle a,w_1,p_{0-3}\rangle,\langle p_{0-2},w_0\rangle\rangle  \\
+& & \langle\langle a,w_1,p_{0-3}\rangle,\langle w_1\rangle\rangle & \langle\langle a,w_1,p_{0-3}\rangle,\langle p_{0-2},w_1\rangle\rangle \\
+& & \langle\langle a,w_1,p_{0-3}\rangle,\langle w_2\rangle\rangle & \langle\langle a,w_1,p_{0-3}\rangle,\langle p_{0-2},w_2\rangle\rangle \\
+& \langle\langle a,w_2,p_{0-3}\rangle,\langle\rangle\rangle & \langle\langle a,w_2,p_{0-3}\rangle,\langle w_0\rangle\rangle & \langle\langle a,w_2,p_{0-3}\rangle,\langle p_{0-2},w_0\rangle\rangle \\
+& & \langle\langle a,w_2,p_{0-3}\rangle,\langle w_1\rangle\rangle & \langle\langle a,w_2,p_{0-3}\rangle,\langle p_{0-2},w_1\rangle\rangle \\
+& & \langle\langle a,w_2,p_{0-3}\rangle,\langle w_2\rangle\rangle & \langle\langle a,w_2,p_{0-3}\rangle,\langle p_{0-2},w_2\rangle\rangle \\
+& \langle\langle a,w_3,p_{0-3}\rangle,\langle\rangle\rangle & \langle\langle a,w_3,p_{0-3}\rangle,\langle w_0\rangle\rangle & \langle\langle a,w_3,p_{0-3}\rangle,\langle p_{0-2},w_0\rangle\rangle \\
+& & \langle\langle a,w_3,p_{0-3}\rangle,\langle w_1\rangle\rangle & \langle\langle a,w_3,p_{0-3}\rangle,\langle p_{0-2},w_1\rangle\rangle \\
+& & \langle\langle a,w_3,p_{0-3}\rangle,\langle w_2\rangle\rangle & \langle\langle a,w_3,p_{0-3}\rangle,\langle p_{0-2},w_2\rangle\rangle \\
+\end{array}$
+
+%Evidential restriction and illocutionary relation
+\vspace{5mm}
+$\begin{array}{lllll}
+(1'') & [\mathbb{crt}_{\tw}\langle sp,\bp\rangle]; & [\bw\in\tw\parallel]; & [\tw\in\bw\parallel]; & ^{\top}[p\;|\;p=\tw\parallel] \\
+& c_4 & c_5 & c_6 & c_7 \\
+& \langle\langle a,w_2,p_{0-3}\rangle,\langle p_{0-2},w_0\rangle\rangle & & & \\
+& \langle\langle a,w_2,p_{0-3}\rangle,\langle p_{0-2},w_1\rangle\rangle & & & \\
+& \langle\langle a,w_2,p_{0-3}\rangle,\langle p_{0-2},w_2\rangle\rangle & \langle\langle a,w_2,p_{0-3}\rangle,\langle p_{0-2},w_2\rangle\rangle & \langle\langle a,w_2,p_{0-3}\rangle,\langle p_{0-2},w_2\rangle\rangle & \langle\langle p_2,a,w_2,p_{0-3}\rangle,\langle p_{0-2},w_2\rangle\rangle \\
+& \langle\langle a,w_3,p_{0-3}\rangle,\langle p_{0-2},w_0\rangle\rangle & & & \\
+& \langle\langle a,w_3,p_{0-3}\rangle,\langle p_{0-2},w_1\rangle\rangle & & & \\
+& \langle\langle a,w_3,p_{0-3}\rangle,\langle p_{0-2},w_2\rangle\rangle & \langle\langle a,w_3,p_{0-3}\rangle,\langle p_{0-2},w_2\rangle\rangle & & \\
+\end{array}$
+
+%Evolution of the common ground
+\vspace{5mm}
+$\begin{array}{llll}
+\textrm{CG}(c_1) & = & \{w_0,w_1,w_2,w_3\} &  \\
+\textrm{CG}(c_2) & = & \{w_0,w_1,w_2,w_3\} &  \\
+\textrm{CG}(c_3) & = & \{w_0,w_1,w_2,w_3\} &  \\
+\textrm{CG}(c_4) & = & \{w_2,w_3\} & \mathbb{Informative} \\
+\textrm{CG}(c_5) & = & \{w_2,w_3\} & \\
+\textrm{CG}(c_6) & = & \{w_2\} & \mathbb{Informative} \\
+\textrm{CG}(c_7) & = & \{w_2\} & \\
+\end{array}$
+
+%Topic set
+\vspace{5mm}
+$\begin{array}{ll}
+& \top_{\mathcal{M},c_0}(1';1'') \\
+= & \{(j_1)_1\;|\;\exists i\in ^{\{\}}c_0\forall g: i\prec j\;\&\;j\in ^{\{\}}c_0\llbracket (1');(1'')\rrbracket^g\} \\
+= & \{(j_1)_1\;|\;\exists i\in ^{\{\}}c_0\forall g: i\prec j\;\&\;j\in ^{\{\}}c_7\} \\
+= & \{p_2\} \\
+:= & w_2 \\
+\end{array}$
+
+\vspace{5mm}
+Detailed derivations
+
+\vspace{5mm}
+%Introduce Ann
+$\begin{array}{rlr}
+(c_1) & \multicolumn{2}{l}{c_0\llbracket ^{\top}[x\;|\;x=\mathbf{a}]\rrbracket^g} \\
+:= & \llbracket\lambda I\lambda j\exists x\exists i(j=(x \,^{\top}\oplus i)\wedge Ii\wedge x=\mathbf{a})\rrbracket^g(c_0) & A2,c\llbracket\cdot\rrbracket^g \\
+= & \llbracket\lambda j\exists x\exists i(j=(x ^{\top}\oplus i)\wedge Ii\wedge x=\mathbf{a})\rrbracket^{g[I/c_0]} & D2.2.\lambda \\
+= & ^{\chi}\{j\;|\;\exists a\exists i(j=\langle a\cdot i_1,i_2\rangle\;\&\; i\in ^{\{\}}c_0\;\&\; a=\llbracket\mathbf{a}\rrbracket\} & D2.2,D2.1 \\
+= & ^{\chi}\{\langle a\cdot i_1,i_2\rangle\;|\; i\in ^{\{\}}c_0\;\&\; a=\llbracket\mathbf{a}\rrbracket\} & df.\{-|-\} \\
+= & ^{\chi}\{\langle\langle a,w,p_{0-3}\rangle,\langle\rangle\rangle\;|\; w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\} & c_0:= ^{st}p_{0-3},df.\;\cdot \\
+=: & c_1 & \\
+\end{array}$
+
+\vspace{5mm}
+%Introduce background worlds
+$\begin{array}{rlr}
+(c_2) & \multicolumn{2}{l}{c_1\llbracket [w\;|\;sang_{\tw}\langle\td\rangle]\rrbracket^g} \\
+:= & \llbracket\lambda I\lambda j\exists w\exists i(j=(w \,^{\bot}\oplus i)\wedge Ii\wedge sang(w,\td i)\rrbracket^g(c_1) & A2,c\llbracket\cdot\rrbracket^g \\
+= & \llbracket\lambda j\exists w\exists i(j=(w \,^{\bot}\oplus i)\wedge Ii\wedge sang(w,\td i)\rrbracket^{g[I/c_1]} & D2.2.\lambda \\
+= & ^{\chi}\{j\;|\;\exists w\exists i(j=\langle i_1,w\cdot i_2\rangle \;\&\; i\in ^{\{\}}c_1 \;\&\; \llbracket\td\rrbracket(i)\in \sang(w)\} & D2.2,D2.1 \\
+= & ^{\chi}\{\langle i_1,w\cdot i_2\rangle\;|\;i\in ^{\{\}}c_1 \;\&\; (i_1)_{\delta}\in \sang(w)\} & D2.1.i.\llbracket\top a_n\rrbracket \\
+= & ^{\chi}\{\langle\langle a,w,p_{0-3}\rangle,\langle v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\; ((\langle\langle a,w,p_{0-3}\rangle,\langle v\rangle\rangle)_1)_{\delta}\in \sang(v)\} & df. c_1 \\
+= & ^{\chi}\{\langle\langle a,w,p_{0-3}\rangle,\langle v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\; (\langle a,w,p_{0-3}\rangle)_{\delta}\in \sang(v)\} & (\cdot)_n \\
+= & ^{\chi}\{\langle\langle a,w,p_{0-3}\rangle,\langle v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\; a\in \sang(v)\} & (\cdot)_{\delta} \\
+=: & c_2 & \\
+\end{array}$
+
+\vspace{5mm}
+%Introduce at-issue
+$\begin{array}{rlr}
+(c_3) & \multicolumn{2}{l}{c_2\llbracket [p\;|\;p=\bw\parallel]\rrbracket^g} \\
+:= & \llbracket\lambda I\lambda j\exists p\exists i(j=(p \,^{\bot}\oplus i)\wedge Ii\wedge p=\bw\{I\})\rrbracket^g(c_2) & A2,c\llbracket\cdot\rrbracket^g \\
+= & \llbracket\lambda j\exists p\exists i(j=(p \,^{\bot}\oplus i)\wedge Ii\wedge p=\bw\{I\})\rrbracket^{g[I/c_2]} & D2.2.\lambda \\
+= & ^{\chi}\{j\;|\;\exists q\exists i(j=\langle i_1,q\cdot i_2\rangle \;\&\; i\in ^{\{\}}c_2 \;\&\; q= ^{\chi}\{\llbracket\bw\rrbracket(k)\;|\;k\in ^{\{\}}c_2\}\} & D2.2,D2.1 \\
+= & ^{\chi}\{\langle i_1,q\cdot i_2\rangle\;|\;i\in ^{\{\}}c_2 \;\&\; q= ^{\chi}\{(k_2)_{\omega}\;|\;k\in ^{\{\}}~c_2\}\} & df.\{-|-\}, D2.1.i.\llbracket\bot a_n\rrbracket \\
+= & ^{\chi}\{\langle\langle a,w,p_{0-3}\rangle,\langle q,v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\; a\in \sang(v) \;\&\; & \\
+& q=\{(\langle\langle a,w,p_{0-3}\rangle,\langle q,v\rangle\rangle)_1)_{\omega}\;|\; w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\; a\in \sang(v)\}\} & df. c_1 \\
+= & ^{\chi}\{\langle\langle a,w,p_{0-3}\rangle,\langle v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\; a\in \sang(v) \;\&\;& \\
+& q=\{(\langle v\rangle)_{\omega}\;|\; w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\; a\in \sang(v)\}\} & (\cdot)_n \\
+= & ^{\chi}\{\langle\langle a,w,p_{0-3}\rangle,\langle q,v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\; a\in \sang(v) \;\&\;& \\
+& q=\{v\;|\; w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\; a\in \sang(v)\}\} & (\cdot)_{\omega} \\
+= & ^{\chi}\{\langle\langle a,w,p_{0-3}\rangle,\langle q,v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\; a\in \sang(v)\;\&\; & \\
+& q=\{w'\in\mathcal{D}_{\omega}\;|\; a\in \sang(w')\}\} & simp. \\
+= & ^{\chi}\{\langle\langle a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v)\} & df. p_{0-2} \\
+=: & c_3 & \\
+\end{array}$
+
+\vspace{5mm}
+%Evidential restriction
+$\begin{array}{rlr}
+(c_4) & \multicolumn{2}{l}{c_3\llbracket [\mathbb{crt}_{\tw}\langle sp,\bp\rangle]\rrbracket^g} \\
+:= & \llbracket\lambda I\lambda j(Ij\wedge \mathbb{crt}(\tw(j),sp(j),\bp(j)))\rrbracket^g(c_3) & A2,c\llbracket\cdot\rrbracket^g \\
+= & \llbracket\lambda j(Ij\wedge \mathbb{crt}(\tw(j),sp(j),\bp(j)))\rrbracket^{g[I/c_3]} & D2.2.\lambda \\
+= & ^{\chi}\{j\;|\;j\in ^{\{\}}c_3 \;\&\; \langle \llbracket sp\rrbracket(j),\llbracket\bp\rrbracket(j)\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(\llbracket\tw\rrbracket(j))\} & D2.2,D2.1 \\
+= & ^{\chi}\{j\;|\;j\in ^{\{\}}c_3 \;\&\; \langle \llbracket sp\rrbracket,(j_2)_{\Omega}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket((j_1)_{\omega})\} & df.\{-|-\}, D2.1.i.\llbracket\bot a_n\rrbracket, \\
+& & D2.1.i.\llbracket\top a_n\rrbracket \\
+= & ^{\chi}\{\langle\langle a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; & \\
+& \langle \llbracket sp\rrbracket,((\langle\langle a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle)_2)_{\Omega}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(((\langle\langle a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle)_1)_{\omega})\} & df. c_3 \\
+= & ^{\chi}\{\langle\langle a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; & \\
+& \langle \llbracket sp\rrbracket,(\langle p_{0-2},v\rangle)_{\Omega}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket((\langle a,w,p_{0-3}\rangle)_{\omega})\} & (\cdot)_n \\
+= & ^{\chi}\{\langle\langle a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; & \\
+& \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w)\} & (\cdot)_{\Omega},(\cdot)_{\omega} \\
+=: & c_4 & \\
+\end{array}$
+
+\vspace{5mm}
+%Propose restriction
+$\begin{array}{rlr}
+(c_5) & \multicolumn{2}{l}{c_4\llbracket [\bw\in\tw\parallel]\rrbracket^g} \\
+:= & \llbracket\lambda I\lambda j(Ij\wedge \bw(j)\in\tw\{I\})\rrbracket^g(c_4) & A2,c\llbracket\cdot\rrbracket^g \\
+= & \llbracket\lambda j(Ij\wedge \bw(j)\in\tw\{I\})\rrbracket^{g[I/c_4]} & D2.2.\lambda \\
+= & ^{\chi}\{j\;|\;j\in ^{\{\}}c_4 \;\&\; \llbracket\bw\rrbracket(j)\in \{\llbracket\tw\rrbracket(k)\;|\; k\in ^{\{\}}c_4\}\} & D2.2,D2.1 \\
+= & ^{\chi}\{j\;|\;j\in ^{\{\}}c_4 \;\&\; (j_2)_{\omega}\in \{(k_1)_{\omega}\;|\; k\in ^{\{\}}c_4\}\} & df.\{-|-\}, D2.1.i.\llbracket\bot a_n\rrbracket, \\
+& & D2.1.i.\llbracket\top a_n\rrbracket \\
+= & ^{\chi}\{\langle\langle a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; & \\
+& \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w) \;\&\; ((\langle\langle a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle)_2)_{\omega}\in & \\ & \{((\langle\langle a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle)_1)_{\omega}\;|\; w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; & \\
+& \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w)\}\} & df. c_4 \\
+= & ^{\chi}\{\langle\langle a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; & \\
+& \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w) \;\&\; (\langle p_{0-2},v\rangle)_{\omega}\in & \\ & \{(\langle a,w,p_{0-3}\rangle)_{\omega}\;|\; w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; & \\
+& \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w)\}\} & (\cdot)_n \\
+= & ^{\chi}\{\langle\langle a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; & \\
+& \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w) \;\&\; v\in & \\ & \{w\;|\; w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w)\}\} & (\cdot)_{\omega} \\
+= & ^{\chi}\{\langle\langle a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; & \\
+& \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w) \;\&\; v\in \{w\;|\; w\in ^{\{\}}p_{0-3}\;\&\; \langle\llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w)\}\} & simp. \\
+=: & c_6 & \\
+\end{array}$
+
+%Accept
+$\begin{array}{rlr}
+(c_6) & \multicolumn{2}{l}{c_5\llbracket [\tw\in\bw\parallel]\rrbracket^g} \\
+:= & \llbracket\lambda I\lambda j(Ij\wedge \tw(j)\in\bw\{I\})\rrbracket^g(c_5) & A2,c\llbracket\cdot\rrbracket^g \\
+= & \llbracket\lambda j(Ij\wedge \tw(j)\in\bw\{I\})\rrbracket^{g[I/c_5]} & D2.2.\lambda \\
+= & ^{\chi}\{j\;|\;j\in ^{\{\}}c_5 \;\&\; \llbracket\tw\rrbracket(j)\in \{\llbracket\bw\rrbracket(k)\;|\; k\in ^{\{\}}c_5\}\} & D2.2,D2.1 \\
+= & ^{\chi}\{j\;|\;j\in ^{\{\}}c_5 \;\&\; (j_1)_{\omega}\in \{(k_2)_{\omega}\;|\; k\in ^{\{\}}c_5\}\} & df.\{-|-\}, D2.1.i.\llbracket\bot a_n\rrbracket, \\
+& & D2.1.i.\llbracket\top a_n\rrbracket \\
+
+= & ^{\chi}\{\langle\langle a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; & \\
+& \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w) \;\&\; v\in \{w\;|\; w\in ^{\{\}}p_{0-3}\;\&\; \langle\llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w)\} \;\&\; & \\
+& ((\langle\langle a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle)_1)_{\omega}\in \{((\langle\langle a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle)_2)_{\omega}\;|\; w\in ^{\{\}}p_{0-3}\;\&\; & \\
+& a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w) \;\&\; v\in \{w\;|\; w\in ^{\{\}}p_{0-3}\;\&\;  & \\
+& \langle\llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w)\}\} & df. c_4 \\
+
+= & ^{\chi}\{\langle\langle a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; & \\
+& \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w) \;\&\; v\in \{w\;|\; w\in ^{\{\}}p_{0-3}\;\&\; \langle\llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w)\} \;\&\; & \\
+& (\langle a,w,p_{0-3}\rangle)_{\omega}\in \{(\langle p_{0-2},v\rangle)_{\omega}\;|\; w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; & \\
+& \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w) \;\&\; v\in \{w\;|\; w\in ^{\{\}}p_{0-3}\;\&\;  & \\
+& \langle\llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w)\}\} & (\cdot)_n \\
+
+= & ^{\chi}\{\langle\langle a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; & \\
+& \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w) \;\&\; v\in \{w\;|\; w\in ^{\{\}}p_{0-3}\;\&\; \langle\llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w)\} \;\&\; & \\
+& w\in \{v\;|\; w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w) \;\&\;  & \\ 
+& v\in \{w\;|\; w\in ^{\{\}}p_{0-3}\;\&\; \langle\llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w)\}\} & (\cdot)_{\omega} \\
+
+= & ^{\chi}\{\langle\langle a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; & \\
+& \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w) \;\&\; v\in \{w\;|\; w\in ^{\{\}}p_{0-3}\;\&\; \langle\llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w)\} \;\&\; & \\
+& w\in \{v'\;|\; a\in \sang(v')\} & simp. \\
+
+=: & c_6 & \\
+\end{array}$
+
+\vspace{5mm}
+%Recenter
+$\begin{array}{rlr}
+(c_7) & \multicolumn{2}{l}{c_6\llbracket ^{\top}[p\;|\;p=\tw\parallel]\rrbracket^g} \\
+:= & \llbracket\lambda I\lambda j\exists p\exists i(j=(p \,^{\top}\oplus i)\wedge Ii\wedge p=\tw\{I\})\rrbracket^g(c_6) & A2,c\llbracket\cdot\rrbracket^g \\
+= & \llbracket\lambda j\exists p\exists i(j=(p \,^{\top}\oplus i)\wedge Ii\wedge p=\tw\{I\})\rrbracket^{g[I/c_6]} & D2.2.\lambda \\
+= & ^{\chi}\{j\;|\;\exists q\exists i(j=\langle q\cdot i_1, i_2\rangle \;\&\; i\in ^{\{\}}c_6 \;\&\; q= ^{\chi}\{\llbracket\tw\rrbracket(k)\;|\;k\in ^{\{\}}c_6\}\} & D2.2,D2.1 \\
+= & ^{\chi}\{\langle q\cdot i_1, i_2\rangle\;|\;i\in ^{\{\}}c_6 \;\&\; q= ^{\chi}\{(k_1)_{\omega}\;|\;k\in ^{\{\}}c_6\}\} & df.\{-|-\}, D2.1.i.\llbracket\top a_n\rrbracket \\
+
+= & ^{\chi}\{\langle\langle q,a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; & \\
+& \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w) \;\&\; v\in \{w\;|\; w\in ^{\{\}}p_{0-3}\;\&\; \langle\llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w)\} \;\&\; & \\
+& w\in \{v'\;|\; a\in \sang(v')\} \;\&\; q=^{\chi}\{((\langle\langle a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle)_1)_{\omega}\;|\;w\in ^{\{\}}p_{0-3}\;\&\; & \\ & a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w) \;\&\; & \\
+& v\in \{w\;|\; w\in ^{\{\}}p_{0-3}\;\&\; \langle\llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w)\} \;\&\; w\in \{v'\;|\; a\in \sang(v')\}\}\}  & df. c_6 \\
+
+= & ^{\chi}\{\langle\langle q,a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; & \\
+& \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w) \;\&\; v\in \{w\;|\; w\in ^{\{\}}p_{0-3}\;\&\; \langle\llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w)\} \;\&\; & \\
+& w\in \{v'\;|\; a\in \sang(v')\} \;\&\; q=^{\chi}\{(\langle a,w,p_{0-3}\rangle)_{\omega}\;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\; & \\
+& a\in \sang(v) \;\&\; \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w) \;\&\; v\in \{w\;|\; w\in ^{\{\}}p_{0-3}\;\&\; & \\
+& \langle\llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w)\} \;\&\; w\in \{v'\;|\; a\in \sang(v')\}\}\} & (\cdot)_n \\
+
+= & ^{\chi}\{\langle\langle q,a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; & \\
+& \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w) \;\&\; v\in \{w\;|\; w\in ^{\{\}}p_{0-3}\;\&\; \langle\llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w)\} \;\&\; & \\
+& w\in \{v'\;|\; a\in \sang(v')\} \;\&\; q=^{\chi}\{w\;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; & \\
+& \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w) \;\&\; v\in \{w\;|\; w\in ^{\{\}}p_{0-3}\;\&\; \langle\llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w)\} \;\&\; & \\
+& w\in \{v'\;|\; a\in \sang(v')\}\}\} & (\cdot)_{\omega} \\
+
+= & ^{\chi}\{\langle\langle q,a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; & \\
+& \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w) \;\&\; v\in \{w\;|\; w\in ^{\{\}}p_{0-3}\;\&\; \langle\llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w)\} \;\&\; & \\
+& w\in \{v'\;|\; a\in \sang(v')\} \;\&\; q=^{\chi}\{w\;|\;w\in ^{\{\}}p_{0-3}\;\&\; \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w) \;\&\; & \\
+& a\in \sang(w)\}\}\} & simp. \\
+
+= & ^{\chi}\{\langle\langle p_2,a,w,p_{0-3}\rangle,\langle p_{0-2},v\rangle\rangle \;|\;w\in ^{\{\}}p_{0-3}\;\&\; a=\llbracket\mathbf{a}\rrbracket\;\&\;a\in \sang(v) \;\&\; & \\
+& \langle \llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w) \;\&\; v\in \{w\;|\; w\in ^{\{\}}p_{0-3}\;\&\; \langle\llbracket sp\rrbracket,p_{0-2}\rangle\in ^{\{\}}\llbracket\mathbb{crt}\rrbracket(w)\} \;\&\; & \\
+& w\in \{v'\;|\; a\in \sang(v')\}\} & simp. \\
+
+=: & c_7 & \\
+\end{array}$
+
+\end{document}

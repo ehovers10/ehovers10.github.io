@@ -1,0 +1,218 @@
+@font-face {
+	font-family: 'finalfrontier';
+	src: url('/fonts/finalfrontier.ttf');
+}
+
+@font-face {
+	font-family: 'sffourche';
+	src: url('/fonts/sffourche.ttf');
+}
+
+body {
+   background: url('/images/nice_snow.png') repeat;
+   font-family: Verbana, sans-serif;
+   <!--font-family: Georgia, "Times New Roman",
+			Times, serif;
+	<!--font-size: small;
+	line-height: 1.25em; 
+}
+
+h1,h2 {
+	font-family: finalfrontier;
+}
+
+a {
+	position: relative;
+	z-index: 10;
+	text-decoration: none;
+	color: #3B6EBF;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.alignleft { float: left; padding-left: 20px; }
+.alignright { float: right; padding-right: 20px; }
+
+.noshow { display: none; }
+
+#wrap {
+	margin: auto;
+	width: 800px;
+	background: #fff url('/images/nice_snow.png') repeat;
+}
+
+#header {
+	margin: 0px auto;
+	width: 100%;
+	height: 105px;
+	background-color: SteelBlue; 
+	background-image: url('/images/bt-head-1.jpeg');
+	opacity: 0.8;
+	line-height: 1em;
+}
+
+#header h1 { font-size: 50px; color: #fff; }
+#header h2 { font-size: 17px; color: #fff; }
+
+#search input {
+	width: 150px;
+	height: 18px;
+	border: 2px groove #4682B4;
+	margin-top: 2px;
+	border-radius: 8px;
+	background: url('/images/nice_snow.png');
+	font-family: finalfrontier; 
+	color: DarkSlateGray;
+}
+
+#nav-bar { 
+	position: fixed;
+	left: 10%;
+	top: 100px;
+	margin: auto;
+	width: 200px;
+   background: url('/images/nice_snow.png'); 
+	border: groove SteelBlue; 
+	box-shadow: 10px 10px 5px #888888;
+}
+
+#nav-bar a {
+	text-align: center;
+	font-family: finalfrontier;
+	font-weight: bold;
+	padding-bottom: 0.3em;
+	padding-top: 0.3em;
+	padding-left: 1em;
+	padding-right: 1em;
+	display: table;
+}
+
+#nav-bar a:hover {
+	text-decoration: none;
+	background-color: SteelBlue;
+	opacity: 0.8;
+	color: #fff;
+}
+
+#nav-bar a:active {
+	text-decoration: none;
+	background-color: SlateGray;
+	opacity: 1;
+	color: #fff;
+}
+
+#arrow-nav {
+	position: fixed;
+	top: 300px;
+	left: 50%;
+	margin-left: -475px;
+	width: 950px;	
+}
+
+#arrow-nav a:hover {
+	opacity: 1.0;
+}
+
+.arrow-navl {
+	position: inherit;
+	float: left;
+	border: none;
+}
+
+.arrow-navr {
+	position: inherit;
+	float: right;
+	border: none;
+}
+
+#to-top {
+	position: fixed;
+	bottom: 25px;
+	left: inherit;
+	padding-left: 425px;
+	border: none;
+}
+
+#post-main {
+	text-align: center;
+}
+
+#content {
+	margin: 20px auto;
+	width: 760px;
+	background: #fff url('/images/nice_snow.png');
+	padding: 20px;
+	text-align: justify;
+	color: DarkSlateGray;
+	font-size: 13px;
+	border: groove SteelBlue;
+	border-bottom: none;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+#content h2 { width: 50%; font-size: 17px; color: DarkSlateGray; border-bottom: solid SteelBlue; }
+
+
+
+#dropitto {
+  -moz-transform: scale(0.7, 0.7); 
+  -webkit-transform: scale(0.7, 0.7); 
+  -o-transform: scale(0.7, 0.7); 
+  -ms-transform: scale(0.7, 0.7); 
+  transform: scale(0.7, 0.7); 
+  -moz-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  -o-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+}
+
+#content td { padding-left: 20px; }
+
+#side-bar {
+	float: right;
+	width: 300px;
+	background: #fff url('/images/green_cup.png');
+	border: groove SteelBlue;
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+
+#side-bar img {
+	width: 300px;
+	padding: -15px;
+}
+
+#side-bar ul {
+	padding-left: 20px;
+	<!--list-style-image: url('/images/eicon2.ico');
+}
+
+#side-bar h2 { padding-left: 20px; }
+
+#content ul {
+	list-style-type: circle;
+}
+
+#footer {
+	margin: -20px auto 50px;
+	width: 800px;
+	position: relative;
+	<!--padding-top: 10px;
+	font-family: finalfrontier;
+	<!--color: #fff;
+	height: 30px;
+	<!--font-size: small;
+	background: SteelBlue;
+	opacity: 0.9;
+	border: groove SteelBlue;
+	border-top: none;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+#footer p { font-size: small; color: #fff; }
+#footer a { color: #fff; }
+
+

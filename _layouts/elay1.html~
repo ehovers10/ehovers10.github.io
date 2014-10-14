@@ -1,9 +1,16 @@
+<div id="wrap">
+
 {% include head.html %}
 
 {% include navigation.html %}
 
-<div id="content">
+<div id="main">
     {{ content }}
+    
+    {% if page.parent %}
+    	{% include return-to-parent.html %}
+    {% endif %}
 </div>
 
 {% include foot.html %}
+</div>

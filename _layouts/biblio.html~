@@ -5,6 +5,7 @@ layout: child
 <link rel="stylesheet" href="/css/biblio.css">
 <script type="text/javascript" src="/javascript/biblio.js"></script>
 
+<div id="content">
 <!-- Search box -->
 <form action="" id="quicksearch">
 <input type="text" id="qs_field" autocomplete="off" placeholder="Type to search..." /> <input type="button" onclick="clearQS()" value="clear" />
@@ -22,7 +23,7 @@ layout: child
 
 <!-- Bibliography -->
 <table id="qs_table" border="1">
-<thead><tr><th width="20%">Author</th><th width="35%">Title</th><th width="5%">Year</th><th width="35%">Journal/Proceedings</th><th width="5%">DOI/URL</th></tr></thead>
+<thead><tr><th width="20%">Author</th><th width="35%">Title</th><th width="5%">Year</th><th width="35%">Journal/Proceedings</th><th width="5%">Bibtex/URL</th></tr></thead>
 <tbody>
 
 {{ content }}
@@ -31,3 +32,4 @@ layout: child
 </table>
 
  <small>Created by <a href="http://jabref.sourceforge.net">JabRef</a> on 05/10/2014.</small>
+</div>

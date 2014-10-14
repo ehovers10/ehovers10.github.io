@@ -9,7 +9,9 @@ date: 2014-09-27 01:00
 
 <h2>course info</h2>
 	
-	<img src="/images/ethics-image.jpg" alt="">
+	<div id="side-bar">	
+		<img src="/images/ethics-image.jpg" alt="">
+	</div>
 	
 		<table>
 			<tr>

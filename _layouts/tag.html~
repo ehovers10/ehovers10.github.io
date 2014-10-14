@@ -2,6 +2,7 @@
 layout: elay1
 ---
 
+<div id="content">
 <h4>Posts tagged with: {{ page.tag }}</h4>
 
 {% for post in page.posts limit:25 %}
@@ -17,3 +18,4 @@ layout: elay1
 	<hr>
 
 {% endfor %}
+</div>
