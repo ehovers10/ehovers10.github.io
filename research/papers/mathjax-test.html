@@ -1,0 +1,55 @@
+---
+layout: elay1
+title: Some latex into html
+---
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<p>In the functionalist tradition, it is common to view the contents of mental state in terms of sets of possible worlds. In particular, an agent's belief state is represented as the set of possible worlds compatible with all of the agent's beliefs. The recognition of de se attitudes puts pressure on this picture. For instance, if Smith is suffering from amnesia, then it could be possible for him to hold the belief that Smith plays the guitar without believing that I play the guitar. This suggests that these beliefs have different contents. However, since the subject of the sentences expressing Smith's beliefs is the same in each case, the set of worlds compatible with the one is the same as the set compatible with the other. Lewis has suggested that examples such as these should push us toward representing mental states in terms of sets of properties as opposed to worlds. Thus, he suggests that belief should be understood as a species of self-attribution of a property. Whereas Smith self-attributes the property of being such that Smith plays the guitar, he does not self-attribute the property of being a guitar player. Let us adopt this idea regarding mental state representation, with particular emphisis on belief, or what I will call epistemic states.</p>
+
+<blockquote>
+ An epistemic state $S\subseteq (W\times I\times T)$ is a set of triples of worlds, individuals, and times. An individual such triple $\langle w,i,t\rangle$ will be referred to as a predicament.
+</blockquote>
+
+<p>Our goal is to represent the rational evolution of such epistemic states in response to the acquisition of new information. With this end in mind, we need a specification of what beliefs the possession of a particular epistemic state commits an agent to as well as a revision operator that represents the rational adjustment of these commitments in response to new information. One candidate for epistemic commitment is just that of set theoretic containment. If we let $\llbracket \phi\rrbracket=\{\langle w, i, t\rangle: i$ has the property $\phi$ in $w$ at $t\}$, then we can say that an agent $a$ is committed to believing $\phi\;iff\; S_a\subseteq\llbracket\phi\rrbracket$. However, for reasons well established in the belief revision literature, if we want this sort of semantic characterization of epistemic states to meet the AGM constraints, then we should add to our characterization of epistemic states an ordering on the predicaments. Thus, if we let $\leq\;\subseteq(S\times S)$ be a well-grounded pre-order over the members of $S$, then we can say that an agent $a$ is committed to believing $\phi\;iff\; \textsc{min}(S_a,\leq)\subseteq\llbracket\phi\rrbracket$ where $\textsc{min}(X,\leq)$ is the subset of $X$ ranked lowest by $\leq$. Since $\leq$ is required to be well-grounded, $\textsc{min}(X,\leq)$ will always be non-empty. We will thus represent epistemic state frames in these terms.
+
+<blockquote>
+ An epistemic state frame $ESF = \langle S, \leq\rangle$ is a structure consisting of a set of predicaments ($S$), and  is a well-grounded pre-order ($\leq$) on the members of $S$.  
+</blockquote>
+ 
+<p>We want to use this representation of epistemic states to capture the evolution of mental states in response to information that includes de se information. To this end, we let the language of epistemic revision $\mathcal{L}$ be inductively defined as follows (where $p\in\mathcal{P}$ is an arbitrary atom):</p>
+
+\[\phi\coloneqq p\;|\;[\textsc{pro}]p\;|\;\neg\phi\;|\;\phi\wedge\psi\]
+
+<blockquote>
+ An epistemic state model $ESM =\langle ESF, V\rangle$ is a structure consisting of an epistemic state frame ($ESF$) and a valuation function $V:\mathcal{P}\rightarrow\pset(W)$.
+</blockquote>
+
+
+<p>Given an epistemic state model ESM, we define the epistemic commitments of an agent in possession of ESM as follows:</p>
+
+\[\begin{array}{lcl}
+ ESM\vDash p & iff & \textsc{min}(S_a,\leq)\subseteq V(p) \\
+ ESM\vDash [\textsc{pro}]p & iff & \textsc{min}(S_a,\leq)\subseteq V(p)[i\shortrightarrow a] \\
+ ESM\vDash \neg\phi & iff & ESM\nvDash \phi \\
+ ESM\vDash \phi\wedge\psi & iff & ESM\vDash\phi \;and\; ESM\vDash\psi \\
+\end{array}\]
+
+<p>Where $V(p)[i\shortrightarrow a]$ is the result of replacing the second index of each member of $V(p)$ with $a$. We define the commitments of an agent $a$ as $\mathbb{B}_a=\{\phi\in\mathcal{L}:ESM_a\vDash\phi\}$.
+</p>
+
+<p>Next we need a specification of rational revision of epistemic states in response to information. We will understand revision as the composition of an epistemic downdate and an epistemic update $(ESM\circ\phi=ESM\downarrow(\neg \phi)\uparrow\llbracket\phi\rrbracket)$.</p>
+
+\begin{definition}
+ Given an ESM, we define the downdate of that state by $\phi$ as follows:
+
+<ul>
+ <li>If $ESM\vDash p$, then $ESM\downarrow p =\{\langle w,i,t\rangle:\exists x\in ESM\bot\phi(x\subseteq w)\}$. Otherwise, $ESM\downarrow\phi=ESM$.</li>
+ <li>If $ESM\vDash [\textsc{pro}]p$, then $ESM\downarrow [\textsc{pro}]p = $</li>
+</ul>
+
+<p>Where $ESM\bot\phi = \{x:\exists w\in ESM(x\subseteq w \;\&\; \textsc{pw}(x)\subseteq\llbracket \phi\rrbracket\}$.</p>
