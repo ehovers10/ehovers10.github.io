@@ -188,24 +188,42 @@ a:hover {
 #side-bar {
 	float: right;
 	width: 300px;
+<<<<<<< HEAD
+	border: groove SteelBlue;
+	padding: 0px;
+=======
 	background: #fff url('/images/green_cup.png');
 	border: groove SteelBlue;
+<<<<<<< HEAD
+	padding: 10px;
+>>>>>>> 09837a278fde6f6e217665bcbc46ae94541dd4b6
+=======
+>>>>>>> 933360f041148265c0ae64b8c65be59d8488bf85
 	margin-left: 20px;
 	margin-bottom: 20px;
 }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
 #side-bar img {
 	width: 300px;
 	padding: -15px;
 }
 
+>>>>>>> 933360f041148265c0ae64b8c65be59d8488bf85
 #side-bar ul {
 	padding-left: 20px;
 	<!--list-style-image: url('/images/eicon2.ico');
 }
 
+<<<<<<< HEAD
+>>>>>>> 09837a278fde6f6e217665bcbc46ae94541dd4b6
+=======
 #side-bar h2 { padding-left: 20px; }
 
+>>>>>>> 933360f041148265c0ae64b8c65be59d8488bf85
 #content ul {
 	list-style-type: circle;
 }
