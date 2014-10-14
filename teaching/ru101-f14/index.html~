@@ -23,8 +23,9 @@ date: 2014-09-27 01:00
 		<li>Formal logic (<a href="./flslides-slidy.html">slidy</a>)</li>
 		<li>Formal logic (<a href="./flslides-s5.html">s5</a>)</li>
 		<li>Formal logic (<a href="./flslides-slideous.html">slideous</a>)</li>
-		<li>Formal logic (<a href="./flslides-reveal.html">reveal.js</a>)</li>
+		<li>Formal logic (<a href="https://github.com/ehovers10/ru101-f14/blob/master/lectures/reveal/formal-logic.html">reveal.js</a>)</li>
 		<li>Categorical syllogisms (<a href="./catsyll-slideous.html">slideous</a>)</li>
+		<li>Reveal example (<a href="./reveal-ex.html">reveal.js</a>)</li>
 	</ul>
 	
 	<p></p>

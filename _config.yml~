@@ -7,7 +7,7 @@ url: http://erikhoversten.org
 
 scholar:
   source: ./_bibliography
-  bibliography: semantics
+  bibliography: language
   
 tag_page_layout: tag
 tag_page_dir: ./blog/tag
