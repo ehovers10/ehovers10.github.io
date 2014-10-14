@@ -9,7 +9,7 @@
 }
 
 body {
-   background: url('/images/green_cup.png') repeat;
+   background: url('/images/nice_snow.png') repeat;
    font-family: Verbana, sans-serif;
    <!--font-family: Georgia, "Times New Roman",
 			Times, serif;
@@ -40,34 +40,21 @@ a:hover {
 #wrap {
 	margin: auto;
 	width: 800px;
-	background: #fff url('/images/nice_snow.png');
-	background-repeat: repeat-y;
-	border: groove SteelBlue;
+	background: #fff url('/images/nice_snow.png') repeat;
 }
 
 #header {
-	margin: 20px auto;
-	width: 800px;
+	margin: 0px auto;
+	width: 100%;
 	height: 105px;
-	background: SteelBlue url('/images/bt-head-1.jpeg');
-	opacity: 1;
-	border: groove SteelBlue;
-	<!--border-bottom: none;
-	line-height: 1em;
-	box-shadow: 10px 10px 5px #888888;
-}
-
-#headbg {
-	margin: auto;
-	position: inherit;
-	height: inherit;
-	background-color: SteelBlue;
+	background-color: SteelBlue; 
+	background-image: url('/images/bt-head-1.jpeg');
 	opacity: 0.8;
+	line-height: 1em;
 }
 
-#header h1 { padding-top: 0px;  font-size: 30px; color: #fff; }
-#header h1 a { font-size: 22px; color: #FFF; text-decoration: none; }
-#header h2 { margin-bottom: 10px; font-size: 17px; color: #fff; }
+#header h1 { font-size: 50px; color: #fff; }
+#header h2 { font-size: 17px; color: #fff; }
 
 #search input {
 	width: 150px;
@@ -81,11 +68,13 @@ a:hover {
 }
 
 #nav-bar { 
-	margin: 0 auto;
-	width: 800px;
+	position: fixed;
+	left: 10%;
+	top: 100px;
+	margin: auto;
+	width: 200px;
    background: url('/images/nice_snow.png'); 
 	border: groove SteelBlue; 
-	<!--border-top: none;
 	box-shadow: 10px 10px 5px #888888;
 }
 
@@ -97,8 +86,7 @@ a:hover {
 	padding-top: 0.3em;
 	padding-left: 1em;
 	padding-right: 1em;
-	display: inline-block;
-	<!--border-left: 1px solid SteelBlue;
+	display: table;
 }
 
 #nav-bar a:hover {
@@ -120,9 +108,7 @@ a:hover {
 	top: 300px;
 	left: 50%;
 	margin-left: -475px;
-	width: 950px;
-	<!--text-align: center;
-	font-family: finalfrontier;	
+	width: 950px;	
 }
 
 #arrow-nav a:hover {
@@ -188,42 +174,24 @@ a:hover {
 #side-bar {
 	float: right;
 	width: 300px;
-<<<<<<< HEAD
-	border: groove SteelBlue;
-	padding: 0px;
-=======
 	background: #fff url('/images/green_cup.png');
 	border: groove SteelBlue;
-<<<<<<< HEAD
-	padding: 10px;
->>>>>>> 09837a278fde6f6e217665bcbc46ae94541dd4b6
-=======
->>>>>>> 933360f041148265c0ae64b8c65be59d8488bf85
 	margin-left: 20px;
 	margin-bottom: 20px;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
 #side-bar img {
 	width: 300px;
 	padding: -15px;
 }
 
->>>>>>> 933360f041148265c0ae64b8c65be59d8488bf85
 #side-bar ul {
 	padding-left: 20px;
 	<!--list-style-image: url('/images/eicon2.ico');
 }
 
-<<<<<<< HEAD
->>>>>>> 09837a278fde6f6e217665bcbc46ae94541dd4b6
-=======
 #side-bar h2 { padding-left: 20px; }
 
->>>>>>> 933360f041148265c0ae64b8c65be59d8488bf85
 #content ul {
 	list-style-type: circle;
 }
