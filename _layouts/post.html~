@@ -1,10 +1,8 @@
 ---
-layout: elay1
+layout: child
 ---
 
 <h2>{{ page.title }}</h2>
 <h4>{{ page.date | date: "%Y-%m-%d" }} | {{ page | tags }}</h4>
 	
 {{ content }}
-
-{% include return-to-parent.html %}

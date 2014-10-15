@@ -4,6 +4,7 @@
       <meta charset="utf-8">
       <title>{{ page.title }}</title>
 		<link rel="stylesheet" href="/css/erik-style-2.css">
+		<link rel="stylesheet" href="/css/latex.css">
 		<link rel="shortcut icon" href="/images/eicon2.ico" >
 	</head>
 	
@@ -12,10 +13,12 @@
 <body>
 
 <!-- Header -->
+	
 	<div id="header">
 		<div id="headbg">
 			<h1 class="alignleft">{{page.title}}</h1>
 			<div style="clear: both;"></div>
 			<h2 class="alignright">{{page.subheading}}</h2>
+			
 		</div>
 	</div>

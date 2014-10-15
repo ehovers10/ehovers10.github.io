@@ -2,8 +2,10 @@
 layout: elay1
 ---
 
-<h2>{{page.title}} {{page.subheading}}</h2>
+<div id="content">
+	<h2>{{page.title}} {{page.subheading}}</h2>
 
-{{ content }}
+	{{ content }}
 
-{% include return-to-parent.html %}
+   {% include return-to-parent.html %}
+</div>
