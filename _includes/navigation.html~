@@ -12,7 +12,7 @@
 			<a href="{{page.url}}">{{page.subheading}}</a>
 		{% endfor %}
 		
-		{% include ddg-search.html %}
+		<div class="alignright">{% include ddg-search.html %}</div>
 	</div>
 	
 <!-- Arrow navigation -->

@@ -19,12 +19,13 @@ body {
 
 @media all and (max-width: 1066px) {
 	#wrap { margin: auto; width: 800px; }
-	#arrow-nav { display: none; }
+	#arrow-nav { margin-left: -90px; width: 990px; }
 	#side-bar { width: 300px; }
 }
 
 @media all and (min-width: 1067px) {
 	#wrap { margin: auto; width: 75%; }
+	#arrow-nav { width: 87%; left: 7%; }
 	#side-bar {	width: 40%; }
 }
 
@@ -96,7 +97,7 @@ a:hover {
 	color: #fff;
 }
 
-#nav-bar a:active {
+.active {
 	text-decoration: none;
 	background-color: SlateGray;
 	opacity: 1;
@@ -105,10 +106,7 @@ a:hover {
 
 #arrow-nav {
 	position: fixed;
-	width: 86%; 
-	left: 8%;
 	top: 300px;
-	margin: inherit;
 	<!--text-align: center;
 	font-family: finalfrontier;	
 }

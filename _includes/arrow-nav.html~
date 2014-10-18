@@ -8,7 +8,7 @@
 		{% if page == enav[i] %}
 			{% unless i == 0 %}
 			{% assign l = i | minus: 1 %}
-				<a href="{{enav[l].url}}" ><img class="align-left" src="/images/enavbuttonl-50.png" alt="" title="{{enav[l].subheading}}"></a>
+				<a href="{{enav[l].url}}" ><img class="alignleft" src="/images/enavbuttonl-50.png" alt="" title="{{enav[l].subheading}}"></a>
 			{% endunless %}
 			
 			{% unless i == num %}

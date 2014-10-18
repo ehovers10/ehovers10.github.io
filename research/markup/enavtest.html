@@ -1,0 +1,14 @@
+---
+layout: elay1
+---
+
+{% capture cat %}{% if page.category %}{{page.category}}{% else %}esite{% endif %}{% endcapture %}
+		
+	{% assign enav = site.pages | where: "category" , cat | sort: 'date' %}
+
+	{% assign num = enav.size | minus: 1 %}
+			
+	{% for i in (0..num) %}
+		<p>{{enav[i].title}} {{enav[i].subheading}}</p>
+	{% endfor %}
+			

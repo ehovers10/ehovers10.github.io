@@ -2,6 +2,8 @@
 	<div id="nav-bar">
 		{% capture cat %}{% if page.category %}{{page.category}}{% else %}esite{% endif %}{% endcapture %}
 		
+		{% assign current = page.url %}
+		
 		{% assign enav = site.pages | where: "category" , cat | sort: 'date' %}
 		
 		{% unless enav[0].title == "erik hoversten" %}
@@ -9,7 +11,11 @@
 		{% endunless %}
 		
 		{% for page in enav %}
-			<a href="{{page.url}}">{{page.subheading}}</a>
+			{% if page.url == current %}
+				<a class="active" href="{{page.url}}">{{page.subheading}}</a>
+			{% else %}
+				<a href="{{page.url}}">{{page.subheading}}</a>
+			{% endif %}
 		{% endfor %}
 		
 		<div class="alignright">{% include ddg-search.html %}</div>
