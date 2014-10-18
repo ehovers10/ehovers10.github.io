@@ -1,9 +1,24 @@
 name: Erik's website
-markdown: redcarpet
+markdown: Pandoc
 hightlighter: pygments
 
 description: philosophy of language centric notes
 url: http://erikhoversten.org
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "elay1"
+
+gems: ['jekyll/scholar', 'jekyll/tagging', 'pandoc-ruby']
+
+pandoc: 
+  options: 
+    smart: true
+    mathjax: true
 
 scholar:
   source: ./_bibliography
@@ -12,6 +27,7 @@ scholar:
 tag_page_layout: tag
 tag_page_dir: ./blog/tag
 
+<<<<<<< HEAD
 ## Reveal.initialize
 ## At the end of your page Jekyll initializes reveal by running the following code. Note that all config values are optional and will default as specified below.
 ## Note that the new default vertical centering option will break compatibility with slides that were using transitions with backgrounds ("cube" and "page"). To restore the previous behavior, set "center" to "false".
@@ -76,3 +92,34 @@ margin: 0.1
 ## Bounds for smallest/largest possible scale to apply to content
 minScale: 0.2
 maxScale: 1.5
+=======
+reveal:
+    controls: true
+    progress: true
+    slideNumber: false
+    history: false
+    keyboard: true
+    overview: true
+    center: true
+    touch: true
+    loop: false
+    rtl: false
+    fragments: true
+    embedded: false
+    autoSlide: 0
+    autoSlideStoppable: true
+    mouseWheel: false
+    hideAddressBar: true
+    previewLinks: false
+    transition: 'default' ## default/cube/page/concave/zoom/linear/fade/none
+    transitionSpeed: 'default' ## default/fast/slow
+    backgroundTransition: 'default' ## default/none/slide/concave/convex/zoom
+    viewDistance: 3
+    parallaxBackgroundImage: '' ## e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+    parallaxBackgroundSize: '' ## CSS syntax, e.g. "2100px 900px"
+    width: 1000
+    height: 920
+    margin: 0.1
+    minScale: 0.2
+    maxScale: 1.5
+>>>>>>> 8f272857817626de91d3f72db6c249edfc95887b
