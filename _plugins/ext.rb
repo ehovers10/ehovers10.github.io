@@ -1,3 +1,3 @@
-require 'jekyll/scholar'
-
 require 'jekyll/tagging'
+
+require 'jekyll/scholar'
