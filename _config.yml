@@ -1,5 +1,5 @@
 name: Erik's website
-markdown: Pandoc
+markdown: kramdown
 hightlighter: pygments
 
 description: philosophy of language centric notes

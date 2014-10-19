@@ -1,12 +1,6 @@
-@font-face {
-	font-family: 'finalfrontier';
-	src: url('/fonts/finalfrontier.ttf');
-}
+@font-face { font-family: 'finalfrontier'; src: url('/fonts/finalfrontier.ttf'); }
 
-@font-face {
-	font-family: 'sffourche';
-	src: url('/fonts/sffourche.ttf');
-}
+@font-face { font-family: 'sffourche'; src: url('/fonts/sffourche.ttf'); }
 
 body {
   	background: url('/images/green_cup.png') repeat;
@@ -19,19 +13,17 @@ body {
 
 @media all and (max-width: 1066px) {
 	#wrap { margin: auto; width: 800px; }
-	#arrow-nav { margin-left: -90px; width: 990px; }
+	#arrow-nav,#to-top { margin-left: -90px; width: 990px; }
 	#side-bar { width: 300px; }
 }
 
 @media all and (min-width: 1067px) {
 	#wrap { margin: auto; width: 75%; }
-	#arrow-nav { width: 87%; left: 7%; }
+	#arrow-nav,#to-top { left: 50px; right: 50px; }
 	#side-bar {	width: 40%; }
 }
 
-h1,h2 {
-	font-family: finalfrontier;
-}
+h1,h2 { font-family: finalfrontier; }
 
 a {
 	position: relative;
@@ -40,14 +32,13 @@ a {
 	color: #3B6EBF;
 }
 
-a:hover {
-	text-decoration: underline;
-}
+a:hover { text-decoration: underline; }
 
 .alignleft { padding-left: 20px; float: left; }
 .alignright { padding-right: 20px; float: right; }
 
 .noshow { display: none; }
+.abstract { }
 
 #header {
 	margin: auto;
@@ -97,31 +88,16 @@ a:hover {
 	color: #fff;
 }
 
-#nav-bar a:active {
+.active {
 	text-decoration: none;
 	background-color: SlateGray;
 	opacity: 1;
 	color: #fff;
 }
 
-#arrow-nav {
-	position: fixed;
-	top: 300px;
-	<!--text-align: center;
-	font-family: finalfrontier;	
-}
-
-#arrow-nav a:hover {
-	opacity: 1.0;
-}
-
-#to-top {
-	position: fixed;
-	bottom: 25px;
-	width: inherit;
-	margin: inherit;
-	border: none;
-}
+#arrow-nav { position: fixed; top: 300px; }
+#arrow-nav a:hover { opacity: 1.0; }
+#to-top { position: fixed; bottom: 25px; }
 
 #main {
 	margin: 20px auto;
@@ -136,14 +112,19 @@ a:hover {
 	text-align: justify;
 	color: DarkSlateGray;
 	font-size: 13px;
+	width: 75%;
 	padding: 20px;
 }
 
-#content h2 { width: 50%; font-size: 17px; color: DarkSlateGray; border-bottom: solid SteelBlue; }
+#content h2 { 
+	width: 50%; 
+	font-size: 17px; 
+	color: DarkSlateGray; 
+	border-bottom: solid SteelBlue; 
+}
 
 #content td { padding-left: 40px; }
-
-#content ul { list-style-type: circle; width: 50%; }
+#content ul { list-style-type: circle; }
 
 #side-bar {
 	float: right;
@@ -156,9 +137,7 @@ a:hover {
 }
 
 #side-bar img { width: 100%; }
-
 #side-bar ul { padding: 0 20px 0 40px; list-style-type: none; }
-
 #side-bar p { padding: 0 20px; }
 
 #side-bar h2 { margin-left: 20px; width: 75%; font-size: 17px; color: DarkSlateGray; border-bottom: solid SteelBlue;}
