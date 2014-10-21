@@ -1,0 +1,289 @@
+<!doctype html>
+<html class="dark">
+
+<head>
+		<meta charset="utf-8">
+
+		<title>Propositional logic 1</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="e-rizzle" >
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="/reveal/css/reveal.css">
+		<link rel="stylesheet" href="/reveal/css/theme/moon.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="reveal/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = '/reveal/css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+	
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section id="title-slide">
+<h1>Propositional logic 1</h1>
+<h2>Defining the language</h2>
+
+<p>Erik Hoversten</p>
+<p>Rutgers university: LRP, fall 2014</p>
+<p>October 22, 2014</p>
+
+</section>
+
+<section>
+	<section>
+	
+<h2>A formal logic is defined by its language</h2>
+<p>The key parts of any language are:</p>
+<ul>
+<li class="fragment">Vocabulary
+<ul>
+<li class="fragment">Logical vocabulary</li>
+<li class="fragment">Non-logical vocabulary</li>
+</ul></li>
+<li class="fragment">Syntax
+<ul>
+<li class="fragment">Rules for putting vocabulary together into propositions</li>
+</ul></li>
+<li class="fragment">Semantics
+<ul>
+<li class="fragment">Rules for interpreting the meaning of propositions</li>
+</ul></li>
+</ul>
+	</section>
+	
+	<section>
+<h2 id="categorical-logic">Categorical logic</h2>
+<p>In categorical logic, our language was:</p>
+<ul>
+<li class="fragment">Vocabulary
+<ul>
+<li class="fragment">Logical: Quantifiers and copula</li>
+<li class="fragment">Non-logical: Subject and predicate terms</li>
+</ul></li>
+<li class="fragment">Syntax
+<ul>
+<li class="fragment">[Quantifier]+[Subject term]+[copula]+[Predicate term]</li>
+</ul></li>
+<li class="fragment">Semantics
+<ul>
+<li class="fragment">Specification of each proposition's meaning in terms of set <em>inclusion</em> and <em>exclusion</em></li>
+</ul></li>
+</ul>
+	</section>
+
+	<section>
+<h2 id="propositional-logic">Propositional logic</h2>
+<p>Propositional logic is another formal logic with a slightly different language:</p>
+<ul>
+<li class="fragment">Vocabulary
+<ul>
+<li class="fragment">Logical: 1-place connectives, 2-place connectives</li>
+<li class="fragment">Non-logical: Propositions</li>
+</ul></li>
+<li class="fragment">Syntax
+<ul>
+<li class="fragment">[1-place connective]+[proposition]</li>
+<li class="fragment">[proposition]+[2-place connective]+[propostition]</li>
+</ul></li>
+<li class="fragment">Semantics
+<ul>
+<li class="fragment">Specification of each proposition's meaning in terms of its <strong>truth conditions</strong></li>
+</ul></li>
+</ul>
+	</section>
+</section>
+
+<section>
+	<section>
+<h1>Propositional logic</h1>
+<p>We define the formal logic by specifying completely each component of the language used to express the logic</p>
+	</section>
+
+	<section>
+<h2 id="vocabulary">Vocabulary</h2>
+<p>The words of propositional logic</p>
+<ul>
+<li class="fragment">Logical
+<ul>
+<li class="fragment">1-place connective: takes 1 proposition and makes a compound proposition
+<ul>
+<li class="fragment"><strong>~</strong> : <em>not</em>, <em>it is not the case that</em></li>
+</ul></li>
+<li class="fragment">2-place connective: take 2 propositions an make a compound proposition
+<ul>
+<li class="fragment"><strong>&#2219</strong>: <em>and</em>, <em>in addition</em>, *both...and___*</li>
+<li class="fragment"><strong>&#2228</strong>: <em>or</em>, <em>either...or___</em></li>
+<li class="fragment"><strong>&#2283</strong>: <em>if...then___</em>, <em>...only if</em>, <em>...unless___</em></li>
+</ul></li>
+<li class="fragment">Parentheses: <strong>(</strong>, <strong>)</strong></li>
+</ul></li>
+<li class="fragment">Non-logical
+<ul>
+<li class="fragment">Atomic propositions: <em>John went to the store</em>, <em>Mary ate baked tofu</em></li>
+<li class="fragment">We abstract over the content of propositions by replacing them with propositional variables: <em>A, B, C, ...</em></li>
+</ul></li>
+</ul>
+	</section>
+
+	<section>
+<h2 id="syntax">Syntax</h2>
+<p>The sentences of propositional logic</p>
+<ul>
+<li class="fragment">[proposition]
+<ul>
+<li class="fragment"><strong>A</strong>, <strong>B</strong>, <strong>C</strong>, ...</li>
+</ul></li>
+<li class="fragment">[1-place connective]+[proposition]
+<ul>
+<li class="fragment"><strong>~A</strong></li>
+</ul></li>
+<li class="fragment">[proposition]+[2-place connective]+[proposition]
+<ul>
+<li class="fragment"><strong>A &#2219 B</strong></li>
+<li class="fragment"><strong>C &#2228 D</strong></li>
+<li class="fragment"><strong>E &#2283 F</strong></li>
+</ul></li>
+</ul>
+	</section>
+
+	<section>
+<h2 id="formulas">Formulas</h2>
+<p>A <em>formula</em> is any combination of bits from the vocabulary of the language. But not all possible formulas belong to the language of propositional logic. The good ones must follow the syntax on the previous slide.</p>
+<ul>
+<li class="fragment">WFFs
+<ul>
+<li class="fragment">Any syntactic unit that meets the specification above is a <strong>well-formed formula</strong> (<em>WFF</em>)</li>
+<li class="fragment">The WFFs compose the entire language of propositional logic</li>
+<li class="fragment">Propositional variables can stand for <em>any</em> WFF, either atomic or compound</li>
+</ul></li>
+<li class="fragment">Recursion
+<ul>
+<li class="fragment">Compound propositions are also propositions, so we can use connectives to connect compound propositions as well as atomic ones.</li>
+<li class="fragment">When we do, we surround each compound proposition with parentheses</li>
+<li class="fragment">This is known as **recursion*</li>
+<li class="fragment">ex: <em>(A &#2219 B) &#2283 (C &#2228 D)</em>, <em>(~M &#2283 Q) &#2219 R</em></li>
+</ul></li>
+</ul>
+	</section>
+
+	<section>
+<h2 id="semantics">Semantics</h2>
+<p>In propositional logic, we specify the meaning of WFFs in terms their <strong>truth conditions</strong>.</p>
+<p>Truth conditions specify the <strong>way the world must be</strong> in order for the proposition to be true.</p>
+<ul>
+<li>Another way to say this is: What a proposition <em>means</em> is the situations in which it is true.</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li class="fragment"><em>Jack went to the store</em> is true <strong>just in case</strong> Jack went to the store.</li>
+<li class="fragment"><em>Felicity got a perm and Mike likes it</em> is true <strong>just in case</strong> <em>both</em> Felicity got a perm <em>and</em> Mike likes Felicity's perm</li>
+<li class="fragment"><em>Garth is at the party or he had a fight with Wayne</em> is true <strong>just in case</strong> <em>either</em> Garth is at the party <em>or</em> Garth had a fight with Wayne</li>
+</ul>
+	</section>
+</section>
+
+<section>
+	<section>
+<h1>Truth tables</h1>
+<p>In order to provide the meaning for a WFF, we need to outline the different <em>ways</em> it can be true or false. We do this by constructing a <strong>truth table</strong> for the WFF.</p>
+<p>Atomic propositions can only be either true or false, so their truth table is pretty boring. - We put a <em>T</em> to stand for true and an <em>F</em> to stand for false</p>
+<table>
+<caption>Truth table for atomic propositions</caption>
+<thead>
+<th style="text-align: center;">A</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that we list <strong>one row</strong> for each <em>distinct</em> way that the WFF might turn out. For atomic propositions, there are two distinct ways, thus two rows appear on the table.</p>
+	</section>
+
+	<section>
+<h2 id="truth-tables-for-compound-propositions">Truth tables for compound propositions</h2>
+<p>Compound propositions have more <em>moving parts</em> than atomic ones, so their truth tables are more interesting.</p>
+<p>To construct a truth table for a compound proposition we:</p>
+<ol type="1">
+<li>Make a <em>column</em> for every distinct propositional variable in the WFF</li>
+<li>Add a column for the complete WFF</li>
+<li>Make a <em>row</em> for every distinct combination of truth values those variables can have
+<ul>
+<li>As a rule, if there are <em>n</em> propositional variables in the WFF, there will be <em>2<sup>n</sup></em> combinations of truth values</li>
+<li>If the WFF includes an <em>A</em> and a <em>B</em>, there will be <strong>2<sup>2</sup> = 4</strong> rows in the table</li>
+<li>If the WFF includes a <em>C</em>, a <em>D</em>, and an <em>E</em>, there will be <strong>2<sup>3</sup> = 8</strong> rows in the table</li>
+</ul></li>
+<li>To fill the columns:
+<ul>
+<li>Divide the number of rows in half. In the first column, fill the first have rows with <em>T</em>s, and the second half rows with <em>F</em>s</li>
+<li>Divide the rows in half again. In the second column, fill the first quarter rows with <em>T</em>s, the second quarter with <em>F</em>s, and continue on, laternativng every quarter.</li>
+<li>Continue this process until the column for your last propositional variable has alternating <em>T</em>s and <em>F</em>s all the way down.</li>
+</ul></li>
+</ol>
+	</section>
+</section>
+
+		</div>
+	</div>
+	
+		<script src="/reveal/lib/js/head.min.js"></script>
+		<script src="/reveal/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+
+</body>
+</html>

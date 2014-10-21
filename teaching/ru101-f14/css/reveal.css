@@ -81,9 +81,9 @@ body {
 	line-height: 1;
 }
 
-.reveal h1 { font-size: 3.77em; }
-.reveal h2 { font-size: 2.11em;	}
-.reveal h3 { font-size: 1.55em;	}
+.reveal h1 { font-size: 3em; }
+.reveal h2 { font-size: 2em;	}
+.reveal h3 { font-size: 1.5em;	}
 .reveal h4 { font-size: 1em;	}
 
 
@@ -270,11 +270,11 @@ body {
 }
 
 .reveal ul ul {
-	list-style-type: square;
+	list-style-type: circle;
 }
 
 .reveal ul ul ul {
-	list-style-type: circle;
+	list-style-type: none;
 }
 
 .reveal ul ul,
@@ -356,6 +356,7 @@ body {
 
 .reveal table th {
 	font-weight: bold;
+	border-bottom: 1px solid SlateGray;
 }
 
 .reveal sup {
