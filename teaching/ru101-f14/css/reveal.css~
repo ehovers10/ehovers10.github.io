@@ -270,11 +270,11 @@ body {
 }
 
 .reveal ul ul {
-	list-style-type: circle;
+	list-style-type: square;
 }
 
 .reveal ul ul ul {
-	list-style-type: none;
+	list-style-type: circle;
 }
 
 .reveal ul ul,
@@ -356,7 +356,6 @@ body {
 
 .reveal table th {
 	font-weight: bold;
-	border-bottom: 1px solid SlateGray;
 }
 
 .reveal sup {

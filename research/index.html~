@@ -17,9 +17,7 @@ date: 2014-09-27 02:00
 		
 	<h2>papers</h2>
 		
-	<ul>
-		<li>My curriculum vitae (<a href="/research/papers/hov-cv.html">html</a>) (<a href="/research/hoversten-cv0914.pdf">pdf</a>)</li>	
-			
+	<ul>	
 		<li id="title_rd" class="show"><i>Dispute in discourse</i> (<a href="javascript:toggleAbs('rd')">abstract</a>) (<a>pdf</a>)</li>
 		
 		<div id="abs_rd" class="noshow">
@@ -55,7 +53,7 @@ date: 2014-09-27 02:00
 		
 		<p>Disagreement has been a bit of a star figure in recent debates in the philosophy of language. Primarily, it has been used as a tool for assessing the adequacy of different proposals for the semantic contribution of certain expressions. The contestants in battle disagreement are <i>absolutism</i>, <i>contextualism</i>, and <i>relativism</i>, and the standard scorecard has absolutism and relativism coming out on top in virtue of their ability to secure constant content across uses of the expression. Genuine disagreement does seem to require something toward which utterances can entail incompatible commitments, but semantic content is not the only contribution an utterance makes to discourse. Contextualism can appeal other elements of utterances, which may both remain constant and serve as the seat of disagreement.</p>
 		<p>The difference between contextualism and relativism is generally couched in terms of content, but content is not the only semantically relevant element of linguistic utterances. Also associated with what we say is a context change potential. A different way of representing the difference between contextualism and relativism is not in terms of what they mean but what they do.</p>
-		<p>If Brisco and Green both believe that they've got the culprit, then they will act in similar ways. They'll look to elicit a confession, offer deals, and threaten physical violence. But if Brisco's suspect is in confession room A while Green's is in B, then their actions will have quite different import. Contextualism aligns with absolutism in taking belief to be a relation between a subject and a proposition; one that holds 		
+		<p>If Brisco and Green both believe that they've got the culprit, then they will act in similar ways. They'll look to elicit a confession, offer up bargains, or threaten physical violence. But if Brisco's suspect is in confession room A while Green's is in B, then their actions will have quite different import. Contextualism aligns with absolutism in taking belief to be a relation between a subject and a proposition; a relation that holds just in case the subject takes the proposition to accurately represent the world she inhabits.	Relativism differs in taking belief to be a relation between a subject and a property; a relation that holds just in case the subject self-ascribes the property. (Perhaps not all relativists would be happy with this characterization, taking belief to be a three-place relation among a subject, proposition, and a perspective. But a perspectival proposition is itself a relation; curry that relation and you're left with a property.)
 		<hr>
 		</div>
 		

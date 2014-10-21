@@ -1,5 +1,5 @@
 ---
-layout: elay1
+layout: child
 title: logic, reason, and persuassion, fall 2014
 subheading: course info
 category: lrpf14
@@ -17,7 +17,6 @@ date: 2014-09-27 01:00
 		<img src="/images/gusandmae.jpg" alt="">
 	</div>
 
-<div id="content">
 	<h2>course lectures</h2>
 	
 	<ul>
@@ -27,7 +26,7 @@ date: 2014-09-27 01:00
 		<li>Formal logic (<a href="./flslides-reveal.html">reveal.js</a>)</li>
 		<li>Categorical syllogisms (<a href="./catsyll-slideous.html">slideous</a>)</li>
 		<li>Reveal example (<a href="./reveal-ex.html">reveal.js</a>)</li>
+		<li>Propositional logic 1 (<a href="./prop-logic-1.html" >html</a>)</li>
 	</ul>
 	
 	<p></p>
-</div>
