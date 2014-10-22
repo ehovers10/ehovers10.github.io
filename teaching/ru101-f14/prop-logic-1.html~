@@ -3,7 +3,7 @@ layout: reveal-pres
 title: Propositional logic 1
 ---
 
-<section id="title-slide" class="slide level1">
+<section id="title-slide">
 <h1>Propositional logic 1</h1>
 <h2>Defining the language</h2>
 
@@ -13,8 +13,8 @@ title: Propositional logic 1
 
 </section>
 
-<section id="a-formal-logic-is-defined-by-its-language" class="slide level1">
-	<section id="a-formal-logic-is-defined-by-its-language" class="slide level2">
+<section>
+	<section>
 	
 <h2>A formal logic is defined by its language</h2>
 <p>The key parts of any language are:</p>
@@ -35,7 +35,7 @@ title: Propositional logic 1
 </ul>
 	</section>
 	
-	<section id="a-formal-logic-is-defined-by-its-language" class="slide level2">
+	<section>
 <h2 id="categorical-logic">Categorical logic</h2>
 <p>In categorical logic, our language was:</p>
 <ul>
@@ -46,7 +46,7 @@ title: Propositional logic 1
 </ul></li>
 <li class="fragment">Syntax
 <ul>
-<li class="fragment">[Quantifier]+[Subject term]+[copula]+[Predicate term]</li>
+<li class="fragment">[Quantifier] + [Subject term] + [copula] + [Predicate term]</li>
 </ul></li>
 <li class="fragment">Semantics
 <ul>
@@ -55,7 +55,7 @@ title: Propositional logic 1
 </ul>
 	</section>
 
-	<section id="a-formal-logic-is-defined-by-its-language" class="slide level2">
+	<section>
 <h2 id="propositional-logic">Propositional logic</h2>
 <p>Propositional logic is another formal logic with a slightly different language:</p>
 <ul>
@@ -66,50 +66,63 @@ title: Propositional logic 1
 </ul></li>
 <li class="fragment">Syntax
 <ul>
-<li class="fragment">[1-place connective]+[proposition]</li>
-<li class="fragment">[proposition]+[2-place connective]+[propostition]</li>
+<li class="fragment">[1-place connective] + [proposition]</li>
+<li class="fragment">[proposition] + [2-place connective] + [propostition]</li>
 </ul></li>
 <li class="fragment">Semantics
 <ul>
-<li class="fragment">Specification of each proposition's meaning in terms of its <strong>truth conditions</strong></li>
+<li class="fragment">Meaning is specified in terms of <strong>truth conditions</strong></li>
 </ul></li>
 </ul>
 	</section>
 </section>
 
-<section id="propositional-logic-1" class="slide level1">
-	<section id="a-formal-logic-is-defined-by-its-language" class="slide level2">
+<section>
+	<section>
 <h1>Propositional logic</h1>
 <p>We define the formal logic by specifying completely each component of the language used to express the logic</p>
 	</section>
 
-	<section id="a-formal-logic-is-defined-by-its-language" class="slide level2">
+	<section>
 <h2 id="vocabulary">Vocabulary</h2>
-<p>The words of propositional logic</p>
+<p>Logical</p>
+
 <ul>
-<li class="fragment">Logical
+<li class="fragment">1-place connective: </li>
 <ul>
-<li class="fragment">1-place connective: takes 1 proposition and makes a compound proposition
+<li class="fragment">takes 1 proposition and makes a compound proposition</li>
 <ul>
-<li class="fragment"><strong>~</strong> : <em>not</em>, <em>it is not the case that</em></li>
-</ul></li>
-<li class="fragment">2-place connective: take 2 propositions an make a compound proposition
+<li class="fragment"><strong>~ </strong> (tilde) :  <em>not</em>, <em>it is not the case that</em></li>
+</ul></ul>
+<li class="fragment">2-place connective: </li>
 <ul>
-<li class="fragment"><strong>&#2219</strong>: <em>and</em>, <em>in addition</em>, *both...and___*</li>
-<li class="fragment"><strong>&#2228</strong>: <em>or</em>, <em>either...or___</em></li>
-<li class="fragment"><strong>&#2283</strong>: <em>if...then___</em>, <em>...only if</em>, <em>...unless___</em></li>
-</ul></li>
-<li class="fragment">Parentheses: <strong>(</strong>, <strong>)</strong></li>
-</ul></li>
-<li class="fragment">Non-logical
+<li class="fragment">take 2 propositions an make a compound proposition</li>
 <ul>
-<li class="fragment">Atomic propositions: <em>John went to the store</em>, <em>Mary ate baked tofu</em></li>
-<li class="fragment">We abstract over the content of propositions by replacing them with propositional variables: <em>A, B, C, ...</em></li>
-</ul></li>
+<li class="fragment"><strong>&#x2219; </strong> (dot) :  <em>and</em>,  <em>in addition</em>, <em>both ... and ___ </em></li>
+<li class="fragment"><strong>&#x2228; </strong> (vee) :  <em>or</em>,  <em>either ... or ___</em></li>
+<li class="fragment"><strong>&#x2283; </strong> (horseshoe) :  <em>if ... then ___ </em>,  <em>... only if ___</em>,  <em>... unless ___</em></li>
+<li class="fragment"><strong>&#x2261; </strong> (triple bar) : <em>... is equivalent to ___ </em>, <em>... if and only if ___</em></li>
+</ul></ul>
+<li class="fragment">Parentheses: <strong>( </strong>, <strong>) </strong></li>
+</ul>
+	</section>
+	
+	<section>
+<h2 id="vocabulary">Vocabulary</h2>
+<p>Non-logical</p>
+
+<ul>
+<li class="fragment">Atomic propositions:</li>
+<ul><li class="fragment"> <em>John went to the store</em></li>
+	<li class="fragment"><em>Mary ate baked tofu</em></li>
+</ul>
+<li class="fragment">We abstract over the content of propositions by replacing them with propositional variables:</li>
+<ul><li class="fragment"><em>A, B, C, ...</em></li>
+</ul>
 </ul>
 	</section>
 
-	<section id="a-formal-logic-is-defined-by-its-language" class="slide level2">
+	<section>
 <h2 id="syntax">Syntax</h2>
 <p>The sentences of propositional logic</p>
 <ul>
@@ -117,66 +130,75 @@ title: Propositional logic 1
 <ul>
 <li class="fragment"><strong>A</strong>, <strong>B</strong>, <strong>C</strong>, ...</li>
 </ul></li>
-<li class="fragment">[1-place connective]+[proposition]
+<li class="fragment">[1-place connective] + [proposition]
 <ul>
 <li class="fragment"><strong>~A</strong></li>
 </ul></li>
-<li class="fragment">[proposition]+[2-place connective]+[proposition]
+<li class="fragment">[proposition] + [2-place connective]+[proposition]
 <ul>
-<li class="fragment"><strong>A &#2219 B</strong></li>
-<li class="fragment"><strong>C &#2228 D</strong></li>
-<li class="fragment"><strong>E &#2283 F</strong></li>
+<li class="fragment">A &#x2219; B</li>
+<li class="fragment"><strong>C &#x2228; D</strong></li>
+<li class="fragment"><strong>E &#x2283; F</strong></li>
+<li class="fragment"><strong>G &#x2261; H</strong></li>
 </ul></li>
 </ul>
 	</section>
 
-	<section id="a-formal-logic-is-defined-by-its-language" class="slide level2">
+	<section>
 <h2 id="formulas">Formulas</h2>
-<p>A <em>formula</em> is any combination of bits from the vocabulary of the language. But not all possible formulas belong to the language of propositional logic. The good ones must follow the syntax on the previous slide.</p>
+<p>A <em>formula</em> is any combination of bits from the vocabulary of the language.</p>
 <ul>
-<li class="fragment">WFFs
+<li class="fragment">WFFs</li>
 <ul>
+<li class="fragment">Not all possible formulas belong to the language of propositional logic. The good ones must follow the syntax on the previous slide.</li>
 <li class="fragment">Any syntactic unit that meets the specification above is a <strong>well-formed formula</strong> (<em>WFF</em>)</li>
 <li class="fragment">The WFFs compose the entire language of propositional logic</li>
 <li class="fragment">Propositional variables can stand for <em>any</em> WFF, either atomic or compound</li>
-</ul></li>
-<li class="fragment">Recursion
+</ul></ul>
+</section>
+
+<section>
+<h2 id="formulas">Formulas</h2>
+<p>A <em>formula</em> is any combination of bits from the vocabulary of the language.</p>
+<ul>
+<li class="fragment">Recursion<li>
 <ul>
 <li class="fragment">Compound propositions are also propositions, so we can use connectives to connect compound propositions as well as atomic ones.</li>
 <li class="fragment">When we do, we surround each compound proposition with parentheses</li>
 <li class="fragment">This is known as **recursion*</li>
-<li class="fragment">ex: <em>(A &#2219 B) &#2283 (C &#2228 D)</em>, <em>(~M &#2283 Q) &#2219 R</em></li>
-</ul></li>
+<li class="fragment">ex: <em>(A &#x2219; B) &#x2283; (C &#x2228; D)</em>, <em>(~M &x#2261; Q) &#2219 R</em></li>
+</ul>
 </ul>
 	</section>
 
-	<section id="a-formal-logic-is-defined-by-its-language" class="slide level2">
+	<section>
 <h2 id="semantics">Semantics</h2>
 <p>In propositional logic, we specify the meaning of WFFs in terms their <strong>truth conditions</strong>.</p>
-<p>Truth conditions specify the <strong>way the world must be</strong> in order for the proposition to be true.</p>
+
 <ul>
-<li>Another way to say this is: What a proposition <em>means</em> is the situations in which it is true.</li>
+<li class="fragment">Truth conditions specify the <strong>way the world must be</strong> in order for the proposition to be true.</li>
+<ul>
+<li class="fragment">What a proposition <em>means</em> is the situations in which it is true.</li>
 </ul>
-<p>Examples:</p>
+<li class="fragment">Examples:</li>
 <ul>
 <li class="fragment"><em>Jack went to the store</em> is true <strong>just in case</strong> Jack went to the store.</li>
 <li class="fragment"><em>Felicity got a perm and Mike likes it</em> is true <strong>just in case</strong> <em>both</em> Felicity got a perm <em>and</em> Mike likes Felicity's perm</li>
 <li class="fragment"><em>Garth is at the party or he had a fight with Wayne</em> is true <strong>just in case</strong> <em>either</em> Garth is at the party <em>or</em> Garth had a fight with Wayne</li>
 </ul>
+</ul>
 	</section>
 </section>
 
-<section id="truth-tables" class="slide level1">
-	<section id="a-formal-logic-is-defined-by-its-language" class="slide level2">
+<section>
+	<section>
 <h1>Truth tables</h1>
 <p>In order to provide the meaning for a WFF, we need to outline the different <em>ways</em> it can be true or false. We do this by constructing a <strong>truth table</strong> for the WFF.</p>
 <p>Atomic propositions can only be either true or false, so their truth table is pretty boring. - We put a <em>T</em> to stand for true and an <em>F</em> to stand for false</p>
 <table>
 <caption>Truth table for atomic propositions</caption>
 <thead>
-<tr class="header">
 <th style="text-align: center;">A</th>
-</tr>
 </thead>
 <tbody>
 <tr class="odd">
@@ -190,7 +212,7 @@ title: Propositional logic 1
 <p>Notice that we list <strong>one row</strong> for each <em>distinct</em> way that the WFF might turn out. For atomic propositions, there are two distinct ways, thus two rows appear on the table.</p>
 	</section>
 
-	<section id="a-formal-logic-is-defined-by-its-language" class="slide level2">
+	<section>
 <h2 id="truth-tables-for-compound-propositions">Truth tables for compound propositions</h2>
 <p>Compound propositions have more <em>moving parts</em> than atomic ones, so their truth tables are more interesting.</p>
 <p>To construct a truth table for a compound proposition we:</p>

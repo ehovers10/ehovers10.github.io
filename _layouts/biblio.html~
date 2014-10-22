@@ -5,7 +5,6 @@ layout: child
 <link rel="stylesheet" href="/css/biblio.css">
 <script type="text/javascript" src="/javascript/biblio.js"></script>
 
-<div id="content">
 <!-- Search box -->
 <form action="" id="quicksearch">
 <input type="text" id="qs_field" autocomplete="off" placeholder="Type to search..." /> <input type="button" onclick="clearQS()" value="clear" />
@@ -32,4 +31,3 @@ layout: child
 </table>
 
  <small>Created by <a href="http://jabref.sourceforge.net">JabRef</a> on 05/10/2014.</small>
-</div>
