@@ -13,6 +13,7 @@
 
 * {
 	-webkit-print-color-adjust: exact;
+	background-color: transparent;
 }
 
 body {
