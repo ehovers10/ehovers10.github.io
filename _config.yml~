@@ -1,5 +1,5 @@
 name: Erik's website
-markdown: redhat
+markdown: kramdown
 hightlighter: pygments
 
 description: philosophy of language centric notes
@@ -20,9 +20,7 @@ pandoc:
     smart: true
     mathjax: true
 
-scholar:
-  source: ./_bibliography
-  bibliography: language
+
   
 tag_page_layout: tag
 tag_page_dir: ./blog/tag
