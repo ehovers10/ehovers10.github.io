@@ -1,5 +1,9 @@
 name: Erik's website
+<<<<<<< HEAD
 markdown: kramdown
+=======
+markdown: redcarpet
+>>>>>>> 5d886e5ff439688061ec66cc11bdf07adf23ca19
 hightlighter: pygments
 
 description: philosophy of language centric notes
@@ -13,6 +17,7 @@ defaults:
     values:
       layout: "elay1"
 
+<<<<<<< HEAD
 gems: ['pandoc-ruby']
 
 pandoc: 
@@ -21,6 +26,11 @@ pandoc:
     mathjax: true
 
 
+=======
+scholar:
+  source: ./_bibliography
+  bibliography: language
+>>>>>>> 5d886e5ff439688061ec66cc11bdf07adf23ca19
   
 tag_page_layout: tag
 tag_page_dir: ./blog/tag

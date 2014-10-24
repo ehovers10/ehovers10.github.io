@@ -12,7 +12,7 @@ defaults:
       type: "pages"
     values:
       layout: "elay1"
-
+      
 gems: ['pandoc-ruby']
 
 pandoc: 

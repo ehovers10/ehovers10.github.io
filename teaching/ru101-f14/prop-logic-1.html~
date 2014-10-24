@@ -161,12 +161,20 @@ title: Propositional logic 1
 <h2 id="formulas">Recursion</h2>
 <p>Compound propositions are also propositions, so we can use connectives to connect compound propositions as well as atomic ones.</p>
 <ul>
+<<<<<<< HEAD
 <li class="fragment">The process of building bigger peices from smaller peices of the same type is known as <em>recursion</em></li>
 <li class="fragment">We use parentheses to set off each compound proposition from the others in the WFF</li>
 <li class="fragment">Examples:</li>
 <ul> 
 <li class="fragment"><em>(A &#x2219; B) &#x2283; (C &#x2228; D)</em></li>
 <li class="fragment"><em>(~M &#x2261; Q) &#x2219; R</em></li>
+=======
+<li class="fragment">When we do, we surround each compound proposition with parentheses</li>
+<li class="fragment">This is known as recursion*</li>
+<li class="fragment">Examples:</li>
+<ul> 
+<li class="fragment"><em>(A &#x2219; B) &#x2283; (C &#x2228; D)</em>, <em>(~M &#x2261; Q) &#x2219; R</em></li>
+>>>>>>> 5d886e5ff439688061ec66cc11bdf07adf23ca19
 </ul>
 </ul>
 

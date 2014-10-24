@@ -27,11 +27,11 @@ body {
   background-color: #002b36; }
 
 .reveal {
-  font-family: Georgia, sans-serif;
+  font-family: Georgia;
   font-size: 36px;
   font-weight: normal;
   letter-spacing: -0.02em;
-  color: #93a1a1; }
+  color: #eee8d5; }
 
 ::selection {
   color: white;
@@ -49,7 +49,7 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #eee8d5;
-  font-family: Georgia, Impact, sans-serif;
+  font-family: finalfrontier, Impact, sans-serif;
   line-height: 0.9em;
   letter-spacing: 0.02em;
   text-transform: uppercase;
