@@ -112,7 +112,6 @@ a:hover { text-decoration: underline; }
 	text-align: justify;
 	color: DarkSlateGray;
 	font-size: 13px;
-	width: 75%;
 	padding: 20px;
 }
 
@@ -127,9 +126,10 @@ a:hover { text-decoration: underline; }
 	padding-left: 40px; 
 	color: DarkSlateGray;
 	font-size: 13px;
+	width: 75%;
 }
 
-#content ul { list-style-type: circle; }
+#content ul { list-style-type: circle; width: 75%; }
 
 #side-bar {
 	float: right;
