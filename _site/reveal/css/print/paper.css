@@ -19,13 +19,13 @@ body {
 	margin: 0 5%;
 	padding: 0;
 	float: none !important;
-	overflow: visible;
+	<!--overflow: visible;
 }
 html {
 	background: #fff;
 	width: auto;
 	height: auto;
-	overflow: visible;
+	<!--overflow: visible;
 }
 
 /* SECTION 2: Remove any elements not needed in print.
@@ -55,7 +55,7 @@ h1,h2,h3,h4,h5,h6 {
 	color: #000!important;
 	height: auto;
 	line-height: normal;
-	font-family: Georgia, "Times New Roman", Times, serif !important;
+	font-family: finalfrontier, "Times New Roman", Times, serif !important;
 	text-shadow: 0 0 0 #000 !important;
 	text-align: left;
 	letter-spacing: normal;
@@ -128,7 +128,7 @@ ul, ol, div, p {
 
 	visibility: visible !important;
 	position: static !important;
-	width: 90% !important;
+	width: 95% !important;
 	height: auto !important;
 	display: block !important;
 	overflow: visible !important;
@@ -152,7 +152,7 @@ ul, ol, div, p {
 	        transform: none !important;
 }
 .reveal section {
-	page-break-after: always !important;
+	<!--page-break-after: always !important;-->
 	display: block !important;
 }
 .reveal section .fragment {
@@ -165,7 +165,7 @@ ul, ol, div, p {
 	        transform: none !important;
 }
 .reveal section:last-of-type {
-	page-break-after: avoid !important;
+	<!--page-break-after: avoid !important;
 }
 .reveal section img {
 	display: block;

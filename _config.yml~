@@ -1,5 +1,5 @@
 name: Erik's website
-markdown: redhat
+markdown: redcarpet
 hightlighter: pygments
 
 description: philosophy of language centric notes
@@ -12,13 +12,6 @@ defaults:
       type: "pages"
     values:
       layout: "elay1"
-
-gems: ['pandoc-ruby']
-
-pandoc: 
-  options: 
-    smart: true
-    mathjax: true
 
 scholar:
   source: ./_bibliography

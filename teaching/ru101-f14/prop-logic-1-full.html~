@@ -1,24 +1,24 @@
 <!doctype html>
-<html class="dark">
+<html class="{% if site.solarized.theme %}{{site.solarized.theme}}{% else %}dark{% endif %}">
 
 <head>
 		<meta charset="utf-8">
 
 		<title>Propositional Logic 1</title>
 
-		<meta name="description" content="">
-		<meta name="author" content="e-rizzle" >
+		<meta name="description" content="lrp f14">
+		<meta name="author" content="ehov-netty-trips" >
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="/reveal/css/reveal.css">
-		<link rel="stylesheet" href="/reveal/css/theme/moon.css" id="theme">
+		<link rel="stylesheet" href="./reveal/css/reveal.css">
+		<link rel="stylesheet" href="./reveal/css/theme/moon.css" id="theme">
 
 		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="/reveal/lib/css/zenburn.css">
+		<link rel="stylesheet" href="./reveal/lib/css/zenburn.css">
 
 		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
 		<script>
@@ -26,7 +26,7 @@
 				var link = document.createElement( 'link' );
 				link.rel = 'stylesheet';
 				link.type = 'text/css';
-				link.href = '/reveal/css/print/paper.css';
+				link.href = './reveal/css/print/paper.css';
 				document.getElementsByTagName( 'head' )[0].appendChild( link );
 			}
 		</script>
@@ -36,44 +36,43 @@
 		<![endif]-->
 </head>
 
-
 	
 <body>
 	<div class="reveal">
 		<div class="slides">
 			<section id="title-slide">
-	<h1>Propositional logic 1</h1>
-	<h4>Defining the language</h4>
+<h1>Propositional logic 1</h1>
+<h2>Defining the language</h2>
 
-	<p>Erik Hoversten</p>
-	<p>Rutgers university: LRP, fall 2014</p>
-	<p>October 22, 2014</p>
+<p>Erik Hoversten</p>
+<p>Rutgers university: LRP, fall 2014</p>
+<p>October 22, 2014</p>
+
 </section>
 
 <section>
 	<section>
 	
-		<h2>A formal logic is defined by its language</h2>
-		<p>The key parts of any language are:</p>
-
-		<ul>
-			<li>Vocabulary
-			<ul>
-				<li class="fragment">Logical vocabulary</li>
-				<li class="fragment">Non-logical vocabulary</li>
-			</ul></li>
-			<li>Syntax
-			<ul>
-				<li class="fragment">Rules for putting vocabulary together into propositions</li>
-			</ul></li>
-			<li>Semantics
-			<ul>
-				<li class="fragment">Rules for interpreting the meaning of propositions</li>
-			</ul></li>
-		</ul>
+<h2>A formal logic is defined by its language</h2>
+<p>The key parts of any language are:</p>
+<ul>
+<li>Vocabulary
+<ul>
+<li class="fragment">Logical vocabulary</li>
+<li class="fragment">Non-logical vocabulary</li>
+</ul></li>
+<li>Syntax
+<ul>
+<li class="fragment">Rules for putting vocabulary together into propositions</li>
+</ul></li>
+<li>Semantics
+<ul>
+<li class="fragment">Rules for interpreting the meaning of propositions</li>
+</ul></li>
+</ul>
 	</section>
-
-<section>
+	
+	<section>
 <h2 id="categorical-logic">Categorical logic</h2>
 <p>In categorical logic, our language was:</p>
 <ul>
@@ -565,9 +564,8 @@
 		</div>
 	</div>
 	
-	
-		<script src="/reveal/lib/js/head.min.js"></script>
-		<script src="/reveal/js/reveal.min.js"></script>
+		<script src="./reveal/lib/js/head.min.js"></script>
+		<script src="./reveal/js/reveal.min.js"></script>
 
 		<script>
 
@@ -588,16 +586,17 @@
 
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
-					{ src: '/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: '/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: '/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: '/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: '/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: '/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					{ src: './reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: './reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: './reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: './reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: './reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: './reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});
 
 		</script>
+
 
 </body>
 </html>

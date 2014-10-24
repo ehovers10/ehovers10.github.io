@@ -134,7 +134,7 @@ title: Propositional logic 1
 <ul>
 <li class="fragment"><strong>~A</strong></li>
 </ul></li>
-<li class="fragment">[proposition] + [2-place connective]+[proposition]
+<li class="fragment">[proposition] + [2-place connective] + [proposition]
 <ul>
 <li class="fragment">A &#x2219; B</li>
 <li class="fragment"><strong>C &#x2228; D</strong></li>
@@ -158,15 +158,14 @@ title: Propositional logic 1
 </section>
 
 <section>
-<h2 id="formulas">Formulas</h2>
-<p>A <em>formula</em> is any combination of bits from the vocabulary of the language.</p>
+<h2 id="formulas">Recursion</h2>
+<p>Compound propositions are also propositions, so we can use connectives to connect compound propositions as well as atomic ones.</p>
 <ul>
-<li class="fragment">Recursion<li>
-<ul>
-<li class="fragment">Compound propositions are also propositions, so we can use connectives to connect compound propositions as well as atomic ones.</li>
 <li class="fragment">When we do, we surround each compound proposition with parentheses</li>
-<li class="fragment">This is known as **recursion*</li>
-<li class="fragment">ex: <em>(A &#x2219; B) &#x2283; (C &#x2228; D)</em>, <em>(~M &x#2261; Q) &#2219 R</em></li>
+<li class="fragment">This is known as recursion*</li>
+<li class="fragment">Examples:</li>
+<ul> 
+<li class="fragment"><em>(A &#x2219; B) &#x2283; (C &#x2228; D)</em>, <em>(~M &#x2261; Q) &#x2219; R</em></li>
 </ul>
 </ul>
 	</section>

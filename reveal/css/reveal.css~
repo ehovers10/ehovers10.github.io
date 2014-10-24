@@ -275,6 +275,7 @@ body {
 
 .reveal ul ul ul {
 	list-style-type: none;
+	margin-left: 0px;
 }
 
 .reveal ul ul,
@@ -282,7 +283,7 @@ body {
 .reveal ol ol,
 .reveal ol ul {
 	display: block;
-	margin-left: 40px;
+	margin-left: 30px;
 }
 
 .reveal p {
@@ -348,14 +349,20 @@ body {
 	        box-sizing: border-box;
 }
 
+.reveal table {
+	margin-left: 40%;
+}
+
 .reveal table th,
 .reveal table td {
-	text-align: left;
+	text-align: center;
 	padding-right: .3em;
+	border-right: 2px solid #eee8d5;
 }
 
 .reveal table th {
 	font-weight: bold;
+	border-bottom: 1px solid #eee8d5;
 }
 
 .reveal sup {
