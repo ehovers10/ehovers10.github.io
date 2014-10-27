@@ -350,7 +350,7 @@ body {
 }
 
 .reveal table {
-	margin-left: 40%;
+	margin: auto;
 }
 
 .reveal table th,
@@ -360,9 +360,9 @@ body {
 	border-right: 2px solid #eee8d5;
 }
 
-.reveal table th {
+.reveal table thead {
 	font-weight: bold;
-	border-bottom: 1px solid #eee8d5;
+	border-bottom: 2px solid #eee8d5;
 }
 
 .reveal sup {
