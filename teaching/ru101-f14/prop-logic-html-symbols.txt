@@ -1,0 +1,4 @@
+<li class="fragment">Conjunction: <strong>A &#x2219; B</strong></li>
+<li class="fragment">Disjunction: <strong>C &#x2228; D</strong></li>
+<li class="fragment">Conditional: <strong>E &#x2283; F</strong></li>
+<li class="fragment">Biconditional: <strong>G &#x2261; H</strong></li>

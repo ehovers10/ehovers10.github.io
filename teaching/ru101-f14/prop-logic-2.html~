@@ -295,7 +295,7 @@ title: Propositional logic 2
 	<td>p</td>
 	<td>q</td>
 	<td>p &#x2283; q</td>
-	<td>q &#x2283; p)</td>
+	<td>q &#x2283; p</td>
 	<td>(p &#x2283; q) &#x2219; (q &#x2283; p)</td>
 </thead>
 <tbody>
@@ -311,7 +311,7 @@ title: Propositional logic 2
 </tbody>
 </table>
 
-<p class="fragment">Notice that this table is identical to the table for the biconditional. This shows that (p &#x2283; q) &#x2219; (q &#x2283; p) means the same thing as p &#x2261; q</p>
+<p class="fragment">Notice that this table is identical to the table for the biconditional. This shows that <strong>(p &#x2283; q) &#x2219; (q &#x2283; p)</strong> means the same thing as <strong>p &#x2261; q</strong></p>
 	
 </section>
 </section>

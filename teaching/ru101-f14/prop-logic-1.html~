@@ -4,51 +4,51 @@ title: Propositional logic 1
 ---
 
 <section id="title-slide">
-<h1>Propositional logic 1</h1>
-<h2>Defining the language</h2>
+	<h1>Propositional logic 1</h1>
+	<h4>Defining the language</h4>
 
-<p>Erik Hoversten</p>
-<p>Rutgers university: LRP, fall 2014</p>
-<p>October 22, 2014</p>
-
+	<p>Erik Hoversten</p>
+	<p>Rutgers university: LRP, fall 2014</p>
+	<p>October 22, 2014</p>
 </section>
 
 <section>
 	<section>
 	
-<h2>A formal logic is defined by its language</h2>
-<p>The key parts of any language are:</p>
-<ul>
-<li class="fragment">Vocabulary
-<ul>
-<li class="fragment">Logical vocabulary</li>
-<li class="fragment">Non-logical vocabulary</li>
-</ul></li>
-<li class="fragment">Syntax
-<ul>
-<li class="fragment">Rules for putting vocabulary together into propositions</li>
-</ul></li>
-<li class="fragment">Semantics
-<ul>
-<li class="fragment">Rules for interpreting the meaning of propositions</li>
-</ul></li>
-</ul>
+		<h2>A formal logic is defined by its language</h2>
+		<p>The key parts of any language are:</p>
+
+		<ul>
+			<li>Vocabulary
+			<ul>
+				<li class="fragment">Logical vocabulary</li>
+				<li class="fragment">Non-logical vocabulary</li>
+			</ul></li>
+			<li>Syntax
+			<ul>
+				<li class="fragment">Rules for putting vocabulary together into propositions</li>
+			</ul></li>
+			<li>Semantics
+			<ul>
+				<li class="fragment">Rules for interpreting the meaning of propositions</li>
+			</ul></li>
+		</ul>
 	</section>
-	
-	<section>
+
+<section>
 <h2 id="categorical-logic">Categorical logic</h2>
 <p>In categorical logic, our language was:</p>
 <ul>
-<li class="fragment">Vocabulary
+<li>Vocabulary
 <ul>
 <li class="fragment">Logical: Quantifiers and copula</li>
 <li class="fragment">Non-logical: Subject and predicate terms</li>
 </ul></li>
-<li class="fragment">Syntax
+<li>Syntax
 <ul>
 <li class="fragment">[Quantifier] + [Subject term] + [copula] + [Predicate term]</li>
 </ul></li>
-<li class="fragment">Semantics
+<li>Semantics
 <ul>
 <li class="fragment">Specification of each proposition's meaning in terms of set <em>inclusion</em> and <em>exclusion</em></li>
 </ul></li>
@@ -59,17 +59,17 @@ title: Propositional logic 1
 <h2 id="propositional-logic">Propositional logic</h2>
 <p>Propositional logic is another formal logic with a slightly different language:</p>
 <ul>
-<li class="fragment">Vocabulary
+<li>Vocabulary
 <ul>
 <li class="fragment">Logical: 1-place connectives, 2-place connectives</li>
 <li class="fragment">Non-logical: Propositions</li>
 </ul></li>
-<li class="fragment">Syntax
+<li>Syntax
 <ul>
 <li class="fragment">[1-place connective] + [proposition]</li>
 <li class="fragment">[proposition] + [2-place connective] + [propostition]</li>
 </ul></li>
-<li class="fragment">Semantics
+<li>Semantics
 <ul>
 <li class="fragment">Meaning is specified in terms of <strong>truth conditions</strong></li>
 </ul></li>
@@ -88,20 +88,20 @@ title: Propositional logic 1
 <p>Logical</p>
 
 <ul>
-<li class="fragment">1-place connective: </li>
+<li class="fragment">1-place connective: 
 <ul>
-<li class="fragment">takes 1 proposition and makes a compound proposition</li>
+<li>takes 1 proposition and makes a compound proposition</li></li>
 <ul>
 <li class="fragment"><strong>~ </strong> (tilde) :  <em>not</em>, <em>it is not the case that</em></li>
 </ul></ul>
-<li class="fragment">2-place connective: </li>
+<li class="fragment">2-place connective: 
 <ul>
-<li class="fragment">take 2 propositions an make a compound proposition</li>
+<li>take 2 propositions an make a compound proposition</li></li>
 <ul>
-<li class="fragment"><strong>&#x2219; </strong> (dot) :  <em>and</em>,  <em>in addition</em>, <em>both ... and ___ </em></li>
-<li class="fragment"><strong>&#x2228; </strong> (vee) :  <em>or</em>,  <em>either ... or ___</em></li>
-<li class="fragment"><strong>&#x2283; </strong> (horseshoe) :  <em>if ... then ___ </em>,  <em>... only if ___</em>,  <em>... unless ___</em></li>
-<li class="fragment"><strong>&#x2261; </strong> (triple bar) : <em>... is equivalent to ___ </em>, <em>... if and only if ___</em></li>
+<li class="fragment"><strong>&#x2219; </strong> (dot) :  <em>and</em>,  <em>in addition</em>, <em>both ... and __ </em></li>
+<li class="fragment"><strong>&#x2228; </strong> (vee) :  <em>or</em>,  <em>either ... or __</em></li>
+<li class="fragment"><strong>&#x2283; </strong> (horseshoe) :  <em>if ... then __ </em>,  <em>... only if __</em>,  <em>... unless __</em></li>
+<li class="fragment"><strong>&#x2261; </strong> (triple bar) : <em>... is equivalent to __ </em>, <em>... if and only if __</em></li>
 </ul></ul>
 <li class="fragment">Parentheses: <strong>( </strong>, <strong>) </strong></li>
 </ul>
@@ -161,24 +161,20 @@ title: Propositional logic 1
 <h2 id="formulas">Recursion</h2>
 <p>Compound propositions are also propositions, so we can use connectives to connect compound propositions as well as atomic ones.</p>
 <ul>
-<<<<<<< HEAD
 <li class="fragment">The process of building bigger peices from smaller peices of the same type is known as <em>recursion</em></li>
 <li class="fragment">We use parentheses to set off each compound proposition from the others in the WFF</li>
 <li class="fragment">Examples:</li>
 <ul> 
 <li class="fragment"><em>(A &#x2219; B) &#x2283; (C &#x2228; D)</em></li>
 <li class="fragment"><em>(~M &#x2261; Q) &#x2219; R</em></li>
-=======
-<li class="fragment">When we do, we surround each compound proposition with parentheses</li>
-<li class="fragment">This is known as recursion*</li>
-<li class="fragment">Examples:</li>
-<ul> 
-<li class="fragment"><em>(A &#x2219; B) &#x2283; (C &#x2228; D)</em>, <em>(~M &#x2261; Q) &#x2219; R</em></li>
->>>>>>> 5d886e5ff439688061ec66cc11bdf07adf23ca19
 </ul>
 </ul>
 
+<<<<<<< HEAD
 <p class="fragment">Languages with recursion are capable of expressing and <em>infinite</em> number of propositions.</p>
+=======
+<p class="fragment">Languages with recursion are capable of expressing an <em>infinite</em> number of propositions.</p>
+>>>>>>> 5d886e5ff439688061ec66cc11bdf07adf23ca19
 	</section>
 
 	<section>
@@ -192,9 +188,9 @@ title: Propositional logic 1
 </ul>
 <li class="fragment">Examples:</li>
 <ul>
-<li class="fragment"><em>Jack went to the store</em> is true <strong>just in case</strong> Jack went to the store.</li>
-<li class="fragment"><em>Felicity got a perm and Mike likes it</em> is true <strong>just in case</strong> <em>both</em> Felicity got a perm <em>and</em> Mike likes Felicity's perm</li>
-<li class="fragment"><em>Garth is at the party or he had a fight with Wayne</em> is true <strong>just in case</strong> <em>either</em> Garth is at the party <em>or</em> Garth had a fight with Wayne</li>
+<li class="fragment"><em>"Jack went to the store"</em> is true just in case Jack went to the store.</li>
+<li class="fragment"><em>"Felicity got a perm and Mike likes it"</em> is true just in case <strong>both</strong> Felicity got a perm <strong>and</strong> Mike likes Felicity's perm</li>
+<li class="fragment"><em>"Garth is at the party or he had a fight with Wayne"</em> is true just in case <strong>either</strong> Garth is at the party <strong>or</strong> Garth had a fight with Wayne</li>
 </ul>
 </ul>
 	</section>
@@ -203,6 +199,7 @@ title: Propositional logic 1
 <section>
 	<section>
 <h1>Truth tables</h1>
+<<<<<<< HEAD
 <p>In order to provide the meaning for a WFF, we need to outline the different <em>ways</em> it can be true or false. We do this by constructing a <strong>truth table</strong> for the WFF.</p>
 <ul>
 <li class="fragment">Atomic propositions can only be either true or false, so their truth table is pretty boring.</li>
@@ -212,8 +209,53 @@ title: Propositional logic 1
 </ul></ul>
 
 <table>
+=======
+<p>To provide the meaning for a WFF, we outline all the different <em>ways</em> it can be true or false. The tool we use to do this is a <strong>truth table</strong>.</p>
+
+<h4 class="fragment">Step 1: Construct the columns</h4>
+<ol type="1">
+<li class="fragment">Make a <em>column</em> for every distinct propositional variable in the WFF, and label the column with a distinct <em>meta-</em>variable (<em>p, q, r, ...</em>)</li>
+<li class="fragment">Add a column for the complete WFF</li>
+</ol>
+</section>
+
+<section>
+<h2>Truth tables</h2>
+<h4>Step 2: Calculate the number of rows</h4>
+
+<ul>
+<li class="fragment">Make a <em>row</em> for every distinct combination of truth values the meta-variables can have</li>
+<li class="fragment">As a rule, if there are <em>n</em> propositional variables in the WFF, there will be <em>2<sup>n</sup></em> combinations of truth values</li>
+<ul>
+<li class="fragment">If the WFF includes an <em>A</em> and a <em>B</em>, there will be <strong>2<sup>2</sup> = 4</strong> rows in the table</li>
+<li class="fragment">If the WFF includes a <em>C</em>, a <em>D</em>, and an <em>E</em>, there will be <strong>2<sup>3</sup> = 8</strong> rows in the table</li>
+</ul></ul>
+</section>
+
+<section>
+<h2>Truth tables</h2>
+<h4>Step 3: Fill the columns</h4>
+
+<ul>
+<li class="fragment">Divide the number of rows in half. In the first column, fill the first half of the rows with <em>T</em>s, and the second half of the rows with <em>F</em>s</li>
+<li class="fragment">Divide the rows in half again. In the second column, fill the first quarter of the rows with <em>T</em>s, the second quarter with <em>F</em>s, and continue on, alternating every quarter.</li>
+<li class="fragment">Continue this process until the column for your last propositional variable has alternating <em>T</em>s and <em>F</em>s all the way down.</li>
+</ul>
+</section>
+
+<section>
+<h2>Truth table for atomic propositions</h2>
+
+<ul>
+<li class="fragment">Atomic propositions can only be either true or false, so their truth table is pretty boring.</li>
+<ul>
+<li class="fragment">Since there are two distinct ways an atomic proposition could turn out, two rows appear on the table.</li>
+<li class="fragment">We put a <em>T</em> to stand for true and an <em>F</em> to stand for false</li>
+</ul></ul>
+
+<table class="fragment">
 <thead>
-<th style="text-align: center;">A</th>
+<th style="text-align: center;">p</th>
 </thead>
 <tbody>
 <tr class="odd">
@@ -223,8 +265,39 @@ title: Propositional logic 1
 <td style="text-align: center;">F</td>
 </tr>
 </tbody>
+</table></p>
+</section>	
+	
+<section>
+
+<h2>Truth table for negation</h2>
+<p>~p</p>
+
+<ul>
+<li class="fragment">Negation switches the truth value of the contained proposition.</li>
+<li class="fragment">We call the contained proposition the <em>prejacent</em></li>
+<li class="fragment">If the prejacent is true, then the negation is false, and if the prejacent is false, then the negation is true</li>
+</ul>
+
+<table class="fragment">
+>>>>>>> 5d886e5ff439688061ec66cc11bdf07adf23ca19
+<thead>
+<th style="text-align: center;">p</th>
+<th style="text-align: center;">~p</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+</tr>
+</tbody>
 <caption>Truth table for atomic propositions</caption>
 </table>
+<<<<<<< HEAD
 	</section>
 
 	<section>
@@ -455,11 +528,273 @@ title: Propositional logic 1
 
 <ul>
 <li class="fragment">It's possible that the truth conditions that propositional logic assigns to the connective don't match our intuitions about how the associated English word is used.</li>
-<li class="fragment">We just have to remember that we are using the language of propositional logic, and the truth conditions it gives are <em>all there is</em> to the meaning of the co</li>
+<li class="fragment">We just have to remember that we are using the language of propositional logic, and the truth conditions it gives are <em>all there is</em> to the meaning of the connective</li>
 </ul>
 
 </section>
 
 <section>
-<h2
+<h2>Dot vs. "And"</h2>
+<p>The dot in a proposition such as <em>A &#x2219; B</em> is meant to translate the English word "and", but it doesn't necessarily mean the exact same thing.</p>
+
+<ul>
+<li class="fragment">Compare:</li>
+<ol>
+<li class="fragment">Lisa and John got married and they had a baby.</li>
+<li class="fragment">Lisa and John had a baby and they got married.</li>
+</ol>
+<li class="fragment">While (a) is nothing special, (b) might suggest that a shotgun played a role in the wedding.</li>
+<li class="fragment">In English, the order of conjuncts often suggests a <em>temporal ordering</em>.</li>
+<li class="fragment">But in propositional logic, all that matters is whether both conjuncts are true or not.</li>
+<ul>
+<li class="fragment">Since both (a) and (b) involve the same conjuncts, they will always have the same meaning in propositional logic.</li>
+=======
+</section>	
+	
+	<section>
+	<h2>Truth table for conjunction</h2>
+	<p><em>p</em> &#x2219; <em>q</em></p>
+	
+	<ul>
+	<li class="fragment">We call each of the propositions in a conjunction a <em>conjunct</em>.</li>
+	<li class="fragment">A conjunction is true just in case <em>both</em> of the propositions that make it up are true. Otherwise, it is false.</li>
+	<li class="fragment">Since there are two conjuncts, the truth table has 4 rows.</li>
+	</ul>
+	
+<table class="fragment">
+<thead>
+<th style="text-align: center;">p</th>
+<th style="text-align: center;">q</th>
+<th style="text-align: center;">p &#x2219; q</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+	<section>
+	<h2>Truth table for disjunction</h2>
+	<p><em>p</em> &#x2228; <em>q</em></p>
+	
+	<ul>
+	<li class="fragment">We call each of the propositions in a disjunction a <em>disjunct</em>.</li>
+	<li class="fragment">A disjunction is true just in case <em>at least one</em> of the propositions that make it up are true.</li>
+	<li class="fragment">It is only false if <em>both</em> disjuncts are false.
+	</ul>
+<table class="fragment">
+<thead>
+<th style="text-align: center;">p</th>
+<th style="text-align: center;">q</th>
+<th style="text-align: center;">p &#x2228; q</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+	<section>
+	<h2>Truth table for conditionals</h2>
+	<p><em>p</em> &#x2283; <em>q</em></p>
+	
+	<ul>
+	<li class="fragment">We call the first proposition in a conditional the <em>antecedent</em>, and the second proposition the <em>consequent</em>.</li>
+	<li class="fragment">A conditional is true just in case <em>either</em> the antecedent is false, or the consequent is true.</li>
+	<li class="fragment">It is false only when the antecedent is true, but the consequent is false</li>
+	</ul>
+	
+<table class="fragment">
+<thead>
+<th style="text-align: center;">p</th>
+<th style="text-align: center;">q</th>
+<th style="text-align: center;">p &#x2283; q</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+	<section>
+	<h2>Truth table for biconditionals</h2>
+	<p><em>p</em> &#x2261; <em>q</em></p>
+	
+	<ul>
+	<li class="fragment">A biconditional is equivalent to a conjunction of conditionals</li>
+	<ul>
+		<li class="fragment">(p &#x2283; q) &#x2219; (q &#x2283; p)</li>
+	</ul>
+	<li class="fragment">A biconditional is true just in case the antecedent and the consequent have <em>the same truth value</em>.</li>
+	</ul>
+	
+<table class="fragment">
+<thead>
+<th style="text-align: center;">p</th>
+<th style="text-align: center;">q</th>
+<th style="text-align: center;">p &#x2261; q</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+<section>
+<section>
+<h2>Propositional logic vs. English</h2>
+<p>The connectives of propositional logic are intended to translate certain words of English.</p>
+
+<ul>
+<li class="fragment">It's possible that the truth conditions that propositional logic assigns to the connective don't match our intuitions about how the associated English word is used.</li>
+<li class="fragment">In propositional logic, the truth conditions are <em>all there is</em> to the meaning of the connective.</li>
+</ul>
+
+</section>
+
+<section>
+<h2>Dot vs. "And"</h2>
+<p>The dot in a proposition such as <em>A &#x2219; B</em> is meant to translate the English word "and", but it doesn't mean the exact same thing.</p>
+
+<ul>
+<li class="fragment">Compare:</li>
+<ol>
+<li class="fragment">Lisa and John got married and they had a baby.</li>
+<li class="fragment">Lisa and John had a baby and they got married.</li>
+</ol>
+<li class="fragment">While (1) is nothing special, (2) might suggest that a shotgun played a role in the wedding.</li>
+<li class="fragment">In English, the order of conjuncts often suggests a <em>temporal ordering</em>.</li>
+<li class="fragment">But in propositional logic, all that matters is whether both conjuncts are true or not.</li>
+<ul>
+<li class="fragment">Since both (1) and (2) involve the same conjuncts, they will always have the same meaning in propositional logic.</li>
+</ul>
+</ul>
+</section>
+
+<section>
+<h2>Vee vs. "Or"</h2>
+<p>The vee in a proposition such as <em>A &#x2228; B</em> is meant to translate the English word "or", but it doesn't mean the exact same thing.</p>
+
+<ul>
+<li class="fragment">Consider:</li>
+<ol>
+<li class="fragment">You can have soup with that or you can get salad.</li>
+<li class="fragment">Either he leaves or I do!</li>
+</ol>
+<li class="fragment">If your waiter at a restaurant said (1) to you, you would probably get charged extra if you asked for both soup and salad.</li>
+<li class="fragment">In English, "or" often expresses <em>exclusivity</em>, in that one or the other disjuncts can be true, <em>but not both</em>.</li>
+<li class="fragment">But in propositional logic, disjunction is <em>inclusive</em> in that the disjunction is true so long as one, the other, <em>or both</em> disjuncts are true.</li>
+</ul>
+</section>
+
+<section>
+<h2>Horseshoe vs. "If, then"</h2>
+<p>The horseshoe in a proposition such as <em>A &#x2283; B</em> is meant to translate the English words "if, then", but it doesn't mean the exact same thing.</p>
+
+<ul>
+<li class="fragment">Consider:</li>
+<ol>
+<li class="fragment">If pigs fly, then frogs can sing opera.</li>
+<li class="fragment">If Erik has brown hair, then class is really exciting today.</li>
+</ol>
+<li class="fragment">In English, "if, then" often suggests a <em>causal relation</em> holds between the antecedent and the consequent.</li>
+<li class="fragment">But in propositional logic, the conditional is only false if the antecedent is true, and the consequent is false.</li>
+<ul>
+<li class="fragment">Since (1) has a false antecedent, and (2) has a true consequent, both are true in propositional logic.</li>
+>>>>>>> 5d886e5ff439688061ec66cc11bdf07adf23ca19
+</ul>
+</ul>
+</section>
+
+<section>
+<<<<<<< HEAD
+
+=======
+<h2>Truth functions</h2>
+
+<ul>
+<li class="fragment">What the last slides are meant to show is that propositional logic only cares about <em>truth values</em>.</li>
+<li class="fragment">If you know the truth value of the propostitions contained in a compound proposition, then you don't need to know anything else about them.</li>
+<li class="fragment">All the connectives in propositional logic are <em>truth functional</em>.</li>
+<li class="fragment">This fact is what allows us to treat propositional logic as a formal logic.  We don't need to know anything about the content of the propositions. As long as we know what form they take, we can determine all the possible truth values it could have.</li>
+</ul>
+>>>>>>> 5d886e5ff439688061ec66cc11bdf07adf23ca19
+</section>
 </section>
