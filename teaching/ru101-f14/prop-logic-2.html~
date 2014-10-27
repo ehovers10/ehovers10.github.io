@@ -49,7 +49,7 @@ title: Propositional logic 2
 	<section>
 	<h2>Truth tables for basic propositions</h2>
 	
-<table class="fragment">
+<table class="fragment" style="float: left;">
 <thead>
 <th style="text-align: center;">p</th>
 <th style="text-align: center;">~p</th>
@@ -64,7 +64,7 @@ title: Propositional logic 2
 <td style="text-align: center;">T</td>
 </tr>
 </tbody>
-</table><table>
+</table><table class="fragment" style="float: right;">
 <thead>
 <th style="text-align: center;">p</th>
 <th style="text-align: center;">q</th>
@@ -92,7 +92,9 @@ title: Propositional logic 2
 <td style="text-align: center;">F</td>
 </tr>
 </tbody>
-</table><table>
+</table>
+<div style="clear: both;"></div>
+<table class="fragment" style="float: left;">
 <thead>
 <th style="text-align: center;">p</th>
 <th style="text-align: center;">q</th>
@@ -120,7 +122,7 @@ title: Propositional logic 2
 <td style="text-align: center;">F</td>
 </tr>
 </tbody>
-</table><table>
+</table><table class="fragment" style="float: right;">
 <thead>
 <th style="text-align: center;">p</th>
 <th style="text-align: center;">q</th>
@@ -159,11 +161,11 @@ title: Propositional logic 2
 <ul>
 <li class="fragment">Complex propositions contain <strong>at least 2</strong> connectives.</li>
 </ul></li>
-<li>Complex propositions are built up <strong>recursively</strong> from basic propositions.
+<li class="fragment">Complex propositions are built up <strong>recursively</strong> from basic propositions.
 <ul>
 <li class="fragment">Thus, we can construct the truth table for a complex proposition by putting together truth tables of basic propositions.
 </ul></li>
-<li>Examples:
+<li class="fragment">Examples:
 <ul>
 <li class="fragment">(A &#x2219; B) &#x2228; (E &#x2283; F)</li>
 <li class="fragment">(~A &#x2228; ~B)</li>
@@ -175,7 +177,7 @@ title: Propositional logic 2
 
 <section>
 	<section>
-<h1>Truth tables for complex WFF</h1>
+<h2>Complex truth tables</h2>
 <p>Construct the columns</p>
 
 <ul>
@@ -185,19 +187,18 @@ title: Propositional logic 2
 <li class="fragment">Add a column for the complete WFF</li>
 <li class="fragment">Example: </li>
 <ul>
-<li>~(A &#x2261; B) &#x2283; C</li>
+<li class="fragment">~(A &#x2261; B) &#x2283; C</li>
 </ul>
 </ul>
 
 <table class="fragment">
 <thead>
-<th style="text-align: center;">
 	<td>p</td>
 	<td>q</td>
 	<td>r</td>
 	<td class="fragment">(p &#x2261; q)</td>
 	<td class="fragment">~(p &#x2261; q)</td>
-	<td class="fragment">~(p &#x2261; q) &#x2283; r</td></th>
+	<td class="fragment">~(p &#x2261; q) &#x2283; r</td>
 </thead>
 <tbody>
 </tbody>
@@ -206,23 +207,22 @@ title: Propositional logic 2
 	</section>
 	
 	<section>
-<h2 id="vocabulary">Truth tables for complex WFF</h2>
+<h2 id="vocabulary">Complex truth tables</h2>
 <p>Construct the rows</p>
 
 <ul>
-<li class="fragment">Use the 2<sup>n</sup> rule to ensure that you have all possible combinations of truth values for the WFF.</li>
-<li class="fragment"> Fill the columns under the propositional variables using the divide by 2 rule.</li>
+<li class="fragment">Ensure you have all possible combinations of truth values for the WFF. (2<sup>n</sup> rule)</li>
+<li class="fragment"> Fill the columns for propositional variables. (divide by 2 rule)</li>
 </ul>
 
 <table class="fragment">
 <thead>
-<th style="text-align: center;">
 	<td>p</td>
 	<td>q</td>
 	<td>r</td>
 	<td>(p &#x2261; q)</td>
 	<td>~(p &#x2261; q)</td>
-	<td>~(p &#x2261; q) &#x2283; r</td></th>
+	<td>~(p &#x2261; q) &#x2283; r</td>
 </thead>
 <tbody>
 <tr><td>T</td><td>T</td><td>T</td></tr>
@@ -239,7 +239,7 @@ title: Propositional logic 2
 	</section>
 
 	<section>
-<h2 id="syntax">Truth tables for complex WFF</h2>
+<h2 id="syntax">Complex truth tables</h2>
 <p>Fill the rows</p>
 <ul>
 <li class="fragment">Fill the columns for the basic propositions using the truth tables we constructed above.
@@ -251,38 +251,67 @@ title: Propositional logic 2
 	</section>
 	
 	<section>
-<h2 id="syntax">Truth tables for complex WFF</h2>
-<p>Complete example:</p>
+<h2 id="syntax">Complex truth tables</h2>
+<p>Complete example: ~(p &#x2261; q) &#x2283; r</p>
 
 <table class="fragment">
 <thead>
-<th style="text-align: center;">
 	<td>p</td>
 	<td>q</td>
 	<td>r</td>
 	<td>(p &#x2261; q)</td>
 	<td>~(p &#x2261; q)</td>
-	<td>~(p &#x2261; q) &#x2283; r</td></th>
+	<td>~(p &#x2261; q) &#x2283; r</td>
 </thead>
 <tbody>
 <tr><td>T</td><td>T</td><td>T</td>
-	<td class="fragment">T<td class="fragment">F<td class="fragment">T</td></td></tr>
+	<td class="fragment">T<td class="fragment">F<td class="fragment">T</td></td>
 <tr><td>T</td><td>T</td><td>F</td>
-	<td class="fragment">T<td class="fragment">F<td class="fragment">T</td></td></tr>
+	<td class="fragment">T<td class="fragment">F<td class="fragment">T</td></td>
 <tr><td>T</td><td>F</td><td>T</td>
-	<td class="fragment">F<td class="fragment">T<td class="fragment">T</td></td></tr>
+	<td class="fragment">F<td class="fragment">T<td class="fragment">T</td></td>
 <tr><td>T</td><td>F</td><td>F</td>
-	<td class="fragment">F<td class="fragment">T<td class="fragment">F</td></td></tr>
+	<td class="fragment">F<td class="fragment">T<td class="fragment">F</td></td>
 <tr><td>F</td><td>T</td><td>T</td>
-	<td class="fragment">F<td class="fragment">T<td class="fragment">T</td></td></tr>
+	<td class="fragment">F<td class="fragment">T<td class="fragment">T</td></td>
 <tr><td>F</td><td>T</td><td>F</td>
-	<td class="fragment">F<td class="fragment">T<td class="fragment">F</td></td></tr>
+	<td class="fragment">F<td class="fragment">T<td class="fragment">F</td></td>
 <tr><td>F</td><td>F</td><td>T</td>
-	<td class="fragment">F<td class="fragment">T<td class="fragment">T</td></td></tr>
+	<td class="fragment">F<td class="fragment">T<td class="fragment">T</td></td>
 <tr><td>F</td><td>F</td><td>F</td>
-	<td class="fragment">F<td class="fragment">T<td class="fragment">F</td></td></tr>
+	<td class="fragment">F<td class="fragment">T<td class="fragment">F</td></td>
+</tr></tr></tr></tr></tr></tr></tr></tr>
 </tbody>
 </table>
 	
 </section>
-</section?
+
+<section>
+<h2 id="syntax">Complex truth tables</h2>
+<p>Complete example: (p &#x2283; q) &#x2219; (q &#x2283; p)</p>
+
+<table class="fragment">
+<thead>
+	<td>p</td>
+	<td>q</td>
+	<td>p &#x2283; q</td>
+	<td>q &#x2283; p)</td>
+	<td>(p &#x2283; q) &#x2219; (q &#x2283; p)</td>
+</thead>
+<tbody>
+<tr><td>T</td><td>T</td>
+	<td class="fragment">T<td class="fragment">T<td class="fragment">T</td></td>
+<tr><td>T</td><td>F</td>
+	<td class="fragment">F<td class="fragment">T<td class="fragment">F</td></td>
+<tr><td>F</td><td>T</td>
+	<td class="fragment">T<td class="fragment">F<td class="fragment">F</td></td>
+<tr><td>F</td><td>F</td>
+	<td class="fragment">T<td class="fragment">T<td class="fragment">T</td></td>
+</tr></tr></tr></tr>
+</tbody>
+</table>
+
+<p class="fragment">Notice that this table is identical to the table for the biconditional. This shows that (p &#x2283; q) &#x2219; (q &#x2283; p) means the same thing as p &#x2261; q</p>
+	
+</section>
+</section>
