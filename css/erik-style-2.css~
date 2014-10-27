@@ -123,7 +123,12 @@ a:hover { text-decoration: underline; }
 	border-bottom: solid SteelBlue; 
 }
 
-#content td { padding-left: 40px; }
+#content td { 
+	padding-left: 40px; 
+	color: DarkSlateGray;
+	font-size: 13px;
+}
+
 #content ul { list-style-type: circle; }
 
 #side-bar {
