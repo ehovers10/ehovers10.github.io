@@ -1,9 +1,5 @@
 name: Erik's website
-<<<<<<< HEAD
 markdown: kramdown
-=======
-markdown: redcarpet
->>>>>>> 5d886e5ff439688061ec66cc11bdf07adf23ca19
 hightlighter: pygments
 
 description: philosophy of language centric notes
@@ -16,8 +12,7 @@ defaults:
       type: "pages"
     values:
       layout: "elay1"
-
-<<<<<<< HEAD
+      
 gems: ['pandoc-ruby']
 
 pandoc: 
@@ -25,12 +20,9 @@ pandoc:
     smart: true
     mathjax: true
 
-
-=======
 scholar:
   source: ./_bibliography
   bibliography: language
->>>>>>> 5d886e5ff439688061ec66cc11bdf07adf23ca19
   
 tag_page_layout: tag
 tag_page_dir: ./blog/tag
@@ -38,8 +30,8 @@ tag_page_dir: ./blog/tag
 reveal:
     controls: true
     progress: true
-    slideNumber: false
-    history: false
+    slideNumber: true
+    history: true
     keyboard: true
     overview: true
     center: true
@@ -59,7 +51,7 @@ reveal:
     viewDistance: 3
     parallaxBackgroundImage: '' ## e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
     parallaxBackgroundSize: '' ## CSS syntax, e.g. "2100px 900px"
-    width: 1000
+    width: 90%
     height: 920
     margin: 0.1
     minScale: 0.2
