@@ -478,7 +478,7 @@ body {
 .reveal .progress {
 	position: fixed;
 	display: none;
-	height: 3px;
+	height: 8px;
 	width: 100%;
 	bottom: 0;
 	left: 0;
@@ -513,7 +513,7 @@ body {
 	display: block;
 	right: 15px;
 	bottom: 15px;
-	opacity: 0.5;
+	opacity: 0.2;
 	z-index: 31;
 	font-size: 12px;
 }

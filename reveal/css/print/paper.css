@@ -19,13 +19,13 @@ body {
 	margin: 0 5%;
 	padding: 0;
 	float: none !important;
-	<!--overflow: visible;
+	<!--overflow: scroll;
 }
 html {
 	background: #fff;
 	width: auto;
 	height: auto;
-	<!--overflow: visible;
+	overflow: scroll;
 }
 
 /* SECTION 2: Remove any elements not needed in print.

@@ -19,7 +19,7 @@ body {
 	margin: 0 5%;
 	padding: 0;
 	float: none !important;
-	<!--overflow: visible;
+	overflow: scroll;
 }
 html {
 	background: #fff;
@@ -131,7 +131,7 @@ ul, ol, div, p {
 	width: 95% !important;
 	height: auto !important;
 	display: block !important;
-	<!--overflow: visible !important;
+	overflow: visible !important;
 
 	left: 0% !important;
 	top: 0% !important;
