@@ -21,48 +21,45 @@ date: 2014-09-27 02:00
 		<li id="title_rd" class="show"><i>Dispute in discourse</i> (<a href="#abs_rd">abstract</a>) (<a>pdf</a>)</li>
 		
 		<div id="abs_rd" class="lightbox">		
-		<div id="abs">
-		<p class="alignleft"><b><i>Dipute in discourse</i></b> (<a>pdf</a>)</p>
-		<a href="/research/" class="alignright">close</a>
+		<div class="popbox">
+		<h3 class="poptitle"><i>Dipute in discourse</i> (<a>pdf</a>)</h3>
+		<h3 class="alignright"><a href="#top">close</a></h3>
 		<div style="clear: both;"></div>
-		
-		<p>Disputes can be frivolous, fractured, and fraudulent. They can derail conversations, and generate so much animosity that perpetuating the dispute itself comes to mean more than the prospect of resolving it.  These disputes may have very little to do with actual conflict over the informational potential of the disputative language used to express them, instead being driven by <i>ad hominem</i> and <i>ad ideologiam</i> tendencies.</p>
-		<p>But dispute can also be a fruitful tool for people involved in an honest, cooperative attempt to further mutual knowledge. There is the ancillary fact that interlocutors sometimes lose track of the cooperative effort, and it is valuable to have a means of correcting them to bring them back on to the task at hand.  But dispute can also play a central role in the project of inquiry.</p>  
-		<p>The centrality of dispute in inquiry was recognized by William James in his account of striving for knowledge, which involves a two-sided endeavor of acquiring true beliefs and avoiding false ones.  One could meet the goal of believing truths simply by believing everything, and one could meet the goal of avoiding falsehoods by believing nothing at all.  A better approach is to treat these competing goals as constraints, and to adopt a strategy of belief that optimizes on both of them.  Sometimes advancing one's knowledge requires believing in ways that go beyond one's evidence.  Doing so opens avenues of investigation, and corrections can be made after investigation closes.</p>  
-		<p>The same goes for joint inquiry.  One can cooperatively assert what may not be certain for the purpose of advancing the inquiry along a particular line.  Given that this is a recognized cooperative manuever, dispute is a crucial tool for interlocutors to correct faulty speculations.  From this perspective, inquiry is not just a series of related but independent assertions that sequentially build the common stock of information.  Instead, it is a deeply interactive process of speculative advancements and corrective retreats.</p>
+		<div id="popmain">
+		<p>Disputes can be frivolous, fractured, and fraudulent. They can derail conversations, and generate animosity to the point that perpetuating the dispute comes to mean more than the prospect of resolving it.  These disputes may have very little to do with actual conflict deriving from the language used to express them, instead being driven by <i>ad hominem</i> and <i>ad ideologiam</i> tendencies.</p>
+		<p>But dispute can also be a fruitful tool for people involved in honest, cooperative attempts to further mutual knowledge. Dispute has a natural role in regulating conversation; interlocutors sometimes lose track of the cooperative effort, and it is valuable to have a means of correcting them to bring them back to the task at hand.  But beyond this regulative function, dispute can also play a central role in the project of inquiry.</p>  
+		<p>The centrality of dispute in inquiry was recognized by William James in his account of the pursuit of knowledge, which involves the forked-path endeavor of acquiring true beliefs and avoiding false ones.  One could meet the goal of believing truths simply by believing everything, and one could meet the goal of avoiding falsehoods by believing nothing at all.  A better approach is to treat these competing goals as constraints, and to adopt a strategy of belief that optimizes on both of them.  Frequently, caution in belief formation is to be preferred. Sometimes advancing one's knowledge requires believing in ways that go beyond one's current evidence.  Doing so opens avenues of investigation, and corrections can be made after this investigation closes.</p>  
+		<p>The same goes for joint inquiry.  One can cooperatively assert what may not be certain for the purpose of advancing the inquiry along a particular line.  Given that this is a recognized cooperative maneuver, dispute is a crucial tool for interlocutors to correct faulty speculations.  From this perspective, inquiry is not just a series of related but independent assertions that sequentially build the common stock of information.  Instead, it is a deeply interactive process of speculative advancements and corrective retreats.</p>
 		<p>John Stuart Mill's defense of liberty of intellectual expression similarly centrally relies on dispute. Even in the face of certainty regarding the answer to certain questions, dispute plays an important role. To be always ready to dispute opponents' claims keeps one's defense of their own claims fresh.</p>
 		<p>Again, joint inquiry incorporates the same insights. To make advances, inquirers must take some things as granted. But rigidity halts discussion, and cooperative interlocutors can't merely assert; they must be able to respond to critique of those assertions as well.</p>
-		</div>
-		</div>
+		</div></div></div>
 
 		<li id="title_dc" class="show"><i>The discourse contribution of contrastive topic</i> (<a href="#abs_dc">abstract</a>) (<a>pdf</a>)</li>
 
 		<div id="abs_dc" class="lightbox">		
-		<div id="abs">
+		<div class="popbox">
 		<p class="alignleft"><b><i>The discourse contribution of contrastive topic</i></b> (<a>pdf</a>)</p>
-		<a href="/research/" class="alignright">close</a>
+		<a href="#top" class="alignright">close</a>
 		<div style="clear: both;"></div>
-		
+		<div class="popmain">
 		<p>The standard account of focus interpretation has it that focus determines an alternative set (drawn from the domain, elements of the same type as the focus) and generates an felicity condition, whereby an utterance involving focus is felicitous only if the alternative set (suitably restricted by context) has an identical antecedent in the prior discourse. One primary motivation for this account is the explanation it gives of <i>question/answer congruence</i>, in which felicitous response to questions requires focus to be placed in the same position as the <i>wh-</i> word of the question.</p> 
 		<p>Focus generally marks information newly contributed to the discourse, but it can also arise in the topic when it is used to highlight a contrast set within the backgrounded information.  This use of <i>contrastive focus</i> initially appears to violate the demands of question/answer congruence, but its felicity too can also be accounted for by positing within the conversational scoreboard a <i>plan of inquiry</i> involving a nested structure of questions and sub-questions governing the course of appropriate contributions to the discourse. </p>
 		<p>But this purely presuppositional account of focus interpretation is less appealing for the use of contrastive focus in corrections. Corrections are utterances that involve both a denial of some part of prior discourse as well as a positive contribution to the discourse. The role of contrast in corrections cannot be reduced to anaphora without loss.</p>
 		<p>But appeal to a plan of inquiry need not be abandoned. We need only recognize that inquiry can be structured by more than just questions and their answers. <i>Positing</i> and <i>correcting</i> are equally essential to fruitful inquiry, and contrastive focus highlights one interesting way in which they work in concert to further the pursuit of information through communication.</p>
-		</div>
-		</div>
+		</div></div></div>
 	
 		<li id="title_cr" class="show"><i>Corrective discourse and the contextualism v. relativism debate</i> (<a href="#abs_cr">abstract</a>) (<a>pdf</a>)</li>	
 		
 		<div id="abs_cr" class="lightbox">		
-		<div id="abs">
+		<div id="popbox">
 		<p class="alignleft"><b><i>Corrective discourse and the contextualism v. relativism debate</i></b> (<a>pdf</a>)</p>
 		<a href="#top" class="alignright">close</a>
 		<div style="clear: both;"></div>
-		
+		<div id="popmain">
 		<p>Disagreement has been a bit of a star figure in recent debates in the philosophy of language. Primarily, it has been used as a tool for assessing the adequacy of different proposals for the semantic contribution of certain expressions. The contestants in battle disagreement are <i>absolutism</i>, <i>contextualism</i>, and <i>relativism</i>, and the standard scorecard has absolutism and relativism coming out on top in virtue of their ability to secure constant content across uses of the expression. Genuine disagreement does seem to require something toward which utterances can entail incompatible commitments, but semantic content is not the only contribution an utterance makes to discourse. Contextualism can appeal other elements of utterances, which may both remain constant and serve as the seat of disagreement.</p>
 		<p>The difference between contextualism and relativism is generally couched in terms of content, but content is not the only semantically relevant element of linguistic utterances. Also associated with what we say is a context change potential. A different way of representing the difference between contextualism and relativism is not in terms of what they mean but what they do.</p>
 		<p>If Brisco and Green both believe that they've got the culprit, then they will act in similar ways. They'll look to elicit a confession, offer up bargains, or threaten physical violence. But if Brisco's suspect is in confession room A while Green's is in B, then their actions will have quite different import. Contextualism aligns with absolutism in taking belief to be a relation between a subject and a proposition; a relation that holds just in case the subject takes the proposition to accurately represent the world she inhabits.	Relativism differs in taking belief to be a relation between a subject and a property; a relation that holds just in case the subject self-ascribes the property. (Perhaps not all relativists would be happy with this characterization, taking belief to be a three-place relation among a subject, proposition, and a perspective. But a perspectival proposition is itself a relation; curry that relation and you're left with a property.)
-		</div>
-		</div>
+		</div></div></div>
 		
 	</ul>
 	
