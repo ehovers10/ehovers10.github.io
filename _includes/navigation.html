@@ -6,16 +6,18 @@
 		
 		{% assign enav = site.pages | where: "category" , cat | sort: 'date' %}
 		
-		{% unless enav[0].title == "erik hoversten" %}
-			<a href="/">erik's home</a>
-		{% endunless %}
+		{% if page.category == home %}
+			<a class="active" href="/">home</a>
+		{% else %}
+			<a href="/">home</a>
+		{% endif %}
 		
 		{% for page in enav %}
-			{% if page.url == current %}
-				<a class="active" href="{{page.url}}">{{page.subheading}}</a>
-			{% else %}
-				<a href="{{page.url}}">{{page.subheading}}</a>
-			{% endif %}
+				{% if page.url == current %}
+					<a class="active" href="/{{page.subheading}}/">{{page.subheading}}</a>
+				{% else %}
+					<a href="/{{page.subheading}}/">{{page.subheading}}</a>
+				{% endif %}
 		{% endfor %}
 		
 		<div class="alignright">{% include ddg-search.html %}</div>
