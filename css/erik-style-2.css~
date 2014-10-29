@@ -51,21 +51,36 @@ a:hover { text-decoration: underline; }
 	background: black;
 	background: rgba(0,0,0,0.8);
 }
+.lightbox:target { display: block; }
 
-.lightbox #abs {
+.popbox {
 	z-index: 21;
 	max-width: 60%;
 	max-height: 60%;
-	overflow-y: auto;
 	margin: 10% auto;
-	padding: 10px 30px;
+	padding: 10px;
 	background: url('/images/nice_snow.png');
 	border: 2px groove SteelBlue;
-	border-radius: 20px 0 0 20px;
+	border-radius: 20px;
+	<!--overflow: hidden;
 }
 
-.lightbox:target {
-	display: block;
+.popbox h3 { text-align: center; }
+
+.popclose {
+	position: fixed;
+	margin-top: 9%;
+	right: 18%;
+	width: 40px;
+	z-index: 30;
+}
+
+.popmain { 
+	max-height: 50%;
+	max-width: 95%;
+	overflow-y: auto;
+	margin: 0 10px 40px 20px;
+	padding-right: 10px;
 }
 
 #header {
@@ -150,7 +165,7 @@ a:hover { text-decoration: underline; }
 	border-bottom: solid SteelBlue; 
 }
 
-#content td { 
+#content table { 
 	padding-left: 40px; 
 	color: DarkSlateGray;
 	font-size: 13px;
