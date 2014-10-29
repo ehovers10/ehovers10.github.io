@@ -1,4 +1,52 @@
-<li class="fragment">Conjunction: <strong>A &#x2219; B</strong></li>
-<li class="fragment">Disjunction: <strong>C &#x2228; D</strong></li>
-<li class="fragment">Conditional: <strong>E &#x2283; F</strong></li>
-<li class="fragment">Biconditional: <strong>G &#x2261; H</strong></li>
+Negation: &#x223C;A
+Conjunction: A &#x2219; B
+Disjunction: C &#x2228; D
+Conditional: E &#x2283; F
+Biconditional: G &#x2261; H
+
+<table class="fragment" style="float: left;">
+<thead>
+<th style="text-align: center;">p</th>
+<th style="text-align: center;">~p</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+</tr>
+</tbody>
+</table>
+
+<table class="fragment" style="float: left;">
+<thead>
+<th style="text-align: center;">p</th>
+<th style="text-align: center;">q</th>
+<th style="text-align: center;">p &#x2228; q</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+</tr>
+</tbody>
+</table>

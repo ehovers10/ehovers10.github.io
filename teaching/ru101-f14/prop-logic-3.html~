@@ -5,7 +5,7 @@ title: Propositional logic 3
 
 <section id="title-slide">
 	<h1>Propositional logic 3</h1>
-	<h4>Extended truth tables</h4>
+	<h4>Arguments</h4>
 
 	<p>Erik Hoversten</p>
 	<p>Rutgers university: LRP, fall 2014</p>
@@ -14,17 +14,20 @@ title: Propositional logic 3
 
 <section>
 	<section>
+	<h1>Semantics of propositional logic</h1>
+	<h3>Defining properties of propositions</h3>
+	</section>
+	
+	<section>
 	<h2>Properties of propositions</h2>
 	
 	<ul>
-		<li class="fragment">Just as in categorical logic, we can use our semantics for propositional logic to define properties of certain propositions.</li>
+		<li class="fragment">Just as in categorical logic, we can use our semantics for propositional logic to define properties of propositions.</li>
 		<ul>
-			<li class="fragment">Tautology</li>	
-			<ul><li class="fragment">A proposition is <em>tautologous</em>, if it is impossible for it to be <em>false</em>.</li></ul>
-			<li class="fragment">Contradiction</li>	
-			<ul><li class="fragment">A proposition is <em>contradictory</em>, if it is impossible for it to be <em>true</em>.</li></ul>
-			<li class="fragment">Equivalence</li>	
-			<ul><li class="fragment">Two propositions are <em>equivalent</em>, if they are true in all the same situations and false in all the same situations.</li></ul>	
+			<li class="fragment">Tautology: <span class="fragment">A proposition is <em>tautologous</em>, if it is impossible for it to be <em>false</em>.</span></li>	
+			<li class="fragment">Contradiction: <span class="fragment">A proposition is <em>contradictory</em>, if it is impossible for it to be <em>true</em>.</span></li>	
+			<li class="fragment">Equivalence: <span class="fragment">Two propositions are <em>equivalent</em>, if they are true in all the same situations and false in all the same situations.</span></li>	
+			<li class="fragment">(In)consistency: <span class="fragment">Two propositions are (in)consistent if it is (im)possible for both to be true simultaneously.</span></li>	
 		</ul>	
 	</ul>
 	</section>
@@ -32,24 +35,115 @@ title: Propositional logic 3
 	<section>
 	<h2>Properties and truth tables</h2>
 	
-	<ul>
-		<li class="fragment">We can determine what property (if any) that a particular WFF has by looking to its truth table.</li>
+	<p class="fragment">We can determine what property (if any) that a particular WFF has by looking to its truth table.</p>
 		<ul>
-			<li class="fragment">Tautology</li>	
-			<ul><li class="fragment">A proposition is <em>tautologous</em> if its column in the truth table has a T in every row.</li>
-				<li class="fragment">This shows that it is true in every possible situation.</li></ul>
-			<li class="fragment">Contradiction</li>	
-			<ul><li class="fragment">A proposition is <em>contradictory</em> if its column has an F in every row.</li>
-				<li class="fragment">This shows that it is false in every possible situation.</li></ul>
-			<li class="fragment">Equivalence</li>	
-			<ul><li class="fragment">Two propositions are <em>equivalent</em>, if their columns have the same truth value in every row.</li>
-				<li class="fragment">This shows that for every possible situation, the two propositions agree.</li></ul>	
+			<li class="fragment">Tautology: <span class="fragment">A proposition is <em>tautologous</em> if its column in the truth table has a T in every row.</span></li>	
+			<!--<ul><li class="fragment">It is true in every possible situation.</li></ul>-->
+			<li class="fragment">Contradiction: <span class="fragment">A proposition is <em>contradictory</em> if its column has an F in every row.</span></li>	
+			<!--<ul><li class="fragment">It is false in every possible situation.</li></ul>-->
+			<li class="fragment">Equivalence: <span class="fragment">Two propositions are <em>equivalent</em>, if their columns have the same truth value in every row.</span></li>	
+			<!--<ul><li class="fragment">The two propositions agree in every possible situation.</li></ul>-->
+			<li class="fragment">Consistency: <span class="fragment">Two propositions are <em>consistent</em>, if they both have a T in at least one row.</span></li>
+			<ul><li class="fragment">Inconsistency means that in no row do both have a T.</li></ul>
 		</ul>	
-	</ul>
 	</section>
+	
+	<section>
+	<h2>Semantic properties</h2>
+	<h4>Examples</h4>
+	
+	<table class="fragment" style="float: left; margin-left: 20%">
+	<caption>Tautology</caption>
+<thead>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">&#x223C;A</th>
+<th style="text-align: center;">A &#x2228; &#x223C;A</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+</tr>
+</tbody>
+</table>
+<table class="fragment" style="float: right; margin-right: 20%">
+	<caption>Contradiction</caption>
+<thead>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">&#x223C;A</th>
+<th style="text-align: center;">A &#x2219; &#x223C;A</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+</tr>
+</tbody>
+</table>
 </section>
 
 <section>
+	<h2>Semantic properties</h2>
+	<h4>Examples</h4>
+	
+	<table class="fragment" style="float: center;">
+	<caption>Equivalence</caption>
+<thead>
+<th style="text-align: center; padding: 0 10px; border-right 1px solid #eee8d5;">A</th>
+<th style="text-align: center; padding: 0 10px; border-right 1px solid #eee8d5;">B</th>
+<th style="text-align: center; padding: 0 10px; border-right 1px solid #eee8d5;">C</th>
+<th style="text-align: center; padding: 0 10px; border-right 1px solid #eee8d5;">A &#x2219; B</th>
+<th style="text-align: center; padding: 0 10px; border-right 1px solid #eee8d5;">B &#x2283; C</th>
+<th style="text-align: center; padding: 0 10px; border-right 1px solid #eee8d5;">(A &#x2219; B) &#x2283; C</th>
+<th style="text-align: center; padding: 0 10px;">A &#x2283; (B &#x2283; C)</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T</td>	<td>T</td>	<td>T</td>	<td>T</td>	<td>T</td>	<td>T</td>	<td>T</td>	
+</tr>
+<tr class="even">
+<td>T</td>	<td>T</td>	<td>F</td>	<td>T</td>	<td>F</td>	<td>F</td>	<td>F</td>	
+</tr>
+<tr class="odd">
+<td>T</td>	<td>F</td>	<td>T</td>	<td>F</td>	<td>T</td>	<td>T</td>	<td>T</td>	
+</tr>
+<tr class="even">
+<td>T</td>	<td>F</td>	<td>F</td>	<td>F</td>	<td>T</td>	<td>T</td>	<td>T</td>	
+</tr>
+<tr class="odd">
+<td>F</td>	<td>T</td>	<td>T</td>	<td>F</td>	<td>T</td>	<td>T</td>	<td>T</td>	
+</tr>
+<tr class="even">
+<td>F</td>	<td>T</td>	<td>F</td>	<td>F</td>	<td>F</td>	<td>T</td>	<td>T</td>	
+</tr>
+<tr class="odd">
+<td>F</td>	<td>F</td>	<td>T</td>	<td>F</td>	<td>T</td>	<td>T</td>	<td>T</td>	
+</tr>
+<tr class="even">
+<td>F</td>	<td>F</td>	<td>F</td>	<td>F</td>	<td>T</td>	<td>T</td>	<td>T</td>	
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+<section>
+	<section>
+	<h1>Arguments in propositional logic</h1>
+	</section>
+	
 	<section>
 	<h2>Arguments in propositional logic</h2>
 	
@@ -75,7 +169,7 @@ title: Propositional logic 3
 	
 	<ol class="fragment">
 		<li>A &#x2228; B</li>
-		<li>~A</li>
+		<li>&#x223C;A</li>
 		<hr>
 		<li>B</li>
 	</ol>
@@ -91,22 +185,314 @@ title: Propositional logic 3
 
 <section>
 	<section>
+	<h1>Validity in propositional logic</h1>
+	<h3>Assessing arguments</h3>
+	</section>
+	
+	<section>
 	<h2>Truth tables for arguments</h2>
 	
 	<ul>
 		<li class="fragment">Arguments aren't any different from complex propositions, as far as PL is concerned.</li>
 		<li class="fragment">So, we can create truth tables for arguments the same way we did for complex propositions</li>
-		<li class="fragment">First, create a column for every propositional variable that occurs in the argument.</li>
-		<li class="fragment">Then create a column for every premise in the argument.</li>
+		<li class="fragment">But we can condense them a little bit.</li>
+		<li class="fragment">Leave out the columns for individual propositional variables.</li>
+		<li class="fragment">Just create a column for every premise in the argument.</li>
 		<li class="fragment">And finish with a column for the conclusion.</li>
-		<li class="fragment">Just to make it clear that this is an argument, add indicators in each column to tell what it role it plays in the argument.</li>
+		<li class="fragment">Add indicators in each column to tell what it role it plays in the argument.</li>
 	</ul>
 	</section>
 	
 	<section>
 	<h2>Truth table for arguments</h2>
-	<p>Example</p>
+	<p>Example 1</p>
+	<hr>
+	<p></p>
+	
+	<ol class="fragment" style="float: left; margin-left: 20%;">
+	<li>E &#x2283; F</li>
+	<li>E</li>
+	<hr>
+	<li>F</li>
+	</ol>
+	
+	<table class="fragment" style="float: right; margin-right: 20%;">
+<thead>
+<th>E</th>
+<th>&#x2283;</th>
+<th>F</th>
+<th>/</th>
+<th>E</th>
+<th>//</th>
+<th>F</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T</td> <td>T</td> <td>T</td> <td> </td> <td>T</td> <td> </td> <td>T</td>
+
+</tr>
+<tr class="even">
+<td>T</td> <td>F</td> <td>F</td> <td> </td> <td>T</td> <td> </td> <td>F</td>
+</tr>
+<tr class="odd">
+<td>F</td> <td>T</td> <td>T</td> <td> </td> <td>F</td> <td> </td> <td>T</td>
+</tr>
+<tr class="even">
+<td>F</td> <td>T</td> <td>F</td> <td> </td> <td>F</td> <td> </td> <td>F</td>
+</tr>
+</tbody>
+</table>
 	
 	</section>
 
+<section>
+	<h2>Truth table for arguments</h2>
+	<p>Example 2</p>
+	<hr>
+	<p></p>
+	
+	<ol class="fragment" style="float: left; margin-left: 20%;">
+	<li>B &#x2283; C</li>
+	<li>C</li>
+	<hr>
+	<li>B</li>
+	</ol>
+	
+	<table class="fragment" style="float: right; margin-right: 20%;">
+<thead>
+<th>B</th>
+<th>&#x2283;</th>
+<th>C</th>
+<th>/</th>
+<th>C</th>
+<th>//</th>
+<th>B</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T</td> <td>T</td> <td>T</td> <td> </td> <td>T</td> <td> </td> <td>T</td>
+
+</tr>
+<tr class="even">
+<td>T</td> <td>F</td> <td>F</td> <td> </td> <td>F</td> <td> </td> <td>T</td>
+</tr>
+<tr class="odd">
+<td>F</td> <td>T</td> <td>T</td> <td> </td> <td>T</td> <td> </td> <td>F</td>
+</tr>
+<tr class="even">
+<td>F</td> <td>T</td> <td>F</td> <td> </td> <td>F</td> <td> </td> <td>F</td>
+</tr>
+</tbody>
+</table>
+	
+	</section>
+	
+<section>
+	<h2>Truth table for arguments</h2>
+	<p>Example 3</p>
+	<hr>
+	<p></p>
+	
+	<ol class="fragment" style="float: left; margin-left: 20%;">
+	<li>A &#x2283; B</li>
+	<li>B &#x2283; C</li>
+	<hr>
+	<li>A &#x2283; C</li>
+	</ol>
+	
+	<table class="fragment" style="float: right; margin-right: 20%;">
+<thead>
+<th>A</th>
+<th>&#x2283;</th>
+<th>B</th>
+<th>/</th>
+<th>B</th>
+<th>&#x2283;</th>
+<th>C</th>
+<th>//</th>
+<th>A</th>
+<th>&#x2283;</th>
+<th>C</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T</td> <td>T</td> <td>T</td>	<td> </td> 
+	<td>T</td> <td>T</td> <td>T</td>	<td>  </td>
+	<td>T</td> <td>T</td> <td>T</td>
+</tr>
+<tr class="odd">
+<td>T</td> <td>T</td> <td>T</td>	<td> </td> 
+	<td>T</td> <td>F</td> <td>F</td>	<td>  </td>
+	<td>T</td> <td>F</td> <td>F</td>
+</tr>
+<tr class="odd">
+<td>T</td> <td>F</td> <td>F</td>	<td> </td> 
+	<td>F</td> <td>T</td> <td>T</td>	<td>  </td>
+	<td>T</td> <td>T</td> <td>T</td>
+</tr>
+<tr class="odd">
+<td>T</td> <td>F</td> <td>F</td>	<td> </td> 
+	<td>F</td> <td>T</td> <td>F</td>	<td>  </td>
+	<td>T</td> <td>F</td> <td>F</td>
+</tr>
+<tr class="odd">
+<td>F</td> <td>T</td> <td>T</td>	<td> </td> 
+	<td>T</td> <td>T</td> <td>T</td>	<td>  </td>
+	<td>F</td> <td>T</td> <td>T</td>
+</tr>
+<tr class="odd">
+<td>F</td> <td>T</td> <td>T</td>	<td> </td> 
+	<td>T</td> <td>F</td> <td>F</td>	<td>  </td>
+	<td>F</td> <td>T</td> <td>F</td>
+</tr>
+<tr class="odd">
+<td>F</td> <td>T</td> <td>F</td>	<td> </td> 
+	<td>F</td> <td>T</td> <td>T</td>	<td>  </td>
+	<td>F</td> <td>T</td> <td>T</td>
+</tr>
+<tr class="odd">
+<td>F</td> <td>T</td> <td>F</td>	<td> </td> 
+	<td>F</td> <td>T</td> <td>F</td>	<td>  </td>
+	<td>F</td> <td>T</td> <td>F</td>
+</tr>
+</tbody>
+</table>
+	
+	</section>
+
+</section>
+
+<section>
+	<section>
+	<h1>Indirect truth tables</h1>
+	<h3>Speeding up the process</h3>
+	</section>
+	
+	<section>
+	<h2>Indirect truth tables</h2>
+	
+	<ul>
+		<li class="fragment">Truth tables can be somewhat time consuming.</li>
+		<ul><li class="fragment">This is especially true when there are a lot of propositional variables in a complex WFF or a lot of premises in an argument.</li></ul>
+		<li class="fragment">Indirect truth tables provide us with a quicker way to determine properties such as:</li>
+		<ul><li class="fragment">Validity
+			<li class="fragment">Contradiction</li>
+			<li class="fragment">Consistency</li>
+		</ul>
+		<li class="fragment">If we know what property we are looking for, we only need one line of the truth table to determine whether it holds.</li>
+	</ul>
+	
+	</section>
+	
+		<section>
+	<h2>Indirect truth tables</h2>
+	<p>Validity</p>
+	
+	<ul>
+		<li class="fragment">If an argument is valid, then you know that it's impossible for the premises to be true without the conclusion also being true.</li>
+		<li class="fragment">So, to test this, we attempt to make all the premises true, but have the conclusion be false.</li>
+		<li class="fragment">If we can do this consistently, the argument is invalid.</li>
+		<li class="fragment">If we run into a contradiction, it is valid.</li>
+	</ul>
+
+	
+	</section>
+	
+	<section>
+	<h2>Testing validity</h2>
+	<h4>Example</h4>
+	
+<table class="fragment" style="float: left; margin-left: 20px;">
+<thead>
+<th>A</th>
+<th>&#x2283;</th>
+<th>B</th>
+<th>/</th>
+<th>B</th>
+<th>&#x2283;</th>
+<th>C</th>
+<th>//</th>
+<th>A</th>
+<th>&#x2283;</th>
+<th>C</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td> </td> <td>T</td> <td> </td>	<td> </td> 
+	<td> </td> <td>T</td> <td> </td>	<td>  </td>
+	<td> </td> <td>F</td> <td> </td>
+</tr>
+</tbody>
+</table>
+		
+<table class="fragment" style="float: right; margin-right: 20px;">
+<thead>
+<th>A</th>
+<th>&#x2283;</th>
+<th>B</th>
+<th>/</th>
+<th>B</th>
+<th>&#x2283;</th>
+<th>C</th>
+<th>//</th>
+<th>A</th>
+<th>&#x2283;</th>
+<th>C</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T</td> <td>T</td> <td> </td>	<td> </td> 
+	<td> </td> <td>T</td> <td>F</td> <td>  </td>
+	<td>T</td> <td>F</td> <td>F</td>
+</tr>
+</tbody>
+</table>
+
+<div style="clear: both;"></div>
+
+<table class="fragment" style="float: center;">
+<thead>
+<th>A</th>
+<th>&#x2283;</th>
+<th>B</th>
+<th>/</th>
+<th>B</th>
+<th>&#x2283;</th>
+<th>C</th>
+<th>//</th>
+<th>A</th>
+<th>&#x2283;</th>
+<th>C</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T</td> <td>T</td> <td>T</td>	<td> </td> 
+	<td>T</td> <td class="fragment" class="highlight-red">T</td> <td>F</td> <td>  </td>
+	<td>T</td> <td>F</td> <td>F</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<section>
+	<h2>Indirect truth tables</h2>
+	<p>Contradiction and consistency</p>
+	
+	<ul>
+		<li class="fragment">If a WFF is contradictory, then it can't possibly be true.</li>
+		<li class="fragment">So, to test this, we attempt to make it true.</li>
+		<li class="fragment">If we can do this then it is actually consistent.</li>
+		<li class="fragment">If we run into a contradiction, then Bob's your uncle.</li>
+	</ul>
+
+	
+	</section>
+	
+	<section>
+	<h2>Testing consistency</h3>
+	<p>Example</p>
+	
+	
+	
+	</section>
 </section>

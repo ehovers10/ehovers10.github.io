@@ -283,7 +283,7 @@ body {
 .reveal ol ol,
 .reveal ol ul {
 	display: block;
-	margin-left: 30px;
+	<--margin-left: 30px;
 }
 
 .reveal p {
@@ -353,15 +353,15 @@ body {
 	margin: auto;
 }
 
-.reveal table th,
 .reveal table td {
 	text-align: center;
-	padding-right: .3em;
-	border-right: 2px solid #eee8d5;
+	padding: 0 10px;
+	<!--border-right: 2px solid #eee8d5;
 }
 
-.reveal table thead {
+.reveal table th {
 	font-weight: bold;
+	<!--padding: 0 5px;
 	border-bottom: 2px solid #eee8d5;
 }
 
