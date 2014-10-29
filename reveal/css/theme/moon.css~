@@ -27,7 +27,7 @@ body {
   background-color: SteelBlue; }
 
 .reveal {
-  font-family: Georgia;
+  font-family: finalfrontier;
   font-size: 36px;
   font-weight: normal;
   letter-spacing: -0.02em;
