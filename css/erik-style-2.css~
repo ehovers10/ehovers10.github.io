@@ -62,20 +62,26 @@ a:hover { text-decoration: underline; }
 	background: url('/images/nice_snow.png');
 	border: 2px groove SteelBlue;
 	border-radius: 20px;
-	overflow: hidden;
+	<!--overflow: hidden;
 }
 
-.poptitle {
-	text-align: center:
+.popbox h3 { text-align: center; }
+
+.popclose {
+	position: fixed;
+	margin-top: 9%;
+	right: 18%;
+	width: 40px;
+	z-index: 30;
 }
 
-#popmain { 
+.popmain { 
 	max-height: 50%;
+	max-width: 95%;
 	overflow-y: auto;
-	padding: 40px 20px;
+	margin: 0 10px 40px 20px;
+	padding-right: 10px;
 }
-
-
 
 #header {
 	margin: auto;
@@ -159,7 +165,7 @@ a:hover { text-decoration: underline; }
 	border-bottom: solid SteelBlue; 
 }
 
-#content td { 
+#content table { 
 	padding-left: 40px; 
 	color: DarkSlateGray;
 	font-size: 13px;

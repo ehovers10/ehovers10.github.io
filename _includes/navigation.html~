@@ -2,9 +2,10 @@
 	<div id="nav-bar">
 		{% capture cat %}{% if page.category %}{{page.category}}{% else %}esite{% endif %}{% endcapture %}
 		
-		{% assign current = page.url %}
+		{% assign current = page %}
 		
 		{% assign enav = site.pages | where: "category" , cat | sort: 'date' %}
+		{% assign num = enav.size | minus: 1 %}
 		
 		{% if page.category == home %}
 			<a class="active" href="/">home</a>
@@ -12,12 +13,20 @@
 			<a href="/">home</a>
 		{% endif %}
 		
-		{% for page in enav %}
-				{% if page.url == current %}
-					<a class="active" href="/{{page.subheading}}/">{{page.subheading}}</a>
+		{% for i in (1...num) %}
+			{% if enav[i] == current %}
+				{% if enav[i].parent %}
+					<a class="active" href="/{{enav[i].parent}}/{{enav[i].subheading | slugify}}/">{{enav[i].subheading}}</a>
 				{% else %}
-					<a href="/{{page.subheading}}/">{{page.subheading}}</a>
+					<a class="active" href="/{{enav[i].subheading | slugify}}/">{{enav[i].subheading}}</a>
 				{% endif %}
+			{% else %}
+				{% if enav[i].parent %}
+					<a href="/{{enav[i].parent}}/{{enav[i].subheading | slugify}}/">{{enav[i].subheading}}</a>
+				{% else %}
+					<a href="/{{enav[i].subheading | slugify}}/">{{enav[i].subheading}}</a>
+				{% endif %}
+			{% endif %}
 		{% endfor %}
 		
 		<div class="alignright">{% include ddg-search.html %}</div>
