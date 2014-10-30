@@ -355,7 +355,7 @@ body {
 
 .reveal table td {
 	text-align: center;
-	padding: 0 3px;
+	padding: 0 10px;
 	<!--border-right: 2px solid #eee8d5;
 }
 
