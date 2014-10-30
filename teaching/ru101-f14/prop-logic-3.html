@@ -130,6 +130,7 @@
 </tr>
 </tbody>
 </table>
+<div style="clear: both;"></div>
 </section>
 
 <section>
@@ -174,6 +175,7 @@
 </tr>
 </tbody>
 </table>
+<div style="clear: both;"></div>
 </section>
 </section>
 
@@ -280,6 +282,7 @@
 </tr>
 </tbody>
 </table>
+<div style="clear: both;"></div>
 	
 	</section>
 
@@ -322,6 +325,7 @@
 </tr>
 </tbody>
 </table>
+<div style="clear: both;"></div>
 	
 	</section>
 	
@@ -331,14 +335,14 @@
 	<hr>
 	<p></p>
 	
-	<ol class="fragment" style="float: left; margin-left: 20%;">
+	<ol class="fragment" style="float: left; margin-left: 10%;">
 	<li>A &#x2283; B</li>
 	<li>B &#x2283; C</li>
 	<hr>
 	<li>A &#x2283; C</li>
 	</ol>
 	
-	<table class="fragment" style="float: right; margin-right: 20%;">
+	<table class="fragment" style="float: right; margin-right: 10%;">
 <thead>
 <th>A</th>
 <th>&#x2283;</th>
@@ -395,6 +399,7 @@
 </tr>
 </tbody>
 </table>
+<div style="clear: both;"></div>
 	
 	</section>
 
@@ -439,8 +444,9 @@
 	<section>
 	<h2>Testing validity</h2>
 	<h4>Example</h4>
-	
-<table class="fragment" style="float: left; margin-left: 20px;">
+
+<p class="fragment" style="float: left;">Attempt to force invalidity:</p>
+<table class="fragment" style="float: right;">
 <thead>
 <th>A</th>
 <th>&#x2283;</th>
@@ -462,7 +468,9 @@
 </tr>
 </tbody>
 </table>
+<div style="clear: both;"></div>
 		
+<p class="fragment" style="float: left;">Then fill in any forced values:</p>
 <table class="fragment" style="float: right; margin-right: 20px;">
 <thead>
 <th>A</th>
@@ -485,9 +493,34 @@
 </tr>
 </tbody>
 </table>
-
 <div style="clear: both;"></div>
 
+<p class="fragment" style="float: left;">Then fill in any forced values:</p>
+<table class="fragment" style="float: right; margin-right: 20px;">
+<thead>
+<th>A</th>
+<th>&#x2283;</th>
+<th>B</th>
+<th>/</th>
+<th>B</th>
+<th>&#x2283;</th>
+<th>C</th>
+<th>//</th>
+<th>A</th>
+<th>&#x2283;</th>
+<th>C</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T</td> <td>T</td> <td>T</td>	<td> </td> 
+	<td>T</td> <td>T</td> <td>F</td> <td>  </td>
+	<td>T</td> <td>F</td> <td>F</td>
+</tr>
+</tbody>
+</table>
+<div style="clear: both;"></div>
+
+<p class="fragment" style="float: left;">Look out for contradictions!</p>
 <table class="fragment" style="float: center;">
 <thead>
 <th>A</th>
@@ -505,20 +538,113 @@
 <tbody>
 <tr class="odd">
 <td>T</td> <td>T</td> <td>T</td>	<td> </td> 
-	<td>T</td> <td class="highlight-red">T</td> <td>F</td> <td>  </td>
+	<td>T</td> <td style="color: red;">T</td> <td>F</td> <td>  </td>
 	<td>T</td> <td>F</td> <td>F</td>
 </tr>
 </tbody>
 </table>
+<div style="clear: both;"></div>
 </section>
 
 <section>
 	<h2>Indirect truth tables</h2>
-	<p>Contradiction and consistency</p>
+	<p>Contradiction</p>
 	
 	<ul>
 		<li class="fragment">If a WFF is contradictory, then it can't possibly be true.</li>
 		<li class="fragment">So, to test this, we attempt to make it true.</li>
+		<li class="fragment">If we can do this then it is actually consistent.</li>
+		<li class="fragment">If we run into a contradiction, then Bob's your uncle.</li>
+	</ul>
+	</section>
+	
+	<section>
+	<h2>Testing contradictions</h3>
+	<p>Example</p>
+	
+<p class="fragment" style="float: left;">Attempt to force falsity:</p>
+<table class="fragment" style="float: right;">
+<thead>
+<th>(A</th>
+<th>&#x2219;</th>
+<th>&#x223C;</th>
+<th>C)</th>
+<th>&#x2283;</th>
+<th>(&#x223C;</th>
+<th>A</th>
+<th>&#x2228;</th>
+<th>C)</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td> <td></td> <td></td> <td></td> <td>T</td> <td></td> <td></td> <td></td> <td></td>
+</tr>
+</tbody>
+</table>
+<div style="clear: both;"></div>
+
+<p class="fragment" style="float: left;">Uh oh! We aren't forced:</p>
+<table class="fragment" style="float: right;">
+<thead>
+<th>(A</th>
+<th>&#x2219;</th>
+<th>&#x223C;</th>
+<th>C)</th>
+<th>&#x2283;</th>
+<th>(&#x223C;</th>
+<th>A</th>
+<th>&#x2228;</th>
+<th>C)</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td> <td>T</td> <td></td> <td></td> <td>T</td> <td></td> <td></td> <td>T</td> <td></td>
+</tr>
+<tr class="even">
+<td></td> <td>F</td> <td></td> <td></td> <td>T</td> <td></td> <td></td> <td>T</td> <td></td>
+</tr>
+<tr class="even">
+<td></td> <td>F</td> <td></td> <td></td> <td>T</td> <td></td> <td></td> <td>F</td> <td></td>
+</tr>
+</tbody>
+</table>
+<div style="clear: both;"></div>
+	
+<p class="fragment" style="float: left;">Work through each row:</p>
+<table class="fragment" style="float: right;">
+<thead>
+<th>(A</th>
+<th>&#x2219;</th>
+<th>&#x223C;</th>
+<th>C)</th>
+<th>&#x2283;</th>
+<th>(&#x223C;</th>
+<th>A</th>
+<th>&#x2228;</th>
+<th>C)</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T</td> <td>T</td> <td>T</td> <td class="fragment">F</td> <td>T</td> <td class="fragment"></td> <td></td> <td>T</td> <td class="fragment">F</td>
+</tr>
+<tr class="even">
+<td></td> <td>F</td> <td></td> <td></td> <td>T</td> <td></td> <td></td> <td>T</td> <td></td>
+</tr>
+<tr class="even">
+<td></td> <td>F</td> <td></td> <td></td> <td>T</td> <td></td> <td></td> <td>F</td> <td></td>
+</tr>
+</tbody>
+</table>
+<div style="clear: both;"></div>
+	</section>
+	
+<section>
+	<h2>Indirect truth tables</h2>
+	<p>Tautology</p>
+	
+	<ul>
+		<li class="fragment">If a WFF is tautological, then it can't possibly be false.</li>
+		<li class="fragment">So, to test this, we attempt to make it false.</li>
 		<li class="fragment">If we can do this then it is actually consistent.</li>
 		<li class="fragment">If we run into a contradiction, then Bob's your uncle.</li>
 	</ul>
@@ -527,12 +653,82 @@
 	</section>
 	
 	<section>
-	<h2>Testing consistency</h3>
+	<h2>Testing tautologies</h3>
 	<p>Example</p>
 	
-	
-	
+<p class="fragment" style="float: left;">Attempt to force falsity:</p>
+<table class="fragment" style="float: right;">
+<thead>
+<th>&#x223C;</th>
+<th>A</th>
+<th>&#x2283;</th>
+<th>(A</th>
+<th>&#x2283;</th>
+<th>B)</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td> <td></td> <td>F</td> <td> </td> <td> </td> <td> </td>
+</tr>
+</tbody>
+</table>
+<div style="clear: both;"></div>
+
+<p class="fragment" style="float: left;">Fill in forced values:</p>
+<table class="fragment" style="float: right;">
+<thead>
+<th>&#x223C;</th>
+<th>A</th>
+<th>&#x2283;</th>
+<th>(A</th>
+<th>&#x2283;</th>
+<th>B)</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T</td> <td></td> <td>F</td>	<td> </td> <td>F</td> <td> </td>
+</tr>
+</tbody>
+</table>
+<div style="clear: both;"></div>	
+
+<p class="fragment" style="float: left;">Fill in forced values:</p>
+<table class="fragment" style="float: right;">
+<thead>
+<th>&#x223C;</th>
+<th>A</th>
+<th>&#x2283;</th>
+<th>(A</th>
+<th>&#x2283;</th>
+<th>B)</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T</td> <td>F</td> <td>F</td>	<td>T</td> <td>F</td> <td>F</td>
+</tr>
+</tbody>
+</table>
+<div style="clear: both;"></div>	
+
+<p class="fragment" style="float: left;">Look out for contradictions!</p>
+<table class="fragment" style="float: right;">
+<thead>
+<th>&#x223C;</th>
+<th>A</th>
+<th>&#x2283;</th>
+<th>(A</th>
+<th>&#x2283;</th>
+<th>B)</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T</td> <td style="color: red;">F</td> <td>F</td>	<td style="color: red;">T</td> <td>F</td> <td>F</td>
+</tr>
+</tbody>
+</table>
+<div style="clear: both;"></div>	
 	</section>
+	
 </section>
 		</div>
 	</div>
