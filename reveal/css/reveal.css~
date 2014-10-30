@@ -202,17 +202,17 @@ body {
 		color: #0F420F;
 	}
 	.reveal .slides section .fragment.highlight-blue.visible {
-		color: #1b91ff;
+		color: #3937A1;
 	}
 
 .reveal .slides section .fragment.highlight-current-red.current-fragment {
 	color: #ff2c2d;
 }
 .reveal .slides section .fragment.highlight-current-green.current-fragment {
-	color: #17ff2e;
+	color: #0F420F;
 }
 .reveal .slides section .fragment.highlight-current-blue.current-fragment {
-	color: #1b91ff;
+	color: #3937A1;
 }
 
 
