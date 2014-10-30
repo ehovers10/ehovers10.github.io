@@ -9,13 +9,13 @@ title: Propositional logic 3
 
 	<p>Erik Hoversten</p>
 	<p>Rutgers university: LRP, fall 2014</p>
-	<p>October 27, 2014</p>
+	<p>October 29, 2014</p>
 </section>
 
 <section>
 	<section>
 	<h1>Semantics of propositional logic</h1>
-	<h3>Defining properties of propositions</h3>
+	<h4>Defining properties of propositions</h4>
 	</section>
 	
 	<section>
@@ -35,7 +35,7 @@ title: Propositional logic 3
 	<section>
 	<h2>Properties and truth tables</h2>
 	
-	<p class="fragment">We can determine what property (if any) that a particular WFF has by looking to its truth table.</p>
+	<h4>Determine what property (if any) a particular WFF has using its truth table.</h4>
 		<ul>
 			<li class="fragment">Tautology: <span class="fragment">A proposition is <em>tautologous</em> if its column in the truth table has a T in every row.</span></li>	
 			<!--<ul><li class="fragment">It is true in every possible situation.</li></ul>-->
@@ -48,47 +48,47 @@ title: Propositional logic 3
 		</ul>	
 	</section>
 	
-	<section>
+<section>
 	<h2>Semantic properties</h2>
 	<h4>Examples</h4>
 	
-	<table class="fragment" style="float: left; margin-left: 20%">
-	<caption>Tautology</caption>
+<table class="fragment" data-fragment-index="1" style="float: left;">
+<caption class="fragment" data-fragment-index="4">Tautology</caption>
 <thead>
-<th style="text-align: center;">A</th>
-<th style="text-align: center;">&#x223C;A</th>
-<th style="text-align: center;">A &#x2228; &#x223C;A</th>
+<th>A</th>
+<th>&#x223C;A</th>
+<th>A &#x2228; &#x223C;A</th>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">T</td>
-<td style="text-align: center;">F</td>
-<td style="text-align: center;">T</td>
+<td class="fragment" data-fragment-index="2">T</td>
+<td class="fragment" data-fragment-index="3">F</td>
+<td class="fragment" data-fragment-index="4">T</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">F</td>
-<td style="text-align: center;">T</td>
-<td style="text-align: center;">T</td>
+<td class="fragment" data-fragment-index="2">F</td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td class="fragment" data-fragment-index="4">T</td>
 </tr>
 </tbody>
 </table>
-<table class="fragment" style="float: right; margin-right: 20%">
-	<caption>Contradiction</caption>
+<table class="fragment" data-fragment-index="5" style="float: right;">
+<caption class="fragment" data-fragment-index="8">Contradiction</caption>
 <thead>
-<th style="text-align: center;">A</th>
-<th style="text-align: center;">&#x223C;A</th>
-<th style="text-align: center;">A &#x2219; &#x223C;A</th>
+<th>A</th>
+<th>&#x223C;A</th>
+<th>A &#x2219; &#x223C;A</th>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">T</td>
-<td style="text-align: center;">F</td>
-<td style="text-align: center;">F</td>
+<td class="fragment" data-fragment-index="6">T</td>
+<td class="fragment" data-fragment-index="7">F</td>
+<td class="fragment" data-fragment-index="8">F</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">F</td>
-<td style="text-align: center;">T</td>
-<td style="text-align: center;">F</td>
+<td class="fragment" data-fragment-index="6">F</td>
+<td class="fragment" data-fragment-index="7">T</td>
+<td class="fragment" data-fragment-index="8">F</td>
 </tr>
 </tbody>
 </table>
@@ -99,41 +99,89 @@ title: Propositional logic 3
 	<h2>Semantic properties</h2>
 	<h4>Examples</h4>
 	
-	<table class="fragment" style="float: center;">
-	<caption>Equivalence</caption>
+<table class="fragment" data-fragment-index="1" style="float: center;">
+<caption class="fragment" data-fragment-index="9">Equivalence</caption>
 <thead>
-<th style="text-align: center; padding: 0 10px; border-right 1px solid #eee8d5;">A</th>
-<th style="text-align: center; padding: 0 10px; border-right 1px solid #eee8d5;">B</th>
-<th style="text-align: center; padding: 0 10px; border-right 1px solid #eee8d5;">C</th>
-<th style="text-align: center; padding: 0 10px; border-right 1px solid #eee8d5;">A &#x2219; B</th>
-<th style="text-align: center; padding: 0 10px; border-right 1px solid #eee8d5;">B &#x2283; C</th>
-<th style="text-align: center; padding: 0 10px; border-right 1px solid #eee8d5;">(A &#x2219; B) &#x2283; C</th>
-<th style="text-align: center; padding: 0 10px;">A &#x2283; (B &#x2283; C)</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>A &#x2219; B</th>
+<th>B &#x2283; C</th>
+<th>(A &#x2219; B) &#x2283; C</th>
+<th>A &#x2283; (B &#x2283; C)</th>
 </thead>
 <tbody>
 <tr class="odd">
-<td>T</td>	<td>T</td>	<td>T</td>	<td>T</td>	<td>T</td>	<td>T</td>	<td>T</td>	
+<td class="fragment" data-fragment-index="2">T</td>	
+<td class="fragment" data-fragment-index="3">T</td>	
+<td class="fragment" data-fragment-index="4">T</td>	
+<td class="fragment" data-fragment-index="5">T</td>	
+<td class="fragment" data-fragment-index="6">T</td>	
+<td class="fragment" data-fragment-index="7">T</td>	
+<td class="fragment" data-fragment-index="8">T</td>	
 </tr>
 <tr class="even">
-<td>T</td>	<td>T</td>	<td>F</td>	<td>T</td>	<td>F</td>	<td>F</td>	<td>F</td>	
+<td class="fragment" data-fragment-index="2">T</td>	
+<td class="fragment" data-fragment-index="3">T</td>	
+<td class="fragment" data-fragment-index="4">F</td>	
+<td class="fragment" data-fragment-index="5">T</td>	
+<td class="fragment" data-fragment-index="6">F</td>	
+<td class="fragment" data-fragment-index="7">F</td>	
+<td class="fragment" data-fragment-index="8">F</td>	
 </tr>
 <tr class="odd">
-<td>T</td>	<td>F</td>	<td>T</td>	<td>F</td>	<td>T</td>	<td>T</td>	<td>T</td>	
+<td class="fragment" data-fragment-index="2">T</td>	
+<td class="fragment" data-fragment-index="3">F</td>	
+<td class="fragment" data-fragment-index="4">T</td>	
+<td class="fragment" data-fragment-index="5">F</td>	
+<td class="fragment" data-fragment-index="6">T</td>	
+<td class="fragment" data-fragment-index="7">T</td>	
+<td class="fragment" data-fragment-index="8">T</td>	
 </tr>
 <tr class="even">
-<td>T</td>	<td>F</td>	<td>F</td>	<td>F</td>	<td>T</td>	<td>T</td>	<td>T</td>	
+<td class="fragment" data-fragment-index="2">T</td>	
+<td class="fragment" data-fragment-index="3">F</td>	
+<td class="fragment" data-fragment-index="4">F</td>	
+<td class="fragment" data-fragment-index="5">F</td>	
+<td class="fragment" data-fragment-index="6">T</td>	
+<td class="fragment" data-fragment-index="7">T</td>	
+<td class="fragment" data-fragment-index="8">T</td>	
 </tr>
 <tr class="odd">
-<td>F</td>	<td>T</td>	<td>T</td>	<td>F</td>	<td>T</td>	<td>T</td>	<td>T</td>	
+<td class="fragment" data-fragment-index="2">F</td>	
+<td class="fragment" data-fragment-index="3">T</td>	
+<td class="fragment" data-fragment-index="4">T</td>	
+<td class="fragment" data-fragment-index="5">F</td>	
+<td class="fragment" data-fragment-index="6">T</td>	
+<td class="fragment" data-fragment-index="7">T</td>	
+<td class="fragment" data-fragment-index="8">T</td>	
 </tr>
 <tr class="even">
-<td>F</td>	<td>T</td>	<td>F</td>	<td>F</td>	<td>F</td>	<td>T</td>	<td>T</td>	
+<td class="fragment" data-fragment-index="2">F</td>	
+<td class="fragment" data-fragment-index="3">T</td>	
+<td class="fragment" data-fragment-index="4">F</td>	
+<td class="fragment" data-fragment-index="5">F</td>	
+<td class="fragment" data-fragment-index="6">F</td>	
+<td class="fragment" data-fragment-index="7">T</td>	
+<td class="fragment" data-fragment-index="8">T</td>	
 </tr>
 <tr class="odd">
-<td>F</td>	<td>F</td>	<td>T</td>	<td>F</td>	<td>T</td>	<td>T</td>	<td>T</td>	
+<td class="fragment" data-fragment-index="2">F</td>	
+<td class="fragment" data-fragment-index="3">F</td>	
+<td class="fragment" data-fragment-index="4">T</td>	
+<td class="fragment" data-fragment-index="5">F</td>	
+<td class="fragment" data-fragment-index="6">T</td>	
+<td class="fragment" data-fragment-index="7">T</td>	
+<td class="fragment" data-fragment-index="8">T</td>	
 </tr>
 <tr class="even">
-<td>F</td>	<td>F</td>	<td>F</td>	<td>F</td>	<td>T</td>	<td>T</td>	<td>T</td>	
+<td class="fragment" data-fragment-index="2">F</td>	
+<td class="fragment" data-fragment-index="3">F</td>	
+<td class="fragment" data-fragment-index="4">F</td>	
+<td class="fragment" data-fragment-index="5">F</td>	
+<td class="fragment" data-fragment-index="6">T</td>	
+<td class="fragment" data-fragment-index="7">T</td>	
+<td class="fragment" data-fragment-index="8">T</td>	
 </tr>
 </tbody>
 </table>
@@ -160,7 +208,7 @@ title: Propositional logic 3
 	
 	<section>
 	<h2>Arguments in propositional logic</h2>
-	<p>Examples</p>
+	<h4>Examples</h4>
 	
 	<ol class="fragment">
 		<li>A &#x2219; B</li>
@@ -188,7 +236,7 @@ title: Propositional logic 3
 <section>
 	<section>
 	<h1>Validity in propositional logic</h1>
-	<h3>Assessing arguments</h3>
+	<h4>Assessing arguments</h4>
 	</section>
 	
 	<section>
@@ -207,40 +255,66 @@ title: Propositional logic 3
 	
 	<section>
 	<h2>Truth table for arguments</h2>
-	<p>Example 1</p>
+	<h4>Example 1</h4>
 	<hr>
 	<p></p>
 	
-	<ol class="fragment" style="float: left; margin-left: 20%;">
+	<ol class="fragment" data-fragment-index="1" style="float: left;">
 	<li>E &#x2283; F</li>
 	<li>E</li>
 	<hr>
 	<li>F</li>
 	</ol>
 	
-	<table class="fragment" style="float: right; margin-right: 20%;">
+<table class="fragment" data-fragment-index="2" style="float: right;">
 <thead>
-<th>E</th>
+<th>A</th>
 <th>&#x2283;</th>
-<th>F</th>
+<th>B</th>
 <th>/</th>
-<th>E</th>
+<th>A</th>
 <th>//</th>
-<th>F</th>
+<th>B</th>
 </thead>
 <tbody>
 <tr class="odd">
-<td>T</td> <td>T</td> <td>T</td> <td> </td> <td>T</td> <td> </td> <td>T</td>
-
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="5"> 
+	<span class="fragment highlight-red" data-fragment-index="6">T</span></td> 
+<td class="fragment" data-fragment-index="4">T</td> 
+<td> </td> 
+<td class="fragment" data-fragment-index="3">
+	<span class="fragment highlight-red" data-fragment-index="6">T</span></td> 
+<td> </td> 
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-green" data-fragment-index="7">T</span></td>
 </tr>
 <tr class="even">
-<td>T</td> <td>F</td> <td>F</td> <td> </td> <td>T</td> <td> </td> <td>F</td>
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="5">F</td> 
+<td class="fragment" data-fragment-index="4">F</td> 
+<td> </td> 
+<td class="fragment" data-fragment-index="3">T</td> 
+<td> </td> 
+<td class="fragment" data-fragment-index="4">F</td>
 </tr>
 <tr class="odd">
-<td>F</td> <td>T</td> <td>T</td> <td> </td> <td>F</td> <td> </td> <td>T</td>
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="5">T</td> 
+<td class="fragment" data-fragment-index="4">T</td> 
+<td> </td> 
+<td class="fragment" data-fragment-index="3">F</td> 
+<td> </td> 
+<td class="fragment" data-fragment-index="4">T</td>
 </tr>
 <tr class="even">
-<td>F</td> <td>T</td> <td>F</td> <td> </td> <td>F</td> <td> </td> <td>F</td>
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="5">T</td> 
+<td class="fragment" data-fragment-index="4">F</td> 
+<td> </td> 
+<td class="fragment" data-fragment-index="3">F</td> 
+<td> </td> 
+<td class="fragment" data-fragment-index="4">F</td>
 </tr>
 </tbody>
 </table>
@@ -250,18 +324,18 @@ title: Propositional logic 3
 
 <section>
 	<h2>Truth table for arguments</h2>
-	<p>Example 2</p>
+	<h4>Example 2</h4>
 	<hr>
 	<p></p>
 	
-	<ol class="fragment" style="float: left; margin-left: 20%;">
+	<ol class="fragment" data-fragment-index="1" style="float: left; margin-left: 20%;">
 	<li>B &#x2283; C</li>
 	<li>C</li>
 	<hr>
 	<li>B</li>
 	</ol>
 	
-	<table class="fragment" style="float: right; margin-right: 20%;">
+	<table class="fragment" data-fragment-index="2" style="float: right;">
 <thead>
 <th>B</th>
 <th>&#x2283;</th>
@@ -273,17 +347,47 @@ title: Propositional logic 3
 </thead>
 <tbody>
 <tr class="odd">
-<td>T</td> <td>T</td> <td>T</td> <td> </td> <td>T</td> <td> </td> <td>T</td>
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="5">
+	<span class="fragment highlight-red" data-fragment-index="6">T</span></td> 
+<td class="fragment" data-fragment-index="4">T</td> 
+<td> </td> 
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-red" data-fragment-index="6">T</span></td> 
+<td> </td> 
+<td class="fragment" data-fragment-index="3">
+	<span class="fragment highlight-green" data-fragment-index="7">T</span></td>
 
 </tr>
 <tr class="even">
-<td>T</td> <td>F</td> <td>F</td> <td> </td> <td>F</td> <td> </td> <td>T</td>
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="5">F</td> 
+<td class="fragment" data-fragment-index="4">F</td> 
+<td> </td> 
+<td class="fragment" data-fragment-index="4">F</td> 
+<td> </td> 
+<td class="fragment" data-fragment-index="3">T</td>
 </tr>
 <tr class="odd">
-<td>F</td> <td>T</td> <td>T</td> <td> </td> <td>T</td> <td> </td> <td>F</td>
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="5">
+	<span class="fragment highlight-red" data-fragment-index="6">T</span></td> 
+<td class="fragment" data-fragment-index="4">T</td> 
+<td> </td> 
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-red" data-fragment-index="6">T</span></td> 
+<td> </td> 
+<td class="fragment" data-fragment-index="3">
+	<span class="fragment highlight-red" data-fragment-index="7">F</span></td>
 </tr>
 <tr class="even">
-<td>F</td> <td>T</td> <td>F</td> <td> </td> <td>F</td> <td> </td> <td>F</td>
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="5">T</td> 
+<td class="fragment" data-fragment-index="4">F</td> 
+<td> </td> 
+<td class="fragment" data-fragment-index="4">F</td> 
+<td> </td> 
+<td class="fragment" data-fragment-index="3">F</td>
 </tr>
 </tbody>
 </table>
@@ -293,18 +397,18 @@ title: Propositional logic 3
 	
 <section>
 	<h2>Truth table for arguments</h2>
-	<p>Example 3</p>
+	<h4>Example 3</h4>
 	<hr>
 	<p></p>
 	
-	<ol class="fragment" style="float: left; margin-left: 10%;">
+	<ol class="fragment" data-fragment-index="1" style="float: left;">
 	<li>A &#x2283; B</li>
 	<li>B &#x2283; C</li>
 	<hr>
 	<li>A &#x2283; C</li>
 	</ol>
 	
-	<table class="fragment" style="float: right; margin-right: 10%;">
+<table class="fragment" data-fragment-index="2" style="float: right;">
 <thead>
 <th>A</th>
 <th>&#x2283;</th>
@@ -320,44 +424,136 @@ title: Propositional logic 3
 </thead>
 <tbody>
 <tr class="odd">
-<td>T</td> <td>T</td> <td>T</td>	<td> </td> 
-	<td>T</td> <td>T</td> <td>T</td>	<td>  </td>
-	<td>T</td> <td>T</td> <td>T</td>
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="6">
+	<span class="fragment highlight-red" data-fragment-index="9">T</span></td> 
+<td class="fragment" data-fragment-index="4">T</td>	
+<td> </td> 
+
+<td class="fragment" data-fragment-index="4">T</td> 
+<td class="fragment" data-fragment-index="7">
+	<span class="fragment highlight-red" data-fragment-index="9">T</span></td> 
+<td class="fragment" data-fragment-index="5">T</td>	
+<td>  </td>
+
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="8">
+	<span class="fragment highlight-green" data-fragment-index="10">T</span></td> 
+<td class="fragment" data-fragment-index="5">T</td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="6">T</td> 
+<td class="fragment" data-fragment-index="4">T</td>	
+<td> </td> 
+	
+<td class="fragment" data-fragment-index="4">T</td> 
+<td class="fragment" data-fragment-index="7">F</td> 
+<td class="fragment" data-fragment-index="5">F</td>	
+<td>  </td>
+	
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="8">F</td> 
+<td class="fragment" data-fragment-index="5">F</td>
 </tr>
 <tr class="odd">
-<td>T</td> <td>T</td> <td>T</td>	<td> </td> 
-	<td>T</td> <td>F</td> <td>F</td>	<td>  </td>
-	<td>T</td> <td>F</td> <td>F</td>
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="6">F</td> 
+<td class="fragment" data-fragment-index="4">F</td>	
+<td> </td> 
+	
+<td class="fragment" data-fragment-index="4">F</td> 
+<td class="fragment" data-fragment-index="7">T</td> 
+<td class="fragment" data-fragment-index="5">T</td>	
+<td>  </td>
+	
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="8">T</td> 
+<td class="fragment" data-fragment-index="5">T</td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="6">F</td> 
+<td class="fragment" data-fragment-index="4">F</td>	
+<td> </td> 
+
+<td class="fragment" data-fragment-index="4">F</td> 
+<td class="fragment" data-fragment-index="7">T</td> 
+<td class="fragment" data-fragment-index="5">F</td>	
+<td> </td>
+	
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="8">F</td> 
+<td class="fragment" data-fragment-index="5">F</td>
 </tr>
 <tr class="odd">
-<td>T</td> <td>F</td> <td>F</td>	<td> </td> 
-	<td>F</td> <td>T</td> <td>T</td>	<td>  </td>
-	<td>T</td> <td>T</td> <td>T</td>
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="6">
+	<span class="fragment highlight-red" data-fragment-index="9">T</span></td> 
+<td class="fragment" data-fragment-index="4">T</td>	
+<td> </td> 
+	
+<td class="fragment" data-fragment-index="4">T</td> 
+<td class="fragment" data-fragment-index="7">	
+	<span class="fragment highlight-red" data-fragment-index="9">T</span></td> 
+<td class="fragment" data-fragment-index="5">T</td>	
+<td>  </td>
+	
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="8">
+	<span class="fragment highlight-green" data-fragment-index="10">T</span></td> 
+<td class="fragment" data-fragment-index="5">T</td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="6">T</td> 
+<td class="fragment" data-fragment-index="4">T</td>	
+<td> </td> 
+	
+<td class="fragment" data-fragment-index="4">T</td> 
+<td class="fragment" data-fragment-index="7">F</td> 
+<td class="fragment" data-fragment-index="5">F</td>	
+<td>  </td>
+
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="8">T</td> 
+<td class="fragment" data-fragment-index="5">F</td>
 </tr>
 <tr class="odd">
-<td>T</td> <td>F</td> <td>F</td>	<td> </td> 
-	<td>F</td> <td>T</td> <td>F</td>	<td>  </td>
-	<td>T</td> <td>F</td> <td>F</td>
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="6">
+	<span class="fragment highlight-red" data-fragment-index="9">T</span></td> 
+<td class="fragment" data-fragment-index="4">F</td>	
+<td> </td> 
+
+<td class="fragment" data-fragment-index="4">F</td> 
+<td class="fragment" data-fragment-index="7">
+	<span class="fragment highlight-red" data-fragment-index="9">T</span></td> 
+<td class="fragment" data-fragment-index="5">T</td>	
+<td>  </td>
+	
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="8">
+	<span class="fragment highlight-green" data-fragment-index="10">T</span></td> 
+<td class="fragment" data-fragment-index="5">T</td>
 </tr>
-<tr class="odd">
-<td>F</td> <td>T</td> <td>T</td>	<td> </td> 
-	<td>T</td> <td>T</td> <td>T</td>	<td>  </td>
-	<td>F</td> <td>T</td> <td>T</td>
-</tr>
-<tr class="odd">
-<td>F</td> <td>T</td> <td>T</td>	<td> </td> 
-	<td>T</td> <td>F</td> <td>F</td>	<td>  </td>
-	<td>F</td> <td>T</td> <td>F</td>
-</tr>
-<tr class="odd">
-<td>F</td> <td>T</td> <td>F</td>	<td> </td> 
-	<td>F</td> <td>T</td> <td>T</td>	<td>  </td>
-	<td>F</td> <td>T</td> <td>T</td>
-</tr>
-<tr class="odd">
-<td>F</td> <td>T</td> <td>F</td>	<td> </td> 
-	<td>F</td> <td>T</td> <td>F</td>	<td>  </td>
-	<td>F</td> <td>T</td> <td>F</td>
+<tr class="even">
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="6">
+	<span class="fragment highlight-red" data-fragment-index="9">T</span></td> 
+<td class="fragment" data-fragment-index="4">F</td>	
+<td> </td> 
+
+<td class="fragment" data-fragment-index="4">F</td> 
+<td class="fragment" data-fragment-index="7">
+	<span class="fragment highlight-red" data-fragment-index="9">T</span></td> 
+<td class="fragment" data-fragment-index="5">F</td>	
+<td>  </td>
+	
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="8">
+	<span class="fragment highlight-green" data-fragment-index="10">T</span></td> 
+<td class="fragment" data-fragment-index="5">F</td>
 </tr>
 </tbody>
 </table>
@@ -400,8 +596,63 @@ title: Propositional logic 3
 		<li class="fragment">If we run into a contradiction, it is valid.</li>
 	</ul>
 
-	
 	</section>
+	
+<section>
+	<h2>Testing validity</h2>
+	<h4>Example</h4>
+
+<ul>
+	<li class="fragment" data-fragment-index="1">Attempt to force invalidity:</li>
+	<li class="fragment" data-fragment-index="3">Then fill in any forced values:</li>
+	<li class="fragment" data-fragment-index="5">Reassess for more forced values:</li>
+	<li class="fragment" data-fragment-index="7">Look out for contradictions!</li>
+</ul>
+
+<table>
+<thead>
+<th>A</th>
+<th>&#x2283;</th>
+<th>B</th>
+<th>/</th>
+<th>B</th>
+<th>&#x2283;</th>
+<th>C</th>
+<th>//</th>
+<th>A</th>
+<th>&#x2283;</th>
+<th>C</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-current-blue" data-fragment-index="4">T</span></td> 
+<td class="fragment" data-fragment-index="2">
+	<span class="fragment highlight-current-green" data-fragment-index="2">T</span></td> 
+<td class="fragment" data-fragment-index="6">
+	<span class="fragment highlight-current-blue" data-fragment-index="6">T</span></td>	
+<td> </td> 
+<td class="fragment" data-fragment-index="6">
+	<span class="fragment highlight-current-blue" data-fragment-index="6">T</span></td> 
+<td class="fragment" data-fragment-index="2">
+	<span class="fragment highlight-current-green" data-fragment-index="2">
+	<span class="fragment highlight-red" data-fragment-index="8">T</span></span></td> 
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-current-blue" data-fragment-index="4">F</span></td>	
+<td>  </td>
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-current-blue" data-fragment-index="4">T</span></td> 
+<td class="fragment" data-fragment-index="2">
+	<span class="fragment highlight-current-red" data-fragment-index="2">F</span></td> 
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-current-blue" data-fragment-index="4">F</span></td>
+</tr>
+</tbody>
+</table>
+<div style="clear: both;"></div>
+
+</section>
+
 	
 	<section>
 	<h2>Testing validity</h2>
@@ -433,7 +684,7 @@ title: Propositional logic 3
 <div style="clear: both;"></div>
 		
 <p class="fragment" style="float: left;">Then fill in any forced values:</p>
-<table class="fragment" style="float: right; margin-right: 20px;">
+<table class="fragment" style="float: right;">
 <thead>
 <th>A</th>
 <th>&#x2283;</th>
@@ -458,7 +709,7 @@ title: Propositional logic 3
 <div style="clear: both;"></div>
 
 <p class="fragment" style="float: left;">Then fill in any forced values:</p>
-<table class="fragment" style="float: right; margin-right: 20px;">
+<table class="fragment" style="float: right;">
 <thead>
 <th>A</th>
 <th>&#x2283;</th>
@@ -483,7 +734,7 @@ title: Propositional logic 3
 <div style="clear: both;"></div>
 
 <p class="fragment" style="float: left;">Look out for contradictions!</p>
-<table class="fragment" style="float: center;">
+<table class="fragment" style="float: right;">
 <thead>
 <th>A</th>
 <th>&#x2283;</th>
@@ -654,7 +905,7 @@ title: Propositional logic 3
 </table>
 <div style="clear: both;"></div>	
 
-<p class="fragment" style="float: left;">Fill in forced values:</p>
+<p class="fragment" style="float: left;">Reassess for more forced values:</p>
 <table class="fragment" style="float: right;">
 <thead>
 <th>&#x223C;</th>

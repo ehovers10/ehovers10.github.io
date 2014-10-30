@@ -196,17 +196,17 @@ body {
 	opacity: 1;
 }
 	.reveal .slides section .fragment.highlight-red.visible {
-		color: #ff2c2d
+		color: #ff2c2d;
 	}
 	.reveal .slides section .fragment.highlight-green.visible {
-		color: #17ff2e;
+		color: #0F420F;
 	}
 	.reveal .slides section .fragment.highlight-blue.visible {
 		color: #1b91ff;
 	}
 
 .reveal .slides section .fragment.highlight-current-red.current-fragment {
-	color: #ff2c2d
+	color: #ff2c2d;
 }
 .reveal .slides section .fragment.highlight-current-green.current-fragment {
 	color: #17ff2e;
@@ -350,18 +350,18 @@ body {
 }
 
 .reveal table {
-	margin: auto;
+	min-width: 45%;
 }
 
 .reveal table td {
 	text-align: center;
-	padding: 0 10px;
+	padding: 0 20px;
 	<!--border-right: 2px solid #eee8d5;
 }
 
 .reveal table th {
 	font-weight: bold;
-	<!--padding: 0 5px;
+	padding: 0 20px;
 	border-bottom: 2px solid #eee8d5;
 }
 
