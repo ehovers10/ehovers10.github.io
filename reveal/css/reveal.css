@@ -351,6 +351,7 @@ body {
 
 .reveal table {
 	min-width: 45%;
+	margin: auto;
 }
 
 .reveal table td {
