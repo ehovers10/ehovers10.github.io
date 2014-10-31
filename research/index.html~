@@ -15,14 +15,14 @@ date: 2014-09-27 02:00
 	
 	<p>My primary research interests are in philosophy of language and cognitive science. More specifically, I'm interested in formal models of the influence of context on natural language interpretation. My dissertation explores ways of modeling linguistic <i>focus</i> as a tool used by interlocutors to collaboratively set the semantic value boundaries of expressions in their discourse. I think that the unique ways in which focus generally, and <i>contrastive topic</i> in particular, are implemented in conversation provide interesting motivation for characterizing the nature of semantic values as <i>updates</i> as opposed to <i>contents</i>. The class of phenomena I look at also have implications for the division of labor between the semantic and pragmatic interpretive effects of language use.</p>
 		
-	<h2>papers</h2>
+	<h2>papers</h2><a name="papers"></a>
 		
 	<ul>	
-		<li id="title_rd" class="show"><i>Dispute in discourse</i> (<a href="#abs_rd">abstract</a>) (<a>pdf</a>)</li>
+		<li id="title_rd" class="show"><i>Dispute in discourse</i> (<a href="#pop-abs-rd">abstract</a>) (<a>pdf</a>)</li>
 		
-	<div id="abs_rd" class="lightbox">
-		<a href="#top"><img class="popclose" src="/images/close.png" title="close"></a>	
-		<div class="popbox">
+	<div id="pop-abs-rd" class="lightbox">
+		<a href="#papers"><img class="popclose" src="/images/close.png" title="close"></a>	
+		<div class="popbox abs">
 		
 		<h3><i>Dispute in discourse</i> (<a>pdf</a>)</h3>
 		
@@ -35,26 +35,26 @@ date: 2014-09-27 02:00
 		<p>Again, joint inquiry incorporates the same insights. To make advances, inquirers must take some things as granted. But rigidity halts discussion, and cooperative interlocutors can't merely assert; they must be able to respond to critique of those assertions as well.</p>
 		</div></div></div>
 
-		<li id="title_dc" class="show"><i>The discourse contribution of contrastive topic</i> (<a href="#abs_dc">abstract</a>) (<a>pdf</a>)</li>
+		<li id="title-dc" class="show"><i>The discourse contribution of contrastive topic</i> (<a href="#pop-abs-dc">abstract</a>) (<a>pdf</a>)</li>
 
-	<div id="abs_dc" class="lightbox">
-		<a href="#top"><img class="popclose" src="/images/close.png" title="close"></a>	
-		<div class="popbox">
+	<div id="pop-abs-dc" class="lightbox">
+		<a href="#papers"><img class="popclose" src="/images/close.png" title="close"></a>	
+		<div class="popbox abs">
 		
 		<h3><i>The discourse contribution of contrastive topic</i> (<a>pdf</a>)</h3>
 
 		<div class="popmain">
-		<p>The standard account of focus interpretation has it that focus determines an alternative set (drawn from the domain, elements of the same type as the focus) and generates an felicity condition, whereby an utterance involving focus is felicitous only if the alternative set (suitably restricted by context) has an identical antecedent in the prior discourse. One primary motivation for this account is the explanation it gives of <i>question/answer congruence</i>, in which felicitous response to questions requires focus to be placed in the same position as the <i>wh-</i> word of the question.</p> 
-		<p>Focus generally marks information newly contributed to the discourse, but it can also arise in the topic when it is used to highlight a contrast set within the backgrounded information.  This use of <i>contrastive focus</i> initially appears to violate the demands of question/answer congruence, but its felicity too can also be accounted for by positing within the conversational scoreboard a <i>plan of inquiry</i> involving a nested structure of questions and sub-questions governing the course of appropriate contributions to the discourse. </p>
+		<p>The standard account of focus interpretation has it that focus determines an alternative set (drawn from the domain, elements of the same type as the focus) and generates a felicity condition, whereby a sentence involving focus is felicitously uttered only if the alternative set (suitably restricted by context) has an identical antecedent in the prior discourse. One primary motivation for this account is the explanation it gives of <i>question/answer congruence</i>. For a response to a question posed by the use of a <i>wh-</i> word to be felicitous, the sentence requires a focus placed in the same position as the <i>wh-</i> word of the question.</p> 
+		<p>Focus is generally responsible for structuring the information provided by an utterance into the new information, which is novel in the discourse, and the given (or topic) information, which was previously introduced and on which the new is meant to elaborate. Focus generally marks information newly contributed to the discourse, but it can also arise in the topic when it is used to highlight a contrast set within the backgrounded information.  This use of <i>contrastive focus</i> initially appears to violate the demands of question/answer congruence, but its felicity too can also be accounted for by positing within the conversational scoreboard a <i>plan of inquiry</i> involving a nested structure of questions and sub-questions governing the course of appropriate contributions to the discourse. </p>
 		<p>But this purely presuppositional account of focus interpretation is less appealing for the use of contrastive focus in corrections. Corrections are utterances that involve both a denial of some part of prior discourse as well as a positive contribution to the discourse. The role of contrast in corrections cannot be reduced to anaphora without loss.</p>
 		<p>But appeal to a plan of inquiry need not be abandoned. We need only recognize that inquiry can be structured by more than just questions and their answers. <i>Positing</i> and <i>correcting</i> are equally essential to fruitful inquiry, and contrastive focus highlights one interesting way in which they work in concert to further the pursuit of information through communication.</p>
 		</div></div></div>
 	
-		<li id="title_cr" class="show"><i>Corrective discourse and the contextualism v. relativism debate</i> (<a href="#abs_cr">abstract</a>) (<a>pdf</a>)</li>	
+		<li id="title_cr" class="show"><i>Corrective discourse and the contextualism v. relativism debate</i> (<a href="#pop-abs-cr">abstract</a>) (<a>pdf</a>)</li>	
 		
-	<div id="abs_cr" class="lightbox">
-		<a href="#top"><img class="popclose" src="/images/close.png" title="close"></a>	
-		<div class="popbox">
+	<div id="pop-abs-cr" class="lightbox">
+		<a href="#papers"><img class="popclose" src="/images/close.png" title="close"></a>	
+		<div class="popbox abs">
 		
 		<h3><i>Corrective discourse and the contextualism v. relativism debate</i> (<a>pdf</a>)</h3>
 

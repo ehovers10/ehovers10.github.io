@@ -55,17 +55,28 @@ a:hover { text-decoration: underline; }
 
 .popbox {
 	z-index: 21;
+	position: fixed;
+	top: 10%;
+	left: auto;
 	max-width: 60%;
-	max-height: 60%;
+	<!--max-height: 60%;
 	margin: 10% auto;
 	padding: 10px;
-	background: url('/images/nice_snow.png');
 	border: 2px groove SteelBlue;
 	border-radius: 20px;
 	<!--overflow: hidden;
 }
 
 .popbox h3 { text-align: center; }
+.popbox img { 
+	position: inherit;
+	width: 400px; 
+	margin: 20px; 
+	border: 1px solid #000; 
+}
+
+.text { background: url('/images/nice_snow.png'); }
+.pic { background: url('/images/green_cup.png'); }
 
 .popclose {
 	position: fixed;
@@ -81,6 +92,38 @@ a:hover { text-decoration: underline; }
 	overflow-y: auto;
 	margin: 0 10px 40px 20px;
 	padding-right: 10px;
+}
+
+.thumbbox {
+	<!--z-index: 21;
+	width: 80%;
+	max-height: 400px;
+	margin: 20px auto;
+	padding: 20px;
+	background: url('/images/green_cup.png');
+	border: 2px groove SteelBlue;
+	border-radius: 20px;
+	overflow-y: auto;
+}
+
+.thumbbox .pic {
+	width: 13%;
+	margin: 20px 5.5%;
+	border: 1px solid black;
+	border-radius: 8px;
+}
+
+.thumbbox .title {
+	width: 13%;
+	margin: 5px 5.5%;
+	text-align: center;
+}
+
+.thumbbox a {}
+.thumbbox a:hover:after {
+   background-color:#000;
+   opacity:0.5;
+   border-radius:20px;
 }
 
 #header {
