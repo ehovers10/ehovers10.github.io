@@ -22,7 +22,7 @@ date: 2014-09-27 02:00
 		
 	<div id="pop-abs-rd" class="lightbox">
 		<a href="#papers"><img class="popclose" src="/images/close.png" title="close"></a>	
-		<div class="popbox abs">
+		<div class="popbox text">
 		
 		<h3><i>Dispute in discourse</i> (<a>pdf</a>)</h3>
 		
@@ -39,7 +39,7 @@ date: 2014-09-27 02:00
 
 	<div id="pop-abs-dc" class="lightbox">
 		<a href="#papers"><img class="popclose" src="/images/close.png" title="close"></a>	
-		<div class="popbox abs">
+		<div class="popbox text">
 		
 		<h3><i>The discourse contribution of contrastive topic</i> (<a>pdf</a>)</h3>
 
@@ -54,7 +54,7 @@ date: 2014-09-27 02:00
 		
 	<div id="pop-abs-cr" class="lightbox">
 		<a href="#papers"><img class="popclose" src="/images/close.png" title="close"></a>	
-		<div class="popbox abs">
+		<div class="popbox text">
 		
 		<h3><i>Corrective discourse and the contextualism v. relativism debate</i> (<a>pdf</a>)</h3>
 

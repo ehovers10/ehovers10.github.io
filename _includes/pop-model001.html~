@@ -1,6 +1,7 @@
-<div id="pop-model001" class="lightbox pic">
+<div id="pop-model001" class="lightbox">
 	<a href="#lights"><img class="popclose" src="/images/close.png" title="close"></a>	
-	<div class="popbox">
+	<div class="popbox pic">
+	<div class="popmain">
 		<img src="/images/pics/pitbull-chick.jpeg" alt="" title="model 001">
-	</div>
+	</div></div>
 </div>

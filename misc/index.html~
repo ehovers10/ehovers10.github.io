@@ -27,9 +27,9 @@ date: 2014-09-27 04:00
 </div>
 	
 <div id="content">
-	<h2>some tunes (courtesy of grooveshark)</h2>
+	<!--<h2>some tunes (courtesy of grooveshark)</h2>
 	
-	<object width="350" height="250" data-style="border: groove SteelBlue;" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="gsPlaylist9430275733" name="gsPlaylist9430275733"><param name="movie" value="http://grooveshark.com/widget.swf" /><param name="wmode" value="window" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="hostname=grooveshark.com&playlistID=94302757&p=0&bbg=4682b4&bth=4682b4&pfg=4682b4&lfg=4682b4&bt=ffffff&pbg=ffffff&pfgh=ffffff&si=ffffff&lbg=ffffff&lfgh=ffffff&sb=ffffff&bfg=666666&pbgh=666666&lbgh=666666&sbh=666666" /><object type="application/x-shockwave-flash" data="http://grooveshark.com/widget.swf" width="350" height="250"><param name="wmode" value="window" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="hostname=grooveshark.com&playlistID=94302757&p=0&bbg=4682b4&bth=4682b4&pfg=4682b4&lfg=4682b4&bt=ffffff&pbg=ffffff&pfgh=ffffff&si=ffffff&lbg=ffffff&lfgh=ffffff&sb=ffffff&bfg=666666&pbgh=666666&lbgh=666666&sbh=666666" /><span><a href="http://grooveshark.com/search/playlist?q=wistful%20bluetooth%20Erik%20Hoversten" title="wistful bluetooth by Erik Hoversten on Grooveshark">wistful bluetooth by Erik Hoversten on Grooveshark</a></span></object></object>
+	<object width="350" height="250" data-style="border: groove SteelBlue;" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="gsPlaylist9430275733" name="gsPlaylist9430275733"><param name="movie" value="http://grooveshark.com/widget.swf" /><param name="wmode" value="window" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="hostname=grooveshark.com&playlistID=94302757&p=0&bbg=4682b4&bth=4682b4&pfg=4682b4&lfg=4682b4&bt=ffffff&pbg=ffffff&pfgh=ffffff&si=ffffff&lbg=ffffff&lfgh=ffffff&sb=ffffff&bfg=666666&pbgh=666666&lbgh=666666&sbh=666666" /><object type="application/x-shockwave-flash" data="http://grooveshark.com/widget.swf" width="350" height="250"><param name="wmode" value="window" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="hostname=grooveshark.com&playlistID=94302757&p=0&bbg=4682b4&bth=4682b4&pfg=4682b4&lfg=4682b4&bt=ffffff&pbg=ffffff&pfgh=ffffff&si=ffffff&lbg=ffffff&lfgh=ffffff&sb=ffffff&bfg=666666&pbgh=666666&lbgh=666666&sbh=666666" /><span><a href="http://grooveshark.com/search/playlist?q=wistful%20bluetooth%20Erik%20Hoversten" title="wistful bluetooth by Erik Hoversten on Grooveshark">wistful bluetooth by Erik Hoversten on Grooveshark</a></span></object></object>-->
 	
 	
 	<h2>some images (courtesy of nature)</h2>		
@@ -51,7 +51,13 @@ date: 2014-09-27 04:00
 	
 	<div class="thumbbox">
 	<div>
-		<a href="#pop-model001"><img class="pic" src="/images/pics/pitbull-chick.jpeg" alt="" title="model001"></a> {% include pop-model001.html %}
+		<a href="#pop-model001"><img class="pic" src="/images/pics/pitbull-chick.jpeg" alt="" title="model001"></a>
+		<div id="pop-model001" class="lightbox">
+	<a href="#lights"><img class="popclose" src="/images/close.png" title="close"></a>	
+	<div class="popbox pic">
+		<p>Lorem ipsum.Lorem ipsum.Lorem ipsum.Lorem ipsum.Lorem ipsum.Lorem ipsum.Lorem ipsum.Lorem ipsum.Lorem ipsum.Lorem ipsum.Lorem ipsum.Lorem ipsum.Lorem ipsum.Lorem ipsum.Lorem ipsum.</p>
+	</div>
+</div>
 		<a href="#pop-model002"><img class="pic" src="/images/pics/hypno-toad.jpg" alt="" title="model002"></a>
 		<a href="#pop-model003"><img class="pic" src="/images/pics/pump-kins.jpg" alt="" title="model003"></a>
 		<a href="pop-model004"><img class="pic" src="/images/pics/cmdr-cody.jpg" alt="" title="model004"></a>
