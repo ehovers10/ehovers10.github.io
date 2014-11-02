@@ -20,8 +20,7 @@ date: 2014-09-27 02:00
 	<ul>	
 		<li id="title_rd" class="show"><i>Dispute in discourse</i> (<a href="#pop-abs-rd">abstract</a>) (<a>pdf</a>)</li>
 		
-	<div id="pop-abs-rd" class="lightbox">
-		<a href="#papers"><img class="popclose" src="/images/close.png" title="close"></a>	
+	<div id="pop-abs-rd" class="lightbox">	
 		<div class="popbox text">
 		
 		<h3><i>Dispute in discourse</i> (<a>pdf</a>)</h3>
@@ -33,7 +32,9 @@ date: 2014-09-27 02:00
 		<p>The same goes for joint inquiry.  One can cooperatively assert what may not be certain for the purpose of advancing the inquiry along a particular line.  Given that this is a recognized cooperative maneuver, dispute is a crucial tool for interlocutors to correct faulty speculations.  From this perspective, inquiry is not just a series of related but independent assertions that sequentially build the common stock of information.  Instead, it is a deeply interactive process of speculative advancements and corrective retreats.</p>
 		<p>John Stuart Mill's defense of liberty of intellectual expression similarly centrally relies on dispute. Even in the face of certainty regarding the answer to certain questions, dispute plays an important role. To be always ready to dispute opponents' claims keeps one's defense of their own claims fresh.</p>
 		<p>Again, joint inquiry incorporates the same insights. To make advances, inquirers must take some things as granted. But rigidity halts discussion, and cooperative interlocutors can't merely assert; they must be able to respond to critique of those assertions as well.</p>
-		</div></div></div>
+		</div></div>
+		<a href="#papers"><img class="popclose" src="/images/close.png" title="close"></a>		
+		</div>
 
 		<li id="title-dc" class="show"><i>The discourse contribution of contrastive topic</i> (<a href="#pop-abs-dc">abstract</a>) (<a>pdf</a>)</li>
 
