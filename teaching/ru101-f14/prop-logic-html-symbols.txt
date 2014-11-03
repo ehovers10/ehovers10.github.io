@@ -4,6 +4,8 @@ Disjunction: C &#x2228; D
 Conditional: E &#x2283; F
 Biconditional: G &#x2261; H
 
+<span class="fragment highlight-green" data-fragment-index="7">F</span>
+
 <table class="fragment" style="float: left;">
 <thead>
 <th style="text-align: center;">p</th>
