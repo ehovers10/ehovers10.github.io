@@ -1,0 +1,927 @@
+---
+layout: reveal-pres
+title: Propositional logic 4
+---
+
+<section id="title-slide">
+	<h1>Propositional logic 4</h1>
+	<h4>Inference rules</h4>
+
+	<p>Erik Hoversten</p>
+	<p>Rutgers university: LRP, fall 2014</p>
+	<p>November 3, 2014</p>
+</section>
+
+<section>
+	<section>
+	<h1>Natural deduction</h1>
+	<h4>Reasoning and proof</h4>
+	</section>
+	
+	<section>
+	<h2>Natural deduction</h2>
+	<h4>What is it?</h4>
+	
+	<ul>
+		<li class="fragment">Truth tables provide a way of definitively testing the validity of arguments</li>
+		<ul>
+			<li class="fragment">But they don't really display the <em>reasoning</em> that the argument involves.</li>
+		</ul>	
+		<li class="fragment">Natural deduction is an alternate way to demonstrate the validity of arguments.</li>
+			<ul>
+				<li class="fragment">It does so in a way that more closely matches the process of human reasoning.</li>
+				<li class="fragment">It involves a series of <em>steps</em>, each of which is <em>justified</em> by a <strong>proof rule</strong>.</li>
+			</ul>				
+	</ul>
+	</section>
+	
+	<section>
+	<h2>Natural deduction</h2>
+	<h4>Proofs of arguments</h4>
+	
+	<ul>
+		<li class="fragment">In a valid argument, the premises <em>say at least as much as</em> the conclusion.</li>
+		<ul>
+			<li class="fragment">Another way to say this is that the premises <strong>include</strong> the conclusion within them.</li>
+		</ul>	
+		<li class="fragment">A <em>proof</em> is a <strong>demonstration</strong> that the premises include the conclusion.</li>
+		<li class="fragment">Through a series of steps, we pull out the conclusion from the premises.</li>
+		<li class="fragment">A proof consists of:</li>
+		<ul>
+			<li class="fragment">Each of the premises,</li>
+			<li class="fragment">A series of steps with justifications,</li>
+			<li class="fragment">The conclusion</li>
+		</ul>
+	</ul>
+	</section>
+	
+	<section>
+<h2> Natural deduction</h2>
+<h4>What is a proof?</h4>
+
+<table class="fragment" data-fragment-index="2" style="text-align: left;">
+<tbody>
+<tr class="odd">
+<td>1.</td>
+<td>Premise</td>
+<td>Assumption</td>
+</tr>
+<tr class="even">
+<td>2.</td>
+<td>Premise</td>
+<td>Assumption</td>
+</tr>
+<tr class="odd">
+<td>3.</td>
+<td>Proposition</td>
+<td>Rule (proposition #s)</td>
+</tr>
+<tr class="even">
+<td>4.</td>
+<td>Proposition</td>
+<td>Rule (proposition #s)</td>
+</tr>
+<tr class="even">
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td><hr></td>
+</tr>
+<tr>
+<td>X.</td>
+<td>Conclusion</td>
+<td>Rule (proposition #s)</td>
+</tr>
+</tbody>
+</table>
+</section>
+	
+	<section>
+	<h2>Natural deduction</h2>
+	<h4>How does it work?</h4>
+	
+	<ul>
+		<li class="fragment">Each step in a proof involves a <em>method of reasoning</em></li>
+		<ul>
+			<li class="fragment">Rules of implication</li>
+			<li class="fragment">Rules of replacement</li>
+		</ul>
+		<li class="fragment">Deduction is <em>path independent</em>.</li>
+		<ul>
+			<li class="fragment">The steps can be taken in any order.</li>
+			<li class="fragment">As long as each step is accurate, the result will be the same.</li>
+		</ul>
+	</ul>
+	</section>
+	
+	<section>
+	<h2>Rules of implication</h2>
+	<h4>Why do they work?</h4>
+	
+	<ul>
+		<li class="fragment">Rules of implication are just <em>mini-valid arguments</em>.</li>
+		<li class="fragment">Thus, they are <strong>truth preserving</strong>.</li>
+		<li class="fragment">If your proof already includes all the premises, then the conclusion follows necessarily.</li>
+		<li class="fragment">So, the conclusion comes for free.</li>	
+	</ul>
+</section>
+
+<section>
+	<h2>Rules of replacement</h2>
+	<h4>Why do they work?</h4>
+	
+	<ul>
+		<li class="fragment">Rules of replacement are just an <em>equivalence between propositions</em>.</li>
+		<li class="fragment">Thus, they show <strong>sameness of meaning</strong>.</li>
+		<li class="fragment">If your proof includes one of the propositions, then the other proposition has the same truth value.</li>
+		<li class="fragment">So, it comes for free.</li>
+		<li class="fragment">Since proofs are path independent, there is no harm in repeating meanings over again.</li>
+	</ul>
+</section>
+
+</section>
+
+<section>
+	<section>
+	<h1>Natural deduction</h1>
+	<h4>Rules of implication</h4>
+	</section>
+	
+	<section>
+	<h2>Modus ponens</h2>
+	
+	<h4>Affirming the antecedent</h4>
+	
+	<ol class="fragment" data-fragment-index="1" style="float: left;">
+	<li>p &#x2283; q</li>
+	<li>p</li>
+	<hr>
+	<li>q</li>
+	</ol>
+	
+<table class="fragment" data-fragment-index="2" style="float: left;">
+<caption class="fragment" data-fragment-index="4">MP</caption>
+<thead>
+<th>p</th>
+<th>&#x2283;</th>
+<th>q</th>
+<th>/</th>
+<th>p</th>
+<th>//</th>
+<th>q</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="fragment" data-fragment-index="3">T</td>
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-blue" data-fragment-index="5">T</span></td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="3">
+	<span class="fragment highlight-blue" data-fragment-index="5">T</span></td>
+<td> </td>
+<td class="fragment" data-fragment-index="3">
+	<span class="fragment highlight-green" data-fragment-index="6">T</span></td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="3">T</td>
+<td class="fragment" data-fragment-index="4">F</td>
+<td class="fragment" data-fragment-index="3">F</td>
+<td> </td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="3">F</td>
+</tr>
+<tr class="odd">
+<td class="fragment" data-fragment-index="3">F</td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="3">F</td>
+<td> </td>
+<td class="fragment" data-fragment-index="3">T</td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="3">F</td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="3">F</td>
+<td> </td>
+<td class="fragment" data-fragment-index="3">F</td>
+<td> </td>
+<td class="fragment" data-fragment-index="3">F</td>
+</tr>
+</tbody>
+</table>
+
+<div style="clear: both;"></div>
+</section>
+
+	<section>
+	<h2>Modus tollens</h2>
+	
+	<h4>Denying the consequent</h4>
+	
+	<ol class="fragment" data-fragment-index="1" style="float: left;">
+	<li>p &#x2283; q</li>
+	<li>&#x223C;q</li>
+	<hr>
+	<li>&#x223C;p</li>
+	</ol>
+	
+<table class="fragment" data-fragment-index="2" style="float: left;">
+<caption class="fragment" data-fragment-index="4">MT</caption>
+<thead>
+<th>p</th>
+<th>&#x2283;</th>
+<th>q</th>
+<th>/</th>
+<th>&#x223C;</th>
+<th>q</th>
+<th>//</th>
+<th>&#x223C;</th>
+<th>p</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="fragment" data-fragment-index="3">T</td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="4">F</td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="4">F</td>
+<td class="fragment" data-fragment-index="3">T</td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="3">T</td>
+<td class="fragment" data-fragment-index="4">F</td>
+<td class="fragment" data-fragment-index="3">F</td>
+<td> </td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="3">F</td>
+<td> </td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="3">F</td>
+</tr>
+<tr class="odd">
+<td class="fragment" data-fragment-index="3">F</td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="4">F</td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="3">F</td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="3">F</td>
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-blue" data-fragment-index="5">T</span></td>
+<td class="fragment" data-fragment-index="3">F</td>
+<td> </td>
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-blue" data-fragment-index="5">T</span></td>
+<td class="fragment" data-fragment-index="3">F</td>
+<td> </td>
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-green" data-fragment-index="6">T</span></td>
+<td class="fragment" data-fragment-index="3">F</td>
+</tr>
+</tbody>
+</table>
+
+<div style="clear: both;"></div>
+</section>
+
+<section>
+	<h2>Hypothetical syllogism</h2>
+	<h4>bypass the middle man</h4>
+	
+	<ol class="fragment" data-fragment-index="1" style="float: left;">
+	<li>p &#x2283; q</li>
+	<li>q &#x2283; r</li>
+	<hr>
+	<li>p &#x2283; r</li>
+	</ol>
+	
+<table class="fragment" data-fragment-index="2" style="float: right;">
+<caption class="fragment" data-fragment-index="4">HS</caption>
+<thead>
+<th>p</th>
+<th>&#x2283;</th>
+<th>q</th>
+<th>/</th>
+<th>q</th>
+<th>&#x2283;</th>
+<th>r</th>
+<th>//</th>
+<th>p</th>
+<th>&#x2283;</th>
+<th>r</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-blue" data-fragment-index="5">T</span></td> 
+<td class="fragment" data-fragment-index="3">T</td>	
+<td> </td> 
+
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-blue" data-fragment-index="5">T</span></td> 
+<td class="fragment" data-fragment-index="3">T</td>	
+<td>  </td>
+
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-green" data-fragment-index="6">T</span></td> 
+<td class="fragment" data-fragment-index="3">T</td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="4">T</td> 
+<td class="fragment" data-fragment-index="3">T</td>	
+<td> </td> 
+	
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="4">F</td> 
+<td class="fragment" data-fragment-index="3">F</td>	
+<td>  </td>
+	
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="4">F</td> 
+<td class="fragment" data-fragment-index="3">F</td>
+</tr>
+<tr class="odd">
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="4">F</td> 
+<td class="fragment" data-fragment-index="3">F</td>	
+<td> </td> 
+	
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="4">T</td> 
+<td class="fragment" data-fragment-index="3">T</td>	
+<td>  </td>
+	
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="4">T</td> 
+<td class="fragment" data-fragment-index="3">T</td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="4">F</td> 
+<td class="fragment" data-fragment-index="3">F</td>	
+<td> </td> 
+
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="4">T</td> 
+<td class="fragment" data-fragment-index="3">F</td>	
+<td> </td>
+	
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="4">F</td> 
+<td class="fragment" data-fragment-index="3">F</td>
+</tr>
+<tr class="odd">
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-blue" data-fragment-index="5">T</span></td> 
+<td class="fragment" data-fragment-index="3">T</td>	
+<td> </td> 
+	
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="4">	
+	<span class="fragment highlight-blue" data-fragment-index="5">T</span></td> 
+<td class="fragment" data-fragment-index="3">T</td>	
+<td>  </td>
+	
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-green" data-fragment-index="6">T</span></td> 
+<td class="fragment" data-fragment-index="3">T</td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="4">T</td> 
+<td class="fragment" data-fragment-index="3">T</td>	
+<td> </td> 
+	
+<td class="fragment" data-fragment-index="3">T</td> 
+<td class="fragment" data-fragment-index="4">F</td> 
+<td class="fragment" data-fragment-index="3">F</td>	
+<td>  </td>
+
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="4">T</td> 
+<td class="fragment" data-fragment-index="3">F</td>
+</tr>
+<tr class="odd">
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-blue" data-fragment-index="5">T</span></td> 
+<td class="fragment" data-fragment-index="3">F</td>	
+<td> </td> 
+
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-blue" data-fragment-index="5">T</span></td> 
+<td class="fragment" data-fragment-index="3">T</td>	
+<td>  </td>
+	
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-green" data-fragment-index="6">T</span></td> 
+<td class="fragment" data-fragment-index="3">T</td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-blue" data-fragment-index="5">T</span></td>
+<td class="fragment" data-fragment-index="3">F</td>	
+<td> </td> 
+
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-blue" data-fragment-index="5">T</span></td> 
+<td class="fragment" data-fragment-index="3">F</td>	
+<td>  </td>
+	
+<td class="fragment" data-fragment-index="3">F</td> 
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-green" data-fragment-index="6">T</span></td> 
+<td class="fragment" data-fragment-index="3">F</td>
+</tr>
+</tbody>
+</table>
+<div style="clear: both;"></div>
+	
+	</section>
+	
+		<section>
+	<h2>Disjunctive syllogism</h2>
+	
+	<h4>process of elimination</h4>
+	
+	<ol class="fragment" data-fragment-index="1" style="float: left;">
+	<li>p &#x2228; q</li>
+	<li>&#x223C;q</li>
+	<hr>
+	<li>p</li>
+	</ol>
+	
+<table class="fragment" data-fragment-index="2" style="float: left;">
+<caption class="fragment" data-fragment-index="4">DS</caption>
+<thead>
+<th>p</th>
+<th>&#x2228;</th>
+<th>q</th>
+<th>/</th>
+<th>&#x223C;</th>
+<th>q</th>
+<th>//</th>
+<th></th>
+<th>p</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="fragment" data-fragment-index="3">T</td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="4">F</td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="3">T</td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="3">T</td>
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-blue" data-fragment-index="5">T</span></td>
+<td class="fragment" data-fragment-index="3">F</td>
+<td> </td>
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-blue" data-fragment-index="5">T</span></td>
+<td class="fragment" data-fragment-index="3">F</td>
+<td> </td>
+<td class="fragment" data-fragment-index="3">
+	<span class="fragment highlight-green" data-fragment-index="6">T</span></td>
+</tr>
+<tr class="odd">
+<td class="fragment" data-fragment-index="3">F</td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="4">F</td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="3">F</td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="3">F</td>
+<td class="fragment" data-fragment-index="4">F</td>
+<td class="fragment" data-fragment-index="3">F</td>
+<td> </td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="3">F</td>
+<td> </td>
+<td class="fragment" data-fragment-index="3">F</td>
+</tr>
+</tbody>
+</table>
+
+<div style="clear: both;"></div>
+</section>
+
+<section>
+	<h2>Simplification</h2>
+	
+	<h4>both true means each true</h4>
+	
+	<ol class="fragment" data-fragment-index="1" style="float: left;">
+	<li>p &#x2219; q</li>
+	<hr>
+	<li>p</li>
+	</ol>
+	
+<table class="fragment" data-fragment-index="2" style="float: left;">
+<caption class="fragment" data-fragment-index="4">Simp</caption>
+<thead>
+<th>p</th>
+<th>&#x2219;</th>
+<th>q</th>
+<th>//</th>
+<th>p</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="fragment" data-fragment-index="3">T</td>
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-blue" data-fragment-index="5">T</span></td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="3">T</td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="3">T</td>
+<td class="fragment" data-fragment-index="4">F</td>
+<td class="fragment" data-fragment-index="3">F</td>
+<td> </td>
+<td class="fragment" data-fragment-index="3">T</td>
+</tr>
+<tr class="odd">
+<td class="fragment" data-fragment-index="3">F</td>
+<td class="fragment" data-fragment-index="4">F</td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="3">F</td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="3">F</td>
+<td class="fragment" data-fragment-index="4">F</td>
+<td class="fragment" data-fragment-index="3">F</td>
+<td> </td>
+<td class="fragment" data-fragment-index="3">F</td>
+</tr>
+</tbody>
+</table>
+
+<div style="clear: both;"></div>
+</section>
+
+<section>
+	<h2>Addition</h2>
+	
+	<h4>anything disjoined to a truth</h4>
+	
+	<ol class="fragment" data-fragment-index="1" style="float: left;">
+	<li>p</li>
+	<hr>
+	<li>p &#x2228; q</li>
+	</ol>
+	
+	<table class="fragment" data-fragment-index="2" style="float: left;">
+<caption class="fragment" data-fragment-index="4">Add</caption>
+<thead>
+<th>p</th>
+<th>//</th>
+<th>p</th>
+<th>&#x2228;</th>
+<th>q</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="fragment" data-fragment-index="3">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-green" data-fragment-index="5">T</span></td>
+<td class="fragment" data-fragment-index="3">T</td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="3">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-green" data-fragment-index="5">T</span></td>
+<td class="fragment" data-fragment-index="3">F</td>
+</tr>
+<tr class="odd">
+<td class="fragment" data-fragment-index="3">F</td>
+<td> </td>
+<td class="fragment" data-fragment-index="3">F</td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="3">T</td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="3">F</td>
+<td> </td>
+<td class="fragment" data-fragment-index="3">F</td>
+<td class="fragment" data-fragment-index="4">F</td>
+<td class="fragment" data-fragment-index="3">F</td>
+</tr>
+</tbody>
+</table>
+
+<div style="clear: both;"></div>
+</section>
+</section>
+
+<section>
+<section>
+<h1>Rules of replacement</h1>
+</section>
+
+<section>
+<h2>DeMorgan's rule</h2>
+<h4>relating "and" to "or"</h4>
+
+<p class="fragment" data-fragment-index="1">&#x223C;(p &#x2219; q) :: (&#x223C;p &#x2228; &#x223C;q)</p>
+<p class="fragment" data-fragment-index="1">&#x223C;(p &#x2228; q) :: (&#x223C;p &#x2219; &#x223C;q)</p>
+
+<table class="fragment" data-fragment-index="2">
+<caption class="fragment" data-fragment-index="4">DeMorgan's</caption>
+<thead>
+<th>&#x223C;</th>
+<th>(p</th>
+<th>&#x2219;</th>
+<th>q)</th>
+<th>::</th>
+<th>&#x223C;</th>
+<th>p</th>
+<th>&#x2228;</th>
+<th>&#x223C;</th>
+<th>q</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="fragment" data-fragment-index="3">T</td>
+<td class="fragment" data-fragment-index="5">T</td>
+<td class="fragment" data-fragment-index="6">
+	<span class="fragment highlight-green" data-fragment-index="7">F</span></td>
+<td class="fragment" data-fragment-index="5">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="4">F</td>
+<td class="fragment" data-fragment-index="5">T</td>
+<td class="fragment" data-fragment-index="3">F</td>
+<td class="fragment" data-fragment-index="4">F</td>
+<td class="fragment" data-fragment-index="5">T</td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="3">F</td>
+<td class="fragment" data-fragment-index="5">T</td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="5">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="6">F</td>
+<td class="fragment" data-fragment-index="5">T</td>
+<td class="fragment" data-fragment-index="3">
+	<span class="fragment highlight-green" data-fragment-index="7">T</span></td>
+<td class="fragment" data-fragment-index="6">F</td>
+<td class="fragment" data-fragment-index="5">T</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>Commutativity</h2>
+<h4>reordering "and" and "or"</h4>
+
+<p class="fragment" data-fragment-index="1">(p &#x2219; q) :: (q &#x2219; p)</p>
+<p class="fragment" data-fragment-index="1">(p &#x2228; q) :: (q &#x2228; p)</p>
+
+<table class="fragment" data-fragment-index="2">
+<caption class="fragment" data-fragment-index="4">Com</caption>
+<thead>
+<th>(p</th>
+<th>&#x2219;</th>
+<th>q)</th>
+<th>::</th>
+<th>(q</th>
+<th>&#x2219;</th>
+<th>p)</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="3">
+	<span class="fragment highlight-green" data-fragment-index="5">F</span></td>
+<td class="fragment" data-fragment-index="4">T</td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="3">
+	<span class="fragment highlight-green" data-fragment-index="5">F</span></td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td class="fragment" data-fragment-index="4">T</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>Associativity</h2>
+<h4>recombining "and" and "or"</h4>
+
+<p class="fragment" data-fragment-index="1">[p &#x2219; (q &#x2219; r)] :: [(p &#x2219; q) &#x2219; r]</p>
+<p class="fragment" data-fragment-index="1">[p &#x2228; (q &#x2228; r)] :: [(p &#x2228; q) &#x2228; r]</p>
+
+<table class="fragment" data-fragment-index="2">
+<caption class="fragment" data-fragment-index="4">Com</caption>
+<thead>
+<th>[p</th>
+<th>&#x2219;</th>
+<th>(q</th>
+<th>&#x2219;</th>
+<th>r)]</th>
+<th>::</th>
+<th>[(p</th>
+<th>&#x2219;</th>
+<th>q)</th>
+<th>&#x2219;</th>
+<th>r]</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td class="fragment" data-fragment-index="5">T</td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="5">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="6">T</td>
+<td class="fragment" data-fragment-index="5">T</td>
+<td class="fragment" data-fragment-index="3">
+	<span class="fragment highlight-red" data-fragment-index="7">F</span></td>
+<td class="fragment" data-fragment-index="5">T</td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="5">T</td>
+<td class="fragment" data-fragment-index="3">
+	<span class="fragment highlight-red" data-fragment-index="7">F</span></td>
+<td class="fragment" data-fragment-index="5">T</td>
+<td class="fragment" data-fragment-index="6">T</td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="5">T</td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="5">T</td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td class="fragment" data-fragment-index="4">T</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>Distribution</h2>
+<h4>pushing "and" through to "or"</h4>
+
+<p class="fragment" data-fragment-index="1">[p &#x2219; (q &#x2228; r)] :: [(p &#x2219; q) &#2228 (p &#x2219; r)]</p>
+<p class="fragment" data-fragment-index="1">[p &#x2228; (q &#x2219; r)] :: [(p &#x2228; q) &#x2219; (p &#x2228; r)]</p>
+
+<table class="fragment" data-fragment-index="2">
+<caption class="fragment" data-fragment-index="4">Com</caption>
+<thead>
+<th>[p</th>
+<th>&#x2219;</th>
+<th>(q</th>
+<th>&#x2219;</th>
+<th>r)]</th>
+<th>::</th>
+<th>[(p</th>
+<th>&#x2219;</th>
+<th>q)</th>
+<th>&#x2219;</th>
+<th>r]</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td class="fragment" data-fragment-index="5">T</td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="5">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="6">T</td>
+<td class="fragment" data-fragment-index="5">T</td>
+<td class="fragment" data-fragment-index="3">
+	<span class="fragment highlight-red" data-fragment-index="7">F</span></td>
+<td class="fragment" data-fragment-index="5">T</td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="5">T</td>
+<td class="fragment" data-fragment-index="3">
+	<span class="fragment highlight-red" data-fragment-index="7">F</span></td>
+<td class="fragment" data-fragment-index="5">T</td>
+<td class="fragment" data-fragment-index="6">T</td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="5">T</td>
+<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="5">T</td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td class="fragment" data-fragment-index="4">T</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>Double negation</h2>
+<h4>two no's make a yes</h4>
+
+<p class="fragment" data-fragment-index="1">p :: &#x223C;&#x223C;p</p>
+
+<table class="fragment" data-fragment-index="1" style="float: left;">
+<caption class="fragment" data-fragment-index="4">DN</caption>
+<thead>
+<th>p</th>
+<th>::</th>
+<th>&#x223C;</th>
+<th>&#x223C;</th>
+<th>p</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="fragment" data-fragment-index="2">T</td>
+<td> </td>
+<td class="fragment" data-fragment-index="4">F</td>
+<td class="fragment" data-fragment-index="3">T</td>
+<td class="fragment" data-fragment-index="2">
+	<span class="fragment highlight-red" data-fragment-index="5">T</span></td>
+</tr>
+<tr class="even">
+<td class="fragment" data-fragment-index="2">F</td>
+<td> </td>
+<td class="fragment" data-fragment-index="2">T</td>
+<td class="fragment" data-fragment-index="3">F</td>
+<td class="fragment" data-fragment-index="4">
+	<span class="fragment highlight-red" data-fragment-index="5">T</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>Transposition</h2>
+<h4>switch and negate</h4>
+
+<p class="fragment" data-fragment-index="1">(p &#x2283; q) :: (&#x223C;q &#x2283; &#x223C;p)</p>
+
+
+<table class="fragment" data-fragment-index="2">
+<caption class="fragment" data-fragment-index="4">Trans</caption>
+<thead>
+<th>(p</th>
+<th>&#x2283;</th>
+<th>q)</th>
+<th>::</th>
+<th>(&#x223C;</th>
+<th>q</th>
+<th>&#x2283;</th>
+<th>&#x223C;</th>
+<th>p)</th>
+</thead>
+<tbody>
+<tr class="odd">
+
+</tr>
+</tbody>
+</table>
+</section>
+
+</section>
