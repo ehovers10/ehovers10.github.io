@@ -5,11 +5,11 @@ title: Propositional logic 4
 
 <section id="title-slide">
 	<h1>Propositional logic 4</h1>
-	<h4>Inference rules</h4>
+	<h4>Natural deduction</h4>
 
 	<p>Erik Hoversten</p>
 	<p>Rutgers university: LRP, fall 2014</p>
-	<p>November 3, 2014</p>
+	<p>November 6, 2014</p>
 </section>
 
 <section>
@@ -300,7 +300,7 @@ title: Propositional logic 4
 	</ol>
 	
 <table class="fragment" data-fragment-index="2" style="float: right;">
-<caption class="fragment" data-fragment-index="4">HS</caption>
+<caption class="fragment" data-fragment-index="2">HS</caption>
 <thead>
 <th>p</th>
 <th>&#x2283;</th>
@@ -464,7 +464,7 @@ title: Propositional logic 4
 	</ol>
 	
 <table class="fragment" data-fragment-index="2" style="float: left;">
-<caption class="fragment" data-fragment-index="4">DS</caption>
+<caption class="fragment" data-fragment-index="2">DS</caption>
 <thead>
 <th>p</th>
 <th>&#x2228;</th>
@@ -473,7 +473,6 @@ title: Propositional logic 4
 <th>&#x223C;</th>
 <th>q</th>
 <th>//</th>
-<th></th>
 <th>p</th>
 </thead>
 <tbody>
@@ -551,7 +550,8 @@ title: Propositional logic 4
 	<span class="fragment highlight-blue" data-fragment-index="5">T</span></td>
 <td class="fragment" data-fragment-index="3">T</td>
 <td> </td>
-<td class="fragment" data-fragment-index="3">T</td>
+<td class="fragment" data-fragment-index="3">
+	<span class="fragment highlight-blue" data-fragment-index="5">T</span></td>
 </tr>
 <tr class="even">
 <td class="fragment" data-fragment-index="3">T</td>
@@ -597,7 +597,8 @@ title: Propositional logic 4
 </thead>
 <tbody>
 <tr class="odd">
-<td class="fragment" data-fragment-index="8">T</td>
+<td class="fragment" data-fragment-index="8">
+	<span class="fragment highlight-green" data-fragment-index="10">T</span></td>
 <td> </td>
 <td class="fragment" data-fragment-index="8">T</td>
 <td class="fragment" data-fragment-index="9">
@@ -605,7 +606,8 @@ title: Propositional logic 4
 <td class="fragment" data-fragment-index="8">T</td>
 </tr>
 <tr class="even">
-<td class="fragment" data-fragment-index="8">T</td>
+<td class="fragment" data-fragment-index="8">
+	<span class="fragment highlight-green" data-fragment-index="10">T</span></td>
 <td> </td>
 <td class="fragment" data-fragment-index="8">T</td>
 <td class="fragment" data-fragment-index="9">
@@ -665,7 +667,7 @@ title: Propositional logic 4
 <td class="fragment" data-fragment-index="3">T</td>
 <td class="fragment" data-fragment-index="5">T</td>
 <td class="fragment" data-fragment-index="6">
-	<span class="fragment highlight-green" data-fragment-index="7">F</span></td>
+	<span class="fragment highlight-red" data-fragment-index="7">F</span></td>
 <td class="fragment" data-fragment-index="5">T</td>
 <td> </td>
 <td class="fragment" data-fragment-index="4">F</td>
@@ -675,28 +677,28 @@ title: Propositional logic 4
 <td class="fragment" data-fragment-index="5">T</td>
 </tr>
 <tr class="even">
-<td class="fragment" data-fragment-index="3">F</td>
-<td class="fragment" data-fragment-index="5">T</td>
-<td class="fragment" data-fragment-index="4">T</td>
-<td class="fragment" data-fragment-index="5">T</td>
+<td class="fragment" data-fragment-index="8">F</td>
+<td class="fragment" data-fragment-index="10">T</td>
+<td class="fragment" data-fragment-index="9">T</td>
+<td class="fragment" data-fragment-index="10">T</td>
 <td> </td>
-<td class="fragment" data-fragment-index="6">F</td>
-<td class="fragment" data-fragment-index="5">T</td>
-<td class="fragment" data-fragment-index="3">
-	<span class="fragment highlight-green" data-fragment-index="7">T</span></td>
-<td class="fragment" data-fragment-index="6">F</td>
-<td class="fragment" data-fragment-index="5">T</td>
+<td class="fragment" data-fragment-index="11">F</td>
+<td class="fragment" data-fragment-index="10">T</td>
+<td class="fragment" data-fragment-index="8">
+	<span class="fragment highlight-red" data-fragment-index="12">T</span></td>
+<td class="fragment" data-fragment-index="11">F</td>
+<td class="fragment" data-fragment-index="10">T</td>
 </tr>
 </tbody>
 </table>
 <hr>
 <h4>Commutativity</h4>
-<p style="float: left;" class="fragment" data-fragment-index="8">(p &#x2219; q) :: (q &#x2219; p)</p>
-<p style="float: right;" class="fragment" data-fragment-index="8">(p &#x2228; q) :: (q &#x2228; p)</p>
+<p style="float: left;" class="fragment" data-fragment-index="13">(p &#x2219; q) :: (q &#x2219; p)</p>
+<p style="float: right;" class="fragment" data-fragment-index="13">(p &#x2228; q) :: (q &#x2228; p)</p>
 <div style="clear: both;"></div>
 
-<table class="fragment" data-fragment-index="9">
-<caption class="fragment" data-fragment-index="9">Com</caption>
+<table class="fragment" data-fragment-index="14">
+<caption class="fragment" data-fragment-index="14">Com</caption>
 <thead>
 <th>(p</th>
 <th>&#x2219;</th>
@@ -708,24 +710,24 @@ title: Propositional logic 4
 </thead>
 <tbody>
 <tr class="odd">
-<td class="fragment" data-fragment-index="11">T</td>
-<td class="fragment" data-fragment-index="10">T</td>
-<td class="fragment" data-fragment-index="11">T</td>
+<td class="fragment" data-fragment-index="16">T</td>
+<td class="fragment" data-fragment-index="15">T</td>
+<td class="fragment" data-fragment-index="16">T</td>
 <td> </td>
-<td class="fragment" data-fragment-index="11">T</td>
-<td class="fragment" data-fragment-index="10">
-	<span class="fragment highlight-green" data-fragment-index="12">F</span></td>
-<td class="fragment" data-fragment-index="11">T</td>
+<td class="fragment" data-fragment-index="16">T</td>
+<td class="fragment" data-fragment-index="15">
+	<span class="fragment highlight-red" data-fragment-index="17">F</span></td>
+<td class="fragment" data-fragment-index="16">T</td>
 </tr>
 <tr class="even">
-<td class="fragment" data-fragment-index="11">T</td>
-<td class="fragment" data-fragment-index="10">
-	<span class="fragment highlight-green" data-fragment-index="12">F</span></td>
-<td class="fragment" data-fragment-index="11">T</td>
+<td class="fragment" data-fragment-index="19">T</td>
+<td class="fragment" data-fragment-index="18">
+	<span class="fragment highlight-red" data-fragment-index="20">F</span></td>
+<td class="fragment" data-fragment-index="19">T</td>
 <td> </td>
-<td class="fragment" data-fragment-index="11">T</td>
-<td class="fragment" data-fragment-index="10">T</td>
-<td class="fragment" data-fragment-index="11">T</td>
+<td class="fragment" data-fragment-index="19">T</td>
+<td class="fragment" data-fragment-index="18">T</td>
+<td class="fragment" data-fragment-index="19">T</td>
 </tr>
 </tbody>
 </table>
@@ -769,29 +771,29 @@ title: Propositional logic 4
 <td class="fragment" data-fragment-index="5">T</td>
 </tr>
 <tr class="even">
-<td class="fragment" data-fragment-index="5">T</td>
-<td class="fragment" data-fragment-index="3">
-	<span class="fragment highlight-red" data-fragment-index="7">F</span></td>
-<td class="fragment" data-fragment-index="5">T</td>
-<td class="fragment" data-fragment-index="6">T</td>
-<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="10">T</td>
+<td class="fragment" data-fragment-index="8">
+	<span class="fragment highlight-red" data-fragment-index="12">F</span></td>
+<td class="fragment" data-fragment-index="10">T</td>
+<td class="fragment" data-fragment-index="11">T</td>
+<td class="fragment" data-fragment-index="9">T</td>
 <td> </td>
-<td class="fragment" data-fragment-index="5">T</td>
-<td class="fragment" data-fragment-index="4">T</td>
-<td class="fragment" data-fragment-index="5">T</td>
-<td class="fragment" data-fragment-index="3">T</td>
-<td class="fragment" data-fragment-index="4">T</td>
+<td class="fragment" data-fragment-index="10">T</td>
+<td class="fragment" data-fragment-index="9">T</td>
+<td class="fragment" data-fragment-index="10">T</td>
+<td class="fragment" data-fragment-index="8">T</td>
+<td class="fragment" data-fragment-index="9">T</td>
 </tr>
 </tbody>
 </table>
 <hr>
 <h4>Distribtution</h4>
-<p style="float: left;" class="fragment" data-fragment-index="8">[p &#x2219; (q &#x2228; r)] :: [(p &#x2219; q) &#2228; (p &#x2219; r)]</p>
-<p style="float: right;" class="fragment" data-fragment-index="8">[p &#x2228; (q &#x2219; r)] :: [(p &#x2228; q) &#x2219; (p &#x2228; r)]</p>
+<p style="float: left;" class="fragment" data-fragment-index="13">[p &#x2219; (q &#x2228; r)] :: [(p &#x2219; q) &#x2228; (p &#x2219; r)]</p>
+<p style="float: right;" class="fragment" data-fragment-index="13">[p &#x2228; (q &#x2219; r)] :: [(p &#x2228; q) &#x2219; (p &#x2228; r)]</p>
 <div style="clear: both;"></div>
 
-<table class="fragment" data-fragment-index="9">
-<caption class="fragment" data-fragment-index="9">Dist</caption>
+<table class="fragment" data-fragment-index="14">
+<caption class="fragment" data-fragment-index="14">Dist</caption>
 <thead>
 <th>[p</th>
 <th>&#x2219;</th>
@@ -807,32 +809,32 @@ title: Propositional logic 4
 </thead>
 <tbody>
 <tr class="odd">
-<td class="fragment" data-fragment-index="11">T</td>
-<td class="fragment" data-fragment-index="10">T</td>
-<td class="fragment" data-fragment-index="12">T</td>
-<td class="fragment" data-fragment-index="11">T</td>
-<td class="fragment" data-fragment-index="12">T</td>
+<td class="fragment" data-fragment-index="16">T</td>
+<td class="fragment" data-fragment-index="15">T</td>
+<td class="fragment" data-fragment-index="17">T</td>
+<td class="fragment" data-fragment-index="16">T</td>
+<td class="fragment" data-fragment-index="17">T</td>
 <td> </td>
-<td class="fragment" data-fragment-index="11">T</td>
-<td class="fragment" data-fragment-index="13">T</td>
-<td class="fragment" data-fragment-index="12">T</td>
-<td class="fragment" data-fragment-index="10">
-	<span class="fragment highlight-red" data-fragment-index="14">F</span></td>
-<td class="fragment" data-fragment-index="12">T</td>
+<td class="fragment" data-fragment-index="16">T</td>
+<td class="fragment" data-fragment-index="18">T</td>
+<td class="fragment" data-fragment-index="17">T</td>
+<td class="fragment" data-fragment-index="15">
+	<span class="fragment highlight-red" data-fragment-index="19">F</span></td>
+<td class="fragment" data-fragment-index="17">T</td>
 </tr>
 <tr class="even">
-<td class="fragment" data-fragment-index="12">T</td>
-<td class="fragment" data-fragment-index="10">
-	<span class="fragment highlight-red" data-fragment-index="14">F</span></td>
-<td class="fragment" data-fragment-index="12">T</td>
-<td class="fragment" data-fragment-index="13">T</td>
-<td class="fragment" data-fragment-index="11">T</td>
+<td class="fragment" data-fragment-index="22">T</td>
+<td class="fragment" data-fragment-index="20">
+	<span class="fragment highlight-red" data-fragment-index="24">F</span></td>
+<td class="fragment" data-fragment-index="22">T</td>
+<td class="fragment" data-fragment-index="23">T</td>
+<td class="fragment" data-fragment-index="21">T</td>
 <td> </td>
-<td class="fragment" data-fragment-index="12">T</td>
-<td class="fragment" data-fragment-index="11">T</td>
-<td class="fragment" data-fragment-index="12">T</td>
-<td class="fragment" data-fragment-index="10">T</td>
-<td class="fragment" data-fragment-index="11">T</td>
+<td class="fragment" data-fragment-index="22">T</td>
+<td class="fragment" data-fragment-index="21">T</td>
+<td class="fragment" data-fragment-index="22">T</td>
+<td class="fragment" data-fragment-index="20">T</td>
+<td class="fragment" data-fragment-index="21">T</td>
 </tr>
 </tbody>
 </table>
@@ -859,24 +861,24 @@ title: Propositional logic 4
 <td class="fragment" data-fragment-index="5">F</td>
 <td class="fragment" data-fragment-index="4">T</td>
 <td class="fragment" data-fragment-index="3">
-	<span class="fragment highlight-red" data-fragment-index="6">T</span></td>
+	<span class="fragment highlight-red" data-fragment-index="6">F</span></td>
 </tr>
 <tr class="even">
-<td class="fragment" data-fragment-index="3">F</td>
+<td class="fragment" data-fragment-index="7">F</td>
 <td> </td>
-<td class="fragment" data-fragment-index="3">T</td>
-<td class="fragment" data-fragment-index="4">F</td>
-<td class="fragment" data-fragment-index="5">
-	<span class="fragment highlight-red" data-fragment-index="6">T</span></td>
+<td class="fragment" data-fragment-index="7">T</td>
+<td class="fragment" data-fragment-index="8">F</td>
+<td class="fragment" data-fragment-index="9">
+	<span class="fragment highlight-red" data-fragment-index="10">T</span></td>
 </tr>
 </tbody>
 </table>
 <hr>
 <h4>Transposition</h4>
-<p class="fragment" data-fragment-index="7">(p &#x2283; q) :: (&#x223C;q &#x2283; &#x223C;p)</p>
+<p class="fragment" data-fragment-index="11">(p &#x2283; q) :: (&#x223C;q &#x2283; &#x223C;p)</p>
 
-<table class="fragment" data-fragment-index="8">
-<caption class="fragment" data-fragment-index="9">Trans</caption>
+<table class="fragment" data-fragment-index="12">
+<caption class="fragment" data-fragment-index="12">Trans</caption>
 <thead>
 <th>(p</th>
 <th>&#x2283;</th>
@@ -890,28 +892,28 @@ title: Propositional logic 4
 </thead>
 <tbody>
 <tr class="odd">
-<td class="fragment" data-fragment-index="10">T</td>
-<td class="fragment" data-fragment-index="9">
-	<span class="fragment highlight-red" data-fragment-index="13">T</span></td>
-<td class="fragment" data-fragment-index="11">F</td>
+<td class="fragment" data-fragment-index="14">T</td>
+<td class="fragment" data-fragment-index="13">
+	<span class="fragment highlight-red" data-fragment-index="17">T</span></td>
+<td class="fragment" data-fragment-index="15">F</td>
 <td> </td>
-<td class="fragment" data-fragment-index="10">T</td>
-<td class="fragment" data-fragment-index="12">F</td>
-<td class="fragment" data-fragment-index="11">F</td>
-<td class="fragment" data-fragment-index="9">F</td>
-<td class="fragment" data-fragment-index="11">T</td>
+<td class="fragment" data-fragment-index="14">T</td>
+<td class="fragment" data-fragment-index="16">F</td>
+<td class="fragment" data-fragment-index="15">F</td>
+<td class="fragment" data-fragment-index="13">F</td>
+<td class="fragment" data-fragment-index="15">T</td>
 </tr>
 <tr class="even">
-<td class="fragment" data-fragment-index="10">T</td>
-<td class="fragment" data-fragment-index="9">F</td>
-<td class="fragment" data-fragment-index="11">F</td>
+<td class="fragment" data-fragment-index="19">T</td>
+<td class="fragment" data-fragment-index="18">F</td>
+<td class="fragment" data-fragment-index="20">F</td>
 <td> </td>
-<td class="fragment" data-fragment-index="10">T</td>
-<td class="fragment" data-fragment-index="12">F</td>
-<td class="fragment" data-fragment-index="11">
-	<span class="fragment highlight-red" data-fragment-index="13">T</span></td>
-<td class="fragment" data-fragment-index="9">F</td>
-<td class="fragment" data-fragment-index="11">T</td>
+<td class="fragment" data-fragment-index="19">T</td>
+<td class="fragment" data-fragment-index="21">F</td>
+<td class="fragment" data-fragment-index="20">
+	<span class="fragment highlight-red" data-fragment-index="22">T</span></td>
+<td class="fragment" data-fragment-index="18">F</td>
+<td class="fragment" data-fragment-index="19">T</td>
 </tr>
 </tbody>
 </table>
@@ -1031,9 +1033,20 @@ title: Propositional logic 4
 	<li class="fragment">Each step adds a new line to the proof, following the rules of propositional logic.</li>
 	<li class="fragment">The last line of the proof is the conclusion of the argument.</li>
 	<li class="fragment">But as long as we follow the rules, we can take any path we choose.</li>
-	<li class="fragment">We want our proofs to stay somewhat short, so it's nice to pick an <em>efficient</em> path from the premises to the conclusion.</li>
-	<li class="fragment">So, constructing a proof involves a bit of <em>art</em> in addition to skill with the logic.</li>
-	<ul><li class="fragment">As with most things, the key to constructing efficient proofs is practice.</ul>
+</ul>
+</section>
+
+<section>
+<h2>The art of proofs</h2>
+
+<ul>
+	<li class="fragment">As long as every step we take follows some rule, it doesn't matter how we get to the conclusion.</li>
+	<li class="fragment">But long winding proofs are harder to process.</li>
+	<li class="fragment">So it's nice to pick an <em>efficient</em> path from the premises to the conclusion.</li>
+	<li class="fragment">Constructing a proof involves a bit of <em>art</em> in choosing what steps to take along the way.</li>
+	<ul><li class="fragment">As with most things, the key to constructing efficient proofs is practice.</li>
+	<li class="fragment">If you get stuck, experiment with some rules and see if that opens up new possibilities to getting the conclusion.</li></ul>
+	
 </ul>
 
 </section>
