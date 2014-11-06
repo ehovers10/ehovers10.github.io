@@ -351,6 +351,7 @@ body {
 
 .reveal table {
 	min-width: 45%;
+	margin: auto;
 }
 
 .reveal table td {
@@ -358,6 +359,7 @@ body {
 	padding: 0 20px;
 	<!--border-right: 2px solid #eee8d5;
 }
+.beleft { text-align: left; }
 
 .reveal table th {
 	font-weight: bold;
