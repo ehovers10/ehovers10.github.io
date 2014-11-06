@@ -1,5 +1,8 @@
 ---
-layout: elay1
+layout: child
+title: Posts tagged with: {{ page.tag }}
+subheading: blog posts
+parent: blog
 ---
 
 <div id="content">

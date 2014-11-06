@@ -1,7 +1,11 @@
 ---
 layout: child
+title: Posts by tag
+subheading: blog posts
+parent: blog
 ---
 
+<div id="content">
 <h4>Posts tagged with: {{ page.tag }}</h4>
 
 {% for post in page.posts limit:25 %}
@@ -17,3 +21,4 @@ layout: child
 	<hr>
 
 {% endfor %}
+</div>

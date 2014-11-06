@@ -2,7 +2,8 @@
 layout: child
 ---
 
-<h2>{{ page.title }}</h2>
+<div id="content">
 <h4>{{ page.date | date: "%Y-%m-%d" }} | {{ page | tags }}</h4>
 	
 {{ content }}
+</div>
