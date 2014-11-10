@@ -1,0 +1,285 @@
+---
+layout: reveal-pres
+title: Propositional logic 4
+---
+
+<section id="title-slide">
+	<h1>Induction</h1>
+	<h4>ampliative reasoning</h4>
+
+	<p>Erik Hoversten</p>
+	<p>Rutgers university: LRP, fall 2014</p>
+	<p>November 10, 2014</p>
+</section>
+
+<section>
+	<section>
+	<h1>Kinds of reasoning</h1>
+	<h4>Deduction and induction</h4>
+	</section>
+	
+	<section>
+	<h2>Measuring the support relation</h2>
+	
+	<h4>Deduction</h4>	
+	<ul>
+		<li class="fragment" data-fragment-index="1">conclusion <em>necessarily</em> follows</li>
+		<ul>
+			<li class="fragment" data-fragment-index="2">Categorical logic</li>
+			<li class="fragment" data-fragment-index="2">Propositional logic</li></li>
+		</ul>			
+	</ul>
+	
+		<h4>Induction</h4>	
+	<ul>
+		<li class="fragment" data-fragment-index="3">conclusion <em>probably</em> follows</li>
+		<ul>
+			<li class="fragment" data-fragment-index="4"><span class="fragment highlight-blue" data-fragment-index="9">Analogical reasoning</span></li>
+			<li class="fragment" data-fragment-index="5">Generalization from examples</li>
+			<li class="fragment" data-fragment-index="6"><span class="fragment highlight-blue" data-fragment-index="9">Statistical reasoning</span></li>
+			<li class="fragment" data-fragment-index="7">Causal reasoning</li>
+			<li class="fragment" data-fragment-index="8"><span class="fragment highlight-blue" data-fragment-index="9">Default reasoning</span></li>
+		</ul>			
+	</ul>
+	</section>
+	
+	<section>
+	<h2>From premises to conclusion</h2>
+	
+	<h4>Deduction</h4>	
+		<ul>
+		<li class="fragment" data-fragment-index="1">conclusion <em>necessarily</em> follows</li>
+		<ul>
+			<li class="fragment" data-fragment-index="2">Premises say at least as much as the conclusion</li>
+			<li class="fragment" data-fragment-index="3">Premises include the conclusion</li>
+		</ul>			
+	</ul>
+	
+		<h4>Induction</h4>	
+	<ul>
+		<li class="fragment" data-fragment-index="4">conclusion <em>probably</em> follows</li>
+		<ul>
+			<li class="fragment" data-fragment-index="5">conclusion <em>might be false</em>, even if premises are true.</li>
+			<li class="fragment" data-fragment-index="6">conclusion <em>goes beyond</em> the premises</li>
+			<li class="fragment" data-fragment-index="7">there's a <em>jump in reasoning</em> from the premises to the conclusion.</li>
+			<li class="fragment" data-fragment-index="8">sometimes known as <em>ampliative reasoning</em></li>
+		</ul>			
+	</ul>
+	
+	</section>
+	
+	<section>
+	<h2>Application to real life</h2>
+
+		<h4>Deduction</h4>	
+		<ul>
+		<li class="fragment" data-fragment-index="1">provides for <em>certainty</em> in the conclusion</li>
+		<ul>
+			<li class="fragment" data-fragment-index="2">useful when the standards of truth are very high</li>
+		</ul>	
+		<li class="fragment" data-fragment-index="3">limited in what we can genuinely deduce from the premises</li>	
+		<ul>
+			<li class="fragment" data-fragment-index="4">validity is an <em>on/off</em> concept</li>
+			<li class="fragment" data-fragment-index="5">there are no levels of validity</li>
+		</ul>	
+	</ul>
+	
+		<h4>Induction</h4>	
+	<ul>
+		<li class="fragment" data-fragment-index="6">provides less certainty in the conclusion</li>
+		<ul>
+			<li class="fragment" data-fragment-index="7">a good inference may still lead to falsehood		
+		</ul>
+		<li class="fragment" data-fragment-index="9">can be applied quickly, so useful when a rapid response is needed.</li>
+		<li class="fragment" data-fragment-index="10">Can come in levels of stronger or weaker inference</li></ul>
+</section>
+</section>
+
+<section>
+<section>
+<h1>Analogical reasoning</h1>
+<h3>comparison between things</h3>
+
+</section>
+
+<section>
+<h2>Analogy</h2>
+
+<ul><li>Reasoning by analogy is a basic form of human reasoning.</li>
+	<ul>
+	<li>We can't directly observe all things in the world.</li>
+	<li>But we know that different things can share properties in common</li>
+	<li>If we know about the nature of one thing, we can often infer something about another thing.</li>
+	</ul>
+	<li>But not all such comparisons are good ones</li>
+	<ul><li>Things can also share properties in common only accidentally.</li>
+	<li>In this case, comparing the two is not likely to lead to true beliefs.</li>
+	</ul>
+	<li>Thus, we need tools for determining when an instance of analogical reasoning is good.</li>
+</ul>
+
+</section>
+
+<section>
+<h2>Analogical inference</h2>
+<h4>the basic structure</h4>
+
+<ul><li>All reasoning by analogy involves:</li>
+	<ul><li>Two or more <em>things</em> being compared.</li>
+		<li>A set of <em>properties</em> that the things are known to share in common.</li>
+		<li>The proposed shared property:</li>
+		<ul><li>This is known to be possessed by one of the objects</li>
+			<li>We infer that it is also possessed by the other objects.</li></ul>
+		</ul>
+	<li class="fragment">Since it doesn't follow <em>necessarily</em> that the proposed property is shared by all the things, this inference is <em>ampliative</em>.</li>
+	</ul>
+
+</section>
+
+<section>
+<h2>Analogical inference</h2>
+<h4>example structure</h4>
+
+<ul><li>Entity A has properties <em>a, b, c, </em> and <em>z</em>.</li>
+	<li>Entity B has properties <em>a, b, c</em></li>
+	<li>Therefore, entity B probably has property <em>z</em>, too.</li>
+	</ul>
+	
+<ul class="fragment"><li>Notice that we have two major elements in the inference:</li>
+<ul><li>The <em>entities</em>, which we call the <strong>analogues</strong>.</li>
+	<li>The <em>properties</em>, which we call the <strong>similarities</strong>.</li></ul>
+<li class="fragment">The argument doesn't explicitly mention them, but we also need:</li>
+<ul><li class="fragment">The properties that the analogues <em>don't</em> share in common, which we call the <strong>dissimilarity</strong>.</li></ul>
+</ul>
+
+</section>
+
+<section>
+<h2>Ways to assess the analogy</h2>
+
+<ul>
+	<li class="fragment">Relevance of the similarities</li>
+	<li class="fragment">Number of the similarities</li>
+	<li class="fragment">Nature and degree of the dissimilarity</li>
+	<li class="fragment">Number of primary analogues</li>
+	<li class="fragment">Diversity among the primary analogues</li>
+	<li class="fragment">Specificity of the conclusion.</li>
+</ul>
+
+</section>
+
+<section>
+<h2>Relevance of the similarities</h2>
+
+<ul>
+	<li>The properties that things share in common are often shared for a reason.</li>
+	<ul><li>This is usually because the things belong to a particular <em>type</em>, all members of which have that property.</li></ul>
+	<li>But many things share properties only <em>accidentally</em></li>
+	<li>So, we want to make sure that the properties our analogy points to are ones that suggest the things belong to the same type.</li>
+	<li>This depends on what proposed property the analogy applies.</li>
+	<ul><li>We say that the similarities must be <em>relevant</em> to the proposed property.</li></ul>
+</ul>
+
+<ul><li>There is no explicit definition of relevance.</li>
+	<li>There are many different factors that can make two properties relevant to eachother.</li>
+	<li>And relevance can come in degrees</li>
+</ul>
+
+</section>
+
+<!--<section>
+<h2>Relevance of similarities</h2>
+<h4>examples</h4>
+
+</section>-->
+
+<section>
+<h2>Number of similarities</h2>
+
+<ul><li>If two things share many properties in common, then it is less likely that the similarity is <em>accidental</em></li>
+	<li>So, the greater number of similarities you can point to, the stronger the analogy becomes.</li>
+	<li>But be careful!</li>
+	<ul><li>Quantity is not a substitute for quality</li>
+		<li>If all the properties listed are irrelevant to the conclusion, then the number doesn't matter.</li></ul>
+</ul>
+
+</section>
+
+<!--<section>
+<h2>Number of similarities</h2>
+<h4>examples</h4>
+
+</section>
+-->
+<section>
+<h2>Nature and degree of disanalogy</h2>
+
+<ul>
+	<li>If you want to make two things seem very similar, it's easy to pick and choose only the properties they share.</li>
+	<li>But the two things will also have a number of differences between them.</li>
+	<li>If the differences are severe, they may outweigh the similarities.</li>
+	<li>Alternatively, if the differences are only minor, this fact can <em>strengthen</em> the overall analogy.</li>
+</ul>
+
+</section>
+
+<!--<section>
+<h2>Nature and degree of disanalogy</h2>
+<h4>examples</h4>
+
+</section>
+-->
+<section>
+<h2>Number of primary analogues</h2>
+
+<ul><li>Any two things share lots of properties in common</li>
+	<ul><li>Trees and the US government both have <em>branches</em>.</li></ul>
+	<li>So comparing only two things makes it easy to point to accidental similarities they share.</li>
+	<li>We can improve the chance that the similarities are good ones by showing that lots of things share those properties in common.</li>
+</ul>
+
+</section>
+
+<!--<section>
+<h2>Number of primary analogues</h2>
+<h4>examples</h4>
+
+</section>
+-->
+<section>
+<h2>Diversity among the primary analogues</h2>
+
+<ul>
+	<li>Just because lots of things share a set of properties doesn't mean that they belong to the same type</li>
+	<li>It's possible that there is some <em>fluke</em> reason that they all seem to be simiar</li>
+<li>The chance of a fluke is increased if all the analogues closely related.</li>
+	<li>So, we can improve the chance that the similarity is genuine by finding a <em>diverse</em> set of analogues that share all the properties in common.</li>
+</ul>
+
+</section>
+
+<!--<section>
+<h2>Diversity of primary analogues</h2>
+<h4>examples</h4>
+
+</section>
+-->
+<section>
+<h2>Specificity of the conclusion</h2>
+
+<ul>
+	<li>Properties can be specified in different ways</li>
+	<ul><li>I have <em>brown hair</em>, but I also have <em>straightish brown hair of medium length</em></li>
+		<li>Lots of people have brown hair, but much fewer have brown hair just like mine.</li></ul>
+	<li>The more specific we make a property, the less likely it is that two things will share it in common.</li>
+</ul>
+
+</section>
+
+<!--<section>
+<h2>Specificity of the conclusion</h2>
+<h4>examples</h4>
+
+</section>
+-->
+</section>
