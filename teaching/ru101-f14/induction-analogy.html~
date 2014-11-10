@@ -180,9 +180,14 @@ title: Propositional logic 4
 	<ul><li>We say that the similarities must be <em>relevant</em> to the proposed property.</li></ul>
 </ul>
 
+<section>
+<h2>Relevance of the similarities</h2>
+<h4>I know it when I see it</h4>
+
 <ul><li>There is no explicit definition of relevance.</li>
 	<li>There are many different factors that can make two properties relevant to eachother.</li>
 	<li>And relevance can come in degrees</li>
+	<li>This is one of the things that makes induction less rigorous than deduction.</li>
 </ul>
 
 </section>
