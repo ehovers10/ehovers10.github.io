@@ -1,3 +1,10 @@
+---
+layout: biblio
+title: david lewis
+subheading: bibliography
+parent: research
+---
+
 <tr id="hodges1968" class="entry">
 	<td>Hodges, W. and Lewis, D.</td>
 	<td>Finitude and Infinitude in the Atomic Calculus of Individuals</td>
@@ -619,7 +626,7 @@
 	<td>Sleeping Beauty: Reply to Elga</td>
 	<td>2001</td>
 	<td>Analysis<br/>Vol. 61(3)&nbsp;</td>
-	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis2001b','bibtex')">BibTeX</a></p><a href="http://erikhoversten.org">URL</a>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis2001b','bibtex')">BibTeX</a></p><a href="/research/library/lewis.html">URL</a>&nbsp;</td>
 </tr>
 <tr id="bib_lewis2001b" class="bibtex noshow">
 <td></td><td colspan="4"><b>BibTeX</b>:
@@ -632,7 +639,7 @@
   volume = {61},
   number = {3},
   pages = {171-176},
-  url = {http://erikhoversten.org}
+  url = {/research/library/lewis.html}
 }
 </pre></td>
 </tr><tr id="lewis2001c" class="entry">
@@ -698,7 +705,7 @@
 	<td>Papers in Metaphysics and Epistemology</td>
 	<td>1999</td>
 	<td>&nbsp;</td>
-	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1999','bibtex')">BibTeX</a></p><a href="http://erikhoversten.org">URL</a>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1999','bibtex')">BibTeX</a></p><a href="/research/library/lewis.html">URL</a>&nbsp;</td>
 </tr>
 <tr id="bib_lewis1999" class="bibtex noshow">
 <td></td><td colspan="4"><b>BibTeX</b>:
@@ -708,7 +715,7 @@
   title = {Papers in Metaphysics and Epistemology},
   publisher = {Cambridge University Press},
   year = {1999},
-  url = {http://erikhoversten.org}
+  url = {/research/library/lewis.html}
 }
 </pre></td>
 </tr><tr id="lewis1999a" class="entry">
@@ -835,7 +842,7 @@
 	<td>Naming the Colours</td>
 	<td>1997</td>
 	<td>Australasian Journal of Philosophy<br/>Vol. 75(3)&nbsp;</td>
-	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1997b','bibtex')">BibTeX</a></p><a href="http://erikhoversten.org">URL</a>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1997b','bibtex')">BibTeX</a></p><a href="/research/library/lewis.html">URL</a>&nbsp;</td>
 </tr>
 <tr id="bib_lewis1997b" class="bibtex noshow">
 <td></td><td colspan="4"><b>BibTeX</b>:
@@ -849,7 +856,7 @@
   number = {3},
   pages = {325-42},
   note = {PME 332-358},
-  url = {http://erikhoversten.org}
+  url = {/research/library/lewis.html}
 }
 </pre></td>
 </tr><tr id="lewis1996" class="entry">
@@ -878,7 +885,7 @@
 	<td>Elusive Knowledge</td>
 	<td>1996</td>
 	<td>Australasian Journal of Philosophy<br/>Vol. 74(4)&nbsp;</td>
-	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1996a','bibtex')">BibTeX</a></p><a href="http://erikhoversten.org">URL</a>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1996a','bibtex')">BibTeX</a></p><a href="/research/library/lewis.html">URL</a>&nbsp;</td>
 </tr>
 <tr id="bib_lewis1996a" class="bibtex noshow">
 <td></td><td colspan="4"><b>BibTeX</b>:
@@ -892,7 +899,7 @@
   number = {4},
   pages = {549-567},
   note = {PME 418-446},
-  url = {http://erikhoversten.org}
+  url = {/research/library/lewis.html}
 }
 </pre></td>
 </tr><tr id="lewis1996b" class="entry">
@@ -1086,7 +1093,7 @@
 	<td>Meaning without Use: Reply to Hawthorne</td>
 	<td>1992</td>
 	<td>Australasian Journal of Philosophy<br/>Vol. 70(1)&nbsp;</td>
-	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1992a','bibtex')">BibTeX</a></p><a href="http://erikhoversten.org">URL</a>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1992a','bibtex')">BibTeX</a></p><a href="/research/library/lewis.html">URL</a>&nbsp;</td>
 </tr>
 <tr id="bib_lewis1992a" class="bibtex noshow">
 <td></td><td colspan="4"><b>BibTeX</b>:
@@ -1100,7 +1107,7 @@
   number = {1},
   pages = {106-110},
   note = {PESP 145-151},
-  url = {http://erikhoversten.org}
+  url = {/research/library/lewis.html}
 }
 </pre></td>
 </tr><tr id="lewis1991" class="entry">
@@ -1413,7 +1420,7 @@
 	<td>A Comment on Armstrong and Forrest</td>
 	<td>1986</td>
 	<td>Australasian Journal of Philosophy<br/>Vol. 64(1)&nbsp;</td>
-	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1986','bibtex')">BibTeX</a></p><a href="http://erikhoversten.org">URL</a>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1986','bibtex')">BibTeX</a></p><a href="/research/library/lewis.html">URL</a>&nbsp;</td>
 </tr>
 <tr id="bib_lewis1986" class="bibtex noshow">
 <td></td><td colspan="4"><b>BibTeX</b>:
@@ -1427,7 +1434,7 @@
   number = {1},
   pages = {92-93},
   note = {PME 108-110},
-  url = {http://erikhoversten.org}
+  url = {/research/library/lewis.html}
 }
 </pre></td>
 </tr><tr id="lewis1986a" class="entry">
@@ -1435,7 +1442,7 @@
 	<td>Against Structural Universals</td>
 	<td>1986</td>
 	<td>Australasian Journal of Philosophy<br/>Vol. 64(1)&nbsp;</td>
-	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1986a','bibtex')">BibTeX</a></p><a href="http://erikhoversten.org">URL</a>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1986a','bibtex')">BibTeX</a></p><a href="/research/library/lewis.html">URL</a>&nbsp;</td>
 </tr>
 <tr id="bib_lewis1986a" class="bibtex noshow">
 <td></td><td colspan="4"><b>BibTeX</b>:
@@ -1449,7 +1456,7 @@
   number = {1},
   pages = {25-46},
   note = {PME 78-107},
-  url = {http://erikhoversten.org}
+  url = {/research/library/lewis.html}
 }
 </pre></td>
 </tr><tr id="lewis1986b" class="entry">
@@ -1595,7 +1602,7 @@
 	<td>Extrinsic Properties</td>
 	<td>1983</td>
 	<td>Philosophical Studies<br/>Vol. 44(2)&nbsp;</td>
-	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1983','bibtex')">BibTeX</a></p><a href="http://erikhoversten.org">URL</a>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1983','bibtex')">BibTeX</a></p><a href="/research/library/lewis.html">URL</a>&nbsp;</td>
 </tr>
 <tr id="bib_lewis1983" class="bibtex noshow">
 <td></td><td colspan="4"><b>BibTeX</b>:
@@ -1609,7 +1616,7 @@
   number = {2},
   pages = {197-200},
   note = {PME 111-115},
-  url = {http://erikhoversten.org}
+  url = {/research/library/lewis.html}
 }
 </pre></td>
 </tr><tr id="lewis1983a" class="entry">
@@ -1617,7 +1624,7 @@
 	<td>Individuation by Acquaintance and by Stipulation</td>
 	<td>1983</td>
 	<td>Philosophical Review<br/>Vol. 92(1)&nbsp;</td>
-	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1983a','bibtex')">BibTeX</a></p><a href="http://erikhoversten.org">URL</a>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1983a','bibtex')">BibTeX</a></p><a href="/research/library/lewis.html">URL</a>&nbsp;</td>
 </tr>
 <tr id="bib_lewis1983a" class="bibtex noshow">
 <td></td><td colspan="4"><b>BibTeX</b>:
@@ -1631,7 +1638,7 @@
   number = {1},
   pages = {3-32},
   note = {PME 373-402},
-  url = {http://erikhoversten.org}
+  url = {/research/library/lewis.html}
 }
 </pre></td>
 </tr><tr id="lewis1983b" class="entry">
@@ -1761,7 +1768,7 @@
 	<td>Ordering Semantics and Premise Semantics for Counterfactuals</td>
 	<td>1981</td>
 	<td>Journal of Philosophical Logic<br/>Vol. 10(2)&nbsp;</td>
-	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1981c','bibtex')">BibTeX</a></p><a href="http://erikhoversten.org">URL</a>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1981c','bibtex')">BibTeX</a></p><a href="/research/library/lewis.html">URL</a>&nbsp;</td>
 </tr>
 <tr id="bib_lewis1981c" class="bibtex noshow">
 <td></td><td colspan="4"><b>BibTeX</b>:
@@ -1775,7 +1782,7 @@
   number = {2},
   pages = {217-234},
   note = {PPL 77-96},
-  url = {http://erikhoversten.org}
+  url = {/research/library/lewis.html}
 }
 </pre></td>
 </tr><tr id="lewis1981d" class="entry">
@@ -1867,7 +1874,7 @@
 	<td>Attitudes <em>De Dicto</em> and <em>De Se</em></td>
 	<td>1979</td>
 	<td>Philosophical Review<br/>Vol. 88(4)&nbsp;</td>
-	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1979a','bibtex')">BibTeX</a></p><a href="http://erikhoversten.org">URL</a>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1979a','bibtex')">BibTeX</a></p><a href="/research/library/lewis.html">URL</a>&nbsp;</td>
 </tr>
 <tr id="bib_lewis1979a" class="bibtex noshow">
 <td></td><td colspan="4"><b>BibTeX</b>:
@@ -1881,7 +1888,7 @@
   number = {4},
   pages = {513-543},
   note = {PPI 133-156},
-  url = {http://erikhoversten.org}
+  url = {/research/library/lewis.html}
 }
 </pre></td>
 </tr><tr id="lewis1979b" class="entry">
@@ -1952,7 +1959,7 @@
 	<td>Scorekeeping in a Language Game</td>
 	<td>1979</td>
 	<td>Journal of Philosophical Logic<br/>Vol. 8(1)&nbsp;</td>
-	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1979e','bibtex')">BibTeX</a></p><a href="http://erikhoversten.org">URL</a>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1979e','bibtex')">BibTeX</a></p><a href="/research/library/lewis.html">URL</a>&nbsp;</td>
 </tr>
 <tr id="bib_lewis1979e" class="bibtex noshow">
 <td></td><td colspan="4"><b>BibTeX</b>:
@@ -1966,7 +1973,7 @@
   number = {1},
   pages = {339-359},
   note = {PPI 233-249},
-  url = {http://erikhoversten.org}
+  url = {/research/library/lewis.html}
 }
 </pre></td>
 </tr><tr id="lewis1978" class="entry">
@@ -2161,7 +2168,7 @@
 	<td>Radical Interpretation</td>
 	<td>1974</td>
 	<td>Synthese<br/>Vol. 27(3-4)&nbsp;</td>
-	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1974b','bibtex')">BibTeX</a></p><a href="http://erikhoversten.org">URL</a>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1974b','bibtex')">BibTeX</a></p><a href="/research/library/lewis.html">URL</a>&nbsp;</td>
 </tr>
 <tr id="bib_lewis1974b" class="bibtex noshow">
 <td></td><td colspan="4"><b>BibTeX</b>:
@@ -2175,7 +2182,7 @@
   number = {3-4},
   pages = {331-344},
   note = {PPI 108-118},
-  url = {http://erikhoversten.org}
+  url = {/research/library/lewis.html}
 }
 </pre></td>
 </tr><tr id="lewis1974d" class="entry">
@@ -2241,7 +2248,7 @@
 	<td>Counterfactuals and Comparative Possibility</td>
 	<td>1973</td>
 	<td>Journal of Philosophical Logic<br/>Vol. 2(4)&nbsp;</td>
-	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1973b','bibtex')">BibTeX</a></p><a href="http://erikhoversten.org">URL</a>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1973b','bibtex')">BibTeX</a></p><a href="/research/library/lewis.html">URL</a>&nbsp;</td>
 </tr>
 <tr id="bib_lewis1973b" class="bibtex noshow">
 <td></td><td colspan="4"><b>BibTeX</b>:
@@ -2255,7 +2262,7 @@
   number = {4},
   pages = {418-446},
   note = {PPII 3-31},
-  url = {http://erikhoversten.org}
+  url = {/research/library/lewis.html}
 }
 </pre></td>
 </tr><tr id="lewis1973c" class="entry">
@@ -2387,7 +2394,7 @@
 	<td>Immodest Inductive Methods</td>
 	<td>1971</td>
 	<td>Philosophy of Science<br/>Vol. 38(1)&nbsp;</td>
-	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1971d','bibtex')">BibTeX</a></p><a href="http://erikhoversten.org">URL</a>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1971d','bibtex')">BibTeX</a></p><a href="/research/library/lewis.html">URL</a>&nbsp;</td>
 </tr>
 <tr id="bib_lewis1971d" class="bibtex noshow">
 <td></td><td colspan="4"><b>BibTeX</b>:
@@ -2400,7 +2407,7 @@
   volume = {38},
   number = {1},
   pages = {54-63},
-  url = {http://erikhoversten.org}
+  url = {/research/library/lewis.html}
 }
 </pre></td>
 </tr><tr id="lewis1970" class="entry">
@@ -2429,7 +2436,7 @@
 	<td>General Semantics</td>
 	<td>1970</td>
 	<td>Synthese<br/>Vol. 22(1-2)&nbsp;</td>
-	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1970a','bibtex')">BibTeX</a></p><a href="http://erikhoversten.org">URL</a>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('lewis1970a','bibtex')">BibTeX</a></p><a href="/research/library/lewis.html">URL</a>&nbsp;</td>
 </tr>
 <tr id="bib_lewis1970a" class="bibtex noshow">
 <td></td><td colspan="4"><b>BibTeX</b>:
@@ -2443,7 +2450,7 @@
   number = {1-2},
   pages = {18-67},
   note = {PPI 189-229},
-  url = {http://erikhoversten.org}
+  url = {/research/library/lewis.html}
 }
 </pre></td>
 </tr><tr id="lewis1970c" class="entry">
