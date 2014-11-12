@@ -94,7 +94,7 @@ a:hover { text-decoration: underline; }
 
 .thumbbox {
 	<!--z-index: 21;
-	width: 80%;
+	width: 75%;
 	max-height: 400px;
 	margin: 20px;
 	padding: 20px;

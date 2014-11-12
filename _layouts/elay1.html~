@@ -6,10 +6,6 @@
 
 <div id="main">
     {{ content }}
-    
-    {% if page.parent %}
-    	{% include return-to-parent.html %}
-    {% endif %}
 </div>
 
 {% include foot.html %}

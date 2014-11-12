@@ -23,6 +23,8 @@ body {
 	#side-bar {	width: 40%; }
 }
 
+form { margin: 0; }
+
 h1,h2 { font-family: finalfrontier; }
 
 a {
@@ -39,6 +41,159 @@ a:hover { text-decoration: underline; }
 .text { background: url('/images/nice_snow.png'); }
 .pic { background: url('/images/green_cup.png'); }
 .noshow { display: none; }
+
+
+#header {
+	margin: auto;
+	width: 100%;
+	height: 105px;
+	background: url('/images/teton-sky.jpg') repeat;
+	border: groove SteelBlue;
+	<!--line-height: 1em;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+#headbg {
+	margin: auto;
+	width: 100%;
+	height: 105px;
+	background: SteelBlue;
+	opacity: 0.8;
+}
+
+#header h1 { font-size: 40px; color: #fff; }
+#header h2 { padding-top: 50px; font-size: 22px; color: #fff; }
+
+/* Navigation */
+
+#nav-bar { 
+	margin: 20px auto;
+	width: 100%;
+	background: url('/images/nice_snow.png'); 
+	border: groove SteelBlue; 
+	<!--border-top: none;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+#nav-bar a {
+	text-align: center;
+	font-family: finalfrontier;
+	font-weight: bold;
+	padding: 0.3em 1em;
+	display: inline-block;
+	<!--border-left: 1px solid SteelBlue;
+}
+
+#nav-bar a:hover {
+	text-decoration: none;
+	background-color: SteelBlue;
+	opacity: 0.8;
+	color: #fff;
+}
+
+.active {
+	text-decoration: none;
+	background-color: SlateGray;
+	opacity: 1;
+	color: #fff;
+}
+
+
+#search input {
+	width: 150px;
+	height: 18px;
+	border: 2px groove #4682B4;
+	margin: 0.3em 1em;
+	border-radius: 8px;
+	background: url('/images/nice_snow.png');
+	font-family: finalfrontier; 
+	color: DarkSlateGray;
+}
+
+#arrow-nav { position: fixed; top: 300px; }
+#arrow-nav a:hover { opacity: 1.0; }
+#to-top { position: fixed; bottom: 25px; }
+
+#main {
+	margin: 20px auto;
+	width: 100%;
+	background: #fff url('/images/nice_snow.png');
+	border: groove SteelBlue;
+	border-bottom: none;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+#content {
+	text-align: justify;
+	color: DarkSlateGray;
+	font-size: 13px;
+	padding: 20px;
+}
+
+#content h2 { 
+	width: 50%; 
+	font-size: 17px; 
+	color: DarkSlateGray; 
+	border-bottom: solid SteelBlue; 
+}
+
+#content table { 
+	padding-left: 40px; 
+	color: DarkSlateGray;
+	font-size: 13px;
+	<!--width: 75%;
+}
+
+#content ul { list-style-type: circle; width: 75%; }
+
+#side-bar {
+	float: right;
+	background: #fff url('/images/green_cup.png');
+	border: groove SteelBlue;
+	margin: 20px;
+	text-align: justify;
+	color: DarkSlateGray;
+	font-size: 13px;
+}
+
+#side-bar img { width: 100%; }
+#side-bar ul { padding: 0 20px 0 40px; list-style-type: none; }
+#side-bar p { padding: 0 20px; }
+
+#side-bar h2 { margin-left: 20px; width: 75%; font-size: 17px; color: DarkSlateGray; border-bottom: solid SteelBlue;}
+
+#dropitto {
+  -moz-transform: scale(0.7, 0.7); 
+  -webkit-transform: scale(0.7, 0.7); 
+  -o-transform: scale(0.7, 0.7); 
+  -ms-transform: scale(0.7, 0.7); 
+  transform: scale(0.7, 0.7); 
+  -moz-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  -o-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+}
+
+#footer {
+	margin: -20px auto 50px;
+	width: 100%;
+	position: relative;
+	font-family: finalfrontier;
+	<!--color: #fff;
+	height: 30px;
+	<!--font-size: small;
+	background: SteelBlue;
+	opacity: 1.0;
+	border: groove SteelBlue;
+	border-top: none;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+#footer p { font-size: small; color: #fff; }
+#footer a { color: #fff; }
+
+/* Popouts */
 
 .lightbox {
 	display:  none;
@@ -137,154 +292,4 @@ a:hover { text-decoration: underline; }
 }
 
 .embiggen:hover::after { opacity: 1; }
-
-#header {
-	margin: auto;
-	width: 100%;
-	height: 105px;
-	background: url('/images/teton-sky.jpg') repeat;
-	border: groove SteelBlue;
-	<!--line-height: 1em;
-	box-shadow: 10px 10px 5px #888888;
-}
-
-#headbg {
-	margin: auto;
-	width: 100%;
-	height: 105px;
-	background: SteelBlue;
-	opacity: 0.8;
-}
-
-#header h1 { font-size: 40px; color: #fff; }
-#header h2 { padding-top: 50px; font-size: 22px; color: #fff; }
-
-/* Navigation */
-
-#nav-bar { 
-	margin: 20px auto;
-	width: 100%;
-   background: url('/images/nice_snow.png'); 
-	border: groove SteelBlue; 
-	<!--border-top: none;
-	box-shadow: 10px 10px 5px #888888;
-}
-
-#nav-bar a {
-	text-align: center;
-	font-family: finalfrontier;
-	font-weight: bold;
-	padding: 0.3em 1em;
-	display: inline-block;
-	<!--border-left: 1px solid SteelBlue;
-}
-
-#nav-bar a:hover {
-	text-decoration: none;
-	background-color: SteelBlue;
-	opacity: 0.8;
-	color: #fff;
-}
-
-.active {
-	text-decoration: none;
-	background-color: SlateGray;
-	opacity: 1;
-	color: #fff;
-}
-
-#arrow-nav { position: fixed; top: 300px; }
-#arrow-nav a:hover { opacity: 1.0; }
-#to-top { position: fixed; bottom: 25px; }
-
-#main {
-	margin: 20px auto;
-	width: 100%;
-	background: #fff url('/images/nice_snow.png');
-	border: groove SteelBlue;
-	border-bottom: none;
-	box-shadow: 10px 10px 5px #888888;
-}
-
-#content {
-	text-align: justify;
-	color: DarkSlateGray;
-	font-size: 13px;
-	padding: 20px;
-}
-
-#content h2 { 
-	width: 50%; 
-	font-size: 17px; 
-	color: DarkSlateGray; 
-	border-bottom: solid SteelBlue; 
-}
-
-#content table { 
-	padding-left: 40px; 
-	color: DarkSlateGray;
-	font-size: 13px;
-	<!--width: 75%;
-}
-
-#content ul { list-style-type: circle; width: 75%; }
-
-#side-bar {
-	float: right;
-	background: #fff url('/images/green_cup.png');
-	border: groove SteelBlue;
-	margin: 20px;
-	text-align: justify;
-	color: DarkSlateGray;
-	font-size: 13px;
-}
-
-#side-bar img { width: 100%; }
-#side-bar ul { padding: 0 20px 0 40px; list-style-type: none; }
-#side-bar p { padding: 0 20px; }
-
-#side-bar h2 { margin-left: 20px; width: 75%; font-size: 17px; color: DarkSlateGray; border-bottom: solid SteelBlue;}
-
-#search input {
-	width: 150px;
-	height: 18px;
-	border: 2px groove #4682B4;
-	margin: 0.3em 1em 0.2em;
-	border-radius: 8px;
-	background: url('/images/nice_snow.png');
-	font-family: finalfrontier; 
-	color: DarkSlateGray;
-}
-
-#dropitto {
-  -moz-transform: scale(0.7, 0.7); 
-  -webkit-transform: scale(0.7, 0.7); 
-  -o-transform: scale(0.7, 0.7); 
-  -ms-transform: scale(0.7, 0.7); 
-  transform: scale(0.7, 0.7); 
-  -moz-transform-origin: top left;
-  -webkit-transform-origin: top left;
-  -o-transform-origin: top left;
-  -ms-transform-origin: top left;
-  transform-origin: top left;
-}
-
-#footer {
-	margin: -20px auto 50px;
-	width: 100%;
-	position: relative;
-	font-family: finalfrontier;
-	<!--color: #fff;
-	height: 30px;
-	<!--font-size: small;
-	background: SteelBlue;
-	opacity: 1.0;
-	border: groove SteelBlue;
-	border-top: none;
-	box-shadow: 10px 10px 5px #888888;
-}
-
-#footer p { font-size: small; color: #fff; }
-#footer a { color: #fff; }
-
 
