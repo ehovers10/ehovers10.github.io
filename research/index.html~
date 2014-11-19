@@ -43,5 +43,5 @@ date: 2014-09-27 02:00
 		<li>This website, powered by jekyll (<a href="https://github.com/ehovers10/ehovers10.github.io/tree/simulate">github</a>)</li>	
 	</ul>
 	
-	{% include abstracts.html}
+	{% include abstracts.html %}
 </div>	
