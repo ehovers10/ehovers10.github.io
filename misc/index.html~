@@ -50,7 +50,6 @@ date: 2014-09-27 04:00
 
 	<h2>some nature pics</h2>	<a name="nature"></a>
 	
-	<div class="thumbbox">
 		<a href="#pop-hp"><div class="embiggen" name="highland park"><img src="/images/pics/hp.jpg" alt=""></div></a>
 		
 		<a href="#pop-gus"><div class="embiggen" name="happy dogs"><img src="/images/pics/gusandmae.jpg" alt=""></div></a>
@@ -64,11 +63,13 @@ date: 2014-09-27 04:00
 		<a href="#pop-misty"><div class="embiggen" name="misty scene"><img src="/images/pics/misty.jpg" alt=""></div></a>
 		
 		<a href="#pop-moose"><div class="embiggen" name="moose"><img src="/images/pics/moose.jpg" alt=""></div></a>
-	</div>
+	
+	{% include pop-nature.html %}
+	
+	<div style="clear: both;"></div>
 
 	<h2>some lighting creations</h2><a name="lights"></a>
-	
-	<div class="thumbbox">
+
 		<a href="#pop-model001"><div class="embiggen" name="model 001"><img src="/images/pics/pitbull-chick.jpg" alt=""></div></a>
 		
 		<a href="#pop-model002"><div class="embiggen" name="model 002"><img class="pic" src="/images/pics/hypno-toad.jpg" alt=""></div></a>
@@ -77,8 +78,6 @@ date: 2014-09-27 04:00
 		
 		<a href="#pop-model004"><div class="embiggen" name="model 004"><img class="pic" src="/images/pics/cmdr-cody.jpg" alt=""></div></a>
 		
-		<div style="clear: both;"></div>
-		
 		<div class="embiggen"><img class="pic" src="/images/pics/pitbull-chick.jpg" alt="" title="model001"></div>
 		
 		<div class="embiggen"><img class="pic" src="/images/pics/hypno-toad.jpg" alt="" title="model002"></div>
@@ -86,9 +85,10 @@ date: 2014-09-27 04:00
 		<div class="embiggen"><img class="pic" src="/images/pics/pump-kins.jpg" alt="" title="model003"></div>
 		
 		<a href="#pop-hp"><div class="embiggen"><img class="pic" src="/images/pics/hp.jpg" alt=""></div></a>
-	</div>
+		
+	{% include pop-lights.html %}
 	
-{% include pop-lights.html %}
+	<div style="clear: both;"></div>
 </div>
 
 	

@@ -1,5 +1,6 @@
 <!-- Site navigation menu -->
 	<div id="nav-bar">
+		<div style="clear: right;"></div>
 		{% capture cat %}{% if page.category %}{{page.category}}{% else %}esite{% endif %}{% endcapture %}
 		
 		{% assign current = page %}
@@ -27,10 +28,11 @@
 					<a href="/{{enav[i].subheading | slugify}}/">{{enav[i].subheading}}</a>
 				{% endif %}
 			{% endif %}
-		{% endfor %}
-		
+		{% endfor %}	
+
 		<div class="alignright">{% include ddg-search.html %}</div>
 	</div>
 	
 <!-- Arrow navigation -->
 	{% include arrow-nav.html %}
+	

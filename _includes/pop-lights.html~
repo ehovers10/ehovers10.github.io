@@ -1,109 +1,101 @@
 <!--Model 001-->
-<div id="pop-model001" class="lightbox">
-	<a href="#lights"><img class="popclose" src="/images/close.png" title="close"></a>	
-	<div class="popbox pic">
-	<h3>model 001</h3>
-	<div class="popmain">
-		<img src="/images/pics/pitbull-chick.jpg" alt="" title="model 001">
-	</div></div>
-</div>
+<div id="pop-model001a" class="lightbox">
+
+	<div class="popbox">
+	
+	<div class="poptitle">
+	<h3 class="alignleft">model 001</h3>
+	<a href="#lights"><img class="alignright" src="/images/close.png" title="close"></a>
+	<!--<div style="clear: both;"></div>-->
+	</div>
+	
+	<div class="popmain vpic">
+		<img src="/images/pics/lamp-model001a.jpg" alt="" title="model 001">
+</div></div></div>
+
+<div id="pop-model001b" class="lightbox">
+	
+	<div class="popbox">
+	
+	<div class="poptitle">
+	<h3 class="alignleft">model 001</h3>
+	<a href="#lights"><img class="alignright" src="/images/close.png" title="close"></a>
+	<div style="clear: both;"></div>
+	</div>
+	
+	<div class="popmain vpic">
+		<img src="/images/pics/lamp-model001b.jpg" alt="" title="model 001">
+</div></div></div>
 
 <!--Model 002-->
-<div id="pop-model002" class="lightbox">
-	<a href="#lights"><img class="popclose" src="/images/close.png" title="close"></a>	
-	<div class="popbox pic">
-	<h3>model 002</h3>
-	<div class="popmain">
-		<img src="/images/pics/hypno-toad.jpg" alt="" title="model 002">
-	</div></div>
-</div>
+<div id="pop-model002a" class="lightbox">
+	
+	<div class="popbox">
+	
+	<div class="poptitle">
+	<h3 class="alignleft">model 002</h3>
+	<a href="#lights"><img class="alignright" src="/images/close.png" title="close"></a>
+	<div style="clear: both;"></div>
+	</div>
+	
+	<div class="popmain vpic">
+		<img src="/images/pics/lamp-model002a.jpg" alt="" title="model 002">
+</div></div></div>
+
+<div id="pop-model002b" class="lightbox">
+	
+	<div class="popbox">
+	
+	<div class="poptitle">
+	<h3 class="alignleft">model 002</h3>
+	<a href="#lights"><img class="alignright" src="/images/close.png" title="close"></a>
+	<div style="clear: both;"></div>
+	</div>
+	
+	<div class="popmain vpic">
+		<img src="/images/pics/lamp-model002b.jpg" alt="" title="model 002">
+</div></div></div>
 
 <!--Model 003-->
-<div id="pop-model003" class="lightbox">
-	<a href="#lights"><img class="popclose" src="/images/close.png" title="close"></a>	
-	<div class="popbox pic">
-	<h3>model 003</h3>
-	<div class="popmain">
-		<img src="/images/pics/pump-kins.jpg" alt="" title="model 003">
-	</div></div>
-</div>
+<div id="pop-model003a" class="lightbox">
+	
+	<div class="popbox">
+	
+	<div class="poptitle">
+	<h3 class="alignleft">model 003</h3>
+	<a href="#lights"><img class="alignright" src="/images/close.png" title="close"></a>
+	<div style="clear: both;"></div>
+	</div>
+	
+	<div class="popmain vpic">
+		<img src="/images/pics/lamp-model003a.jpg" alt="" title="model 003">
+</div></div></div>
+
+<div id="pop-model003b" class="lightbox">
+	
+	<div class="popbox">
+	
+	<div class="poptitle">
+	<h3 class="alignleft">model 003</h3>
+	<a href="#lights"><img class="alignright" src="/images/close.png" title="close"></a>
+	<div style="clear: both;"></div>
+	</div>
+	
+	<div class="popmain vpic">
+		<img src="/images/pics/lamp-model003b.jpg" alt="" title="model 002">
+</div></div></div>
 
 <!--Model 004-->
 <div id="pop-model004" class="lightbox">
-	<a href="#lights"><img class="popclose" src="/images/close.png" title="close"></a>	
-	<div class="popbox pic">
-	<h3>model 004</h3>
-	<div class="popmain">
+	
+	<div class="popbox">
+	
+	<div class="poptitle">
+	<h3 class="alignleft">model 004</h3>
+	<a href="#lights"><img class="alignright" src="/images/close.png" title="close"></a>
+	<div style="clear: both;"></div>
+	</div>
+	
+	<div class="popmain vpic">
 		<img src="/images/pics/cmdr-cody.jpg" alt="" title="model 004">
-	</div></div>
-</div>
-
-<!--HP-->
-<div id="pop-hp" class="lightbox">
-	<a href="#lights"><img class="popclose" src="/images/close.png" title="close"></a>	
-	<div class="popbox pic">
-	<h3>highland park</h3>
-	<div class="popmain">
-		<img src="/images/pics/hp.jpg" alt="" title="model 004">
-	</div></div>
-</div>
-
-<!--Gus-->
-<div id="pop-gus" class="lightbox">
-	<a href="#lights"><img class="popclose" src="/images/close.png" title="close"></a>	
-	<div class="popbox pic">
-	<h3>highland park</h3>
-	<div class="popmain">
-		<img src="/images/pics/gusandmae.jpg" alt="" title="model 004">
-	</div></div>
-</div>
-
-<!--Paint-->
-<div id="pop-paint" class="lightbox">
-	<a href="#lights"><img class="popclose" src="/images/close.png" title="close"></a>	
-	<div class="popbox pic">
-	<h3>highland park</h3>
-	<div class="popmain">
-		<img src="/images/pics/indian-paintbrush.jpg" alt="" title="model 004">
-	</div></div>
-</div>
-
-<!--Kerney-->
-<div id="pop-kerney" class="lightbox">
-	<a href="#lights"><img class="popclose" src="/images/close.png" title="close"></a>	
-	<div class="popbox pic">
-	<h3>highland park</h3>
-	<div class="popmain">
-		<img src="/images/pics/kerney.jpg" alt="" title="model 004">
-	</div></div>
-</div>
-
-<!--Loomis-->
-<div id="pop-loomis" class="lightbox">
-	<a href="#lights"><img class="popclose" src="/images/close.png" title="close"></a>	
-	<div class="popbox pic">
-	<h3>highland park</h3>
-	<div class="popmain">
-		<img src="/images/pics/loomis.jpg" alt="" title="model 004">
-	</div></div>
-</div>
-
-<!--Misty-->
-<div id="pop-misty" class="lightbox">
-	<a href="#lights"><img class="popclose" src="/images/close.png" title="close"></a>	
-	<div class="popbox pic">
-	<h3>highland park</h3>
-	<div class="popmain">
-		<img src="/images/pics/misty.jpg" alt="" title="model 004">
-	</div></div>
-</div>
-
-<!--Moose-->
-<div id="pop-moose" class="lightbox">
-	<a href="#lights"><img class="popclose" src="/images/close.png" title="close"></a>	
-	<div class="popbox pic">
-	<h3>highland park</h3>
-	<div class="popmain">
-		<img src="/images/pics/moose.jpg" alt="" title="model 004">
-	</div></div>
-</div>
+</div></div></div>

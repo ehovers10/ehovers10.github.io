@@ -5,7 +5,9 @@
 {% include navigation.html %}
 
 <div id="main">
-    {{ content }}
+	<div style="clear: right;"></div>
+	{{ content }}
+	<div style="clear: right;"></div>
 </div>
 
 {% include foot.html %}
