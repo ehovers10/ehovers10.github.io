@@ -1,6 +1,7 @@
 <!-- Site navigation menu -->
 	<div style="clear: both;"></div>
 	<div id="nav-bar">
+		<div class="alignleft">
 		{% capture cat %}{% if page.category %}{{page.category}}{% else %}esite{% endif %}{% endcapture %}
 		
 		{% assign current = page %}
@@ -29,7 +30,9 @@
 				{% endif %}
 			{% endif %}
 		{% endfor %}	
+		</div>
 		<div class="alignright">{% include ddg-search.html %}</div>
+		<div style="clear: both;"></div>
 	</div>
 	
 <!-- Arrow navigation -->

@@ -6,7 +6,7 @@ body {
   	background: url('/images/green_cup.png') repeat;
   	<!--background-color: #6B8F5E;
   	font-family: Verbana, sans-serif;
-  	<!--font-family: Georgia, "Times New Roman",
+  	font-family: Georgia, "Times New Roman",
 			Times, serif;
 	<!--font-size: small;
 	line-height: 1.25em; 
@@ -262,7 +262,7 @@ a:hover { text-decoration: underline; }
 	margin-left: 50%;
 	margin-right: -50%;
 	transform: translate(-50%, 0%);
-	max-height: 300px;
+	max-height: 500px;
 	overflow-y: auto;
 }
 
@@ -286,16 +286,16 @@ a:hover { text-decoration: underline; }
 	text-align: left;
 	<!--font-weight: bold;
 	font-size: 14px;
-	padding-top: 5%;
-	padding-left: 5%;
+	<!--padding: 5%;
 	color: #fff;
 	<!--display: none;
-	width: 95%;
+	width: 100%;
 	height: 30%;
-	top: 68%; left: 0;
-   background-color: rgba(0,0,0,0.8);
-   opacity: 0;
-   border-radius: 0 0 8px 8px;
+	top: 70%; left: 0;
+	background-color: rgba(0,0,0,0.8);
+	opacity: 0;
+	border: 1px solid black;
+	border-radius: 0 0 8px 8px;
 }
 
 .embiggen:hover::after { opacity: 1; }
