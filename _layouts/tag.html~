@@ -1,6 +1,6 @@
 ---
 layout: child
-title: Posts tagged with: {{ page.tag }}
+title: Posts by tag
 subheading: blog posts
 parent: blog
 ---
