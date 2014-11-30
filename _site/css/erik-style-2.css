@@ -234,6 +234,8 @@ a:hover { text-decoration: underline; }
 	background-color: transparent;
 }
 
+.poptitle a { color: DarkSlateGray; }
+
 .poptitle h3 { 
 	text-align: center;
 	width: 90%;

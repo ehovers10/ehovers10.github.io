@@ -18,6 +18,6 @@
 		<div id="headbg">
 			<h1 class="alignleft">{{page.title}}</h1>
 			<h2 class="alignright">{{page.subheading}}</h2>
-						<div style="clear: both;"></div>
+			<div style="clear: both;"></div>
 		</div>
 	</div>
