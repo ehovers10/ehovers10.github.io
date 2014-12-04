@@ -1,76 +1,10 @@
 <!-- Site navigation menu -->
-	<div style="clear: both;"></div>
-	<div id="nav-bar">
-		<div class="alignleft">
-		{% capture cat %}{% if page.category %}{{page.category}}{% else %}esite{% endif %}{% endcapture %}
-		
-		{% assign current = page %}
-		
-		{% assign enav = site.pages | where: "category" , cat | sort: 'date' %}
-		{% assign num = enav.size | minus: 1 %}
-		
-		{% if page.category == home %}
-			<a class="active" href="/">home</a>
-		{% else %}
-			<a href="/">home</a>
-		{% endif %}
-		
-		{% for i in (1...num) %}
-			{% if enav[i] == current %}
-				{% if enav[i].parent %}
-					<a class="active" href="/{{enav[i].parent}}/{{enav[i].subheading | slugify}}/">{{enav[i].subheading}}</a>
-				{% else %}
-					<a class="active" href="/{{enav[i].subheading | slugify}}/">{{enav[i].subheading}}</a>
-				{% endif %}
-			{% else %}
-				{% if enav[i].parent %}
-					<a href="/{{enav[i].parent}}/{{enav[i].subheading | slugify}}/">{{enav[i].subheading}}</a>
-				{% else %}
-					<a href="/{{enav[i].subheading | slugify}}/">{{enav[i].subheading}}</a>
-				{% endif %}
-			{% endif %}
-		{% endfor %}	
-		</div>
-		<div class="alignright">{% include ddg-search.html %}</div>
-		<div style="clear: both;"></div>
-	</div>
-	
-<!-- Hidden nav for small screens -->
-	<div id="nav-hide">
-		NAV
-		
-	<div id="nav-embiggen">
-		{% capture cat %}{% if page.category %}{{page.category}}{% else %}esite{% endif %}{% endcapture %}
-		
-		{% assign current = page %}
-		
-		{% assign enav = site.pages | where: "category" , cat | sort: 'date' %}
-		{% assign num = enav.size | minus: 1 %}
-		
-		{% if page.category == home %}
-			<a class="active" href="/">home</a>
-		{% else %}
-			<a href="/">home</a>
-		{% endif %}
-		
-		{% for i in (1...num) %}
-			{% if enav[i] == current %}
-				{% if enav[i].parent %}
-					<a class="active" href="/{{enav[i].parent}}/{{enav[i].subheading | slugify}}/">{{enav[i].subheading}}</a>
-				{% else %}
-					<a class="active" href="/{{enav[i].subheading | slugify}}/">{{enav[i].subheading}}</a>
-				{% endif %}
-			{% else %}
-				{% if enav[i].parent %}
-					<a href="/{{enav[i].parent}}/{{enav[i].subheading | slugify}}/">{{enav[i].subheading}}</a>
-				{% else %}
-					<a href="/{{enav[i].subheading | slugify}}/">{{enav[i].subheading}}</a>
-				{% endif %}
-			{% endif %}
-		{% endfor %}
-	</div>
-	</div>
-	
+{% include nav-large.html %}
+
+{% include nav-small.html %}
+
+<div style="clear: both;"></div>
+
 <!-- Arrow navigation -->
-	{% include arrow-nav.html %}
+{% include arrow-nav.html %}
 	

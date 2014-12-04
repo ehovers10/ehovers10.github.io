@@ -37,8 +37,6 @@ a:hover {
 .alignleft { float: left; padding-left: 3%; }
 .alignright { float: right; padding-right: 3%; }
 
-.noshow { display: none; }
-
 #wrap {
 	margin: 0;
 	width: 100%;
@@ -46,7 +44,7 @@ a:hover {
 	
 }
 
-#header {
+#banner {
 	margin: 0;
 	width: 100%;
 	height: 150px;
@@ -57,7 +55,7 @@ a:hover {
 	line-height: 1em;
 }
 
-#headbg {
+#banner-bg {
 	margin: inherit;
 	width: 100%;
 	height: 150px;
@@ -66,23 +64,26 @@ a:hover {
 	<!--opacity: 0.8;
 }
 
-#header h1 { margin: 0; padding-top: 80px; width: 100%; text-align: center; font-size: 50px; color: #fff; }
-#header h2 { margin: 0; padding-top: 1em; width: 100%; text-align: center;font-size: 17px; color: #fff; }
+#banner h1 { margin: 0; padding-top: 80px; width: 100%; text-align: center; font-size: 50px; color: #fff; }
+#banner h2 { margin: 0; padding-top: 1em; width: 100%; text-align: center;font-size: 17px; color: #fff; }
 
 #etitle { 
 	position: fixed;
-	top: 125px;
+	top: 100px;
 	left: 15%;
-	margin-left: -25px;
+	width: 10%;
 	color: DarkSlateGray;
-	opacity: 1;
 	z-index: -1;
 }
-
-
+#etitle h2 {
+	width: 100%;
+	text-align: right;
+	font-size: 1.5em;
+	<!--padding-right: 20px;
+}
 
 #search input {
-	width: 125px;
+	width: 100%;
 	height: 18px;
 	border: 2px groove #4682B4;
 	margin-top: 2px;
@@ -92,32 +93,25 @@ a:hover {
 	color: DarkSlateGray;
 }
 
-@media all and (min-device-width: 600px) {
+@media all and (min-width: 900px) {
 	
 #main { width: 65%; left: 25%; }
 
 #nav-bar { 
 	position: fixed;
 	left: 15%;
-	<!--margin-right: 175px;
 	top: 170px;
-	<!--margin: auto;
 	width: 10%;
-	text-align: right;
 	background: #fff; 
-	border-radius: 8px;
-	<!--border: groove SteelBlue; 
-	<!--box-shadow: 10px 10px 5px #888888;
 }
 
 #nav-bar a {
-	float: right;
+	text-align: right;
 	width: 100%;
 	font-family: finalfrontier;
 	font-weight: bold;
 	font-size: 1.25em;
-	padding: 1.75em, 1em;
-	padding-right: 20px;
+	margin-right: 20px;
 	display: table;
 	<!--opacity: 0.8;
 }
@@ -136,23 +130,22 @@ a:hover {
 	color: #fff;
 }
 
-#nav-hide { display: none; }
+
+#nav-small { display: none; }
 #nav-embiggen { display: none; }
 }
 
-@media all and (max-device-width: 599px) {
+@media all and (max-width: 899px) {
 	
 #main { width: 90%; left: 5%; }
 	
-#nav-hide {
+#nav-small {
 	position: fixed;
 	top: 36px;
 	left: 0;
-	background: #BDB76B;
+	background: rgba(47,79,79,1);
 	padding: 10px 15px;
 	text-align: left;
-	width: 5%;
-	height: 10px;
 	color: SteelBlue;
 	font-family: finalfrontier;
 	line-height: 1.25em;
@@ -166,17 +159,19 @@ a:hover {
 	z-index: 30;
 }
 
-#nav-hide:hover { height: 150px; width: 100px; }
+#nav-small:hover { height: 150px; width: 100px; }
+.show { height: 150px; width: 100px; }
+.hide { height: 10px; width: 50px; }
  
 #nav-embiggen {
 	position: relative;
 	width: inherit;
-	color: SteelBlue;
-	font-family: finalfrontier;
-	font-weight: bold;
+	<!--color: SteelBlue;
+	<!--font-family: finalfrontier;
+	<!--font-weight: bold;
 	<!--padding: 8px 0; 
 	<!--text-shadow: 1px 1px 0 #444;
-	z-index: 30;
+	<!--z-index: 30;
 }
 #nav-embiggen a {
 	<!--float: right;
@@ -191,7 +186,7 @@ a:hover {
 #nav-embiggen a:hover { color: DarkSlateGray; }
 
 #nav-bar { display: none; }
-
+#etitle { display: none; }
 }
 
 #arrow-nav {
@@ -277,7 +272,7 @@ a:hover {
 	<!--width: 75%;
 }
 
-#content ul { list-style-type: circle; width: 75%; }
+#content ul { list-style-type: circle; }
 
 #side-bar {
 	float: right;
@@ -349,7 +344,7 @@ a:hover {
 	height: 100%;
 	top: 0;
 	left: 0;
-	background: rgba(71,109,180,0.9);
+	background: rgba(71,109,180,0.95);
 }
 .lightbox:target { display: block; }
 

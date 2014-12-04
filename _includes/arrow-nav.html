@@ -1,14 +1,16 @@
 <div id="arrow-nav">	
 	
-<!--For main site pages-->	
+	
 	{% capture cat %}{% if page.category %}{{page.category}}{% else %}esite{% endif %}{% endcapture %}
 		
 	{% assign enav = site.pages | where: "category" , cat | sort: 'date' %}
 
 	{% assign num = enav.size | minus: 1 %}
-			
+
 	{% for i in (0..num) %}
-		
+	
+<!--For main site pages-->	
+	{% if page.category == 'esite' %}
 		{% if page.subheading == enav[i].subheading %}
 			{% unless i == 0 %}
 				{% assign l = i | minus: 1 %}
@@ -20,6 +22,22 @@
 				<a href="/{{enav[r].subheading | slugify}}/" ><img class="arrow-navr" src="/images/enavbuttonr-50.png" alt="" title="{{enav[r].subheading}}"></a>
 			{% endunless %}
 		{% endif %}
+	
+<!--For child pages-->
+	{% else %}
+		{% if page.title == enav[i].title %}
+			{% unless i == 0 %}
+				{% assign l = i | minus: 1 %}
+				<a href="/{{enav[l].parent}}/{{enav[l].subheading}}/{{enav[l].title | slugify}}/"><img class="arrow-navl" src="/images/enavbuttonl-50.png" alt="" title="{{enav[l].title}}"></a>
+			{% endunless %}
+			
+			{% unless i == num %}
+				{% assign r = i | plus: 1 %}
+				<a href="/{{enav[r].parent}}/{{enav[r].subheading}}/{{enav[r].title | slugify}}/" ><img class="arrow-navr" src="/images/enavbuttonr-50.png" alt="" title="{{enav[r].title}}"></a>
+			{% endunless %}
+		{% endif %}
+	{% endif %}
+	
 	{% endfor %}
 
 <!--For blog posts-->	

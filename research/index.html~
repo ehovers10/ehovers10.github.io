@@ -6,9 +6,9 @@ category: esite
 date: 2014-09-27 02:00
 ---
 
-<div id="side-bar">
+<!--<div id="side-bar">
 	<img src="/images/splash2.jpg" alt="" title="splash">
-</div>
+</div>-->
 
 <div id="content">
 	<h2>overview</h2>
@@ -29,9 +29,9 @@ date: 2014-09-27 02:00
 	<h2>references</h2><a name="biblio"></a>
 	
 	<ul>
-		<li>General philosophy of language (<a href="/research/biblio/language-bib.html">bibliography</a>) (<a href="https://spideroak.com/browse/share/ehovers10/works-of-phil/language-mind/">library</a>)</li>
-		<li>David Lewis (<a href="/research/biblio/dklewis-bib.html">bibliography</a>) (<a href="https://spideroak.com/browse/share/ehovers10/works-of-phil/lewis/">library</a>)</li>
-		<li>Ontic vagueness (<a href="/research/biblio/ontic-vagueness-bib.html">bibliography</a>) (<a href="https://spideroak.com/browse/share/ehovers10/works-of-phil/metaphysics/">library</a>)</li>
+		<li>General philosophy of language (<a href="/research/bibliography/philosophy-of-language/">bibliography</a>) (<a href="https://spideroak.com/browse/share/ehovers10/works-of-phil/language-mind/">library</a>)</li>
+		<li>David Lewis (<a href="/research/bibliography/david-lewis/">bibliography</a>) (<a href="https://spideroak.com/browse/share/ehovers10/works-of-phil/lewis/">library</a>)</li>
+		<li>Ontic vagueness (<a href="/research/bibliography/ontic-vagueness/">bibliography</a>) (<a href="https://spideroak.com/browse/share/ehovers10/works-of-phil/metaphysics/">library</a>)</li>
 		<li>Epistemology (<a href="https://spideroak.com/browse/share/ehovers10/works-of-phil/epistemology/">library</a>)</li>
 		<li>Philosophy of science and probability (<a href="https://spideroak.com/browse/share/ehovers10/works-of-phil/science-probability/">library</a>)</li>
 	</ul>

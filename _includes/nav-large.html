@@ -1,0 +1,26 @@
+<div id="nav-bar">
+		
+{% capture cat %}{% if page.category %}{{page.category}}{% else %}esite{% endif %}{% endcapture %}
+		
+{% assign enav = site.pages | where: "category" , cat | sort: 'date' %}
+{% assign num = enav.size | minus: 1 %}
+		
+{% if cat == 'esite' %}
+	<a href="/">home</a>
+	{% for i in (1...num) %}
+		<a href="/{{enav[i].subheading | slugify}}/">{{enav[i].subheading}}</a>
+	{% endfor %}
+{% else %}
+	{% if page.category %}
+		<a href="/">home</a>
+		{% if page.parent %}
+			<a href="/{{page.parent | slugify}}/">{{page.parent}}</a>
+		{% endif %}
+		{% for i in (0...num) %}
+			<a href="/{{enav[i].parent}}/{{enav[i].subheading | slugify}}/{{enav[i].title | slugify}}/">{{enav[i].handle}}</a>
+		{% endfor %}
+	{% endif %}
+{% endif %}
+	
+{% include ddg-search.html %}
+</div>

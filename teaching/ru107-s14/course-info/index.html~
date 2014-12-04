@@ -1,0 +1,48 @@
+---
+layout: elay1
+title: course info
+subheading: ru107-s14
+category: ies14
+parent: teaching
+date: 2014-09-27 01:00
+---
+
+	<div id="side-bar">	
+		<img src="/images/ethics-image.jpg" alt="">
+	</div>
+	
+<div id="content">
+	<h2>course info</h2>
+	
+		<table>
+			<tr>
+				<td>course number:</td>			
+				<td>01:730:107:01, s14</td>
+			</tr>
+			<tr>
+				<td>meeting times:</td>
+				<td>TF 9:50a-11:10a</td>
+			</tr>
+			<tr>
+				<td>meeting place:</td>
+				<td><a href="http://rumaps.rutgers.edu/location/scott-hall">Scott Hall, rm 214</a></td>		
+			</tr>
+			<tr>
+				<td>erik's office:</td>
+				<td><a href="http://rumaps.rutgers.edu/location/gateway-transit-village">106 Somerset St, 5th floor, rm 533</a></td>
+			</tr>
+			<tr>
+				<td>office hours:</td>
+				<td>TF 11:30a-1:00p</td>
+			</tr>
+			<tr>
+				<td>course email:</td>
+				<td>intro.ethics.s14@gmail.com</td>
+			</tr>
+		</table>
+		
+	<h2>calendar</h2>
+	
+	<iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=netdnqdhqvsngd5cv5ehev3vr4%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FNew_York" style="border: groove SteelBlue" width="90%" height="400" frameborder="0" scrolling="no"></iframe>
+	
+</div>
