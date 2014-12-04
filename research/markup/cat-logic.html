@@ -1,0 +1,337 @@
+
+
+<pre style='color:#1f1c1b;'>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Represent categorical logic graphically %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{tikz}
+\usepackage{xstring}
+
+\usetikzlibrary{shapes,backgrounds}
+\tikzstyle{every node}=[font=\tiny] 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Draw squares of Opposition %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\oppsquare{(-1.5,1) node[above left]{$All$} -- (1.5,1) node[above right]{$No$} -- (1.5,-1) node[below right]{$Some-not$} -- (-1.5,-1) node[below left]{$Some$} -- (-1.5,1)}
+\def\oppcross{(-1.5,1) -- (1.5,-1) node[sloped,above,pos=0.3]{contra} node[sloped,above,pos=0.7]{dictory} (-1.5,-1) -- (1.5,1) node[sloped,above,pos=0.3]{contra} node[sloped,above,pos=0.7]{dictory}}
+
+\def\sqroppMod{%
+  \begin{scope}
+    \draw \oppsquare;
+    \draw \oppcross;
+    \draw (-1.75,0) node[rotate=90] {undet.};
+    \draw (0,1.25) node {undet.};
+    \draw (0,-1.25) node {undet.};
+    \draw (1.75,0) node[rotate=90] {undet.};
+  \end{scope}
+}
+
+\def\sqroppTrad{%
+  \begin{scope}
+    \draw \oppsquare;
+    \draw \oppcross;
+    \draw (-1.75,0) node[rotate=90] {subalt.};
+    \draw (0,1.25) node {contrary};
+    \draw (0,-1.25) node {subcontrary};
+    \draw (1.75,0) node[rotate=90] {subalt.};
+  \end{scope}
+}
+
+%%%%%%%%%%%%%
+%% Circles %%
+%%%%%%%%%%%%%
+
+%% Venn circles
+\def\firstcircle{(0,0) circle (1cm)} 
+\def\secondcircle{(0:1cm) circle (1cm)}
+\def\thirdcircle{(60:1cm) circle (1cm)}
+
+%% Overlapping and disjoint circles
+\def\firstcircleN{(0,0) circle (.75cm) node [below left=.25in] {$A$}}
+\def\secondcircleN{(0:2cm) circle (.75cm) node [below right=.25in] {$B$}}
+\def\firstcircleA{(0,0) circle (1.25cm) node [above right] {$A$}}
+\def\secondcircleA{(.125,0) circle (.75cm) node [below left=.25in] {$B$}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Venn diagram templates %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Individual propositions %%
+\newcommand{\vennbox}[2]{%
+  \draw (-1.5,-1.5) rectangle (3,1.5);
+  \draw \firstcircle node [below left=.25in] {#1};
+  \draw \secondcircle node [below right=.25in] {#2};
+}
+
+%% Categorical syllogisms %%
+\newcommand{\syllbox}[3]{%
+  \draw (-1.5,-1.5) rectangle (2.5,2.25);
+  \draw \firstcircle node [below left=.25in] {#1};
+  \draw \secondcircle node [below right=.25in] {#2};
+  \draw \thirdcircle node [above right=.25in] {#3};
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Mark the universe outside two circles %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Place X in universe outside of two circles %%
+\def\xbox{%
+ \node [below right=1.1cm] {x};
+}
+
+%% Fill universe outside of two circles %%
+\def\fillbox{%
+  \begin{scope}
+    \fill[fill opacity=0.5, blue] (-1.5,-1.5) rectangle (3,1.5);
+    \fill[fill opacity=1, white] \firstcircle \secondcircle;
+  \end{scope}
+}
+
+%%%%%%%%%%%%%%%%%%%%
+%% Fill functions %%
+%%%%%%%%%%%%%%%%%%%%
+
+%% Fill overlap between Subject and Predicate (takes color as argument) %%
+\newcommand{\fillSP}[1]{%
+  \begin{scope}[fill opacity=0.5]
+    \clip \firstcircle;
+    \fill[#1] \secondcircle;
+  \end{scope}
+}
+
+%% Fill overlap between Subject and Middle (takes color as argument) %%
+\newcommand{\fillSM}[1]{%
+  \begin{scope}[fill opacity=0.5]
+    \clip \firstcircle;
+    \fill[#1] \thirdcircle;
+  \end{scope}
+}
+
+%% Fill overlap between Predicate and Middle (takes color as argument) %%
+\newcommand{\fillPM}[1]{%
+  \begin{scope}[fill opacity=0.5]
+    \clip \secondcircle;
+    \fill[#1] \thirdcircle;
+  \end{scope}
+}
+
+%% Fill part of Subject disjoint from Predicate %%
+\def\fillSnotP{%
+  \begin{scope}[even odd rule, fill opacity=0.5]
+    \clip \secondcircle (-1,-1) rectangle (2.25,2.25);
+    \fill[blue] \firstcircle;
+  \end{scope}
+}
+
+%% Fill part of Subject disjoint from Middle %%
+\def\fillSnotM{%
+  \begin{scope}[even odd rule, fill opacity=0.5]
+    \clip \thirdcircle (-1,-1) rectangle (2.25,2.25);
+    \fill[blue] \firstcircle;
+  \end{scope}
+}
+
+%% Fill part of Predicate disjoint from Subject %%
+\def\fillPnotS{%
+  \begin{scope}[even odd rule, fill opacity=0.5]
+    \clip \firstcircle (-1,-1) rectangle (2.25,2.25);
+    \fill[red] \secondcircle;
+  \end{scope}
+}
+
+%% Fill part of Predicate disjoint from Middle %%
+\def\fillPnotM{%
+  \begin{scope}[even odd rule, fill opacity=0.5]
+    \clip \thirdcircle (-1,-1) rectangle (2.25,2.25);
+    \fill[red] \secondcircle;
+  \end{scope}
+}
+
+%% Fill part of Middle disjoint from Subject %%
+\def\fillMnotS{%
+  \begin{scope}[even odd rule, fill opacity=0.5]
+    \clip \firstcircle (-1,-1) rectangle (2.25,2.25);
+    \fill[green] \thirdcircle;
+  \end{scope}
+}
+
+%% Fill part of Middle disjoint from Predicate %%
+\def\fillMnotP{%
+  \begin{scope}[even odd rule, fill opacity=0.5]
+    \clip \secondcircle (-1,-1) rectangle (2.25,2.25);
+    \fill[green] \thirdcircle;
+  \end{scope}
+}
+
+%%%%%%%%%%%%%%%%%% Universal Defs %%%%%%%%%%%%%%%%%%%%%%
+%%            Fill part of any circle                 %%
+%%     Part determined by universal proposition       %%
+%% \sylluniv{quant: All/No}{Subj: S/P/M}{Pred: S/P/M} %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\sylluniv}[3]{%
+  \IfStrEqCase{#1}{%
+    {All}{%
+      \IfStrEq{#2#3}{SP}{\fillSnotP}{}
+      \IfStrEq{#2#3}{SM}{\fillSnotM}{}
+      \IfStrEq{#2#3}{PM}{\fillPnotM}{}
+      \IfStrEq{#2#3}{MS}{\fillMnotS}{}
+      \IfStrEq{#2#3}{MP}{\fillMnotP}{}
+    }%
+    {No}{%
+      \IfStrEq{#2#3}{SP}{\fillSP{blue}}{}
+      \IfStrEq{#2#3}{SM}{\fillSM{blue}}{}
+      \IfStrEq{#2#3}{PM}{\fillPM{red}}{}
+      \IfStrEq{#2#3}{MS}{\fillSM{green}}{}
+      \IfStrEq{#2#3}{MP}{\fillPM{green}}{}
+    }%
+  }[\PackageError{sylluniv}{Undefined option to tree: quant}{}]%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Existential Defs 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%      Place an X in any region (choice of color and whether circled)      %%
+%%    Any combination of S,P,M represents intersection of those circles     %%
+%%    \syllx{color: defaults to black}{circled: A}{region: combo of SPM}    %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\syllx}[3]{%
+  \begin{scope}
+  \IfStrEq{#2}{A}{\tikzstyle{every node}=[font=\tiny, draw, rounded corners]}{}%
+  \StrLen{#3}[\region]%
+  \IfEq{\region}{3}{\draw[#1] (0.5cm,0.4cm) node {X};}{}%
+  \IfEqCase{#3}{%
+    {SP}{\draw[#1] (0.5cm,-0.5cm) node {X};}%
+    {PS}{\draw[#1] (0.5cm,-0.5cm) node {X};}%
+    {SM}{\draw[#1] (-0.1cm,0.7cm) node {X};}%
+    {MS}{\draw[#1] (-0.1cm,0.7cm) node {X};}%
+    {PM}{\draw[#1] (1.2cm,0.7cm) node {X};}%
+    {MP}{\draw[#1] (1.2cm,0.7cm) node {X};}%
+  }%
+  \IfEqCase{#3}{%
+    {S}{\draw[#1] (-0.5cm,-0.25cm) node {X};}%
+    {P}{\draw[#1] (1.5cm,-0.25cm) node {X};}%
+    {M}{\draw[#1] (0.5cm,1.5cm) node {X};}%
+  }%
+  \end{scope}
+}% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Existential Defs 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Place an X on line between any two regions (choice of color and whether circled) %%
+%%        Placement determined by universal statement's opposite region             %%
+%%  \syllxline{color}{circled: A}{Quant: All/No}{Subject: S/P/M}{Predicate: S/P/M}  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\syllxline}[5]{%
+  \begin{scope}
+  \IfStrEq{#2}{A}{\tikzstyle{every node}=[font=\tiny, draw, rounded corners]}{}%
+  \IfStrEq{#4}{#5}{\PackageError{syllx2}{Undefined option to tree: same term}{}}{}%
+  \IfStrEqCase{#3}{%
+    {All}{%
+      \IfSubStr{#4#5}{M}{%
+        \IfSubStr{#4#5}{P}{\draw[#1] (33:1cm) node [draw, rounded corners] {X};}{}%
+        \IfSubStr{#4#5}{S}{\draw[#1] (75:0.5cm) node [draw, rounded corners] {X};}{}%
+      }{%
+	\IfStrEq{#4#5}{S}{P}{\draw[#1] (-15:0.5cm) node [draw, rounded corners] {X};}{}%
+      }
+    }%
+    {No}{%
+      \IfStrEq{#4#5}{SM}{\draw[#1] (-75:0.5cm) node [draw, rounded corners] {X};}{}%
+      \IfStrEq{#4#5}{MP}{\draw[#1] (90:1cm) node [draw, rounded corners] {X};}{}%
+      \IfStrEq{#4#5}{MS}{\draw[#1] (45:1.4cm) node [draw, rounded corners] {X};}{}%
+      \IfStrEq{#4#5}{PM}{\draw[#1] (-33:1cm) node [draw, rounded corners] {X};}{}%
+      \IfStrEq{#4#5}{SP}{\draw[#1] (135:0.5cm) node [draw, rounded corners] {X};}{}%
+    }%
+  }[\PackageError{syllx2}{Undefined option to tree: quant}{}]%
+  \end{scope}
+}%
+
+%%%%%%%%%%%%%%%%%% Categorical propositions %%%%%%%%%%%%%%%%%%%%%%%%
+%% \catvenn{title: y/n}{quantifier: All/No/Some }{quality: not/ } %%
+%%         {complement: non-/ }{subject class}                    %%
+%%         {complement: non-/ }{predicate class}                  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\catvenn}[7]{%
+  \IfEqCase{#2}{%
+    {All}{%
+      \IfEqCase{#4}{%
+	{non-}{%
+	  \IfEqCase{#6}{%
+	    {non-}{\fillPnotS}%
+	    {}{\fillbox}%
+	  }[\PackageError{catvenn}{Undefined option to tree: pred-non}{}]%
+	}%
+	{}{%
+	  \IfEqCase{#6}{%
+	    {non-}{\fillSP{blue}}%
+	    {}{\fillSnotP}%
+	  }[\PackageError{catvenn}{Undefined option to tree: pred-non}{}]%
+	}%
+      }[\PackageError{catvenn}{Undefined option to tree: subj-non}{}]%
+    }%
+    {No}{%
+      \IfEqCase{#4}{%
+	{non-}{%
+	  \IfEqCase{#6}{%
+	    {non-}{\fillbox}%
+	    {}{\fillPnotS}%
+	  }[\PackageError{catvenn}{Undefined option to tree: pred-non}{}]%
+	}%
+	{}{%
+	  \IfEqCase{#6}{%
+	    {non-}{\fillSnotP}%
+	    {}{\fillSP{blue}}%
+	  }[\PackageError{catvenn}{Undefined option to tree: pred-non}{}]%
+	}%
+      }[\PackageError{catvenn}{Undefined option to tree: subj-non}{}]%
+    }%
+    {Some}{%
+      \IfEqCase{#3}{%
+	{not}{%
+	  \IfEqCase{#4}{%
+	    {non-}{%
+	      \IfEqCase{#6}{%
+		{non-}{\xPonly}%
+		{}{\xbox}%
+	      }[\PackageError{catvenn}{Undefined option to tree: pred-non}{}]%
+	    }%
+	    {}{%
+	      \IfEqCase{#6}{%
+		{non-}{\xSP}%
+		{}{\xSonly}%
+	      }[\PackageError{catvenn}{Undefined option to tree: pred-non}{}]%
+	    }%
+	  }[\PackageError{catvenn}{Undefined option to tree: subj-non}{}]%
+	}%
+	{}{%
+	  \IfEqCase{#4}{%
+	    {non-}{%
+	      \IfEqCase{#6}{%
+		{non-}{\xbox}%
+		{}{\xPonly}%
+	      }[\PackageError{catvenn}{Undefined option to tree: pred-non}{}]%
+	    }%
+	    {}{%
+	      \IfEqCase{#6}{%
+		{non-}{\xSonly}%
+		{}{\xSP}%
+	      }[\PackageError{catvenn}{Undefined option to tree: pred-non}{}]%
+	    }%
+	  }[\PackageError{catvenn}{Undefined option to tree: subj-non}{}]%
+	}%
+      }[\PackageError{catvenn}{Undefined option to tree: not}{}]%
+    }%
+  }[\PackageError{catvenn}{Undefined option to tree: quant}{}]%
+  
+  \IfEqCase{#1}{%
+    {y}{\draw (0,1.25) node {#2 #4#5 are #3 #6#7};}%
+    {n}{}%
+  }[\PackageError{catvenn}{Undefined option to tree: title}{}]%
+  
+  \vennbox{#5}{#7}%
+}%
+</pre>
