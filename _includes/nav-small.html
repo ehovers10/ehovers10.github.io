@@ -19,6 +19,7 @@
 		{% if page.parent %}
 			<a href="/{{page.parent | slugify}}/">{{page.parent}}</a>
 		{% endif %}
+		<p>{{page.subheading}}</p>
 		{% for i in (0...num) %}
 			<a href="/{{enav[i].parent}}/{{enav[i].subheading | slugify}}/{{enav[i].title | slugify}}/">{{enav[i].handle}}</a>
 		{% endfor %}

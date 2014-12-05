@@ -3,6 +3,7 @@ layout: post
 title:  "Contextualism and shared content"
 subheading: blog post
 parent: blog
+author: erik hoversten
 date: 2014-09-11 17:45
 tags: [semantics, contextualism, relativism, shared content]
 ---

@@ -3,6 +3,7 @@ layout: elay1
 title: erik hoversten
 subheading: teaching
 category: esite
+author: erik hoversten
 date: 2014-09-27 03:00
 ---
 
@@ -15,7 +16,7 @@ date: 2014-09-27 03:00
 	
 	<ul>
 		<li><a href="./ru101-f14/">Logic, reason, and persuassion, fall 2014</a> (<a href="./ru101f14-syllabus.pdf">syllabus</a>) (<a href="./syllabus101f14.html">html syllabus</a>)</li>
-		<li><a href="./ru107-s14/">Introduction to ethics, spring 2014</a> (<a href="./ru107s14-syllabus.pdf">syllabus</a>, <a href="./ru107s14-assessment.pdf">assessment</a>)</li>
+		<li><a href="./ru107-s14/course-info/">Introduction to ethics, spring 2014</a> (<a href="./ru107s14-syllabus.pdf">syllabus</a>, <a href="./ru107s14-assessment.pdf">assessment</a>)</li>
 		<li>Current moral and social issues, fall 2013 (<a href="./ru105f13-syllabus.pdf">syllabus</a>, <a href="./ru105f13-assessment.pdf">assessment</a>)</li>
 		<li>Introduction to philosophy, spring 2012 (<a href="./ru103s12-syllabus.pdf">syllabus</a>, <a href="./ru103s12-assessment.pdf">assessment</a>)</li>
 		<li>Introduction to philosophy, fall 2011 (<a href="./ru103f11-syllabus.pdf">syllabus</a>, <a href="./ru103f11-schedule.pdf">schedule</a>)</li>		

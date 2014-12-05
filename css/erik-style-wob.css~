@@ -49,7 +49,7 @@ a:hover {
 	width: 100%;
 	height: 150px;
 	background-color: #fff; 
-	background-image: url('/images/bt-banner-big.jpeg');
+	
 	background-size: 100%;
 	opacity: 1;
 	line-height: 1em;
@@ -69,22 +69,21 @@ a:hover {
 
 #etitle { 
 	position: fixed;
-	top: 125px;
+	top: 100px;
 	left: 15%;
 	width: 10%;
 	color: DarkSlateGray;
-	opacity: 1;
 	z-index: -1;
 }
 #etitle h2 {
-	padding-right: 20px;
 	width: 100%;
-	float: right;
-	font-size: 17px;
+	text-align: right;
+	font-size: 1.5em;
+	<!--padding-right: 20px;
 }
 
 #search input {
-	width: 125px;
+	width: 100%;
 	height: 18px;
 	border: 2px groove #4682B4;
 	margin-top: 2px;
@@ -95,31 +94,26 @@ a:hover {
 }
 
 @media all and (min-width: 900px) {
-	
+
+#banner { background-image: url('/images/teton-sky.jpg'); }
 #main { width: 65%; left: 25%; }
 
 #nav-bar { 
 	position: fixed;
 	left: 15%;
-	<!--margin-right: 175px;
 	top: 170px;
-	<!--margin: auto;
 	width: 10%;
-	text-align: right;
 	background: #fff; 
-	border-radius: 8px;
-	<!--border: groove SteelBlue; 
-	<!--box-shadow: 10px 10px 5px #888888;
+	font-family: finalfrontier;
 }
 
 #nav-bar a {
-	float: right;
+	text-align: right;
 	width: 100%;
-	font-family: finalfrontier;
+	
 	font-weight: bold;
 	font-size: 1.25em;
-	padding: 1.75em 1em;
-	padding-right: 20px;
+	margin-right: 20px;
 	display: table;
 	<!--opacity: 0.8;
 }
@@ -137,6 +131,12 @@ a:hover {
 	opacity: 1;
 	color: #fff;
 }
+#nav-bar p { 
+	width: 100%; 
+	border-bottom: 1px solid SteelBlue;
+	color: #3B6EBF;
+	font-weight: bold;
+}
 
 #nav-small { display: none; }
 #nav-embiggen { display: none; }
@@ -144,6 +144,7 @@ a:hover {
 
 @media all and (max-width: 899px) {
 	
+#banner { background-image: url('/images/teton-small.jpg'); }
 #main { width: 90%; left: 5%; }
 	
 #nav-small {
@@ -279,7 +280,7 @@ a:hover {
 	<!--width: 75%;
 }
 
-#content ul { list-style-type: circle; width: 100%; }
+#content ul { list-style-type: circle; }
 
 #side-bar {
 	float: right;

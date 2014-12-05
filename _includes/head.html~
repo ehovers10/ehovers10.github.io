@@ -1,25 +1,15 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta charset="utf-8">
-      <title>{{ page.title }}</title>
-		<link rel="stylesheet" href="/css/erik-style-wob.css">
-		<link rel="stylesheet" href="/css/latex.css">
-		<link rel="shortcut icon" href="/images/eicon2.ico" >
-	</head>
+
+<head>
+      	<meta charset="utf-8">
+      	<title>{{ page.title }}</title>
+	<link rel="stylesheet" href="/css/erik-style-wob.css">
+	<link rel="stylesheet" href="/css/latex.css">
+	<link rel="shortcut icon" href="/images/eicon2.ico" >
+	<script type="text/javascript" src="/javascript/toggleIt.js"></script>
+</head>
 	
 	<a name="top"></a>
 
 <body>
-
-<!-- Header -->
-	
-	<div id="header">
-		<div id="headbg">
-			<h1>{{page.title}}</h1>
-			<h2>{{page.subheading}}</h2>
-			<div style="clear: both;"></div>
-		</div>
-	</div>
-	
-

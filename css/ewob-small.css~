@@ -1,0 +1,54 @@
+@media all and (max-width: 899px) {
+	
+#banner { background-image: url('/images/teton-small.jpg'); }
+#main { width: 90%; left: 5%; }
+	
+#nav-small {
+	position: fixed;
+	top: 36px;
+	left: 0;
+	background: rgba(47,79,79,1);
+	padding: 10px 15px;
+	text-align: left;
+	color: SteelBlue;
+	font-family: finalfrontier;
+	line-height: 1.25em;
+	text-decoration: none;
+	font-weight: bold;
+	overflow: hidden;
+	-webkit-transition: height 0.5s linear;
+	-moz-transition: height 0.5s linear;
+	transition: height 0.5s linear;
+	border-radius: 0 8px 8px 0;
+	z-index: 30;
+}
+
+#nav-small:hover { height: 150px; width: 100px; }
+.show { height: 150px; width: 100px; }
+.hide { height: 10px; width: 50px; }
+ 
+#nav-embiggen {
+	position: relative;
+	width: inherit;
+	<!--color: SteelBlue;
+	<!--font-family: finalfrontier;
+	<!--font-weight: bold;
+	<!--padding: 8px 0; 
+	<!--text-shadow: 1px 1px 0 #444;
+	<!--z-index: 30;
+}
+#nav-embiggen a {
+	<!--float: right;
+	display: table;
+	width: 100%;
+	padding-left: 15px;
+	color: SteelBlue;
+	font-size: 1.0em;
+	text-decoration: none;
+	text-shadow: none;
+}
+#nav-embiggen a:hover { color: DarkSlateGray; }
+
+#nav-bar { display: none; }
+#etitle { display: none; }
+}

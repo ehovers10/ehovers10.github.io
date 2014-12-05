@@ -3,6 +3,7 @@ layout: elay1
 title: erik hoversten
 subheading: misc
 category: esite
+author: erik hoversten
 date: 2014-09-27 04:00
 ---
 
@@ -48,7 +49,7 @@ date: 2014-09-27 04:00
 	<iframe width="50%" height="100" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/169063318&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
 -->
 
-	<h2>some nature pics</h2><a name="nature"></a>
+	<a name="nature"></a><h2>some nature pics</h2>
 	
 	<div class="thumbbox">
 		<a href="#pop-hp"><div class="embiggen" name="highland park"><img src="/images/pics/hp.jpg" alt=""></div></a>
@@ -70,7 +71,7 @@ date: 2014-09-27 04:00
 	
 	<div style="clear: both;"></div>
 
-	<h2>some lighting creations</h2><a name="lights"></a>
+	<a name="lights"></a><h2>some lighting creations</h2>
 	
 	<div class="thumbbox">
 	

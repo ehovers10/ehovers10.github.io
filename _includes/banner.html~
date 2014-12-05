@@ -1,7 +1,7 @@
 <!-- Banner -->
 	
-	<div id="header">
-		<div id="headbg">
+	<div id="banner">
+		<div id="banner-bg">
 			<h1>erik hoversten</h1>
 			<h2>{{page.subheading}}</h2>
 			<div style="clear: both;"></div>
