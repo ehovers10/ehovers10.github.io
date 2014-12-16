@@ -3,6 +3,7 @@ layout: post
 title:  "Jamesian inquiry"
 subheading: blog post
 parent: blog
+author: erik hoversten
 date: 2014-09-12 11:45
 tags: [inquiry, disagreement, william james]
 ---

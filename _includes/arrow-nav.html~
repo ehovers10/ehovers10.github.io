@@ -11,12 +11,12 @@
 		{% if page == enav[i] %}
 			{% unless i == 0 %}
 			{% assign l = i | minus: 1 %}
-				<a href="{{enav[l].url}}"><img class="alignleft" src="/images/enavbuttonl-50.png" alt="" title="{{enav[l].subheading}}"></a>
+				<a href="/{{enav[l].subheading | slugify}}/"><img class="alignleft" src="/images/enavbuttonl-50.png" alt="" title="{{enav[l].subheading}}"></a>
 			{% endunless %}
 			
 			{% unless i == num %}
 			{% assign r = i | plus: 1 %}
-				<a href="{{enav[r].url}}" ><img class="alignright" src="/images/enavbuttonr-50.png" alt="" title="{{enav[r].subheading}}"></a>
+				<a href="/{{enav[r].subheading | slugify}}/" ><img class="alignright" src="/images/enavbuttonr-50.png" alt="" title="{{enav[r].subheading}}"></a>
 			{% endunless %}
 		{% endif %}
 	{% endfor %}
@@ -29,11 +29,10 @@
 	{% if page.next %}
 		<a href="{{page.next.url}}" ><img class="alignright" src="/images/enavbuttonr-50.png" alt="" title="{{page.next.title}}"></a>
 	{% endif %}
-
+</div>
 	
 <!--For return to top-->
 	<div id="to-top">
 		<a href="#top" ><img class="alignright" src="/images/enavbuttonu-50.png" alt="" title="back to top"></a>
 	</div>
 	
-</div>

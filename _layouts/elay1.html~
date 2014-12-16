@@ -1,15 +1,15 @@
-<div id="wrap">
-
 {% include head.html %}
 
+<div id="wrap">
+
+{% include banner.html %}
+<div style="clear: right;"></div>
 {% include navigation.html %}
 
 <div id="main">
-    {{ content }}
-    
-    {% if page.parent %}
-    	{% include return-to-parent.html %}
-    {% endif %}
+	<div style="clear: right;"></div>
+	{{ content }}
+	<div style="clear: right;"></div>
 </div>
 
 {% include foot.html %}

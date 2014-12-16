@@ -39,7 +39,7 @@ But there is an alternative decision technique available. The adage seems to be 
 
 If this evaluation schema is operative, then an individual will be more willing to give up an out when the associated sacrifice is lower.  But interestingly, Levine's analysis suggests that the sacrifice associated with an out at third base is actually lower when there are two outs as opposed to zero or one.  This is mostly due to the fact that the run potential is lower generally when a team already has two outs.
 
-I take it that each of these evaluation techniques is valid for different interests, and because the results they give in terms of how individuals with those different interests would respond to our adage, the adage is _evaluatively_uous as well as being _comparison class_ ambiguous.
+I take it that each of these evaluation techniques is valid for different interests, and because the results they give in terms of how individuals with those different interests would respond to our adage, the adage is _evaluatively_ ambiguous as well as being _comparison class_ ambiguous.
 
 But is _ambiguity_ really the correct analysis of the fact that this one adage can have quite differing import?  Semanticists are often loathe to appeal to ambiguity to explain interpretive variability because it seems to violate an accepted theoretical virtue of parsimony.  Each distinct meaning that a word or phrase can have requires language users to store a new entry in their lexicon, but it seems less cognitively demanding if users can store a single rule from which they can derive distinct interpretations in recognizably distinct linguistic contexts.
 

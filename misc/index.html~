@@ -3,6 +3,7 @@ layout: elay1
 title: erik hoversten
 subheading: misc
 category: esite
+author: erik hoversten
 date: 2014-09-27 04:00
 ---
 
@@ -48,7 +49,7 @@ date: 2014-09-27 04:00
 	<iframe width="50%" height="100" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/169063318&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
 -->
 
-	<h2>some nature pics</h2>	<a name="nature"></a>
+	<a name="nature"></a><h2>some nature pics</h2>
 	
 	<div class="thumbbox">
 		<a href="#pop-hp"><div class="embiggen" name="highland park"><img src="/images/pics/hp.jpg" alt=""></div></a>
@@ -65,30 +66,31 @@ date: 2014-09-27 04:00
 		
 		<a href="#pop-moose"><div class="embiggen" name="moose"><img src="/images/pics/moose.jpg" alt=""></div></a>
 	</div>
+	
+	{% include pop-nature.html %}
+	
+	<div style="clear: both;"></div>
 
-	<h2>some lighting creations</h2><a name="lights"></a>
+	<a name="lights"></a><h2>some lighting creations</h2>
 	
 	<div class="thumbbox">
-		<a href="#pop-model001"><div class="embiggen" name="model 001"><img src="/images/pics/pitbull-chick.jpg" alt=""></div></a>
-		
-		<a href="#pop-model002"><div class="embiggen" name="model 002"><img class="pic" src="/images/pics/hypno-toad.jpg" alt=""></div></a>
-		
-		<a href="#pop-model003"><div class="embiggen" name="model 003"><img class="pic" src="/images/pics/pump-kins.jpg" alt=""></div></a>
-		
-		<a href="#pop-model004"><div class="embiggen" name="model 004"><img class="pic" src="/images/pics/cmdr-cody.jpg" alt=""></div></a>
-		
-		<div style="clear: both;"></div>
-		
-		<div class="embiggen"><img class="pic" src="/images/pics/pitbull-chick.jpg" alt="" title="model001"></div>
-		
-		<div class="embiggen"><img class="pic" src="/images/pics/hypno-toad.jpg" alt="" title="model002"></div>
-		
-		<div class="embiggen"><img class="pic" src="/images/pics/pump-kins.jpg" alt="" title="model003"></div>
-		
-		<a href="#pop-hp"><div class="embiggen"><img class="pic" src="/images/pics/hp.jpg" alt=""></div></a>
-	</div>
 	
-{% include pop-lights.html %}
+		<a href="#pop-model001a"><div class="embiggen" name="model 001"><img class="pic" src="/images/pics/lamp-model001a.jpg" alt=""></div></a>
+		
+		<a href="#pop-model001b"><div class="embiggen" name="model 001"><img class="pic" src="/images/pics/lamp-model001b.jpg" alt=""></div></a>
+		
+		<a href="#pop-model002a"><div class="embiggen" name="model 002"><img class="pic" src="/images/pics/lamp-model002a.jpg" alt=""></div></a>
+		
+		<a href="#pop-model002b"><div class="embiggen" name="model 002"><img class="pic" src="/images/pics/lamp-model002b.jpg" alt=""></div></a>
+		
+		<a href="#pop-model003a"><div class="embiggen" name="model 003"><img class="pic" src="/images/pics/lamp-model003a.jpg" alt=""></div></a>
+		
+		<a href="#pop-model003b"><div class="embiggen" name="model 003"><img src="/images/pics/lamp-model003b.jpg" alt=""></div></a>
+	</div>
+		
+	{% include pop-lights.html %}
+	
+	<div style="clear: both;"></div>
 </div>
 
 	

@@ -1,38 +1,57 @@
 <div id="arrow-nav">	
 	
-<!--For main site pages-->	
+	
 	{% capture cat %}{% if page.category %}{{page.category}}{% else %}esite{% endif %}{% endcapture %}
 		
 	{% assign enav = site.pages | where: "category" , cat | sort: 'date' %}
 
 	{% assign num = enav.size | minus: 1 %}
-			
+
 	{% for i in (0..num) %}
-		{% if page == enav[i] %}
+	
+<!--For main site pages-->	
+	{% if page.category == 'esite' %}
+		{% if page.subheading == enav[i].subheading %}
 			{% unless i == 0 %}
-			{% assign l = i | minus: 1 %}
-				<a href="{{enav[l].url}}"><img class="alignleft" src="/images/enavbuttonl-50.png" alt="" title="{{enav[l].subheading}}"></a>
+				{% assign l = i | minus: 1 %}
+				<a href="/{{enav[l].subheading | slugify}}/"><img class="arrow-navl" src="/images/enavbuttonl-50.png" alt="" title="{{enav[l].subheading}}"></a>
 			{% endunless %}
 			
 			{% unless i == num %}
-			{% assign r = i | plus: 1 %}
-				<a href="{{enav[r].url}}" ><img class="alignright" src="/images/enavbuttonr-50.png" alt="" title="{{enav[r].subheading}}"></a>
+				{% assign r = i | plus: 1 %}
+				<a href="/{{enav[r].subheading | slugify}}/" ><img class="arrow-navr" src="/images/enavbuttonr-50.png" alt="" title="{{enav[r].subheading}}"></a>
 			{% endunless %}
 		{% endif %}
+	
+<!--For child pages-->
+	{% else %}
+		{% if page.title == enav[i].title %}
+			{% unless i == 0 %}
+				{% assign l = i | minus: 1 %}
+				<a href="/{{enav[l].parent}}/{{enav[l].subheading}}/{{enav[l].title | slugify}}/"><img class="arrow-navl" src="/images/enavbuttonl-50.png" alt="" title="{{enav[l].title}}"></a>
+			{% endunless %}
+			
+			{% unless i == num %}
+				{% assign r = i | plus: 1 %}
+				<a href="/{{enav[r].parent}}/{{enav[r].subheading}}/{{enav[r].title | slugify}}/" ><img class="arrow-navr" src="/images/enavbuttonr-50.png" alt="" title="{{enav[r].title}}"></a>
+			{% endunless %}
+		{% endif %}
+	{% endif %}
+	
 	{% endfor %}
 
 <!--For blog posts-->	
 	{% if page.previous %}
-		<a href="{{page.previous.url}}" ><img class="alignleft" src="/images/enavbuttonl-50.png" alt="" title="{{page.previous.title}}"></a>
+		<a href="{{page.previous.url}}" ><img class="arrow-navl" src="/images/enavbuttonl-50.png" alt="" title="{{page.previous.title}}"></a>
 	{% endif %}
 
 	{% if page.next %}
-		<a href="{{page.next.url}}" ><img class="alignright" src="/images/enavbuttonr-50.png" alt="" title="{{page.next.title}}"></a>
+		<a href="{{page.next.url}}" ><img class="arrow-navr" src="/images/enavbuttonr-50.png" alt="" title="{{page.next.title}}"></a>
 	{% endif %}
 </div>
 	
 <!--For return to top-->
 	<div id="to-top">
-		<a href="#top" ><img class="alignright" src="/images/enavbuttonu-50.png" alt="" title="back to top"></a>
+		<a href="#top" ><img src="/images/enavbuttonu-50.png" alt="" title="back to top"></a>
 	</div>
 	
