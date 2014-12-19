@@ -1,18 +1,31 @@
 ---
 layout: elay1
-title: philosophical work
-subheading: research
-category: esite
+title: test page
+subheading: home
 author: erik hoversten
-date: 2014-09-27 02:00
+date: 2014-12-06 01:00
 ---
+<script>
+$(document).ready(function(){
+	   $(window).on('scroll', function() {
+	   var blockHeight = $( window ).height() - 70;
+			 if ($(window).scrollTop() > blockHeight) {
+				 $("#sticker").addClass('fixed');
+			 }
+			 else {
+				 $("#sticker").removeClass('fixed');
+			 }
+		});
+	});
+</script>
 
-<!--<div id="side-bar">
-	<img src="/images/splash2.jpg" alt="" title="splash">
-</div>-->
+<div id="sticker">
+Scroll up but stay at the top
+</div>
 
 <div id="content">
-	<h2>overview</h2>
+	<h2>Test page to get scrolling down right</h2>
+	<img src="/images/elephant.jpg" alt="" title="how many legs?">
 	
 	<p>My primary research interests are in philosophy of language and cognitive science. More specifically, I'm interested in formal models of the influence of context on natural language interpretation. My dissertation explores ways of modeling linguistic <i>focus</i> as a tool used by interlocutors to collaboratively set the semantic value boundaries of expressions in their discourse. I think that the unique ways in which focus generally, and <i>contrastive topic</i> in particular, are implemented in conversation provide interesting motivation for characterizing the nature of semantic values as <i>updates</i> as opposed to <i>contents</i>. The class of phenomena I look at also have implications for the division of labor between the semantic and pragmatic interpretive effects of language use.</p>
 		
@@ -34,19 +47,6 @@ date: 2014-09-27 02:00
 		<li>David Lewis (<a href="/research/bibliography/david-lewis/">bibliography</a>) (<a href="https://spideroak.com/browse/share/ehovers10/works-of-phil/lewis/">library</a>)</li>
 		<li>Ontic vagueness (<a href="/research/bibliography/ontic-vagueness/">bibliography</a>) (<a href="https://spideroak.com/browse/share/ehovers10/works-of-phil/metaphysics/">library</a>)</li>
 		<li>Epistemology (<a href="https://spideroak.com/browse/share/ehovers10/works-of-phil/epistemology/">library</a>)</li>
-		<li>Philosophy of science and probability (<a href="https://spideroak.com/browse/share/ehovers10/works-of-phil/science-probability/">library</a>)</li>
-		<li>Ontic vagueness (<a href="/research/bibliography/ontic-vagueness/">bibliography</a>) (<a href="https://spideroak.com/browse/share/ehovers10/works-of-phil/metaphysics/">library</a>)</li>
-		<li>My dissertation (<a href="/research/bibliography/erik-dissertation/">bibliography</a>)</li>
+		<li>Philosophy of science ant(<a href="https://spideroak.com/browse/share/ehovers10/works-of-phil/science-probability/">library</a>)</li>
 	</ul>
-	
-	<h2>markup</h2><a name="markup"></a>
-
-	<ul>
-		<li>A <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span> macro for representing categorical logic graphically <!--(<a href="/research/markup/cat-logic.html">html</a>)--> (<a href="/research/markup/categorical-logic.tex">tex file</a>) (<a href="/research/markup/categorical-logic.pdf">sample</a>)</li>
-		<li>A custom beamer theme for my lectures (<a href="/research/markup/beamer-ru101f14.html">html</a>) (<a href="/research/markup/beamer-ru101f14.tex">tex file</a>)</li>
-		<li>The Cheyenne direct evidential represented in update semantics with centering (with help from <a href="http://www.rci.rutgers.edu/~mbittner/">Maria Bittner</a>, <a href="http://conf.ling.cornell.edu/sem/index.shtml">Sarah Murray</a>, <a href="http://johnmacfarlane.net/pandoc/">pandoc</a>, and <a href="http://www.mathjax.org/">mathjax</a>) (<a href="./markup/evidential-mathjax.html" >html</a>) (<a href="./markup/evidentials.tex" >tex file</a>)</li>
-		<li>This website, powered by jekyll (<a href="https://github.com/ehovers10/ehovers10.github.io/tree/simulate">github</a>)</li>	
-	</ul>
-	
-	{% include abstracts.html %}
-</div>	
+</div>
