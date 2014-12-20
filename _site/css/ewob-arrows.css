@@ -18,7 +18,7 @@
 	border: none;
 	background: rgba(71,109,180,0.7);
 	border-radius: 0 25px 25px 0;
-	z-index: 40;
+	z-index: 9;
 }
 .arrow-navl:hover { margin-left: 0; padding-left: 10px; }
 
@@ -29,7 +29,7 @@
 	border: none;
 	background: rgba(71,109,180,0.7);
 	border-radius: 25px 0 0 25px;
-	z-index: 40;
+	z-index: 9;
 }
 .arrow-navr:hover { margin-right: 0; padding-right: 10px; }
 
@@ -39,7 +39,7 @@
 	margin-bottom: -25px;
 	right: 5%;
 	border: none;
-	z-index: 40;
+	z-index: 9;
 	background: rgba(71,109,180,0.7);
 	border-radius: 25px 25px 0 0;
 }

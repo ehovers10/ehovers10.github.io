@@ -1,1 +1,266 @@
-
+<tr id="bengson2012" class="entry">
+	<td>Bengson, J. and Moffett, M.</td>
+	<td>Non-propositional intellectualism</td>
+	<td>2012</td>
+	<td>Know How: Essays on knowledge, mind, and action&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('bengson2012','bibtex')">BibTeX</a></p>&nbsp;</td>
+</tr>
+<tr id="bib_bengson2012" class="bibtex noshow">
+<td></td><td colspan="4"><b>BibTeX</b>:
+<pre>
+@incollection{bengson2012,
+  author = {John Bengson and Marc Moffett},
+  title = {Non-propositional intellectualism},
+  booktitle = {Know How: Essays on knowledge, mind, and action},
+  publisher = {Oxford University Press},
+  year = {2012}
+}
+</pre></td>
+</tr><tr id="bratm2009" class="entry">
+	<td>Bratman, M.</td>
+	<td>Shared agency</td>
+	<td>2009</td>
+	<td>Philosophy of the social sciences: Philosophical theory and scientific practice&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('bratm2009','bibtex')">BibTeX</a></p>&nbsp;</td>
+</tr>
+<tr id="bib_bratm2009" class="bibtex noshow">
+<td></td><td colspan="4"><b>BibTeX</b>:
+<pre>
+@incollection{bratm2009,
+  author = {Michael Bratman},
+  title = {Shared agency},
+  booktitle = {Philosophy of the social sciences: Philosophical theory and scientific practice},
+  publisher = {Cambridge University Press},
+  year = {2009}
+}
+</pre></td>
+</tr><tr id="bratman1988" class="entry">
+	<td>Bratman, M., Israel, D. and Pollack, M.</td>
+	<td>Plans and resource-bounded practical reasoning</td>
+	<td>1988</td>
+	<td>Computational Intelligence<br/>Vol. 4(4)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('bratman1988','bibtex')">BibTeX</a></p>&nbsp;</td>
+</tr>
+<tr id="bib_bratman1988" class="bibtex noshow">
+<td></td><td colspan="4"><b>BibTeX</b>:
+<pre>
+@article{bratman1988,
+  author = {Michael Bratman and David Israel and Martha Pollack},
+  title = {Plans and resource-bounded practical reasoning},
+  journal = {Computational Intelligence},
+  year = {1988},
+  volume = {4},
+  number = {4},
+  pages = {349-355}
+}
+</pre></td>
+</tr><tr id="hamblin1958" class="entry">
+	<td>Hamblin, C.</td>
+	<td>Questions</td>
+	<td>1958</td>
+	<td>Australasian Journal of Philosophy<br/>Vol. 36&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('hamblin1958','bibtex')">BibTeX</a></p>&nbsp;</td>
+</tr>
+<tr id="bib_hamblin1958" class="bibtex noshow">
+<td></td><td colspan="4"><b>BibTeX</b>:
+<pre>
+@article{hamblin1958,
+  author = {Charles Hamblin},
+  title = {Questions},
+  journal = {Australasian Journal of Philosophy},
+  year = {1958},
+  volume = {36},
+  pages = {159-168}
+}
+</pre></td>
+</tr><tr id="hintikk1998" class="entry">
+	<td>Hintikka, J.</td>
+	<td>What is abduction? The fundamental problems of contemporary epistemology</td>
+	<td>1998</td>
+	<td>Transactions of the Charles S. Peirce Society<br/>Vol. 34(3)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('hintikk1998','bibtex')">BibTeX</a></p>&nbsp;</td>
+</tr>
+<tr id="bib_hintikk1998" class="bibtex noshow">
+<td></td><td colspan="4"><b>BibTeX</b>:
+<pre>
+@article{hintikk1998,
+  author = {Jaakko Hintikka},
+  title = {What is abduction? The fundamental problems of contemporary epistemology},
+  journal = {Transactions of the Charles S. Peirce Society},
+  year = {1998},
+  volume = {34},
+  number = {3}
+}
+</pre></td>
+</tr><tr id="james1896" class="entry">
+	<td>James, W.</td>
+	<td>The will to believe and other essays</td>
+	<td>2009</td>
+	<td>(26659)&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('james1896','bibtex')">BibTeX</a></p>&nbsp;</td>
+</tr>
+<tr id="bib_james1896" class="bibtex noshow">
+<td></td><td colspan="4"><b>BibTeX</b>:
+<pre>
+@book{james1896,
+  author = {William James},
+  title = {The will to believe and other essays},
+  publisher = {Project Gutenberg},
+  year = {2009},
+  number = {26659},
+  note = {Original copyright 1896}
+}
+</pre></td>
+</tr><tr id="macfarlane2011a" class="entry">
+	<td>MacFarlane, J.</td>
+	<td>What is assertion?</td>
+	<td>2011</td>
+	<td>Assertion&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('macfarlane2011a','bibtex')">BibTeX</a></p>&nbsp;</td>
+</tr>
+<tr id="bib_macfarlane2011a" class="bibtex noshow">
+<td></td><td colspan="4"><b>BibTeX</b>:
+<pre>
+@incollection{macfarlane2011a,
+  author = {John MacFarlane},
+  title = {What is assertion?},
+  booktitle = {Assertion},
+  publisher = {Oxford University Press},
+  year = {2011},
+  pages = {79-96}
+}
+</pre></td>
+</tr><tr id="macfarlane2008" class="entry">
+	<td>MacFarlane, J.</td>
+	<td>Truth in the garden of forking paths</td>
+	<td>2008</td>
+	<td>Relative Truth&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('macfarlane2008','bibtex')">BibTeX</a></p>&nbsp;</td>
+</tr>
+<tr id="bib_macfarlane2008" class="bibtex noshow">
+<td></td><td colspan="4"><b>BibTeX</b>:
+<pre>
+@incollection{macfarlane2008,
+  author = {John MacFarlane},
+  title = {Truth in the garden of forking paths},
+  booktitle = {Relative Truth},
+  publisher = {Oxford University Press},
+  year = {2008},
+  pages = {81-102}
+}
+</pre></td>
+</tr><tr id="macfarlane2009" class="entry">
+	<td>MacFarlane, J.</td>
+	<td>Nonindexical Contextualism</td>
+	<td>2009</td>
+	<td>Synthese<br/>Vol. 166&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('macfarlane2009','bibtex')">BibTeX</a></p>&nbsp;</td>
+</tr>
+<tr id="bib_macfarlane2009" class="bibtex noshow">
+<td></td><td colspan="4"><b>BibTeX</b>:
+<pre>
+@article{macfarlane2009,
+  author = {John MacFarlane},
+  title = {Nonindexical Contextualism},
+  journal = {Synthese},
+  year = {2009},
+  volume = {166},
+  pages = {231-250}
+}
+</pre></td>
+</tr><tr id="macfarlane2007" class="entry">
+	<td>MacFarlane, J.</td>
+	<td>Relativism and disagreement</td>
+	<td>2007</td>
+	<td>Philosophical Studies<br/>Vol. 132&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('macfarlane2007','bibtex')">BibTeX</a></p>&nbsp;</td>
+</tr>
+<tr id="bib_macfarlane2007" class="bibtex noshow">
+<td></td><td colspan="4"><b>BibTeX</b>:
+<pre>
+@article{macfarlane2007,
+  author = {John MacFarlane},
+  title = {Relativism and disagreement},
+  journal = {Philosophical Studies},
+  year = {2007},
+  volume = {132},
+  pages = {17-31}
+}
+</pre></td>
+</tr><tr id="macfarlane2005" class="entry">
+	<td>MacFarlane, J.</td>
+	<td>Making sense of relative truth</td>
+	<td>2005</td>
+	<td>Proceedings of the Aristotelian Society<br/>Vol. 105&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('macfarlane2005','bibtex')">BibTeX</a></p>&nbsp;</td>
+</tr>
+<tr id="bib_macfarlane2005" class="bibtex noshow">
+<td></td><td colspan="4"><b>BibTeX</b>:
+<pre>
+@article{macfarlane2005,
+  author = {John MacFarlane},
+  title = {Making sense of relative truth},
+  journal = {Proceedings of the Aristotelian Society},
+  year = {2005},
+  volume = {105},
+  pages = {321-339}
+}
+</pre></td>
+</tr><tr id="mill1859" class="entry">
+	<td>Mill, J.S.</td>
+	<td>On Liberty</td>
+	<td>2011</td>
+	<td>&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('mill1859','bibtex')">BibTeX</a></p>&nbsp;</td>
+</tr>
+<tr id="bib_mill1859" class="bibtex noshow">
+<td></td><td colspan="4"><b>BibTeX</b>:
+<pre>
+@book{mill1859,
+  author = {John Stuart Mill},
+  title = {On Liberty},
+  publisher = {Project Gutenberg},
+  year = {2011},
+  note = {Original copyright 1859}
+}
+</pre></td>
+</tr><tr id="moffett2007" class="entry">
+	<td>Moffett, M.</td>
+	<td>Reasonable disagreement and rational group inquiry</td>
+	<td>2007</td>
+	<td>Episteme: A journal of social epistemology<br/>Vol. 4&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('moffett2007','bibtex')">BibTeX</a></p>&nbsp;</td>
+</tr>
+<tr id="bib_moffett2007" class="bibtex noshow">
+<td></td><td colspan="4"><b>BibTeX</b>:
+<pre>
+@article{moffett2007,
+  author = {Marc Moffett},
+  title = {Reasonable disagreement and rational group inquiry},
+  journal = {Episteme: A journal of social epistemology},
+  year = {2007},
+  volume = {4},
+  pages = {352-367}
+}
+</pre></td>
+</tr><tr id="schurz2008" class="entry">
+	<td>Schurz, G.</td>
+	<td>Patterns of abduction</td>
+	<td>2008</td>
+	<td>Synthese<br/>Vol. 164&nbsp;</td>
+	<td><p class="infolinks"><a href="javascript:toggleInfo('schurz2008','bibtex')">BibTeX</a></p>&nbsp;</td>
+</tr>
+<tr id="bib_schurz2008" class="bibtex noshow">
+<td></td><td colspan="4"><b>BibTeX</b>:
+<pre>
+@article{schurz2008,
+  author = {G. Schurz},
+  title = {Patterns of abduction},
+  journal = {Synthese},
+  year = {2008},
+  volume = {164},
+  pages = {201-234},
+  doi = {http://dx.doi.org/10.1007/s11229-007-9223-4}
+}
+</pre></td>
+</tr>
