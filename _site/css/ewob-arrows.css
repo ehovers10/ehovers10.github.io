@@ -11,12 +11,13 @@
 	opacity: 1.0;
 }
 
+.arrow-navl,.arrow-navr,#to-top { background: rgba(47,79,79,0.3); }
+
 .arrow-navl {
 	position: inherit;
 	float: left;
 	margin-left: -25px;
 	border: none;
-	background: rgba(71,109,180,0.7);
 	border-radius: 0 25px 25px 0;
 	z-index: 9;
 }
@@ -27,7 +28,6 @@
 	float: right;
 	margin-right: -25px;
 	border: none;
-	background: rgba(71,109,180,0.7);
 	border-radius: 25px 0 0 25px;
 	z-index: 9;
 }
@@ -40,7 +40,6 @@
 	right: 5%;
 	border: none;
 	z-index: 9;
-	background: rgba(71,109,180,0.7);
 	border-radius: 25px 25px 0 0;
 }
 #to-top:hover { margin-bottom: 0; padding-bottom: 10px; }
