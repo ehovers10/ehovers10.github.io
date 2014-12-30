@@ -6,7 +6,7 @@
 	height: 100%;
 	top: 0;
 	left: 0;
-	background: rgba(71,109,180,1.0);
+	background: rgba(0,0,0,0.8);
 }
 .lightbox:target { display: block; }
 
@@ -32,14 +32,15 @@
 	background-color: transparent;
 }
 
-.poptitle a { color: DarkSlateGray; }
+.poptitle a { color: SteelBlue; }
 
 .poptitle h3 { 
+	float: left;
 	text-align: center;
 	width: 90%;
 }
 
-.poptitle img { width: 4%; }
+.poptitle img { float: right; width: 5%; }
 
 .popmain { 
 	max-width: 100%;
@@ -51,7 +52,7 @@
 }
 
 .text { 	
-	padding: 0 20px;
+	padding: 0 20px 10px;
 }
 
 .vpic img { height: 89%; }
