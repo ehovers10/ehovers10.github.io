@@ -1,7 +1,7 @@
 ---
 title: Correctible inquiry
 author: Erik Hoversten
-date: 2015-01-07
+date: 2015-01-09
 ---
 
 # Correctible inquiry #
@@ -12,7 +12,7 @@ Discourse need not fulfill the needs of inquiry, and inquiry need not take the f
 
 The tradition of update semantics (kamp and heim, groenendijk and stokhof, van den berg, bittner, and brasovanu) has long maintained that linguistic discourse cannot be appropriately understood as a sequence of independent utterances.  Instead, there are essential, semantic relations between utterances.
 
-
+The idea that discourse is dynamic is both trivial and novel. Discourse takes place in real time, and a conversation builds as new contributions are added. But it doesn't build as a mere sequence of independent utterances. Instead, later utterances depend on prior ones for their interpretability.
 
 ## Modeling inquiry ## 
 

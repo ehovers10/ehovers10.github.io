@@ -192,7 +192,7 @@
 <input type="text" id="qs_field" autocomplete="off" placeholder="Type to search..." /> <input type="button" onclick="clearQS()" value="clear" />
 <span id="searchstat">Matching entries: <span id="stat">0</span></span>
 <div id="showsettings" onclick="toggleSettings()">settings...</div>
-<div id="settings" class="show">
+<div id="settings" class="hidden">
 <ul>
 <li><input type="checkbox" class="search_setting" id="opt_searchAbs" onchange="updateSetting(this)"><label for="opt_searchAbs"> include abstract</label></li>
 <li><input type="checkbox" class="search_setting" id="opt_searchRev" onchange="updateSetting(this)"><label for="opt_searchRev"> include review</label></li>
@@ -206,7 +206,7 @@
 <!-- Bibliography -->
 <div id="bibtable">
 <table id="qs_table" border="1">
-<thead><tr><th width="20%">Author</th><th width="35%">Title</th><th width="5%">Year</th><th width="35%">Journal/Proceedings</th><th width="5%">Reference materials</th></tr></thead>
+<thead><tr><th id="author">Author</th><th id="title">Title</th><th id="year">Year</th><th id="journal">Journal</th><th id="ref">Biblio</th></tr></thead>
 <tbody>
 
 <tr id="anderbois2010" class="entry">
@@ -2415,6 +2415,7 @@
 
  <small>Created by <a href="http://jabref.sourceforge.net">JabRef</a> on 05/10/2014.</small>
  </div>
+
 
 <div id="content">
 	<h3><a href="/research/">return to research</a></h3>

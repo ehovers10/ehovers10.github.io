@@ -20,7 +20,7 @@ var searchAbstract = true;	// search in abstract
 var searchReview = true;	// search in review
 
 var noSquiggles = true; 	// ignore diacritics when searching
-var searchRegExp = false; 	// enable RegExp searches
+var searchRegExp = true; 	// enable RegExp searches
 
 
 if (window.addEventListener) {

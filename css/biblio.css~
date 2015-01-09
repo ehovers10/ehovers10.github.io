@@ -35,3 +35,9 @@ p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
 	p.infolinks, #qs_settings, #quicksearch, t.bibtex { display: none !important; }
 	tr { page-break-inside: avoid; }
 }
+
+#bibtitle{
+    width: 100%;
+    height: 100px;
+    <!--background-color: rgba(71,109,180,0.7);
+}
