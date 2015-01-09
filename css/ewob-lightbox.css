@@ -6,7 +6,7 @@
 	height: 100%;
 	top: 0;
 	left: 0;
-	background: rgba(0,0,0,0.9);
+	background: rgba(0,0,0,0.95);
 }
 .lightbox:target { display: block; }
 
@@ -49,13 +49,13 @@
 	background: #fff; 
 }
 
-.text { 		
+.text { 			
 	padding: 0 20px;
 }
 
-<!--.vpic { margin: 0; padding: 0; height: 100%; }
+.vpic { height: 100%; }
 <!--.hpic img { margin: 0; padding: 0; width: 100%; }
-.popmain img { height: 100%; }
+<!--.popmain img {  }
 
 .thumbbox {
 	width: 100%;
