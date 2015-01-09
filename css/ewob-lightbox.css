@@ -6,21 +6,18 @@
 	height: 100%;
 	top: 0;
 	left: 0;
-	background: rgba(0,0,0,0.8);
+	background: rgba(0,0,0,0.9);
 }
 .lightbox:target { display: block; }
 
 .popbox {
 	position: fixed;
-	top: 10%;
+	top: 8%;
 	left: 50%;
 	margin-right: -50%;
 	transform: translate(-50%, 0%);
+	height: 84%;
 	max-width: 60%;
-	height: 80%;
-	<!--padding: 10px 20px;
-	<!--border: groove SteelBlue;
-	<!--border-radius: 20px;
 	overflow: hidden;
 	background: transparent;
 }
@@ -44,19 +41,21 @@
 
 .popmain { 
 	max-width: 100%;
-	max-height: 90%;
+	max-height: 85%;
 	overflow-y: auto;
+	overflow-x: hidden;
 	border-radius: 5px;
-	margin-right: 30px;
+	<!--margin-right: 30px;
 	background: #fff; 
 }
 
-.text { 	
-	padding: 0 20px 10px;
+.text { 		
+	padding: 0 20px;
 }
 
-.vpic img { height: 89%; }
-.hpic img { width: 100%; }
+<!--.vpic { margin: 0; padding: 0; height: 100%; }
+<!--.hpic img { margin: 0; padding: 0; width: 100%; }
+.popmain img { height: 100%; }
 
 .thumbbox {
 	width: 100%;

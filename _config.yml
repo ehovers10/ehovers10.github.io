@@ -13,7 +13,12 @@ defaults:
     values:
       layout: "elay1"
       
-gems: ['pandoc-ruby']
+gems: ['pandoc-ruby', 'jekyll-sitemap']
+
+sitemap:
+  exclude: 
+    - "/blog/feed.xml"
+  include_posts: "/blog/index.html"
 
 pandoc: 
   options: 

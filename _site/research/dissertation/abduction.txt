@@ -1,0 +1,5 @@
+The communicative exchange is an inquiry, and as in scientific inquiry, it has two components: the context of discovery and the context of justification. 
+
+Inquiry involves two methods of information accumulation.  One is by way of incorporating new information into the stock of accepted information.  The other is by expanding the question state to incorporate new possibilities for investigation.
+
+The expansion of the question state is akin to the abductive phase within the context of discovery. But there are two kinds of abduction commonly recognized. The first of these is when a set of hypotheses is selected from whithin a preestablished list of possibilities, and is known as selective abduction. The second involves the generation of genuinely new hypotheses, and goes under the title of creative abduction.

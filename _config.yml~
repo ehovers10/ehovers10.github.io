@@ -13,7 +13,13 @@ defaults:
     values:
       layout: "elay1"
       
-gems: ['pandoc-ruby']
+gems: ['pandoc-ruby', 'jekyll-sitemap']
+
+sitemap:
+  file: "erik-sitemap.xml"
+  exclude: 
+    - "/blog/feed.xml"
+  include_posts: "/blog/index.html"
 
 pandoc: 
   options: 
@@ -45,7 +51,7 @@ reveal:
     mouseWheel: false
     hideAddressBar: true
     previewLinks: false
-    transition: 'default' ## default/cube/page/concave/zoom/linear/fade/none
+    transition: 'zoom' ## default/cube/page/concave/zoom/linear/fade/none
     transitionSpeed: 'default' ## default/fast/slow
     backgroundTransition: 'default' ## default/none/slide/concave/convex/zoom
     viewDistance: 3

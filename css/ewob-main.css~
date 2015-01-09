@@ -7,9 +7,7 @@ html,body,p,h1,h2,a,div,img { margin: 0; }
 body {
 	margin: 0;
 	background: #fff;
-	font-family: Verbana, sans-serif;
-	<!--font-family: Georgia, "Times New Roman",
-			Times, serif;
+	font-family: Garamond, Helvetica, sans-serif;
 	<!--font-size: small;
 	line-height: 1.25em; 
 }
@@ -45,8 +43,8 @@ a { position: relative; z-index: 10; text-decoration: none; color: #3B6EBF; }
 	<!--opacity: 0.8;
 }
 
-#banner h1 { margin: 0; padding-top: 80px; width: 100%; text-align: center; font-size: 50px; color: #fff; }
-#banner h2 { margin: 0; padding-top: 1em; width: 100%; text-align: center;font-size: 17px; color: #fff; }
+#banner h1 { margin: 0; padding-top: 1.5em; width: 100%; font-size: 3em; text-align: center; color: #fff; }
+#banner h2 { margin: 0; padding-top: 1em; width: 100%; font-size: 2em; text-align: center; color: #fff; }
 
 /* MAIN CONTENT */
 
@@ -62,23 +60,29 @@ a { position: relative; z-index: 10; text-decoration: none; color: #3B6EBF; }
 #content {
 	width: 80%;
 	text-align: justify;
-	color: DarkSlateGray;
-	font-size: 13px;
+	color: rgba(47,79,79,1);
+	font-size: 1em;
+	line-height: 1.5em;
 	padding: 20px;
 }
 
+#content h1 { font-size: 2.5em; }
+
 #content h2 { 
 	width: 65%; 
-	font-size: 17px; 
+	font-size: 1.5em; 
 	margin: 10px 0;
 	color: DarkSlateGray; 
 	border-bottom: solid SteelBlue; 
 }
 
+#content h2 a { color: DarkSlateGray; }
+#content h2 a:hover { color: SteelBlue; }
+
 #content table { 
 	padding-left: 40px; 
 	color: DarkSlateGray;
-	font-size: 13px;
+	<!--font-size: 1em;
 	<!--width: 75%;
 }
 
@@ -90,7 +94,6 @@ a { position: relative; z-index: 10; text-decoration: none; color: #3B6EBF; }
 	float: right;
 	width: 35%;
 	background: rgba(47,79,79,0.6);
-	<!--border: groove SteelBlue;
 	border-radius: 8px;
 	margin: 20px;
 	text-align: justify;
@@ -99,7 +102,7 @@ a { position: relative; z-index: 10; text-decoration: none; color: #3B6EBF; }
 }
 
 #side-bar img { width: 100%; border-radius: 8px; }
-#side-bar ul { padding: 0 20px 0 40px; list-style-type: none; }
+#side-bar ul { padding: 0 20px; list-style-type: none; }
 #side-bar p { padding: 0 20px; }
 #side-bar a { color: #fff; }
 
@@ -107,7 +110,7 @@ a { position: relative; z-index: 10; text-decoration: none; color: #3B6EBF; }
 	padding-top: 10px;
 	margin-left: 20px; 
 	width: 75%; 
-	font-size: 17px; 
+	font-size: 2em; 
 	color: DarkSlateGray; 
 	border-bottom: solid SteelBlue;
 }
@@ -152,7 +155,7 @@ a { position: relative; z-index: 10; text-decoration: none; color: #3B6EBF; }
 
 #etitle { 
 	position: fixed;
-	top: 100px;
+	top: 4em;
 	left: 15%;
 	width: 10%;
 	color: DarkSlateGray;
@@ -161,7 +164,8 @@ a { position: relative; z-index: 10; text-decoration: none; color: #3B6EBF; }
 #etitle h2 {
 	width: 100%;
 	text-align: right;
-	font-size: 1.5em;
+	line-height: 1em;
+	font-size: 2em;
 	<!--padding-right: 20px;
 }
 

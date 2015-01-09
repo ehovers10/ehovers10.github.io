@@ -1,11 +1,7 @@
 ---
-layout: post
 title:  "Correctibles, posits, or leaps?"
-subheading: blog post
-parent: blog
 author: erik hoversten
-date:   2014-09-10 13:14
-tags: semantics correctibles generics
+date:   2014-09-10
 ---
 
 I've been thinking a lot lately about a class of expression that I'm calling "correctibles".  The idea behind these expressions (or perhaps better, use of expressions) is that they exhibit a certain resiliance to correction.  For instance, I think that generics and certain relative expressions are in this class.

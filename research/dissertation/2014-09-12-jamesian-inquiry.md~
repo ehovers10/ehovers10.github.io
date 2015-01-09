@@ -1,7 +1,11 @@
 ---
+layout: post
 title:  "Jamesian inquiry"
+subheading: blog post
+parent: blog
 author: erik hoversten
-date: 2014-09-12
+date: 2014-09-12 11:45
+tags: [inquiry, disagreement, william james]
 ---
 
 William James famously drew a distinction between two independent and sometimes conflicting goals for those engaged in the pursuit of knowledge.  The first is to acquire true beliefs.  The second is to avoid believing falsehoods.  One could meet the goal of believing truths simply by believing everything, but doing so sacrifices entirely the second goal.  And one could meet the goal of avoiding falsehoods by believing nothing at all, thereby forfeiting the virtue of believing truths. As James saw it, a strategy of inquiry that floats between these extremes is the path we ought to search for.
