@@ -13,7 +13,7 @@ defaults:
     values:
       layout: "elay1"
       
-gems: ['pandoc-ruby', 'jekyll-sitemap']
+gems: ['pandoc-ruby']
 
 sitemap:
   exclude: 

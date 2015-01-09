@@ -41,7 +41,7 @@
 
 .popmain { 
 	max-width: 100%;
-	max-height: 90%;
+	max-height: 85%;
 	overflow-y: auto;
 	overflow-x: hidden;
 	border-radius: 5px;
@@ -49,13 +49,13 @@
 	background: #fff; 
 }
 
-.text { 		
+.text { 			
 	padding: 0 20px;
 }
 
-<!--.vpic { margin: 0; padding: 0; height: 100%; }
+.vpic { height: 100%; }
 <!--.hpic img { margin: 0; padding: 0; width: 100%; }
-.popmain img { height: 100%; }
+<!--.popmain img {  }
 
 .thumbbox {
 	width: 100%;
