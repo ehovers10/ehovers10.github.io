@@ -1,0 +1,78 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[letterpaper]{geometry}
+\usepackage{enumerate,verbatim,color}
+%\usepackage{fancyhdr}
+\usepackage{amssymb}
+
+%Margin settings
+\geometry{hmargin={1in,1in},vmargin={1in,1in}}
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{3mm}
+\setlength{\tabcolsep}{10pt}
+\setlength{\arraycolsep}{10pt}
+
+%Hyperref
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+
+%opening
+\title{Stuff for Ludlow}
+\author{Erik Hoversten}
+
+\begin{document}
+
+%\maketitle
+
+%\begin{abstract}
+%
+%\end{abstract}
+
+\section{Linguistic alignment}
+
+One important function of linguistic communication is for conversational participants to share information about the world.  Because our cognitive reach is limited, we rely on our fellow inquirers to fill in gaps in our knowledge. Much of the history of formal semantics and pragmatics has been an attempt to model how language users accomplish this task of communicating to transfer information about the world outside their heads.
+
+Let us take the primary goal of inquiry to be acquisition of knowledge about the world.  Certainly, conveying information that encodes facts about the world contributes directly to this goal.  But communication is rarely so neat and direct.  One reason for this is that \textbf{informational potential}, the range of facts about the world an individual is in a position to acquire, can vary quite a deal from one individual to the next. This fact is not just a matter of variation among linguistic communities in terms of how information is encoded.  Linguistic expressions encode information, and language understanding is a capacity to receive the encoded information when presented with the linguistic expression.
+
+But what information is encoded by an expression is not just a matter of the expression belonging to a particular language.  That is too coarse of a characterization.  For one linguistic expression belonging to a single language can encode different information in different contexts of presentation.  A major goal of formal semantics and pragmatics is to model nature and operation of context that allows it to influence information encoding in the way that it does.
+
+Context is not a static entity in which linguistic exchange takes place.  Rather, linguistic exchange both utilizes and changes the context.  Because communication is a shared pursuit, these effects of context must be publicly accessible.  That's not to say they must be accessible directly via sight or audition; speaker intentions, non-present entities, etc can be made manifest in myriad indirect ways.  But the public nature of context provides a constraint within which the semanticist must work.
+
+Paticipants in a joint communication exchange (interlocutors) have different resources at their disposal at the beginning of the exchange. The scoreboard model of context is helpful here.  While the kinds of statistics recorded on the scoreboard can surely change from conversation to conversation, and even within a single conversation, let's suppose there to be a default board with a variety of slots that must be filled for interpretation of linguistic expressions to succeed.  Even with this static element shared among the interlocutors, each participant is liable to bring their scoreboard filled with different defaults.  In order for any communication to be fruitful, the interlocutors must \textbf{align} their values.  My contention is that much linguistic machinery is set to the task of aligning scoreboard values.
+
+Recent research on epistemic modals (Veltman, Swanson, Yalcin) is in this vein.  The suggestion is that there is an expressive element associated with the interpretation of modality.  Part of what one does when they assert a modalized sentence is to inform their interlocutors of one aspect of their mental state.  Presumably, this is done on the assumption that the interlocutor can use this information to get at what they're really after, which is some information about the outside world.  This expressive element is one alignment tool that speakers have at their disposal.
+
+Evidentials are another alignment tool.  Informing interlocutors of one's epistemic relation to the information conveyed allows them to make better use of the information.
+
+Presupposition, too, can be seen as an alignment too, at least in so far as presupposition failure represents misalignment, and presupposition accommodation is just acceptance of a proposed realignment.
+
+\section{Disagreement}
+
+The phenomenon of linguistic disagreement has played a large role in many recent debates in the philosophy of language.  Primarily, it has been seen as a data point that is purported to distinguish between different semantic proposals in terms of their empirical spread.  Contextualists regarding a particular linguistic expression are said to be unable to account for disagreement between interlocutors engaged in a debate within that domain.  Whereas relativists are said to do much better on this count.
+
+But I think disagreement is more central to interpretation than this debate might suggest.  It is, in fact, an alignment tool.  I want to motivate this idea in two ways.  The first way is the conceptual one.  Interpretation is a necessary ingredient in the process of inquiry.  Inquiry is guided by our goal of discovering truths about our world.  And disagreement is an essential tool in the process of achieving that goal.
+
+The second way is driven by what I take to be a fruitful analysis of the linguistic phenomenon of contrastive topic.  Contrastive topic is a species of focus.  The analysis of focus interpretation is generally taken to be exhausted by specification of appropriate presuppositions.  But I think that contrastive focus requires more analysis, and that recognizing disagreement as a sui generis kind of interpretive element provides for a neat analysis of the phenomenon.
+
+Let's start with a simple analysis of one concept that can be referred to with the English word ``disagreement''. 
+
+\begin{quotation}
+  A disagreement is a relational state that obtains when two or more individuals each stand in an appropriate relation to intensional entities that are relevantly incompatible.
+\end{quotation}
+
+Appropriate relations to intensional entities involve relations such as \textit{attitudinal states} and relations in the vicinity of \textit{having asserted that}, such as \textit{having said that} or even \textit{having implicated that}.  Relevant incompatibility will track facts about the type of intensional entities involved and the nature of the relation to those entities that the individuals stand in.
+
+A debate has arisen that has turned on the question of whether different semantic theories provide for a shared content among interlocutors, for it is assumed that such a content is required for there to be genuine disagreement between them.  As has been recently pointed out, this requirement of shared \textit{semantic} content does not hold up to scrutiny.  There are many examples that suggest that content that is standardly taken to be pragmatic in nature (presupposition, implicature), if shared, is capable of sustaining genuine disagreement.
+
+But it seems to me that we may as well contest that shared content is a requirement for genuine disagreement.  At this stage, I'd like to develop a notion of updating as understood in the dynamic semantics tradition, and try to show that disagreement can be seen to play a central role in conversation as a process of mutual updating of a shared context.
+
+While many different content distinctions can be made, a simple and fruitful one is the distinction between at-issue and not-at-issue content.  The at-issue content corresponds roughly to what has traditionally been called semantic content, or what is said.  Not-at-issue content is related to but perhaps not coextensive with the presuppositions, conventional implicatures, and other secondary content carried by an utterance. This distinction finds a natural home in update semantics via a distinction between two kinds of update that the machinery allows for.  Let us call these two kinds of update direct update and proposed update respectively.  Direct update corresponds to not-at-issue content and proposed update to at-issue content.  Intuitively, not-at-issue content is information added into the background of the conversational scoreboard.  It is information that is taken for granted or needed for interpretation of the at-issue content in the context.  it is added directly by the speaker and is not up for dispute (This is so at least in the normal course of conversation; it can be disputed, but we are forced to derail the conversation slightly to do so.)
+
+At-issue content, on the other hand carries the information that is of immediate interest in the inquiry.  It is information proferred by the speaker to be accepted by her interlocutors.  Instead of being directly inserted into the conversational scoreboard, it is put up as a proposal, which if accepted, results in an adjustment to the scoreboard.  This is a coarse, but useful distinction.  It may crosscut certain other important content distinctions, such as the semantic content/presuppostion distinction.
+
+The at-issue/not-at-issue distinction can be modeled in update semantics by recognizing two kinds of update.  The first kind is direct update, and it is essentially the Stalnakerian update of the context set
+\subsection{Disputative content in contrastive focus}
+
+
+
+\end{document}
