@@ -7,9 +7,9 @@ tags: [pragmatics, focus, contrastive topic]
 
 ## Focus as anaphora and question/answer congruence ##
 
-The standard picture of focus interpretation has it that the focused element of a sentence is associated with a focus semantic value, which is a set of alternatives to the focused element.  This alternative set is constrained by the domain of discourse, the semantic type of the focused element, and context.
+The standard picture of focus interpretation has it that the focused element of a sentence is associated with a focus semantic value, which is a set of alternatives to the focused element.  This alternative set is constrained by the domain of discourse, the semantic type of the focused element, and context.  
 
-Focus is additionally assumed to be associated with a fellicity condition: an utterance involving focus is fellicitous just in case the (suitably constrained) alternative set has an equivalent antecedent in the conversation.
+Focus is additionally assumed to be associated with a fellicity condition: an utterance involving focus is fellicitous just in case the (suitably constrained) alternative set has an equivalent antecedent in the conversation.  
 
 The star bit of data that is marshalled in support of this proposal is that of question/answer congruence. Compare the responses to the following question:
 
@@ -53,3 +53,4 @@ This proposal certainly fits with the structure of the question under discussion
 
 But what I take to be the central issue with this sort of approach to the problem of contrastive topic in corrections is a conceptual one having to do with the role of corrections in discourse evolution. The question under discussion model of contrastive topic makes the discourse contribution of contrastive topic entirely backward looking. Whatever role the focus plays is just a matter of checking prior discourse for an antecedent to the focus generated alternative set. 
 
+But this account ignores the *corrective* element of the example discourse. The function of the response in 
