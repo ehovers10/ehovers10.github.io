@@ -1,4 +1,4 @@
-@media all and (max-width: 899px;) and (max-device-width: 600px;) {
+@media all and (max-width: 899px) {
 	
 #banner { background-image: url('/images/teton-small.jpg'); }
 #main { width: 90%; left: 5%; }
