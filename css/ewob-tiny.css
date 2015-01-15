@@ -5,7 +5,7 @@
 #banner { background-image: url('/images/teton-tiny.jpg'); }
 #banner h1 { font-size: 2.5em !important; }
 #main { width: 90%; left: 5%; }
-#content { width: 93%; }
+#content { width: 90%; }
 	
 #nav-small {
 	position: fixed;

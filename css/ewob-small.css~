@@ -26,7 +26,6 @@
 	z-index: 15;
 }
 
-<!--#nav-small:hover { height: 150px; max-width: 100px; }
 .show { max-height: 250px; max-width: 100px; }
 .hide { height: 20px; width: 5%; }
  

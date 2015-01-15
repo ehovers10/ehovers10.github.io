@@ -10,6 +10,13 @@
 }
 .lightbox:target { display: block; }
 
+@media all and (min-width: 900px) {
+	.popbox { max-width: 60%; }
+}
+@media all and (max-width: 899px) {
+	.popbox { max-width: 90%; }
+}
+
 .popbox {
 	position: fixed;
 	top: 8%;
@@ -17,7 +24,7 @@
 	margin-right: -50%;
 	transform: translate(-50%, 0%);
 	height: 84%;
-	max-width: 60%;
+	
 	overflow: hidden;
 	background: transparent;
 }
@@ -53,9 +60,7 @@
 	padding: 0 20px;
 }
 
-.vpic { height: 100%; }
-<!--.hpic img { margin: 0; padding: 0; width: 100%; }
-<!--.popmain img {  }
+.popmain img { display: block; height: 100%; }
 
 .thumbbox {
 	width: 100%;

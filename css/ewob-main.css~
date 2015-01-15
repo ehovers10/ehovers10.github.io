@@ -3,7 +3,7 @@
 @font-face { font-family: 'glamB'; src: url('/fonts/GlametrixBold.otf'); }
 @font-face { font-family: 'glam'; src: url('/fonts/Glametrix.otf'); }
 
-html,body,p,h1,h2,a,div,img { margin: 0; }
+html,body,p,h1,h2,a,div { margin: 0; }
 
 html { font-size: 100%; }
 
@@ -31,7 +31,7 @@ a { position: relative; z-index: 10; text-decoration: none; color: FireBrick; }
 	background-color: #fff; 
 	background-size: 100%;
 	opacity: 1;
-	line-height: 1em;
+	line-height: 1.25em;
 }
 
 #banner-bg {
@@ -90,7 +90,7 @@ a { position: relative; z-index: 10; text-decoration: none; color: FireBrick; }
 	font-size: 1em;
 }
 
-#side-bar img { width: 100%; border-radius: 8px; line-height: 0; }
+#side-bar img { width: 100%; border-radius: 8px; }
 #side-bar ul { padding: 0 20px; list-style-type: none; }
 #side-bar p { padding: 0 20px; }
 #side-bar a { color: #fff; }
