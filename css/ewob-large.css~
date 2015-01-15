@@ -1,4 +1,4 @@
-@media all and (min-width: 900px), (min-device-width: 501px;) {
+@media all and (min-width: 900px) and (min-device-width: 501px;) {
 
 #banner { background-image: url('/images/teton-sky.jpg'); }
 #main { width: 65%; left: 25%; }
@@ -18,7 +18,7 @@
 	text-align: right;
 	line-height: 1em;
 	overflow-x: show;
-	font-size: 2em;
+	font-size: 2.5em;
 }
 
 #nav-bar { 
