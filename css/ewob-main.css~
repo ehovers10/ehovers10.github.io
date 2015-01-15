@@ -56,10 +56,9 @@ a { position: relative; z-index: 10; text-decoration: none; color: FireBrick; }
 }
 
 #content {
-	width: 80%;
 	text-align: justify;
 	line-height: 1.5em;
-	padding: 20px;
+	padding: 2%;
 	color: DarkSlateGray;
 }
 
@@ -91,7 +90,7 @@ a { position: relative; z-index: 10; text-decoration: none; color: FireBrick; }
 	font-size: 1em;
 }
 
-#side-bar img { width: 100%; border-radius: 8px; }
+#side-bar img { width: 100%; border-radius: 8px; line-height: 0; }
 #side-bar ul { padding: 0 20px; list-style-type: none; }
 #side-bar p { padding: 0 20px; }
 #side-bar a { color: #fff; }

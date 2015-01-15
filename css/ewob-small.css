@@ -1,54 +1,46 @@
-@media all and (max-width: 899px) {
+@media all and (min-width: 500px) and (max-width: 899px) {
+
+#nav-bar,#etitle,#to-top,#side-bar img { display: none; }
 	
 #banner { background-image: url('/images/teton-small.jpg'); }
 #main { width: 90%; left: 5%; }
+#content { width: 96%; }
 	
 #nav-small {
 	position: fixed;
 	top: 36px;
 	left: 0;
-	background: rgba(47,79,79,1);
-	padding: 10px 15px;
+	background: rgba(47,79,79,0.9);
+	padding: 5px;
 	text-align: left;
 	color: SteelBlue;
-	font-family: finalfrontier;
+	font-family: glamB;
 	line-height: 1.25em;
 	text-decoration: none;
-	font-weight: bold;
+	font-size: 1.25em;
 	overflow: hidden;
 	-webkit-transition: height 0.5s linear;
 	-moz-transition: height 0.5s linear;
 	transition: height 0.5s linear;
 	border-radius: 0 8px 8px 0;
-	z-index: 30;
+	z-index: 15;
 }
 
-#nav-small:hover { height: 150px; width: 100px; }
-.show { height: 150px; width: 100px; }
-.hide { height: 10px; width: 50px; }
+.show { max-height: 250px; max-width: 100px; }
+.hide { height: 20px; width: 5%; }
  
 #nav-embiggen {
 	position: relative;
 	width: inherit;
-	<!--color: SteelBlue;
-	<!--font-family: finalfrontier;
-	<!--font-weight: bold;
-	<!--padding: 8px 0; 
-	<!--text-shadow: 1px 1px 0 #444;
-	<!--z-index: 30;
 }
 #nav-embiggen a {
-	<!--float: right;
 	display: table;
 	width: 100%;
-	padding-left: 15px;
+	<!--padding-left: 2%;
 	color: SteelBlue;
-	font-size: 1.0em;
 	text-decoration: none;
 	text-shadow: none;
 }
 #nav-embiggen a:hover { color: DarkSlateGray; }
 
-#nav-bar { display: none; }
-#etitle { display: none; }
 }

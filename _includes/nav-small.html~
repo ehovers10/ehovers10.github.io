@@ -1,5 +1,5 @@
-<div id="nav-little" class="hide">
-	<a href="#" title="click to keep big" onclick="toggleIt('nav');return false;">NAV</a>
+<div id="nav-small" class="hide">
+	<a href="#" title="click to show" onclick="toggleIt('nav');return false;">NAV</a>
 		
 <div id="nav-embiggen">
 

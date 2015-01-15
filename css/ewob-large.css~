@@ -1,7 +1,8 @@
-@media all and (min-width: 900px) and (min-device-width: 500px) {
+@media all and (min-width: 900px) {
 
 #banner { background-image: url('/images/teton-sky.jpg'); }
 #main { width: 65%; left: 25%; }
+#content { width: 80%; }
 
 #etitle { 
 	position: fixed;
