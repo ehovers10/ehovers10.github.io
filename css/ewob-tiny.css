@@ -1,8 +1,8 @@
-@media all and (min-width: 500px) and (max-width: 899px) {
+@media all and (max-width: 499px) {
 
-#nav-bar,#etitle,#to-top,#side-bar img { display: none; }
+#nav-bar,#etitle,#to-top,#arrow-nav,#side-bar img { display: none; }
 	
-#banner { background-image: url('/images/teton-small.jpg'); }
+#banner { background-image: url('/images/teton-tiny.jpg'); }
 #main { width: 90%; left: 5%; }
 #content { width: 96%; }
 	
@@ -27,7 +27,7 @@
 }
 
 .show { max-height: 250px; max-width: 100px; }
-.hide { height: 20px; width: 5%; }
+.hide { height: 20px; width: 30px; }
  
 #nav-embiggen {
 	position: relative;

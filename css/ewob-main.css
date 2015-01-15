@@ -56,10 +56,9 @@ a { position: relative; z-index: 10; text-decoration: none; color: FireBrick; }
 }
 
 #content {
-	width: 80%;
 	text-align: justify;
 	line-height: 1.5em;
-	padding: 20px;
+	padding: 2%;
 	color: DarkSlateGray;
 }
 
@@ -76,7 +75,7 @@ a { position: relative; z-index: 10; text-decoration: none; color: FireBrick; }
 #content h2 a { color: inherit; }
 #content h2 a:hover { color: SteelBlue; }
 
-#content ul { list-style-type: circle; }
+#content ul { width: 100%; list-style-type: circle; }
 
 /* SIDEBAR */
 
