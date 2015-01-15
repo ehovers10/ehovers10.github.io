@@ -4,7 +4,7 @@
 	
 #banner { background-image: url('/images/teton-small.jpg'); }
 #main { width: 90%; left: 5%; }
-#content { width: 96%; }
+#content { width: 90%; }
 	
 #nav-small {
 	position: fixed;
