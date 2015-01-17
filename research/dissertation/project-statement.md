@@ -1,6 +1,5 @@
 ---
-title: Correctible inquiry
-subtitle: Dissertation project statement
+title: "Correctible inquiry: Dissertation project statement"
 author: Erik Hoversten
 date: 2017-01-12
 bibliography: dissertation.bib
