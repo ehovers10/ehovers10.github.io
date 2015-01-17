@@ -1,0 +1,5 @@
+[3] Config.pm:318> INFO - This is Biber 1.8
+[4] Config.pm:321> INFO - Logfile is 'ps.tex.blg'
+[460] biber:275> INFO - === Fri Jan 16, 2015, 12:30:08
+[677] Utils.pm:185> ERROR - Cannot find control file 'ps.tex.bcf'! - did you pass the "backend=biber" option to BibLaTeX?
+[678] Biber.pm:109> INFO - ERRORS: 1
