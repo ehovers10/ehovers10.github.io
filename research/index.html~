@@ -14,16 +14,19 @@ date: 2014-09-27 02:00
 <div id="content">
 	<h2>overview</h2>
 	
-	<p>My primary research interests are in philosophy of language and cognitive science. More specifically, I'm interested in formal models of the influence of context on natural language interpretation. My dissertation explores ways of modeling linguistic <i>focus</i> as a tool used by interlocutors to collaboratively set the semantic value boundaries of expressions in their discourse. I think that the unique ways in which focus generally, and <i>contrastive topic</i> in particular, are implemented in conversation provide interesting motivation for characterizing the nature of semantic values as <i>updates</i> as opposed to <i>contents</i>. The class of phenomena I look at also have implications for the division of labor between the semantic and pragmatic interpretive effects of language use.</p>
+	<p>My primary research interests are in philosophy of language and cognitive science. More specifically, I'm interested in formal models of the influence of context on natural language interpretation. My dissertation explores the importance of speculation and dispute in inquiry, and I argue in favor of a model of discourse dynamics that gives the notion of speculative <i>posits</i> pride of place alongside conversational moves such as <i>assertions</i> and <i>questions</i>. I first examine this idea from a historical perspective and point to three classic models of inquiry (due, respectively, to William James, J. S. Mill, and C. S. Peirce) in which speculation plays a central role. I then develop a deeply collaborative model of discourse dynamics in which the semantic value boundaries of words used in discourse are set via a collective effort of the participants in the discourse. Formally, my proposal is couched within the <i>update semantics</i> tradition, and I motivate the formalism by applying it to two existing issues in the philosophy of language and linguistics: the proper interpretation of <i>contrastive topic</i> and the debate between <i>contextualism</i> and <i>relativism</i>.</p>
+
+	<p>Below, you will find links to elements of my dissertation. You can also explore a few searchable bibliographies I've compiled. The <i>library</i> links provide access to pdf copies of selected works within the bibliographies, but they are behind a firewall and are intended for my own use. Lastly, I've included some templates and macros I've put together for various markup applications, primarily in <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>.</p>
 		
 	<h2>papers</h2><a name="papers"></a>
 		
-	<ul>	
-		<li id="title_rd" class="show"><i>Dispute in discourse</i> (<a href="#pop-abs-rd">abstract</a>) (<a>pdf</a>)</li>
-		<li id="title-dc" class="show"><i>The discourse contribution of contrastive topic</i> (<a href="#pop-abs-dc">abstract</a>) (<a>pdf</a>)</li>
-		<li id="title_cr" class="show"><i>Corrective discourse and the contextualism v. relativism debate</i> (<a href="#pop-abs-cr">abstract</a>) (<a>pdf</a>)</li>
+	<ul>
+		<li id="title_do">Dissertation overview (<a>pdf</a>)</li>
+		<li id="title_rd">Speculation and dispute in discourse (<a href="#pop-abs-rd">abstract</a>) (<a>pdf</a>)</li>
+		<li id="title_cr">Collaboration, correction, and relativism (<a href="#pop-abs-cr">abstract</a>) (<a>pdf</a>)</li>		
+		<li id="title_dc">The discourse contribution of contrastive topic (<a href="#pop-abs-dc">abstract</a>) (<a>pdf</a>)</li>
 	</ul>
-	
+
 	<h2>references</h2><a name="biblio"></a>
 	
 	<ul>

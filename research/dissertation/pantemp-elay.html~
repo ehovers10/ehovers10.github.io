@@ -1,0 +1,18 @@
+---
+layout: elay1
+$if(title)$ title: $title$ $endif$
+$if(subheading)$ subheading: $subheading$ $endif$
+$if(category)$ category: $category$ $endif$
+$if(parent)$ parent: $parent$ $endif$
+$if(author)$ author: $author$ $else$
+author: erik hoversten $endif$
+$if(date)$ date: $date$ $endif$
+---
+
+<div id="content">
+
+<h1>$title$</h1>
+
+$body$
+
+</div>
