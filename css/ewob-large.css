@@ -26,9 +26,9 @@
 
 #nav-bar { 
 	position: fixed;
-	left: 15%;
+	left: 10%;
 	top: 170px;
-	width: 10%;
+	width: 15%;
 	background: #fff; 
 	font-family: glametrix;
 	line-height: 1.5em;
