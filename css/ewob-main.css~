@@ -90,7 +90,7 @@ a { position: relative; z-index: 10; text-decoration: none; color: FireBrick; }
 	font-size: 1em;
 }
 
-#side-bar img { width: 100%; border-radius: 8px; }
+#side-bar img { width: 100%; border-radius: 8px; display: block; }
 #side-bar ul { padding: 0 20px; list-style-type: none; }
 #side-bar p { padding: 0 20px; }
 #side-bar a { color: #fff; }
@@ -142,7 +142,7 @@ a { position: relative; z-index: 10; text-decoration: none; color: FireBrick; }
 }
 
 #search input {
-	width: 100%;
+	width: 80%;
 	height: 18px;
 	border: 2px groove #4682B4;
 	margin-top: 2px;

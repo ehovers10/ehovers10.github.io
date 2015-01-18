@@ -13,16 +13,15 @@ layout: child
 
 <!-- Search box -->
 <form action="" id="quicksearch">
-<input type="text" id="qs_field" autocomplete="off" placeholder="Type to search..." /> <input type="button" onclick="clearQS()" value="clear" />
-<span id="searchstat">Matching entries: <span id="stat">0</span></span>
-<div id="showsettings" onclick="toggleSettings()">settings...</div>
-<div id="settings" class="show">
-<ul>
-<li><input type="checkbox" class="search_setting" id="opt_searchAbs" onchange="updateSetting(this)"><label for="opt_searchAbs"> include abstract</label></li>
-<li><input type="checkbox" class="search_setting" id="opt_searchRev" onchange="updateSetting(this)"><label for="opt_searchRev"> include review</label></li>
-<li><input type="checkbox" class="search_setting" id="opt_useRegExp" onchange="updateSetting(this)"><label for="opt_useRegExp"> use RegExp</label></li>
-<li><input type="checkbox" class="search_setting" id="opt_noAccents" onchange="updateSetting(this)"><label for="opt_noAccents"> ignore accents</label></li>
-</ul>
+<input type="text" id="qs_field" autocomplete="off" placeholder="Search entries..." /> <input type="button" onclick="clearQS()" value="clear" />
+<span id="searchstat">Entries: <span id="stat">0</span></span>
+<div id="showsettings" onclick="toggleSettings()">settings</div>
+<div id="settings" class="hidden">
+<span><input type="checkbox" class="search_setting" id="opt_searchAbs" onchange="updateSetting(this)"><label for="opt_searchAbs"> search abstracts</label></span>
+<span><input type="checkbox" class="search_setting" id="opt_searchRev" onchange="updateSetting(this)"><label for="opt_searchRev"> search reviews</label></span>
+<span><input type="checkbox" class="search_setting" id="opt_useRegExp" onchange="updateSetting(this)"><label for="opt_useRegExp"> use RegExp</label></span>
+<span><input type="checkbox" class="search_setting" id="opt_noAccents" onchange="updateSetting(this)"><label for="opt_noAccents"> ignore accents</label></span>
+
 </div>
 </form>
 </div>

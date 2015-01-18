@@ -1,5 +1,7 @@
 @media all and (min-width: 900px) {
 
+#nav-small,#nav-embiggen { display: none; }
+
 #banner { background-image: url('/images/teton-sky.jpg'); }
 #main { width: 65%; left: 25%; }
 #content { width: 80%; }
@@ -68,6 +70,4 @@
 	font-size: 1.25em;
 }
 
-#nav-small { display: none; }
-#nav-embiggen { display: none; }
 }

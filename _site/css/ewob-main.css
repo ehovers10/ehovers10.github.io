@@ -142,7 +142,8 @@ a { position: relative; z-index: 10; text-decoration: none; color: FireBrick; }
 }
 
 #search input {
-	width: 100%;
+	float: right;
+	width: 80%;
 	height: 18px;
 	border: 2px groove #4682B4;
 	margin-top: 2px;
