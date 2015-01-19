@@ -1,10 +1,10 @@
 ---
-title: Pinker on indirect speech
+title: Communication, cooperation, and dispute
 author: erik hoversten
 date: 2015-01-10
 ---
 
-Three part theory
+Pinker et al. three part theory
 + Communincation is not purely cooperative. Interlocutors sometimes have 
   conflicting goals.
     - Indirect speech can convey a message without fully committing the speaker to 
