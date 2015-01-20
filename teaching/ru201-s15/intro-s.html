@@ -1,0 +1,350 @@
+<!doctype html>
+<html class="dark">
+
+<head>
+		<meta charset="utf-8">
+
+		<title>Propositional Logic 1</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="e-rizzle" >
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="/reveal/css/reveal.css">
+		<link rel="stylesheet" href="/reveal/css/theme/sky.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="/reveal/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = '/reveal/css/print/paper.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+
+	
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section id="introduction-to-logic" class="slide level1">
+<h1>Introduction to Logic</h1>
+<p><strong>Phil 201, spring 2015</strong></p>
+<p><strong>Instructor:</strong> Erik Hoversten</p>
+</section>
+
+<section id="first-class-meeting" class="slide level1">
+<h1>First class meeting</h1>
+<p>January 21, 2015</p>
+<ul>
+<li>Lecture plan:</li>
+<ul>
+<li>Syllabus</li>
+<li>Sakai site</li>
+<li>Grade Grinder</li>
+<li>Introduction to formal logic</li>
+</ul>
+</ul>
+</section>
+
+<section>
+<section id="syllabus" class="slide level1">
+<h2>Course Info</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Instructor:</td>
+<td style="text-align: left;">Erik Hoversten</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Email:</td>
+<td style="text-align: left;">ehoversten@philosophy.rutgers.edu</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GG email:</td>
+<td style="text-align: left;">ruphil201s15@gmail.com</td>
+</tr>
+<tr></tr>
+<tr class="even">
+<td style="text-align: left;">Office hours:</td>
+<td style="text-align: left;">MW 2:00p-3:30p</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Location:</td>
+<td style="text-align: left;">Chang Science Library, in Foran Hall</td>
+</tr>
+<tr></tr>
+<tr class="even">
+<td style="text-align: left;">Textbook:</td>
+<td style="text-align: left;">Language, Proof, and Logic, 2nd edition</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Course website:</td>
+<td style="text-align: left;">Sakai: Phil-intro-logic-s15</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2 id="course-overview">Course overview</h2>
+<ul>
+<li class="fragment">In this class, we'll explore general logical notions in a rigorous and <em>formal</em> way.</li>
+<li class="fragment">We'll introduce specific <em>logical systems</em>, define <em>rules</em> that govern those systems, and use the rules to construct <em>proofs</em> of <em>theorems</em> within the system.</li>
+<li class="fragment">Logic is <em>topic neutral</em>: the principles of logic apply no matter what specific subject we are discussing.</li>
+<li class="fragment">There is a high reliance on <em>abstraction</em>: we use <em>symbols</em> to stand in for specific nouns and verbs in our logical sentences.</li>
+<li class="fragment">Much of what we do will look a lot like what you might see in a math class, specifically <em>algebra</em>.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="assessment">Assessment</h2>
+<table>
+<col style="width: 25%" /><col style="width: 36%" /><col style="width: 20%" /><thead>
+<tr class="header">
+<th style="text-align: left;">Assignment</th>
+<th style="text-align: left;">Due date and time</th>
+<th style="text-align: left;">Point value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Homework</td>
+<td style="text-align: left;">Various (see schedule)</td>
+<td style="text-align: left;">5 @ 20pts = 100pts</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Midterm exam 1</td>
+<td style="text-align: left;">Feb 18 in class</td>
+<td style="text-align: left;">100pts</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Midterm exam 2</td>
+<td style="text-align: left;">Apr 1 in class</td>
+<td style="text-align: left;">100pts</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Final exam</td>
+<td style="text-align: left;">May 8, 4-7p (sect. 03) May 13, 12-3p (sect. 06)</td>
+<td style="text-align: left;">100pts</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Total: 400pts</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2 id="final-grades">Final grade scale</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Course grade</th>
+<th style="text-align: center;">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">&gt;359</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B+</td>
+<td style="text-align: center;">340-359</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">320-339</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">C+</td>
+<td style="text-align: center;">300-319</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">280-299</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">240-279</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">&lt;239</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2 id="homework">Homework</h2>
+<ul>
+<li class="fragment">6 homework assignments, only 5 will be graded, lowest thrown out</li>
+<li class="fragment">Homework submitted through Grade Grinder using the textbook software</li>
+<li class="fragment">You must have access to the software to do the homework. This means you have to purchase the book.</li>
+<li class="fragment">You can enter practice submissions to the system and get feedback as many times as you want. So, you should have no trouble getting full credit for the assignments.</li>
+<li class="fragment">You officially submit your homework for credit by including the instructor email: <em>ruphil201s15@gmail.com</em></li>
+<li class="fragment">Late homework assignments will be docked <strong>3 points</strong> for every day they are past due.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="exams">Exams</h2>
+<ul>
+<li class="fragment">Midterm exams will be taken in class on the dates indicated.</li>
+<li class="fragment">The final exam will take place on the scheduled final exam date for this class. It will take place in this room.</li>
+<li class="fragment">The exam format will include multiple choice, fill in the blank, and short answer.</li>
+<li class="fragment">You will also be expected to show proficiency with the logic tools we examine, such as <em>truth tables</em>, <em>proofs</em>, and <em>determining validity</em>.</li>
+<li class="fragment">Make up exams will only be given under extenuating circumstances, and provided that the student informs me ahead of time of their need to miss the exam.</li>
+</ul>
+</section>
+</section>
+
+<section id="online-course-materials" class="slide level1">
+<h2>Online course materials</h2>
+<ul>
+<li><a href="https://sakai.rutgers.edu/portal/site/26c3efc1-13c3-4f46-b81c-20119066cee6">Sakai site: Phil-intro-logic-s15</a></li>
+<li><a href="https://ggweb.gradegrinder.net/lpl">Grade Grinder</a></li>
+<li><a href="http://erikhoversten.org/teaching/ru201-s15/schedule.pdf">Tentative course schedule</a></li>
+</ul>
+</section>
+
+<section>
+<section id="formal-logic" class="slide level1">
+<h2>Formal Logic</h2>
+<ul>
+<li class="fragment">A <em>formal logical system</em> is a tool for investigating a specific kind of human reasoning in a rigorous, objective way.</li>
+<li class="fragment">Logical systems are defined by the <strong>language</strong> we use to express the statements and rules of the system.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="defining-the-language">Defining the language</h2>
+<ul>
+<li class="fragment">All languages have three main components:
+<ul>
+<li class="fragment">Vocabulary: the basic meaningful units of the language (<em>the words</em>)</li>
+<li class="fragment">Syntax: the rules for putting basic units together to form larger meaningful units (<em>the sentences</em>)</li>
+<li class="fragment">Semantics: the rules for assigning meanings to the sentences</li>
+</ul></li>
+<li class="fragment">This is true for <em>natural</em> languages (English, Tagalog) as well as the formal languages we will investigate.</li>
+<li class="fragment">But formal languages are different in that the rules of the language are <em>rigorously</em> and <em>explicitly</em> laid out before we start using them.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="reasoning-and-arguments">Reasoning and arguments</h2>
+<ul>
+<li class="fragment">Logical languages are interesting in their own right. But their main function is to help us explain what makes for good and bad <strong>reasoning</strong>.</li>
+<li class="fragment">The primary tool of reasoning is the <strong>argument</strong>, which is a logical defense of a particular claim, or sentence.</li>
+<li class="fragment">Arguments involve:</li>
+<ul>
+<li class="fragment">Premises: one or more sentences used as the foundation of the reasoning.</li>
+<li class="fragment">Conclusion: a sentence that is the end point of the reasoning.</li>
+<li class="fragment">Support relation: the explanation of how the premises <em>lead to</em> the conclusion.</li>
+</ul></ul>
+</section>
+
+<section>
+<h2 id="using-the-language">Using the language</h2>
+<ul>
+<li class="fragment">Thus, we also need our language to define <em>relations between sentences</em> to explain how good arguments work.</li>
+<li class="fragment">Using the components we defined earlier, we can do just that:
+<ul>
+<li class="fragment">Syntactic relations: ways to <em>transform</em> one sentence into another one.</li>
+<li class="fragment">Semantic properties of sentences: <em>tautology</em>, <em>contradiction</em></li>
+<li class="fragment">Semantic relations between sentences: <em>equivalence</em>, <em>consequence</em></li>
+</ul></li>
+</ul>
+</section>
+</section>
+
+<section>
+<section id="the-language-of-fol" class="slide level1">
+<h2>The language of FOL</h2>
+<ul>
+<li class="fragment">Our textbook introduces us to the language of <em>first order logic</em>, or <strong>FOL</strong>.</li>
+</ul>
+</section>
+
+<section it="software-tools">
+<h2>Explaining the software tools</h2>
+<ul>
+<li class="fragment">The textbook includes some software, which provides us with tools for investigating the language.</li>
+<ul>
+<li class="fragment">Boole: a tool for constructing truth tables. (Investigates semantic properties of sentences)</li>
+<li class="fragment">Tarski's world: a tool for constructing "worlds" filled with various objects standing in various relations. (Investigates semantic relations between sentences)</li>
+<li class="fragment">Fitch: a tool for constructing proofs in FOL. (Investigates syntactic relations between sentences)</li>
+</ul></ul>
+</section>
+
+</section>
+
+<section>
+<h2>For next time</h2>
+
+<ul>
+<li class="fragment">We will start on Ch. 1: Atomic sentences</li>
+<li class="fragment">We will begin to familiarize ourselves with the software tools and working in a formal language</li>
+<li class="fragment">You should try to read Ch. 1 before the next class.</li>
+<li class="fragment">Also start familiarizing yourself with the software, the sakai site, and Grade Grinder</li>
+<li class="fragment">See you on Monday!</li>
+</ul>
+</section>
+
+		</div>
+	</div>
+	
+	
+		<script src="/reveal/lib/js/head.min.js"></script>
+		<script src="/reveal/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+</body>
+</html>
