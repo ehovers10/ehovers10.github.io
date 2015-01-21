@@ -36,7 +36,7 @@ reveal:
     controls: true
     progress: true
     slideNumber: true
-    history: true
+    history: false
     keyboard: true
     overview: true
     center: true
@@ -57,7 +57,7 @@ reveal:
     parallaxBackgroundImage: '' ## e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
     parallaxBackgroundSize: '' ## CSS syntax, e.g. "2100px 900px"
     width: 90%
-    height: 920
+    height: 90%
     margin: 0.1
     minScale: 0.2
     maxScale: 1.5

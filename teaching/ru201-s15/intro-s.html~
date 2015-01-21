@@ -66,9 +66,9 @@ course: intro-logic-s15
 <section>
 <h2 id="course-overview">Course overview</h2>
 <ul>
-<li class="fragment">In this class, we'll explore general logical notions such as <em>truth</em>, <em>validity</em>, and <em>soundness</em> in a rigorous and <em>formal</em> way.</li>
-<li class="fragment">We'll introduce specific <em>logical systems</em>, define <em>rules</em> that govern those systems, and use the rules to construct <em>proofs</em> of various <em>theorems</em> within the system.</li>
-<li class="fragment">Logic is <em>topic neutral</em>: the principles of logic apply no matter what specific topic (such as politics, physics, or TV shows) we are discussing.</li>
+<li class="fragment">In this class, we'll explore general logical notions in a rigorous and <em>formal</em> way.</li>
+<li class="fragment">We'll introduce specific <em>logical systems</em>, define <em>rules</em> that govern those systems, and use the rules to construct <em>proofs</em> of <em>theorems</em> within the system.</li>
+<li class="fragment">Logic is <em>topic neutral</em>: the principles of logic apply no matter what specific subject we are discussing.</li>
 <li class="fragment">There is a high reliance on <em>abstraction</em>: we use <em>symbols</em> to stand in for specific nouns and verbs in our logical sentences.</li>
 <li class="fragment">Much of what we do will look a lot like what you might see in a math class, specifically <em>algebra</em>.</li>
 </ul>
