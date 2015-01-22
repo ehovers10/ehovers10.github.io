@@ -1,0 +1,91 @@
+---
+layout: reveal-pres
+title: "Ch 1: Atomic Sentences"
+course: intro-logic-s15
+date: 2015-01-26
+---
+
+<section id="title-slide">
+<h1>Introduction to Logic</h1>
+<h2>{{ page.title }}</h2>
+<h3>{{ page.date | date: "%B %-d, %Y" }}</h3>
+<p>Phil 201, spring 2015</p>
+<p>Erik Hoversten</p>
+</section>
+
+<section data-markdown data-separator="^\n---\n$" data-vertical="^\n--\n$">
+    <script type="text/template">
+        ## Lecture plan
+        
+        + The language of FOL
+        + [Using Tarksi's world](#/tarski)
+        + [Using Boole](#/4)
+
+        ---
+
+        ## The language of FOL 
+
+        + As for all languages, we start by defining the following components of FOL:
+            - Vocabulary
+            - Syntax
+            - Semantics
+
+        --
+
+        ## The vocabulary of FOL
+
+        + We are going to use FOL to talk about simple geometical **objects**, their **properties**, and **relations** that hold between such objects. 
+        + So, the vocabulary of FOL includes: <!-- .element: class="fragment" -->
+            - Objects: *a, b, c, ...* <!-- .element: class="fragment" -->
+            - Properties: *cube, sphere, yellow, green, ...* <!-- .element: class="fragment" -->
+            - Relations: *next-to, front-of, bigger-than, ...* <!-- .element: class="fragment" -->
+
+        --
+
+        ## Kinds of vocabulary
+
+        + We can talk about objects either **specifically**, or in **general**:
+            - Specific: "Cube a is bigger than sphere b" <!-- .element: class="fragment" -->
+            - General: "Some cube is bigger than every sphere" <!-- .element: class="fragment" -->
+        + <!-- .element: class="fragment" --> When we speak of objects specifically, we use letters from the beginning of the alphabet (*a,b,c*); these are called **constants**.
+        + <!-- .element: class="fragment" --> When we speak of objects generally, we use letters from the end of the alphabet (*x,y,z*); these are called **variables**.
+
+        --
+
+        ## The syntax of FOL
+
+        + Now, we need rules for putting our vocabulary together into meaningful sentences.
+
+        --
+
+        ## The semantics of FOL
+
+        + Our primary concern in using FOL is in determining what sentences are **true** and what sentences are **false**.
+
+        ---
+
+        <!-- .slide: id="tarski" -->
+        ## Tarski's world
+
+        ---
+
+        ## Boole 
+
+    </script>
+</section>
+
+<section data-markdown data-separator="^\n---\n$" data-vertical="^\n--\n$">
+    <script type="text/template">
+        ## For next time
+
+        + Lecture plan
+            - We will start on Ch. 2: The logic of atomic sentences
+            - In this chapter, we start to investigate how to *reason* with FOL.
+        + Preparation
+            - Read Ch. 2
+            - Continue practicing with the course software
+        + Assignments
+            - None
+ 
+    </script>
+</section>
