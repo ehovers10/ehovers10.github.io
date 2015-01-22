@@ -211,7 +211,7 @@ course: intro-logic-s15
 </section>
 
 <section>
-<section id="formal-logic" class="slide level1">
+<section id="formal-logic">
 <h2>Formal Logic</h2>
 <ul>
 <li class="fragment">A <em>formal logical system</em> is a tool for investigating a specific kind of human reasoning in a rigorous, objective way.</li>
@@ -249,7 +249,7 @@ course: intro-logic-s15
 </section>
 
 <section>
-<h2 id="reasoning-and-arguments">Reasoning and arguments</h2>
+<h2>Reasoning and arguments</h2>
 <ul>
 <li class="fragment">Logical languages are interesting in their own right. But their main function is to help us explain what makes for good and bad <strong>reasoning</strong>.</li>
 <li class="fragment">The primary tool of reasoning is the <strong>argument</strong>, which is a logical defense of a particular claim, or sentence.</li>
@@ -274,7 +274,7 @@ course: intro-logic-s15
 </ul>
 </section>
 
-<section it="software-tools">
+<section>
 <h2>How this relates to the software tools</h2>
 <ul>
 <li class="fragment">The textbook includes some software, which provides us with tools for investigating the language.</li>
@@ -287,30 +287,31 @@ course: intro-logic-s15
 
 </section>
 
-<section>
-<section id="the-language-of-fol" class="slide level2">
+<!--<section class=slide level1>
+<section id="the-language-of-fol">
 <h2>The language of FOL</h2>
 <ul>
 <li class="fragment">Our textbook introduces us to the language of <em>first order logic</em>, or <strong>FOL</strong>.</li>
 </ul>
 </section>
 
-<section id="vocab-of-fol" class="slide level2">
+<section id="vocab-of-fol">
 <h2>Vocabulary of FOL</h2>
 
 </section>
 
-<section id="syntax-of-fol" class="slide level2">
+<section id="syntax-of-fol">
 <h2>Syntax of FOL</h2>
 
 </section>
 
-<section id="semantics-of-fol" class="slide level2">
+<section id="semantics-of-fol">
 <h2>Semantics of FOL</h2>
 
 </section>
 
-</section>
+</section>-->
+
 
 <section>
 <h2>For next time</h2>
