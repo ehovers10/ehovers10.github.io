@@ -1,3 +1,5 @@
+## Layers of content ##
+
 Standardly asserted content commits the asserter in a very specific way.  The asserter of content p cannot back off of defending that content in the face of opposition without thereby retracting the assertion.
 
 But not all declarative sentences used by speakers in normal discourse have this effect. Consider, for instance the following exchange. Setting the scene, A and B are discussing how to allot their shared fear resources:
