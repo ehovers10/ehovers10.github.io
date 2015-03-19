@@ -51,7 +51,7 @@
 .popmain { 
 	max-width: 100%;
 	overflow-x: hidden;
-	<!--border-radius: 5px;
+	/*border-radius: 5px;*/
 	margin: 5px;
 	background: #fff; 
 }
@@ -65,21 +65,22 @@
 	margin-left: 50%;
 	margin-right: -50%;
 	transform: translate(-50%, 0%);
-	max-height: 500px;
-	overflow-y: auto;
+	/*max-height: 500px;
+	overflow-y: auto;*/
 }
 
 .embiggen { 
 	position: relative; 
 	float: left;
-	width: 18%;
-	margin: 10px 3%;
+	width: calc(100% / 4 - 30px);
+	width: -webkit-calc(100% / 4 - 30px);
+	margin: 15px;
 }
 
 .embiggen img {
     width: 100%;
     vertical-align: top;
-    border: 1px solid #000;
+    /*border: 1px solid #000;*/
     border-radius: 8px;
 }
 
@@ -87,19 +88,21 @@
 	position: absolute;
 	content: attr(name);
 	text-align: left;
-	<!--font-weight: bold;
-	font-size: 14px;
-	<!--padding: 5%;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 5%;
 	color: #fff;
 	<!--display: none;
-	width: 100%;
-	height: 30%;
-	top: 70%; left: 0;
+	width: 90%;
+	height: 20%;
+        /*width: -webkit-calc(90% - 2px);
+        height: -webkit-calc(20% - 2px);*/
+	top: 60%; left: 0;
 	background-color: rgba(0,0,0,0.8);
 	opacity: 0;
-	border: 1px solid black;
-	border-radius: 0 0 8px 8px;
+	/*border: 1px solid black;
+	border-radius: 0 0 8px 8px;*/
 }
 
-.embiggen:hover::after { opacity: 1; }
+.embiggen:hover::after { opacity: 0.9; }
 
