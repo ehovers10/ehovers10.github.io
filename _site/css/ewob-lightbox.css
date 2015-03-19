@@ -107,3 +107,11 @@
 
 .embiggen:hover::after { opacity: 0.9; }
 
+.description {
+	position: relative; 
+	float: left;
+	width: calc(100% / 4 * 3 - 30px);
+	width: -webkit-calc(100% / 4 * 3 - 30px);
+	margin: 0 15px;
+}
+
