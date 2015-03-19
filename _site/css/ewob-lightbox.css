@@ -11,20 +11,18 @@
 .lightbox:target { display: block; }
 
 @media all and (min-width: 900px) {
-	.popbox { top: 10%; max-width: 80%; }
+	.popbox { top: 10%; max-width: 60%; max-height: 80%; }
 }
 @media all and (max-width: 899px) {
-	.popbox { top: 5%; max-width: 90%; }
+	.popbox { top: 5%; max-width: 90%; max-height: 90%; }
 }
 
 .popbox {
 	position: absolute;
-	
 	left: 50%;
 	margin-right: -50%;
 	transform: translate(-50%, 0%);
-        max-height: 90%;
-	overflow: hidden;
+	overflow: auto;
 	background: #fff;
         border: solid #fff 3px;
         border-radius: 10px;
@@ -41,24 +39,24 @@
 .poptitle h3 { 
 	float: left;
 	text-align: center;
-	line-height: 0;
-	width: 90%;
+	line-height: 1;
+	width: calc(100% - 30px);
+	width: -webkit-calc(100% - 30px);
 }
 
-.poptitle img { float: right; width: 5%; }
+.poptitle img { float: right; width: 30px; }
 
 .popmain { 
 	/*border-radius: 5px;*/
-	margin: 5px;
+	margin: 0 5px 5px;
 	background: #fff; 
 }
 
-/*.text { padding: 0 20px; }*/
+.text { padding: 0 15px; }
 
 .popmain img { 
 	display: block;
 	max-width: 100%;
-        overflow: auto;
 }
 
 .thumbbox {
