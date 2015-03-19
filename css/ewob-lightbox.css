@@ -11,15 +11,15 @@
 .lightbox:target { display: block; }
 
 @media all and (min-width: 900px) {
-	.popbox { max-width: 80%; }
+	.popbox { top: 10%; max-width: 80%; }
 }
 @media all and (max-width: 899px) {
-	.popbox { max-width: 90%; }
+	.popbox { top: 5%; max-width: 90%; }
 }
 
 .popbox {
 	position: absolute;
-	top: 8%;
+	
 	left: 50%;
 	margin-right: -50%;
 	transform: translate(-50%, 0%);
