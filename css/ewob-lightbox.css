@@ -68,9 +68,11 @@
 	overflow-y: auto;*/
 }
 
+.thumbbox h3,p { margin-bottom: 0.5em; }
+
 .embiggen { 
 	position: relative; 
-	float: left;
+
 	width: calc(100% / 4 - 30px);
 	width: -webkit-calc(100% / 4 - 30px);
 	margin: 15px;
@@ -79,7 +81,7 @@
 .embiggen img {
     width: 100%;
     vertical-align: top;
-    /*border: 1px solid #000;*/
+    border: 1px solid #000;
     border-radius: 8px;
 }
 
@@ -106,10 +108,9 @@
 .embiggen:hover::after { opacity: 0.9; }
 
 .description {
-	position: relative; 
-	float: left;
-	width: calc(100% / 4 * 3 - 30px);
-	width: -webkit-calc(100% / 4 * 3 - 30px);
+
 	margin: 0 15px;
 }
 
+.odd {float: left;}
+.even {float: right;}
