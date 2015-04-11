@@ -1,0 +1,169 @@
+\documentclass[10pt,letterpaper,xcolor=dvipsnames]{beamer}
+
+%\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{amssymb}
+\usepackage{linguex}
+\usepackage{verbatim,enumerate,multirow}
+\usepackage{xcolor}
+%\usepackage{floatflt}
+
+\include{beamer-ru101f14}
+\include{tikz-venn-diagrams}
+
+\AtBeginSection[]
+{
+     \begin{frame}<beamer>
+       \frametitle{Lecture plan}
+       \tableofcontents[currentsection,currentsubsection]
+   \end{frame}
+}
+
+\title{Categorical Logic}
+\author[Hoversten]{Erik Hoversten}
+
+\begin{document}
+
+\frame{
+\frametitle{Boolean perspective}
+\framesubtitle{Standard propositions}
+
+\begin{columns}
+  \begin{column}{.5\linewidth}
+\begin{catprop}{Q}{C}
+  \propdiagram[black]{+}{U}{A}{B}
+  \proptitle
+\end{catprop}
+
+\begin{catprop}{Q}{C}
+  \propdiagram[green]{+}{U}{non-A}{B}
+  \proptitle
+\end{catprop}
+  \end{column}
+
+  \begin{column}{.5\linewidth}
+\begin{catprop}{Q}{C}
+  \propdiagram[red]{-}{U}{A}{non-B}
+\end{catprop}
+
+\begin{catprop}{Q}{C}
+  \propdiagram{-}{E}{non-A}{B}
+  \proptitle
+\end{catprop}
+  \end{column}
+\end{columns}
+}
+
+\frame{
+  \frametitle{Squares of opposition}
+  \framesubtitle{}
+ 
+  \begin{itemize}
+    \item The traditional square
+  \end{itemize}
+  \begin{center}
+    \sqroppTrad
+  \end{center}
+  
+  \begin{itemize}
+    \item The modern square
+  \end{itemize}
+  \begin{center}
+    \sqroppMod
+  \end{center}
+}
+
+\frame{
+\frametitle{Example Syllogism \#1}
+\framesubtitle{EAE-2}
+
+\begin{columns}
+ \column{.4\textwidth}
+ \begin{enumerate}
+  \item No P are M
+  \item All S are M
+  \item $\therefore$, No S are P
+ \end{enumerate}
+
+ \textbf{Valid}
+
+ \column{.6\textwidth}
+ \begin{catsyll}
+   \sylluniv{No}{P}{M}
+   \sylluniv[green]{All}{S}{M}
+ \end{catsyll}
+ 
+\end{columns}
+}
+
+\frame{
+\frametitle{Example Syllogism \#2}
+\framesubtitle{IAI-4}
+
+\begin{columns}
+ \column{.4\textwidth}
+ \begin{enumerate}
+  \item Some P are M
+  \item All M are S
+  \item $\therefore$, Some S are P
+ \end{enumerate}
+ 
+ \textbf{Valid}
+ 
+ \column{.6\textwidth}
+ \begin{catsyll}
+   \sylluniv[green]{All}{M}{S}
+   \syllx{n}{SPM}
+ \end{catsyll}
+ 
+\end{columns}
+}
+
+\frame{
+\frametitle{Example Syllogism \#3}
+\framesubtitle{AEE-1}
+
+\begin{columns}
+ \column{.4\textwidth}
+ \begin{enumerate}
+  \item All M are P
+  \item No S are M
+  \item \alert{$\therefore$, No S are P}
+ \end{enumerate}
+ 
+ \textbf{Invalid}
+ 
+ \column{.6\textwidth}
+ \begin{catsyll}
+  \sylluniv[green]{All}{M}{P}
+  \sylluniv{No}{S}{M}
+  \sylluniv[red]{No}{S}{P}
+ \end{catsyll}
+ 
+\end{columns}
+}
+
+\frame{
+\frametitle{Example \#4}
+\framesubtitle{OIO-1}
+
+\begin{columns}
+ \column{.4\textwidth}
+ \begin{enumerate}
+  \item Some M are not P
+  \item Some S are M
+  \item \alert{$\therefore$, Some S are not P}
+ \end{enumerate}
+ 
+ \textbf{Invalid}
+ 
+ \column{.6\textwidth}
+ \begin{catsyll}
+   \syllxline{-}{M}{P}
+   \syllxline{+}{S}{M}
+   \syllx[red]{+}{S}
+ \end{catsyll}
+ 
+\end{columns}
+}
+
+\end{document}

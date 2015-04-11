@@ -1,0 +1,103 @@
+/* Derived from the Open Proof Courseware package: https://ggweb.gradegrinder.net/lpl */
+
+/* Proof wrappers */
+
+.box {
+  	width: 90%;
+  	padding: 1em;
+}
+
+.maxsize {
+  	height: 500px;
+  	overflow-y: hidden;
+}
+
+.max {
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+.reveal {
+  float: right;
+}
+
+.more:before { content: "Show more"; }
+.less:before { content: "Show less"; }
+
+.argbox {
+  	float: left;
+  	width: 300px;
+  	margin: 0;
+  	margin-left: 10px;
+  	padding: 0;
+}
+
+/* Proof structure */
+
+.proof {
+	border-left: 2px solid #999999;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	padding-left: 3px;
+}
+
+.fitchbar {
+	width: 1em;
+	border-top: 2px solid #999999;
+	margin-bottom: 3px;
+	margin-top: 3px;
+	margin-left: -3px;
+}
+
+.line {
+	vertical-align: middle;
+	line-height: 0.75;
+	padding: 3px 0;
+}
+
+span.hid { 
+	width: calc(100% - 21px - 3px);
+	width: -webkit-calc(100% - 21px - 3px);
+}
+
+.rulename {
+	font-weight: 600;
+}
+
+.support {
+	font-style: italic;
+}
+
+.line table {
+	width: 100%;
+}
+
+
+td.justification {
+	width: 200px;
+}
+
+/* Display toggle */
+
+.hid {
+  	display: none; 
+}
+
+img.info, img.protect {
+  	width: 24px;
+	padding: 3px;
+	background-color: #36c;
+  	border: 1px solid #36c;
+  	border-radius: 12px;
+  	opacity: 0.7;
+  	margin-left: 0;
+	vertical-align: middle;
+}
+
+img.info:hover, img.protect:hover { 
+	opacity: 1; 
+}
+
+img.gray {
+  	background-color: gray;
+}

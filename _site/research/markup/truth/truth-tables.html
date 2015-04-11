@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Erik Hoversten | Markup</title>
+
+  <!--Entypo pictograms by Daniel Bruce — www.entypo.com-->
+  <link rel="icon" type="image/png" href="./images/rarr.ico">
+
+  <link href="./css/main.css" media="screen" rel="stylesheet">
+  <link href="./css/truth.css" media="screen" rel="stylesheet">
+
+  <script src="./js/jquery-1.11.2.js"></script>
+  <script src="./js/truth.js"></script>
+
+</head>
+
+<body>
+
+<header>
+<div id="inhead">
+<p>Logic markup</p>
+<p>by Erik Hoversten</p>
+</div>
+</header>
+
+<div id="wrapper">
+<div id="container">
+
+<h1>A web based presentation of truth tables</h1>
+
+<blockquote>These example truth table can be revealed one column at a time, allowing a student to practice and check their work.</blockquote>
+
+<div class="ttback odd">
+<table class="tt" id="equiv">
+<caption>Equivalence ex</caption>
+<tr class="thead">
+  <td class="col1 open sent"><a href='#' onclick="return false;">A</a></td> 
+  <td class="col2 open sent"><a href='#' onclick="return false;">B</a></td>
+  <td class="col3 ">A</td> 
+  <td class="col4 open"><a href='#' onclick="return false;">&or;</a></td>
+  <td class="col5 open neg sent"><a href='#' onclick="return false;">&not;</a>B</td> 
+  <td class="col6 open neg">&nbsp;<a href='#' onclick="return false;">&not;</a>&nbsp;(</td>
+  <td class="col7 open neg"><a href='#' onclick="return false;">&not;</a>A</td> 
+  <td class="col8 open"><a href='#' onclick="return false;">&and;</a></td>
+  <td class="col9">B&nbsp;)</td>
+</tr>
+
+<tr class="row1">
+  <td  class="col1">T</td> 
+  <td  class="col2">T</td>
+  <td class="col3"></td>
+  <td  class="col4">T</td> 
+  <td  class="col5">F</td> 
+  <td  class="col6">T</td>
+  <td  class="col7">F</td> 
+  <td  class="col8">F</td>
+  <td class="col9"></td>
+</tr>
+
+<tr class="row2">
+  <td  class="col1">T</td> 
+  <td  class="col2">F</td>
+  <td class="col3"></td>
+  <td  class="col4">T</td> 
+  <td  class="col5">T</td> 
+  <td  class="col6">T</td>
+  <td  class="col7">F</td> 
+  <td  class="col8">F</td>
+  <td class="col9"></td>
+</tr>
+
+<tr class="row3">
+  <td  class="col1">F</td> 
+  <td  class="col2">T</td>
+  <td class="col3"></td>
+  <td  class="col4">F</td> 
+  <td  class="col5">F</td> 
+  <td  class="col6">F</td>
+  <td  class="col7">T</td> 
+  <td  class="col8">T</td>
+  <td class="col9"></td>
+</tr>
+
+<tr class="row4">
+  <td  class="col1">F</td> 
+  <td  class="col2">F</td>
+  <td class="col3"></td>
+  <td  class="col4">T</td> 
+  <td  class="col5">T</td> 
+  <td  class="col6">T</td>
+  <td  class="col7">T</td> 
+  <td  class="col8">F</td>
+  <td class="col9"></td>
+</tr>
+</table>
+</div>
+
+<div class="ttback even">
+<table class="tt" id="con">
+<caption>Consequence ex</caption>
+<tr class="thead">
+  <td class="col1 open sent"><a href='#' onclick="return false;">A</a></td> 
+  <td class="col2 open sent"><a href='#' onclick="return false;">B</a></td>
+  <td class="col3 open neg">(<a href='#' onclick="return false;">&not;</a>A</td> 
+  <td class="col4 open"><a href='#' onclick="return false;">&or;</a></td>
+  <td class="col5 open">B)</td> 
+  <td class="col6 open"><a href='#' onclick="return false;">&and;</a></td>
+  <td class="col7 open neg sent"><a href='#' onclick="return false;">&not;</a>B</td> 
+  <td class="col8 open neg"><a href='#' onclick="return false;">&not;</a>A</td>
+</tr>
+
+<tr class="row1">
+  <td  class="col1">T</td> 
+  <td  class="col2">T</td>
+  <td  class="col3">F</td> 
+  <td  class="col4">T</td> 
+  <td  class="col5"></td>
+  <td  class="col6">F</td> 
+  <td  class="col7">F</td>
+  <td class="col8">F</td>
+</tr>
+
+<tr class="row2">
+  <td  class="col1">T</td> 
+  <td  class="col2">F</td>
+  <td  class="col3">F</td> 
+  <td  class="col4">F</td> 
+  <td  class="col5"></td>
+  <td  class="col6">T</td> 
+  <td  class="col7">F</td>
+  <td class="col8">F</td>
+</tr>
+
+<tr class="row3">
+  <td  class="col1">F</td> 
+  <td  class="col2">T</td>
+  <td  class="col3">T</td> 
+  <td  class="col4">T</td> 
+  <td  class="col5"></td>
+  <td  class="col6">F</td> 
+  <td  class="col7">T</td>
+  <td class="col8">T</td>
+</tr>
+
+<tr class="row4">
+  <td  class="col1">F</td> 
+  <td  class="col2">F</td>
+  <td  class="col3">T</td> 
+  <td  class="col4">T</td> 
+  <td  class="col5"></td>
+  <td  class="col6">T</td> 
+  <td  class="col7">T</td>
+  <td class="col8">T</td>
+</tr>
+</table>
+</div>
+<div style="clear: both;"></div>
+
+</div>
+</div>
+
+<footer>
+<span><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img class="foot" alt="Creative Commons License" style="border-width:0" src="./images/cc.svg" />Creative Commons Attribution 4.0 International License</a></span>
+<span>Updated April 5, 2015 by Erik</span>
+</footer>
+
+</body>
+</html>

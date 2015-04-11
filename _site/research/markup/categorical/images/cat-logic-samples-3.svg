@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?> 
+<?xml-stylesheet href="cat-logic-samples.css" type="text/css"?> 
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="128.43733pt" height="85.75821pt" viewBox="-42.8791 -42.8791 128.43733 85.75821 "> 
+<g transform="translate(0, 42.8791 ) scale(1,-1) translate(0,42.8791 )"> 
+                  <g> 
+ <g stroke="rgb(0.0%,0.0%,0.0%)"> 
+ <g fill="rgb(0.0%,0.0%,0.0%)"> 
+ <g stroke-width="0.4pt"> 
+ <g> 
+ <g> 
+ <path d=" M  -42.67911 -42.67911 M  -42.67911 -42.67911 L  -42.67911 42.67911 L  85.35823 42.67911 L  85.35823 -42.67911 Z M  85.35823 42.67911  " style="fill:none"/> 
+ <path d=" M  0.0 0.0 M  28.45274 0.0 C  28.45274 15.71422 15.71422 28.45274 0.0 28.45274 C  -15.71422 28.45274 -28.45274 15.71422 -28.45274 0.0 C  -28.45274 -15.71422 -15.71422 -28.45274 0.0 -28.45274 C  15.71422 -28.45274 28.45274 -15.71422 28.45274 0.0 Z M  0.0 0.0  " style="fill:none"/> 
+ <g> 
+ <g> 
+ <g transform="matrix(1.0,0.0,0.0,1.0,-26.73944,-24.99927)"> 
+ <g fill="rgb(0.0%,0.0%,0.0%)"> 
+ <text style="stroke:none" transform="scale(1,-1) translate(2.56949,0)" text-anchor="middle"  font-size="10"> 
+<tspan font-family="cmr" font-size="5">Q</tspan></text> 
+</g> 
+ </g> 
+ </g> 
+ </g> 
+ <path d=" M  42.67912 0.0 M  71.13187 0.0 C  71.13187 15.71422 58.39334 28.45274 42.67912 28.45274 C  26.9649 28.45274 14.22638 15.71422 14.22638 0.0 C  14.22638 -15.71422 26.9649 -28.45274 42.67912 -28.45274 C  58.39334 -28.45274 71.13187 -15.71422 71.13187 0.0 Z M  42.67912 0.0  " style="fill:none"/> 
+ <g> 
+ <g> 
+ <g transform="matrix(1.0,0.0,0.0,1.0,64.27959,-24.99927)"> 
+ <g fill="rgb(0.0%,0.0%,0.0%)"> 
+ <text style="stroke:none" transform="scale(1,-1) translate(2.16322,0)" text-anchor="middle"  font-size="10"> 
+<tspan font-family="cmr" font-size="5">F</tspan></text> 
+</g> 
+ </g> 
+ </g> 
+ </g> 
+ </g> 
+ <g> 
+ <g fill-opacity="0.5"> 
+ <g stroke="rgb(100.0%,0.0%,0.0%)"> 
+ <g fill="rgb(100.0%,0.0%,0.0%)"> 
+ <g> 
+ <g> 
+ <g transform="matrix(1.0,0.0,0.0,1.0,20.6048,-1.07639)"> 
+ <g fill="rgb(100.0%,0.0%,0.0%)"> 
+ <text style="stroke:none" transform="scale(1,-1) translate(1.78821,0)" text-anchor="middle"  font-size="10"> 
+<tspan font-family="cmr" font-size="5">x</tspan></text> 
+</g> 
+ </g> 
+ </g> 
+ </g> 
+ </g> 
+ </g> 
+ </g> 
+ </g> 
+ <g> 
+ <g> 
+ <g> 
+ <g transform="matrix(1.0,0.0,0.0,1.0,21.97395,34.35263)"> 
+ <g fill="rgb(0.0%,0.0%,0.0%)"> 
+ <text style="stroke:none" transform="scale(1,-1) translate(20.70517,0)" text-anchor="middle"  font-size="10"> 
+<tspan font-family="cmr" font-size="5">Some Q are F</tspan></text> 
+</g> 
+ </g> 
+ </g> 
+ </g> 
+ </g> 
+ </g> 
+ </g> 
+ </g> 
+ </g> 
+ </g> 
+ 
+                                                      </g> 
+</svg> 
