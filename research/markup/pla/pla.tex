@@ -1,0 +1,112 @@
+%% A template for semantics homeworks %%
+
+\documentclass{article}
+
+\usepackage[letterpaper]{geometry}
+\usepackage{ctable}
+\usepackage{txfonts}
+%\usepackage{setspace}
+%\usepackage{linguex}
+%\usepackage{xyling}
+%\usepackage{qtree}
+%\usepackage[colorlinks]{hyperref}
+\usepackage{lscape}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+\title{Semantics III}
+\author{Erik Hoversten}
+\date{\today}
+
+%% Margin Setting
+\geometry{hmargin={.5in,.5in},vmargin={1in,1in}}
+\setlength{\parindent}{0.0in}
+
+%% Helpful abbreviations %%
+%\newcommand{\DET}{\llbracket DET\rrbracket(A,B)}
+%\newcommand{\gy}{g[y/d]}
+\newcommand{\im}{\rrbracket_{\mathpzc{M}}}
+\newcommand{\gs}{\mathpzc{G}_{\mathpzc{M}}}
+\newcommand{\din}{d\in\mathpzc{D}_{\mathpzc{M}}}
+\newcommand{\ddin}{d'\in\mathpzc{D}_{e,\mathpzc{M}}}
+\newcommand{\fin}{f\in\mathpzc{D}_{et,\mathpzc{M}}}
+\newcommand{\mean}{\{\langle g,h\rangle\;|\;}
+\newcommand{\mod}{$\mathpzc{M}_1=\langle\mathpzc{D}_1,\llbracket\cdot\rrbracket_1\rangle\;$}
+\newcommand{\modd}{$\mathpzc{M}_2=\langle\mathpzc{D}_2,\llbracket\cdot\rrbracket_2\rangle\;$}
+\newcommand{\dem}{\mathpzc{D}_{e,\mathpzc{M}}}
+\newcommand{\dsm}{\mathpzc{D}_{s,\mathpzc{M}}}
+\newcommand{\la}{\lambda}
+\newcommand{\bs}{\backslash}
+
+\begin{document}
+\maketitle
+
+\subsection*{Analyzing a Mandarin topic chain in PLA}
+
+\paragraph{Analysis tree for $\llbracket \exists x (x=a \wedge Y^1x \wedge P^1x)\rrbracket^{\mathpzc{M},g}$}
+\[\begin{array}{llllll}
+ \exists x & (x=a & \wedge & Y^1x & \wedge & P^1x) \\ \cmidrule{2-2}\cmidrule{4-4}\cmidrule{6-6}
+ & \{i\in c: g(x)=\llbracket a\im\} & & \{i\in c:g(x)\in\llbracket Y^1\im\} & & \{i\in c:g(x)\in\llbracket P^1\im\} \\ 
+ & = c_2 & & & & \\ \cmidrule{2-4}
+ & \multicolumn{3}{l}{c_2\llbracket Y^1x\rrbracket^{\mathpzc{M},g}} & & \\
+ & \multicolumn{3}{l}{=\;\;\{j\in c_2:g(x)\in\llbracket Y^1\im\}} & & \\
+ & \multicolumn{3}{l}{=\;\;\{i\in c: g(x)=\llbracket a\im \;\&\; g(x)\in\llbracket Y^1\im\}} & & \\ \cmidrule{2-6}
+ & \multicolumn{5}{l}{\{i\in c: g(x)=\llbracket a\im \;\&\; g(x)\in\llbracket Y^1\im \;\&\; g(x)\in\llbracket P^1\im\}} \\ \midrule
+ \multicolumn{6}{l}{\{d\cdot i: \din \;\&\; i\in c\llbracket x=a \wedge Y^1x \wedge P^1x\rrbracket^{\mathpzc{M},g[x/d]}\}} \\
+ = & \multicolumn{5}{l}{\{d\cdot i: \din \;\&\; i\in\{j\in c: d=\llbracket a\im \;\&\; d\in\llbracket Y^1\im \;\&\; d\in\llbracket P^1\im\}} \\
+ = & \multicolumn{5}{l}{\{d\cdot i: \din \;\&\; d=\llbracket a\im \;\&\; d\in\llbracket Y^1\im \;\&\; d\in\llbracket P^1\im\}} \\
+\end{array}\]
+
+\paragraph{Updating the null info. state}
+\[\begin{array}{ll}
+\multicolumn{2}{l}{\{\langle\rangle\}\llbracket \exists x (x=a \wedge Y^1x \wedge P^1x)\rrbracket^{\mathpzc{M},g}} \\
+= & \{a:a=\llbracket a\im \;\&\; a\in\llbracket Y^1\im \;\&\; a\in\llbracket P^1\im\} \\
+= & c_1 \\
+\end{array}\]
+
+\paragraph{Analysis tree for $\llbracket \exists x (J^2x\top_1 \wedge G^1x)\rrbracket^{\mathpzc{M},g}$}
+\[\begin{array}{llll}
+ \exists x & (J^2x\top_1 & \wedge & G^1x) \\ \cmidrule{2-2}\cmidrule{4-4}
+ & \{i\in c: \langle g(x),i_1\rangle\in\llbracket J^2\im\} & & \{i\in c:g(x)\in\llbracket G^1\im\} \\ \cmidrule{2-4}
+ & \multicolumn{3}{l}{\{i\in c:\langle g(x),i_1\rangle\in\llbracket J^2\im \;\&\; g(x)\in\llbracket G^1\im\}} \\ \midrule
+ \multicolumn{4}{l}{\{d\cdot i: \din \;\&\; i\in c\llbracket J^2x\top_1 \wedge G^1x\rrbracket^{\mathpzc{M},g[x/d]}\}} \\
+ = & \multicolumn{3}{l}{\{d\cdot i: \din \;\&\; i\in\{j\in c: \langle d,j_1\rangle\in\llbracket J^2\im\;\&\; d\in\llbracket G^1\im\}} \\
+ = & \multicolumn{3}{l}{\{d\cdot i: \din \;\&\; i\in c \;\&\; \langle d,i_1\rangle\in\llbracket J^2\im\;\&\; d\in\llbracket G^1\im\}} \\
+\end{array}\]
+
+\paragraph{Updating info. state $c_1$}
+\[\begin{array}{ll}
+\multicolumn{2}{l}{c_1\llbracket \exists x (J^2x\top_1 \wedge G^1x)\rrbracket^{\mathpzc{M},g}} \\
+= & \{j\cdot i: i\in c_1 \;\&\; \langle j,i_1\rangle\in\llbracket J^2\im\;\&\; j\in\llbracket G^1\im\} \\
+= & \{\langle j, a\rangle :a=\llbracket a\im \;\&\; a\in\llbracket Y^1\im \;\&\; a\in\llbracket P^1\im \;\&\;\langle j,a\rangle\in\llbracket J^2\im\;\&\; j\in\llbracket G^1\im\} \\
+= & c_2 \\
+\end{array}\]
+
+\paragraph{Analysis tree for $\llbracket \exists x B^2x\top_2\rrbracket^{\mathpzc{M},g}$}
+\[\begin{array}{ll}
+ \exists x & B^2x\top_2 \\ \cmidrule{2-2}
+ & \{i\in c: \langle g(x),i_2\rangle\in \llbracket B^2\im\} \\ \midrule
+\multicolumn{2}{l}{\{d\cdot i:\din\;\&\; i\in c\llbracket B^2x\top_2\rrbracket^{\mathpzc{M},g[x/d]}\}} \\
+= & \{d\cdot i:\din\;\&\; i\in\{k\in c:\langle d,k_2\rangle\in \llbracket B^2\im\} \\
+= & \{d\cdot i:\din\;\&\; i\in c \;\&\; \langle d,i_2\rangle\in \llbracket B^2\im\} \\
+  \end{array}\]
+
+\paragraph{Updating info. state $c_2$}
+\[\begin{array}{ll}
+\multicolumn{2}{l}{c_2\llbracket \exists x B^2x\top_2\rrbracket^{\mathpzc{M},g}} \\
+= & \{b\cdot i: i\in c_2 \;\&\; \langle b,i_2\rangle\in \llbracket B^2\im\} \\
+= & \{b\cdot i:  i\in\{\langle j, a\rangle :a=\llbracket a\im \;\&\; a\in\llbracket Y^1\im \;\&\; 
+   a\in\llbracket P^1\im \;\&\;\langle j,a\rangle\in\llbracket J^2\im\;\&\; j\in\llbracket G^1\im\} \;\&\;
+   \langle b,i_2\rangle\in \llbracket B^2\im\} \\
+= & \{\langle b,j,a\rangle:  a=\llbracket a\im \;\&\; a\in\llbracket Y^1\im \;\&\; 
+   a\in\llbracket P^1\im \;\&\;\langle j,a\rangle\in\llbracket J^2\im\;\&\; j\in\llbracket G^1\im \;\&\;
+   \langle b,a\rangle\in \llbracket B^2\im\} \\
+  \end{array}\]
+
+\paragraph{Truth in $\mathpzc{M}$}
+
+\[\mathpzc{M}\vDash \exists x (x=a \wedge Y^1x \wedge P^1x)\wedge\exists x (J^2x\top_1 \wedge G^1x)\wedge\exists x B^2x\top_2\]
+\[iff\; \exists b,j,a\in\mathpzc{D_M}( a=\llbracket a\im \;\&\; a\in\llbracket Y^1\im \;\&\; 
+   a\in\llbracket P^1\im \;\&\;\langle j,a\rangle\in\llbracket J^2\im\;\&\; j\in\llbracket G^1\im \;\&\;
+   \langle b,a\rangle\in \llbracket B^2\im)\]
+
+\end{document}

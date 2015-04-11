@@ -1,0 +1,65 @@
+table.tt {
+  position: relative; 
+  font-size: 1.5em; 
+}
+
+table caption {
+  font-weight: 600;
+  text-align: center;
+}
+
+.tt tr, .tt td { position: absolute; }
+
+.tt tr { text-align: center; }
+
+.thead { 
+  font-weight: 600;
+  top: 1.5em;
+}
+
+.thead td { 
+  border-bottom: 2px solid #333; 
+  border-collapse: collapse;
+}
+
+.hid {
+  display: none; 
+}
+
+.sent {
+  border-right: 2px solid #333;
+}
+
+.even {
+  float: right;
+  margin: 0 20px;
+}
+
+.odd {
+  float: left;
+  margin: 0 20px;
+}
+
+.ttback {
+  margin: 1em;
+  padding: 1em;
+}
+
+.red {
+  color: red;
+}
+.red a { color: red; }
+
+.green {
+  color: green;
+}
+
+.gray {
+  color: gray;
+}
+
+.gray a { color: gray; }
+
+.buffer {
+  height: 100px; 
+}

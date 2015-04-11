@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Fitch style proofs</title>
+
+  <!--Entypo pictograms by Daniel Bruce — www.entypo.com-->
+  <link rel="icon" type="image/png" href="./images/rarr.ico">
+
+  <link href="./css/main.css" media="screen" rel="stylesheet">
+  <link href="./css/fitch.css" media="screen" rel="stylesheet">
+
+  <script src="./js/jquery-1.11.2.js"></script>
+  <script src="./js/fitch-proofs.js"></script>
+</head>
+
+<body>
+
+<header>
+<div id="inhead">
+<p>Presenting Fitch style proofs</p>
+<p>by Erik Hoversten</p>
+</div>
+</header>
+
+<div id="wrapper">
+<div id="container">
+
+<h1>An example proof</h1>
+
+
+<blockquote>
+This example proof is based on the <a href="https://ggweb.gradegrinder.net/lpl">Language, Proof, and Logic courseware package.</a>
+</blockquote>
+<blockquote>
+Hover over question mark icons to reveal a hint on how to proceed.  Click the icon to reveal the next step or subproof.
+</blockquote>
+<blockquote>
+Lines and subproofs can be optionally password protected. In this example, line 4 and the subproof containing lines 10-17 are protected. The password is "gottlieb".
+</blockquote>
+
+<div class="box">
+<!-- Begin Proof -->
+<div class="proof" >
+
+<!-- Premises -->
+<div class="line" ><table><td class="step" ><span class="number" >1. </span><span class="formula" title="" >(A &rarr; (B &and; C)) &and; (&not;A &rarr; (&not;B &and; &not;C))</span></td></table></div>
+  
+<div class="line" ><table ><td class="step" ><span class="number" >2. </span><span class="formula" title="" >&not;A &rarr; &not;D</span></td></table></div>
+
+<div class="fitchbar" ></div>
+
+<!-- Main strategy: biconditional proof -->
+<img class="info" title="Biconditional proof"><div class="hid">
+
+<!-- Cond proof 1 -->
+<div class="proof">
+
+<div class="line" ><table ><td class="step" ><span class="number" >3. </span><span class="formula" title="" >A</span></td></table></div>
+
+<div class="fitchbar" ></div>
+    
+<img class="protect" id="line4" title="Look at premise 1"><span id="line4hid" class="line hid" ><table><td class="step" ><span class="number">4. </span><span class="formula" title="">A &rarr; (B &and; C)</span></td><td class="justification"><span class="rulename" >&and; Elim</span><span class="support"> : 1</span></td></table></span><br>
+
+<img class="info" title="Modus ponens"><span class="line hid" ><table><td class="step" ><span class="number" >5. </span><span class="formula" title="" >B &and; C</span></td><td class="justification" ><span class="rulename" >&rarr; Elim</span><span class="support" > : 3,4</span></td></table></span><br>
+
+<img class="info" title="Look at line 5"><span class="line hid" ><table><td class="step" ><span class="number" >6. </span><span class="formula" title="" >C</span></td><td class="justification" ><span class="rulename" >&and; Elim</span><span class="support" > : 5</span></td></table></span><br>
+
+<div class="line" ><table ><td class="step" ><span class="number" >7. </span><span class="formula" title="" >C &or; D</span></td><td class="justification" ><span class="rulename" >&or; Intro</span><span class="support" > : 6</span></td></table></div>
+
+</div>
+<!-- End cond proof 1 -->
+
+<!-- Cond proof 2 -->
+<div class="proof">
+
+<div class="line" ><table ><td class="step" ><span class="number" >8. </span><span class="formula" title="" >C &or; D</span></td></table></div>
+
+<div class="fitchbar" ></div>
+
+<!-- Nested strategy: indirect proof -->
+<img class="info" title="Indirect proof"><div class="hid">
+
+<div class="proof">
+
+<div class="line" ><table ><td class="step" ><span class="number" >9. </span><span class="formula" title="" >&not;A</span></td></table></div>
+
+<div class="fitchbar" ></div>
+
+<!-- Nested strategy: proof by cases -->
+<img class="protect" id="lines10-17" title="Proof by cases"><div id="lines10-17hid"class="hid">
+
+<!-- Case 1 -->
+<div class="proof">
+
+<div class="line" ><table ><td class="step" ><span class="number" >10. </span><span class="formula" title="" >C</span></td></table></div>
+
+<div class="fitchbar" ></div>
+
+<img class="info" title="Look at premise 1"><span class="line hid" ><table ><td class="step" ><span class="number" >11. </span><span class="formula" title="" >&not;A &rarr; (&not;B &and; &not;C)</span></td><td class="justification" ><span class="rulename" >&and; Elim</span><span class="support" > : 1</span></td></table></span><br>
+
+<img class="info" title="Modus ponens"><span class="line hid" ><table ><td class="step" ><span class="number" >12. </span><span class="formula" title="" >&not;B &and; &not;C</span></td><td class="justification" ><span class="rulename" >&rarr; Elim</span><span class="support" > : 9,11</span></td></table></span><br>
+
+<img class="info" title="Look at line 12"><span class="line hid" ><table ><td class="step" ><span class="number" >13. </span><span class="formula" title="" >&not;C</span></td><td class="justification" ><span class="rulename" >&and; Elim</span><span class="support" > : 12</span></td></table></span><br>
+
+<div class="line" ><table ><td class="step" ><span class="number" >14. </span><span class="formula" title="" >&perp;</span></td><td class="justification" ><span class="rulename" >&perp; Intro</span><span class="support" > : 10,13</span></td></table></div>
+
+</div>
+<!-- End case 1 -->
+
+<!-- Case 2 -->
+<div class="proof">
+
+<div class="line" ><table ><td class="step" ><span class="number" >15. </span><span class="formula" title="" >D</span></td></table></div>
+
+<div class="fitchbar" ></div>
+
+<img class="info" title="Modus ponens"><span class="line hid" ><table ><td class="step" ><span class="number" >16. </span><span class="formula" title="" >&not;D</span></td><td class="justification" ><span class="rulename" >&rarr; Elim</span><span class="support" > : 2,9</span></td></table></span><br>
+
+<div class="line" ><table ><td class="step" ><span class="number" >17. </span><span class="formula" title="" >&perp;</span></td><td class="justification" ><span class="rulename" >&perp; Intro</span><span class="support" > : 15,16</span></td></table></div>
+
+</div></div>
+<!-- End case 2 -->
+
+<div class="line" ><table ><td class="step" ><span class="number" >18. </span><span class="formula" title="" >&perp;</span></td><td class="justification" ><span class="rulename" >&or; Elim</span><span class="support" > : 8,14-15,16-17</span></td></table></div>
+
+</div>
+<!-- End proof by cases -->
+
+<div class="line" ><table ><td class="step" ><span class="number" >19. </span><span class="formula" title="" >&not;&not;A</span></td><td class="justification" ><span class="rulename" >&not; Intro</span><span class="support" > : 9-18</span></td></table></div>
+
+</div>
+<!-- End indirect proof -->
+
+<div class="line" ><table ><td class="step" ><span class="number" >20. </span><span class="formula" title="" >A</span></td><td class="justification" ><span class="rulename" >&not; Elim</span><span class="support" > : 19</span></td></table></div>
+
+</div>
+<!-- End cond proof 2 -->
+</div>
+<!-- End biconditional proof -->
+
+<div class="line" ><table ><td class="step" ><span class="number" >21. </span><span class="formula" title="" >A &harr; (C &or; D)</span></td><td class="justification" ><span class="rulename" >&harr; Intro</span><span class="support" > : 3-7,8-20</span></td></table></div>
+
+</div>
+<!-- End Proof -->
+</div>
+
+</div>
+</div>
+
+<footer>
+<span><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img class="foot" alt="Creative Commons License" style="border-width:0" src="./images/cc.svg" />Creative Commons Attribution 4.0 International License</a></span>
+<span>Updated April 5, 2015 by Erik</span>
+</footer>
+
+</body>
+</html>
