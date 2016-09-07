@@ -6,17 +6,19 @@
 	<meta name="viewport" content="width=device-width">
       	<title>bibliography | erik hoversten</title>
 	<link rel="stylesheet" href="/css/ewob-main.css">
-	<link rel="stylesheet" href="/css/ewob-tiny.css">
-	<link rel="stylesheet" href="/css/ewob-small.css">
-	<link rel="stylesheet" href="/css/ewob-large.css">
-	<link rel="stylesheet" href="/css/ewob-arrows.css">
-	<link rel="stylesheet" href="/css/ewob-lightbox.css">
-	<link rel="stylesheet" href="/css/latex.css">
-	<link rel="shortcut icon" href="/images/eicon2.ico" >
-        <script type="text/javascript" src="/javascript/jquery-1.11.2.js"></script>
+	<link rel="shortcut icon" href="/images/eicon2.ico">
+
+  <script   src="http://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
 	<script type="text/javascript" src="/javascript/sumatra.js"></script>
+
+  <!-- Data-tables -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.dataTables.min.css">
+  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
+  <script src="/javascript/bibtable.js"></script>
 </head>
-	
+
 	<a name="top"></a>
 
 <body>
@@ -25,93 +27,35 @@
 <div id="wrap">
 
 <!-- Banner -->
-	
-	<div id="banner">
-		<div id="banner-bg">
-			<h1>erik hoversten</h1>
-			<h2>bibliography</h2>
+
+	<div class="outer">
+		<div class="inner">
+			<h1>bibliography</h1>
 			<div style="clear: both;"></div>
 		</div>
 	</div>
-	<div id="etitle"><h2>erik hoversten</h2></div>
-
+	<!--<div id="etitle"><h2>erik hoversten</h2></div>-->
 
 <div style="clear: right;"></div>
 <!-- Site navigation menu -->
-<div id="nav-bar">
-		
-
-		
 
 
-		
 
+
+<div class="footnav">
+  <div class="button title">
+    erik hoversten
+  </div>
+  <ul>
+  	<li><a href="/">home</a></li>
 	
-		<a href="/">erik's home</a>
-		
-			<a href="/research">erik's research</a>
-		
-		<p>bibliography</p>
-		
-			<a href="/research/bibliography/philosophy-of-language">language</a>
-		
-			<a href="/research/bibliography/david-lewis">dklewis</a>
-		
-			<a href="/research/bibliography/ontic-vagueness">vagueness</a>
-		
-			<a href="/research/bibliography/erik-dissertation">erik-diss</a>
-		
+		<li><a href="/research/">research</a></li>
 	
-
+		<li><a href="/teaching/">teaching</a></li>
 	
-<form id="search" method="get" action="http://duckduckgo.com/">
-   <input type="hidden" name="sites" value="erikhoversten.org/"/>
-   <input type="hidden" name="kae" value="d"/>
-   <input type="hidden" name="km" value="m"/>
-   <input type="hidden" name="ka" value="h"/>
-   <input type="hidden" name="k7" value="#f5f5f5"/>
-   <input type="hidden" name="k8" value="#2F4F4F"/>
-   <input type="hidden" name="kj" value="#4682B4"/>
-   <input type="hidden" name="ky" value="#B0C4DE"/>
-   <input type="hidden" name="kx" value="#4682B4"/>
-   <input type="hidden" name="kt" value="Helvetica"/>
-   <input type="hidden" name="t" value="erikhoversten.org"/>
-   <input type="text" name="q" maxlength="55" placeholder="  search this site"/>
-   <!--<input type="submit" value="Go" />-->
-</form>
-</div>
-
-
-<div id="nav-small" class="open">
-	<a href="#" title="click to show" onclick="return false;" ontouchstart="return false;"><img src="/images/menu.svg"></a>
-		
-<div id="nav-smallhid">
-
-
-		
-
-
-<ul>		
-
+		<li><a href="/physicalia/">physicalia</a></li>
 	
-		<li><a href="/">home</a></li>
-		
-			<li><a href="/research/">research</a></li>
-		
-		<p>bibliography</p>
-		
-			<li><a href="/research/bibliography/philosophy-of-language/">language</a></li>
-		
-			<li><a href="/research/bibliography/david-lewis/">dklewis</a></li>
-		
-			<li><a href="/research/bibliography/ontic-vagueness/">vagueness</a></li>
-		
-			<li><a href="/research/bibliography/erik-dissertation/">erik-diss</a></li>
-		
-	
-
-</ul>
-</div>
+  </ul>
 </div>
 
 
@@ -152,16 +96,6 @@
 			
 			
 			
-				
-				<a href="/research/bibliography/erik-dissertation/" ><img class="arrow-navr" src="/images/enavbuttonr-50.png" alt="" title="erik dissertation"></a>
-			
-		
-	
-	
-	
-	
-<!--For main site pages-->	
-	
 		
 	
 	
@@ -179,14 +113,13 @@
 	</div>
 	
 
-	
 
 
 <div id="main">
 	<div style="clear: right;"></div>
-	<link rel="stylesheet" href="/css/biblio.css">
+	<!--<link rel="stylesheet" href="/css/biblio.css">
 <script type="text/javascript" src="/javascript/biblio.js"></script>
-<script type="text/javascript" src="/javascript/fixdiv.js"></script>
+<script type="text/javascript" src="/javascript/fixdiv.js"></script>-->
 
 <div id="content">
 
@@ -194,7 +127,7 @@
 <h2>ontic vagueness</h2>
 
 <!-- Search box -->
-<form action="" id="quicksearch">
+<!--<form action="" id="quicksearch">
 <input type="text" id="qs_field" autocomplete="off" placeholder="Search entries..." /> <input type="button" onclick="clearQS()" value="clear" />
 <span id="searchstat">Entries: <span id="stat">0</span></span>
 <div id="showsettings" onclick="toggleSettings()">settings</div>
@@ -206,13 +139,27 @@
 <span><input type="checkbox" class="search_setting" id="opt_noAccents" onchange="updateSetting(this)"><label for="opt_noAccents"> ignore accents</label></span>
 </div>
 
-</form>
+</form>-->
 </div>
 
 <!-- Bibliography -->
 <div id="bibtable">
-<table id="qs_table" border="1">
-<thead><tr><th id="author">Author</th><th id="title">Title</th><th id="year">Year</th><th id="journal">Journal</th><th id="ref">Biblio</th></tr></thead>
+<table id="ontic-vagueness-table" class="qs_table" border="1">
+<thead><tr>
+  
+    <th id="author">Author</th>
+  
+    <th id="title">Title</th>
+  
+    <th id="year">Year</th>
+  
+    <th id="source">Source</th>
+  
+    <th id="type">Type</th>
+  
+    <th id="file">File</th>
+  
+</tr></thead>
 <tbody>
 
 <tr id="adams1979" class="entry">

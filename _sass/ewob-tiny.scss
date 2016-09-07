@@ -1,0 +1,60 @@
+@media all and (max-width: 499px) {
+
+#nav-bar,#etitle,#to-top,#arrow-nav,#side-bar { display: none; }
+
+#banner { background-image: url('/images/teton-tiny.jpg'); }
+#banner h1 { font-size: 2.5em !important; }
+#main { width: 90%; left: 5%; }
+#content { width: 90%; }
+
+#nav-small {
+	position: fixed;
+	display: block;
+	top: 20px;
+	left: 10px;
+	background: rgba(47,79,79,0.9);
+	line-height: 0;
+	width: 30px;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+#nav-smallhid {
+	position: fixed;
+	display: none;
+	top: 80px;
+	left: 0;
+	background: rgba(47,79,79,0.9);
+	padding: 5px;
+	text-align: left;
+	color: SteelBlue;
+	font-family: glamB;
+	line-height: 1.25em;
+	text-decoration: none;
+	font-size: 1.25em;
+	overflow: hidden;
+	-webkit-transition: height 0.5s linear;
+	-moz-transition: height 0.5s linear;
+	transition: height 0.5s linear;
+	border-radius: 0 8px 8px 0;
+	z-index: 15;
+}
+
+.show { max-height: 250px; max-width: 100px; }
+.hide { height: 20px; width: 30px; }
+
+#nav-embiggen {
+	position: relative;
+	width: inherit;
+}
+#nav-embiggen a {
+	display: table;
+	width: 100%;
+	//padding-left: 2%;
+	color: SteelBlue;
+	text-decoration: none;
+	text-shadow: none;
+}
+#nav-embiggen a:hover { color: DarkSlateGray; }
+
+}

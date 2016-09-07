@@ -1,0 +1,23 @@
+table.dataTable.dtr-column > tbody > tr > td.expand,
+table.dataTable.dtr-column > tbody > tr > th.expand {
+  position: relative;
+  cursor: pointer;
+  padding: 5px;
+  background-image: url('../images/chevron-down.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+table.dataTable.dtr-column > tbody > tr.parent > td.expand,
+table.dataTable.dtr-column > tbody > tr.parent > th.expand {
+  background-image: url('../images/chevron-up.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.qs_table pre {
+  font-size: 12px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+}

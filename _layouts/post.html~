@@ -1,9 +1,0 @@
----
-layout: child
----
-
-<div id="content">
-<h4>{{ page.date | date: "%Y-%m-%d" }} | {{ page | tags }}</h4>
-	
-{{ content }}
-</div>

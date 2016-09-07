@@ -1,0 +1,332 @@
+<!doctype html>
+<html class="dark">
+
+<head>
+		<meta charset="utf-8">
+
+		<title>PLA Derivations</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="e-rizzle" >
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.min.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/sky.css" id="theme">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'https://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/paper.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+	
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section id="title-slide">
+	<h1>Analyzing topic chains</h1>
+	<h3>in Predicate Logic with Anaphora</h4>
+
+	<p>Erik Hoversten</p>
+</section>
+
+<section>
+    <h2>English topic chain</h2>
+    <p><i>Alex dribbled and shot. An opponent challenged her, but she scored a goal!</i></p>
+
+  <br>
+
+    <h2>PLA translation</h2>
+    <p>&exist;x(x = a &and; D<sup>1</sup>x &and; S<sup>1</sup>x) &and; &exist;x(O<sup>1</sup>x &and; C<sup>2</sup>xi<sub>1</sub>) &and; &exist;x(G<sup>1</sup>x &and; S<sup>2</sup>i<sub>2</sub>x)</p>
+
+  <br>
+
+    <h2>Initial context</h2>
+    <p>c<sub>0</sub> = {&#9001;&nbsp;&#9002;}</p>
+</section>
+
+<section>
+<section>
+  <h2>Update # 1</h2>
+<br>
+  <h4>c<sub>1</sub> = c<sub>0</sub>&#10214;&exist;x(x = a &and; D<sup>1</sup>x &and; S<sup>1</sup>x)&#10215;<sup>&#8499;,g</sup> = </h4>
+<p>{ &#9001;d&#9002; : d = &#10214;a&#10215;<sub>&#8499;</sub> & d &isin; &#10214;D<sup>1</sup>&#10215;<sub>&#8499;</sub> & d &isin; &#10214;S<sup>1</sup>&#10215;<sub>&#8499;</sub> }</p>
+
+  <br><br>
+  <p>Derivation</p>
+  <h3>&#9660;</h3>
+</section>
+
+<section>
+<h2>Derivation # 1</h2>
+<br>
+<table class="fragment" data-fragment-index="1" style="text-align: left;">
+
+<!-- PLA translation -->
+<tr class="fragment" data-fragment-index="1">
+  <td>c<sub>0</sub></td>
+  <td>&#10214;&exist;x</td>
+  <td>(</td>
+  <td>x=a</td>
+  <td>&and;</td>
+  <td>D<sup>1</sup>x</td>
+  <td>&and;</td>
+  <td>S<sup>1</sup>x</td>
+  <td>)&#10215;<sup>&#8499;,g</sup></td>
+</tr>
+
+<!-- Update for each conjunct -->
+<tr class="fragment" data-fragment-index="2">
+  <td class="fragment" data-fragment-index="5"><span class="fragment highlight-red" data-fragment-index="5">c<sub>a</sub> =</span></td>
+  <td colspan="2"></td>
+  <td class="act fragment" data-fragment-index="2"><span class="fragment highlight-red" data-fragment-index="5">{ i &isin; c<sub>0</sub> : g(x) = &#10214;a&#10215;<sub>&#8499;</sub> }</span></td>
+  <td></td>
+  <td class="act fragment" data-fragment-index=3">{ i &isin; c<sub>0</sub> : g(x) &isin; &#10214;D<sup>1</sup>&#10215;<sub>&#8499;</sub> }</td>
+  <td></td>
+  <td class="act fragment" data-fragment-index="4">{ i &isin; c<sub>0</sub> : g(x) &isin; &#10214;S<sup>1</sup>&#10215;<sub>&#8499;</sub> }</td>
+  <td></td>
+</tr>
+
+<!-- Two conjuncts -->
+<tr class="fragment" data-fragment-index="6">
+  <td colspan="3"></td>
+  <td colspan="3" class="act">c<sub>a</sub>&#10214;D<sup>1</sup>x&#10215;<sup>&#8499;,g</sup> = <span class="fragment" data-fragment-index="7">{ j &isin; c<sub>a</sub> : g(x) &isin; &#10214;D<sup>1</sup>&#10215;<sub>&#8499;</sub> } =</span></td>
+  <td colspan="3"></td>
+</tr>
+
+<tr class="fragment" data-fragment-index="8">
+  <td class="fragment" data-fragment-index="9"><span class="fragment highlight-red" data-fragment-index="8">c<sub>b</sub> =</span></td>
+    <td colspan="2"></td>
+  <td colspan="3"><span class="fragment highlight-red" data-fragment-index="9">{ i &isin; c<sub>0</sub> : g(x) = &#10214;a&#10215;<sub>&#8499;</sub> & g(x) &isin; &#10214;D<sup>1</sup>&#10215;<sub>&#8499;</sub> }</span></td>
+  <td colspan="3"></td>
+</tr>
+
+<!-- Three conjuncts -->
+<tr class="fragment" data-fragment-index="10">
+  <td colspan="3"></td>
+  <td colspan="5" class="act">c<sub>b</sub>&#10214;S<sup>1</sup>x&#10215;<sup>&#8499;,g</sup> = <span class="fragment" data-fragment-index="11">{ k &isin; c<sub>b</sub> : g(x) &isin; &#10214;S<sup>1</sup>&#10215;<sub>&#8499;</sub> } =</span></td>
+  <td colspan="1"></td>
+</tr>
+
+<tr class="fragment" data-fragment-index="12">
+  <td class="fragment" data-fragment-index="13"><span class="fragment highlight-red" data-fragment-index="11">c<sub>c</sub> =</span></td>
+  <td colspan="2"></td>
+  <td colspan="5"><span class="fragment highlight-red" data-fragment-index="13">{ i &isin; c<sub>0</sub> : g(x) = &#10214;a&#10215;<sub>&#8499;</sub> & g(x) &isin; &#10214;D<sup>1</sup>&#10215;<sub>&#8499;</sub> & g(x) &isin; &#10214;S<sup>1</sup>&#10215;<sub>&#8499;</sub> }</span></td>
+  <td colspan="1"></td>
+</tr>
+
+<!-- Quantifier -->
+<tr class="fragment" data-fragment-index="14">
+  <td></td>
+  <td colspan="8" class="act">{ d &#8226; i : d &isin; &#120071;<sub>&#8499;</sub> & i &isin; c<sub>c</sub>[x &#8702; d] } = <span class="fragment" data-fragment-index="15">{ d &#8226; i : i &isin; c<sub>0</sub> & d &isin; &#120071;<sub>&#8499;</sub> & d = &#10214;a&#10215;<sub>&#8499;</sub> & d &isin; &#10214;D<sup>1</sup>&#10215;<sub>&#8499;</sub> & d &isin; &#10214;S<sup>1</sup>&#10215;<sub>&#8499;</sub> }</span></td>
+</tr>
+
+<tr class="fragment" data-fragment-index="16">
+  <td class="fragment" data-fragment-index="17">c<sub>1</sub> =</td>
+  <td colspan="8"><span class="fragment highlight-red" data-fragment-index="17">{ &#9001;d&#9002; : d = &#10214;a&#10215;<sub>&#8499;</sub> & d &isin; &#10214;D<sup>1</sup>&#10215;<sub>&#8499;</sub> & d &isin; &#10214;S<sup>1</sup>&#10215;<sub>&#8499;</sub> }</span></td>
+</tr>
+</table>
+
+</section>
+</section>
+
+<section>
+<section>
+  <h2>Update #2</h2>
+<br>
+  <h4>c<sub>2</sub> = c<sub>1</sub>&#10214;&exist;x(O<sup>1</sup>x &and; C<sup>2</sup>xi<sub>1</sub>)&#10215;<sup>&#8499;,g</sup> = </h4>
+<p>{ &#9001;e,d&#9002; : d = &#10214;a&#10215;<sub>&#8499;</sub> & d &isin; &#10214;D<sup>1</sup>&#10215;<sub>&#8499;</sub> & d &isin; &#10214;S<sup>1</sup>&#10215;<sub>&#8499;</sub> & e &isin; &#10214;O<sup>1</sup>&#10215;<sub>&#8499;</sub> & &#9001;e,d&#9002; &isin; &#10214;C<sup>2</sup>&#10215;<sub>&#8499;</sub> }</p>
+
+  <br><br>
+  <p>Derivation</p>
+  <h3>&#9660;</h3>
+</section>
+
+<section>
+<h2>Derivation # 2</h2>
+<br>
+<table class="fragment" data-fragment-index="1" style="text-align: left;">
+
+<!-- PLA translation -->
+<tr class="fragment" data-fragment-index="1">
+  <td>c<sub>1</sub></td>
+  <td>&#10214;&exist;x</td>
+  <td>(</td>
+  <td>O<sup>1</sup>x</td>
+  <td>&and;</td>
+  <td>C<sup>2</sup>xi<sub>1</sub></td>
+  <td>)&#10215;<sup>&#8499;,g</sup></td>
+</tr>
+
+<!-- Update for each conjunct -->
+<tr class="fragment" data-fragment-index="2">
+  <td class="fragment" data-fragment-index="4"><span class="fragment highlight-red" data-fragment-index="4">c<sub>a</sub> =</span></td>
+  <td colspan="2"></td>
+  <td class="act fragment" data-fragment-index="2"><span class="fragment highlight-red" data-fragment-index="4">{ i &isin; c<sub>1</sub> : g(x) &isin; &#10214;O<sup>1</sup>&#10215;<sub>&#8499;</sub> }</span></td>
+  <td></td>
+  <td class="act fragment" data-fragment-index=3">{ i &isin; c<sub>1</sub> : &#9001;g(x),i<sub>1</sub>&#9002; &isin; &#10214;C<sup>2</sup>&#10215;<sub>&#8499;</sub> }</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<!-- Two conjuncts -->
+<tr class="fragment" data-fragment-index="5">
+  <td colspan="3"></td>
+  <td colspan="3" class="act">c<sub>a</sub>&#10214;C<sup>2</sup>xi<sub>1</sub>&#10215;<sup>&#8499;,g</sup> = <span class="fragment" data-fragment-index="6">{ j &isin; c<sub>a</sub> : &#9001;g(x),i<sub>1</sub>&#9002; &isin; &#10214;C<sup>2</sup>&#10215;<sub>&#8499;</sub> } =</span></td>
+  <td colspan="3"></td>
+</tr>
+
+<tr class="fragment" data-fragment-index="7">
+  <td class="fragment" data-fragment-index="8"><span class="fragment highlight-red" data-fragment-index="8">c<sub>b</sub> =</span></td>
+    <td colspan="2"></td>
+  <td colspan="3"><span class="fragment highlight-red" data-fragment-index="8">{ i &isin; c<sub>1</sub> : g(x) &isin; &#10214;O<sup>1</sup>&#10215;<sub>&#8499;</sub> & &#9001;g(x),i<sub>1</sub>&#9002; &isin; &#10214;C<sup>2</sup>&#10215;<sub>&#8499;</sub> }</span></td>
+  <td colspan="3"></td>
+</tr>
+
+<!-- Quantifier -->
+<tr class="fragment" data-fragment-index="9">
+  <td></td>
+  <td colspan="8" class="act">{ e &#8226; i : e &isin; &#120071;<sub>&#8499;</sub> & i &isin; c<sub>b</sub>[x &#8702; e] } = <span class="fragment" data-fragment-index="10">{ e &#8226; i : i &isin; c<sub>1</sub> & e &isin; &#120071;<sub>&#8499;</sub> & e &isin; &#10214;O<sup>1</sup>&#10215;<sub>&#8499;</sub> & &#9001;e,i<sub>1</sub>&#9002; &isin; &#10214;C<sup>2</sup>&#10215;<sub>&#8499;</sub> }</span></td>
+</tr>
+
+<tr class="fragment" data-fragment-index="11">
+  <td class="fragment" data-fragment-index="12">c<sub>2</sub> =</td>
+  <td colspan="8"><span class="fragment highlight-red" data-fragment-index="12">{ &#9001;e,d&#9002; : d = &#10214;a&#10215;<sub>&#8499;</sub> & d &isin; &#10214;D<sup>1</sup>&#10215;<sub>&#8499;</sub> & d &isin; &#10214;S<sup>1</sup>&#10215;<sub>&#8499;</sub> & e &isin; &#10214;O<sup>1</sup>&#10215;<sub>&#8499;</sub> & &#9001;e,d&#9002; &isin; &#10214;C<sup>2</sup>&#10215;<sub>&#8499;</sub> }</span></td>
+</tr>
+</table>
+
+</section>
+</section>
+
+<section>
+<section>
+  <h2>Update # 3</h2>
+<br>
+  <h4>c<sub>3</sub> = c<sub>2</sub>&#10214;&exist;x(G<sup>1</sup>x &and; S<sup>2</sup>i<sub>2</sub>x)&#10215;<sup>&#8499;,g</sup> = </h4>
+<p>{ &#9001;f,e,d&#9002; : d = &#10214;a&#10215;<sub>&#8499;</sub> & d &isin; &#10214;D<sup>1</sup>&#10215;<sub>&#8499;</sub> & d &isin; &#10214;S<sup>1</sup>&#10215;<sub>&#8499;</sub> & e &isin; &#10214;O<sup>1</sup>&#10215;<sub>&#8499;</sub> & &#9001;e,d&#9002; &isin; &#10214;C<sup>2</sup>&#10215;<sub>&#8499;</sub> & f &isin; &#10214;G<sup>1</sup>&#10215;<sub>&#8499;</sub> & &#9001;d,f&#9002; &isin; &#10214;S<sup>2</sup>&#10215;<sub>&#8499;</sub> }</p>
+
+  <br><br>
+  <p>Derivation</p>
+  <h3>&#9660;</h3>
+</section>
+
+<section>
+<h2>Derivation # 3</h2>
+<br>
+<table class="fragment" data-fragment-index="1" style="text-align: left;">
+
+<!-- PLA translation -->
+<tr class="fragment" data-fragment-index="1">
+  <td>c<sub>2</sub></td>
+  <td>&#10214;&exist;x</td>
+  <td>(</td>
+  <td>G<sup>1</sup>x</td>
+  <td>&and;</td>
+  <td>S<sup>2</sup>i<sub>2</sub>x</td>
+  <td>)&#10215;<sup>&#8499;,g</sup></td>
+</tr>
+
+<!-- Update for each conjunct -->
+<tr class="fragment" data-fragment-index="2">
+  <td class="fragment" data-fragment-index="4"><span class="fragment highlight-red" data-fragment-index="4">c<sub>a</sub> =</span></td>
+  <td colspan="2"></td>
+  <td class="act fragment" data-fragment-index="2"><span class="fragment highlight-red" data-fragment-index="4">{ i &isin; c<sub>2</sub> : g(x) &isin; &#10214;G<sup>1</sup>&#10215;<sub>&#8499;</sub> }</span></td>
+  <td></td>
+  <td class="act fragment" data-fragment-index=3">{ i &isin; c<sub>2</sub> : &#9001;i<sub>2</sub>,g(x)&#9002; &isin; &#10214;S<sup>2</sup>&#10215;<sub>&#8499;</sub> }</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<!-- Two conjuncts -->
+<tr class="fragment" data-fragment-index="5">
+  <td colspan="3"></td>
+  <td colspan="3" class="act">c<sub>a</sub>&#10214;S<sup>2</sup>i<sub>2</sub>x&#10215;<sup>&#8499;,g</sup> = <span class="fragment" data-fragment-index="6">{ j &isin; c<sub>a</sub> : &#9001;i<sub>2</sub>,g(x)&#9002; &isin; &#10214;S<sup>2</sup>&#10215;<sub>&#8499;</sub> } =</span></td>
+  <td colspan="3"></td>
+</tr>
+
+<tr class="fragment" data-fragment-index="7">
+  <td class="fragment" data-fragment-index="8"><span class="fragment highlight-red" data-fragment-index="8">c<sub>b</sub> =</span></td>
+    <td colspan="2"></td>
+  <td colspan="3"><span class="fragment highlight-red" data-fragment-index="8">{ i &isin; c<sub>2</sub> : g(x) &isin; &#10214;G<sup>1</sup>&#10215;<sub>&#8499;</sub> & &#9001;i<sub>2</sub>,g(x)&#9002; &isin; &#10214;S<sup>2</sup>&#10215;<sub>&#8499;</sub> }</span></td>
+  <td colspan="3"></td>
+</tr>
+
+<!-- Quantifier -->
+<tr class="fragment" data-fragment-index="9">
+  <td></td>
+  <td colspan="8" class="act">{ f &#8226; i : f &isin; &#120071;<sub>&#8499;</sub> & i &isin; c<sub>b</sub>[x &#8702; f] } = <span class="fragment" data-fragment-index="10">{ f &#8226; i : i &isin; c<sub>2</sub> & f &isin; &#120071;<sub>&#8499;</sub> & f &isin; &#10214;G<sup>1</sup>&#10215;<sub>&#8499;</sub> & &#9001;i<sub>2</sub>,f&#9002; &isin; &#10214;S<sup>2</sup>&#10215;<sub>&#8499;</sub> }</span></td>
+</tr>
+
+<tr class="fragment" data-fragment-index="11">
+  <td class="fragment" data-fragment-index="12">c<sub>3</sub> =</td>
+  <td colspan="8"><span class="fragment highlight-red" data-fragment-index="12">{ &#9001;f,e,d&#9002; : d = &#10214;a&#10215;<sub>&#8499;</sub> & d &isin; &#10214;D<sup>1</sup>&#10215;<sub>&#8499;</sub> & d &isin; &#10214;S<sup>1</sup>&#10215;<sub>&#8499;</sub> & e &isin; &#10214;O<sup>1</sup>&#10215;<sub>&#8499;</sub> & &#9001;e,d&#9002; &isin; &#10214;C<sup>2</sup>&#10215;<sub>&#8499;</sub> & f &isin; &#10214;G<sup>1</sup>&#10215;<sub>&#8499;</sub> & &#9001;d,f&#9002; &isin; &#10214;S<sup>2</sup>&#10215;<sub>&#8499;</sub> }</span></td>
+</tr>
+</table>
+
+</section>
+</section>
+
+<section>
+<h2>Truth in &#8499;</h2>
+<br>
+<p>&#8499; &#8872; &exist;x(x = a &and; D<sup>1</sup>x &and; S<sup>1</sup>x) &and; &exist;x(O<sup>1</sup>x &and; C<sup>2</sup>xi<sub>1</sub>) &and; &exist;x(G<sup>1</sup>x &and; S<sup>2</sup>i<sub>2</sub>x)</p>
+
+<p><i>iff</i></p>
+
+<p>&exist; f,e,d &isin; &#120071;<sub>&#8499;</sub>( d = &#10214;a&#10215;<sub>&#8499;</sub> & d &isin; &#10214;D<sup>1</sup>&#10215;<sub>&#8499;</sub> & d &isin; &#10214;S<sup>1</sup>&#10215;<sub>&#8499;</sub> & e &isin; &#10214;O<sup>1</sup>&#10215;<sub>&#8499;</sub> & &#9001;e,d&#9002; &isin; &#10214;C<sup>2</sup>&#10215;<sub>&#8499;</sub> & f &isin; &#10214;G<sup>1</sup>&#10215;<sub>&#8499;</sub> & &#9001;d,f&#9002; &isin; &#10214;S<sup>2</sup>&#10215;<sub>&#8499;</sub> )</p>
+
+</section>
+
+		</div>
+	</div>
+	
+	<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.min.js"></script>
+<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
+<script>
+
+	// Full list of configuration options available here:
+	// https://github.com/hakimel/reveal.js#configuration
+	Reveal.initialize({
+    width: 1100,
+		controls: true,
+		progress: true,
+		history: false,
+		center: true,
+    slideNumber: true,
+
+		theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+		transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+		// Parallax scrolling
+		// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+		// parallaxBackgroundSize: '2100px 900px',
+
+		// Optional libraries used to extend on reveal.js
+		dependencies: [
+			{ src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+			{ src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+			{ src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+			{ src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+		]
+	});
+
+</script>
+
+</body>
+</html>

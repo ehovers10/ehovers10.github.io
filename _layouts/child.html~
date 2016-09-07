@@ -1,7 +1,0 @@
----
-layout: elay1
----
-
-{{ content }}
-
-{% include return-to-parent.html %}

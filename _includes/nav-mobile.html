@@ -1,0 +1,14 @@
+{% assign enav = site.pages | where: "category" , "esite" | sort: 'date' %}
+{% assign num = enav.size | minus: 1 %}
+
+<div class="footnav">
+  <div class="button title">
+    erik hoversten
+  </div>
+  <ul>
+  	<li><a href="/">home</a></li>
+	{% for i in (1...num) %}
+		<li><a href="/{{enav[i].subheading | slugify}}/">{{enav[i].subheading}}</a></li>
+	{% endfor %}
+  </ul>
+</div>

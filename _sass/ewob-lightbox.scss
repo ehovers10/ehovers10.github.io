@@ -1,0 +1,48 @@
+.lightbox {
+	display:  none;
+	position: fixed;
+	z-index: 20;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.7);
+
+	.popbox {
+		position: absolute;
+		left: 50%;
+		margin-right: -50%;
+		transform: translate(-50%, 0%);
+		overflow: auto;
+		background: #fff;
+	        border: solid #fff 3px;
+	        border-radius: 10px;
+
+		.poptitle {
+			width: 100%;
+			color: #000;
+			background-color: #fff;
+		}
+
+		.popclose a {
+			width: 30px;
+			height: 30px;
+			float: right;
+			background-image: url('images/circle-with-cross.svg');
+		}
+
+		.popmain {
+			/*border-radius: 5px;*/
+			margin: 0 5px 5px;
+			background: #fff;
+		}
+	}
+}
+.lightbox:target { display: block; }
+
+@media all and (min-width: 900px) {
+	.popbox { top: 10%; max-width: 60%; max-height: 80%; }
+}
+@media all and (max-width: 899px) {
+	.popbox { top: 5%; max-width: 90%; max-height: 90%; }
+}

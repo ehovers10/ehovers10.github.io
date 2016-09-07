@@ -2,9 +2,9 @@
 layout: child
 ---
 
-<link rel="stylesheet" href="/css/biblio.css">
+<!--<link rel="stylesheet" href="/css/biblio.css">
 <script type="text/javascript" src="/javascript/biblio.js"></script>
-<script type="text/javascript" src="/javascript/fixdiv.js"></script>
+<script type="text/javascript" src="/javascript/fixdiv.js"></script>-->
 
 <div id="content">
 
@@ -12,7 +12,7 @@ layout: child
 <h2>{{ page.title }}</h2>
 
 <!-- Search box -->
-<form action="" id="quicksearch">
+<!--<form action="" id="quicksearch">
 <input type="text" id="qs_field" autocomplete="off" placeholder="Search entries..." /> <input type="button" onclick="clearQS()" value="clear" />
 <span id="searchstat">Entries: <span id="stat">0</span></span>
 <div id="showsettings" onclick="toggleSettings()">settings</div>
@@ -24,13 +24,17 @@ layout: child
 <span><input type="checkbox" class="search_setting" id="opt_noAccents" onchange="updateSetting(this)"><label for="opt_noAccents"> ignore accents</label></span>
 </div>
 
-</form>
+</form>-->
 </div>
 
 <!-- Bibliography -->
 <div id="bibtable">
-<table id="qs_table" border="1">
-<thead><tr><th id="author">Author</th><th id="title">Title</th><th id="year">Year</th><th id="journal">Journal</th><th id="ref">Biblio</th></tr></thead>
+<table id="{{ page.title | slugify | append: '-table' }}" class="qs_table" border="1">
+<thead><tr>
+  {% for attr in page.attrs %}
+    <th id="{{attr}}">{{attr | capitalize}}</th>
+  {% endfor %}
+</tr></thead>
 <tbody>
 
 {{ content }}

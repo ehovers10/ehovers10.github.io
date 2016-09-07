@@ -12,22 +12,23 @@ defaults:
       type: "pages"
     values:
       layout: "elay1"
-      
-gems: ['pandoc-ruby','jekyll/tagging','jekyll/scholar']
+
+#gems: ['jekyll/tagging']
+exclude: [deprecated,non-jekyll-indices,CNAME,README.md]
 
 sitemap:
-  exclude: 
+  exclude:
     - "/blog/feed.xml"
   include_posts: "/blog/index.html"
 
-pandoc: 
-  options: 
+pandoc:
+  options:
     smart: true
     mathjax: true
 
 scholar:
   source: ./_bibliography
   bibliography: language
-  
+
 tag_page_layout: tag
 tag_page_dir: ./blog/tag
