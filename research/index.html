@@ -6,17 +6,19 @@
 	<meta name="viewport" content="width=device-width">
       	<title>research | erik hoversten</title>
 	<link rel="stylesheet" href="/css/ewob-main.css">
-	<link rel="stylesheet" href="/css/ewob-tiny.css">
-	<link rel="stylesheet" href="/css/ewob-small.css">
-	<link rel="stylesheet" href="/css/ewob-large.css">
-	<link rel="stylesheet" href="/css/ewob-arrows.css">
-	<link rel="stylesheet" href="/css/ewob-lightbox.css">
-	<link rel="stylesheet" href="/css/latex.css">
-	<link rel="shortcut icon" href="/images/eicon2.ico" >
-        <script type="text/javascript" src="/javascript/jquery-1.11.2.js"></script>
+	<link rel="shortcut icon" href="/images/eicon2.ico">
+
+  <script   src="http://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
 	<script type="text/javascript" src="/javascript/sumatra.js"></script>
+
+  <!-- Data-tables -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.dataTables.min.css">
+  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
+  <script src="/javascript/bibtable.js"></script>
 </head>
-	
+
 	<a name="top"></a>
 
 <body>
@@ -25,71 +27,27 @@
 <div id="wrap">
 
 <!-- Banner -->
-	
-	<div id="banner">
-		<div id="banner-bg">
-			<h1>erik hoversten</h1>
-			<h2>research</h2>
+
+	<div class="outer">
+		<div class="inner">
+			<h1>research</h1>
 			<div style="clear: both;"></div>
 		</div>
 	</div>
-	<div id="etitle"><h2>erik hoversten</h2></div>
-
+	<!--<div id="etitle"><h2>erik hoversten</h2></div>-->
 
 <div style="clear: right;"></div>
 <!-- Site navigation menu -->
-<div id="nav-bar">
-		
-
-		
 
 
-		
-
-	<a href="/">home</a>
-	
-		<a href="/research">research</a>
-	
-		<a href="/teaching">teaching</a>
-	
-		<a href="/physicalia">physicalia</a>
-	
-		<a href="/blog">blog</a>
-	
-		<a href="/cv">cv</a>
-	
-
-	
-<form id="search" method="get" action="http://duckduckgo.com/">
-   <input type="hidden" name="sites" value="erikhoversten.org/"/>
-   <input type="hidden" name="kae" value="d"/>
-   <input type="hidden" name="km" value="m"/>
-   <input type="hidden" name="ka" value="h"/>
-   <input type="hidden" name="k7" value="#f5f5f5"/>
-   <input type="hidden" name="k8" value="#2F4F4F"/>
-   <input type="hidden" name="kj" value="#4682B4"/>
-   <input type="hidden" name="ky" value="#B0C4DE"/>
-   <input type="hidden" name="kx" value="#4682B4"/>
-   <input type="hidden" name="kt" value="Helvetica"/>
-   <input type="hidden" name="t" value="erikhoversten.org"/>
-   <input type="text" name="q" maxlength="55" placeholder="  search this site"/>
-   <!--<input type="submit" value="Go" />-->
-</form>
-</div>
 
 
-<div id="nav-small" class="open">
-	<a href="#" title="click to show" onclick="return false;" ontouchstart="return false;"><img src="/images/menu.svg"></a>
-		
-<div id="nav-smallhid">
-
-
-		
-
-
-<ul>		
-
-	<li><a href="/">home</a></li>
+<div class="footnav">
+  <div class="button title">
+    erik hoversten
+  </div>
+  <ul>
+  	<li><a href="/">home</a></li>
 	
 		<li><a href="/research/">research</a></li>
 	
@@ -97,13 +55,7 @@
 	
 		<li><a href="/physicalia/">physicalia</a></li>
 	
-		<li><a href="/blog/">blog</a></li>
-	
-		<li><a href="/cv/">cv</a></li>
-	
-
-</ul>
-</div>
+  </ul>
 </div>
 
 
@@ -166,24 +118,6 @@
 	
 	
 	
-	
-<!--For main site pages-->	
-	
-		
-	
-<!--For child pages-->
-	
-	
-	
-	
-<!--For main site pages-->	
-	
-		
-	
-<!--For child pages-->
-	
-	
-	
 
 <!--For blog posts-->	
 	
@@ -197,102 +131,43 @@
 	</div>
 	
 
-	
 
 
 <div id="main">
 	<div style="clear: right;"></div>
-	<!--<div id="side-bar">
+	<div id="side-bar">
 	<img src="/images/splash2.jpg" alt="" title="splash">
-</div>-->
+</div>
 
 <div id="content">
 	<h2>overview</h2>
-	
-	<p>My primary research interests are in philosophy of language and cognitive science. More specifically, I'm interested in formal models of the influence of context on natural language interpretation. My dissertation explores the importance of speculation and dispute in inquiry, and I argue in favor of a model of discourse dynamics that gives the notion of speculative <i>posits</i> pride of place alongside conversational moves such as <i>assertions</i> and <i>questions</i>. I first examine this idea from a historical perspective and point to three classic models of inquiry (due, respectively, to William James, J. S. Mill, and C. S. Peirce) in which speculation plays a central role. I then develop a deeply collaborative model of discourse dynamics in which the semantic value boundaries of words used in discourse are set via a collective effort of the participants in the discourse. Formally, my proposal is couched within the <i>update semantics</i> tradition, and I motivate the formalism by applying it to two existing issues in the philosophy of language and linguistics: the proper interpretation of <i>contrastive topic</i> and the debate between <i>contextualism</i> and <i>relativism</i>.</p>
 
-	<p>Below, you will find links to elements of my dissertation. You can also explore a few searchable bibliographies I've compiled. The <i>library</i> links provide access to pdf copies of selected works within the bibliographies, but they are behind a firewall and are intended for my own use. Lastly, I've included some templates and macros I've put together for various markup applications, primarily in <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>.</p>
-		
+	<p>My primary research interests are in philosophy of language and cognitive science. More specifically, I'm interested in formal models of the influence of context on natural language interpretation. My dissertation explores the importance of speculation and dispute in inquiry. I contend that conversation commonly realizes a collaborative inquiry, which is to say that successful contribution to the discourse requires the efforts of multiple parties working in concert, not just serially. The goal of the project is to explain, motivate, and provide a model of implementation for this idea, what I call collaborative discourse dynamics. A notable feature of the model is that it gives <em>conjectures</em> pride of place alongside conversational moves such as <em>assertions</em> and <em>questions</em>.</p>
+
+	<p>Below, you will find links to elements of my dissertation. You can also explore a few searchable bibliographies I've compiled. Lastly, I've included some web tools that I have put together.</p>
+
 	<h2>papers</h2><a name="papers"></a>
-		
+
 	<ul>
-		<li id="title_do">Dissertation overview (<a href="/research/dissertation/ps2015-01-17.html">html</a>) (<a href="/research/dissertation/ps2015-01-17.pdf">pdf</a>)</li>
-		<li id="title_rd">Speculation and dispute in discourse (<a href="#pop-abs-rd">abstract</a>) (<a>pdf</a>)</li>
-		<li id="title_cr">Collaboration, correction, and relativism (<a href="#pop-abs-cr">abstract</a>) (<a>pdf</a>)</li>		
-		<li id="title_dc">The discourse contribution of contrastive topic (<a href="#pop-abs-dc">abstract</a>) (<a>pdf</a>)</li>
+		<li id="title_do"><a href="http://dci.erikhoversten.org">Discourse as collaborative inquiry</a></li>
 	</ul>
 
 	<h2>references</h2><a name="biblio"></a>
-	
-	<ul>
-		<li>General philosophy of language (<a href="/research/bibliography/philosophy-of-language/">bibliography</a>) (<a href="https://spideroak.com/browse/share/ehovers10/works-of-phil/language-mind/">library</a>)</li>
-		<li>David Lewis (<a href="/research/bibliography/david-lewis/">bibliography</a>) (<a href="https://spideroak.com/browse/share/ehovers10/works-of-phil/lewis/">library</a>)</li>
-		<li>Ontic vagueness (<a href="/research/bibliography/ontic-vagueness/">bibliography</a>) (<a href="https://spideroak.com/browse/share/ehovers10/works-of-phil/metaphysics/">library</a>)</li>
-		<li>Epistemology (<a href="https://spideroak.com/browse/share/ehovers10/works-of-phil/epistemology/">library</a>)</li>
-		<li>Philosophy of science and probability (<a href="https://spideroak.com/browse/share/ehovers10/works-of-phil/science-probability/">library</a>)</li>
-		<li>My dissertation (<a href="/research/bibliography/erik-dissertation/">bibliography</a>)</li>
-	</ul>
-	
-	<h2>markup</h2><a name="markup"></a>
 
 	<ul>
-		<li><a href="/research/markup/show/erik-markup.html">Logic markup</a></li>
-		<li>This website, powered by jekyll (<a href="https://github.com/ehovers10/ehovers10.github.io/tree/simulate">github</a>)</li>	
+		<li>General philosophy of language (<a href="/research/bibliography/philosophy-of-language/">bibliography</a>)</li>
+		<li>David Lewis (<a href="/research/bibliography/david-lewis/">bibliography</a>)</li>
+		<li>Ontic vagueness (<a href="/research/bibliography/ontic-vagueness/">bibliography</a>)</li>
 	</ul>
-	
-	<div id="pop-abs-rd" class="lightbox">	
-		
-	<div class="popbox">
-	
-	<div class="poptitle">
-	<h3><i>Speculation and correction in discourse</i> (<a>pdf</a>)</h3>
-	<a href="#papers"><img src="/images/close.png" title="close"></a>
-	</div>
-	<div style="clear: both;"></div>	
-	<div class="popmain text">
-		<p>Disputes can be frivolous, fractured, and fraudulent. They can derail conversations, and generate animosity to the point that perpetuating the dispute comes to mean more than the prospect of resolving it.  These disputes may have very little to do with actual conflict deriving from the language used to express them, instead being driven by <i>ad hominem</i> and <i>ad ideologiam</i> tendencies.</p>
-		<p>But dispute can also be a fruitful tool for people involved in honest, cooperative attempts to further mutual knowledge. It has a natural role in regulating conversation; interlocutors sometimes lose track of the cooperative effort, and it is valuable to have a means of correcting them to bring them back to the task at hand.  But beyond this regulative function, dispute can also play a central role in the project of inquiry.</p>  
-		<p>The centrality of dispute in inquiry was recognized by William James in his account of the pursuit of knowledge, which involves the forked-path endeavor of acquiring true beliefs and avoiding false ones.  One could meet the goal of believing truths simply by believing everything, and one could meet the goal of avoiding falsehoods by believing nothing at all.  A better approach is to treat these competing goals as constraints, and to adopt a strategy of belief that optimizes on both of them.  Frequently, caution in belief formation is to be preferred brash belief in the face of uncertainty. But, sometimes advancing one's knowledge requires believing in ways that go beyond one's current evidence.  Doing so opens avenues of investigation that could prove fruitful. And believing erroneously need not be damning, for corrections can be made after investigation closes.</p>  
-		<p>The same goes for joint inquiry.  One can cooperatively assert what may not be certain for the purpose of advancing the inquiry along a particular line.  Given that this is a recognized cooperative maneuver, dispute is a crucial tool for interlocutors to correct faulty speculations.  From this perspective, inquiry is not just a series of related but independent assertions that sequentially build the common stock of information.  Instead, it is a deeply interactive process of speculative advancements and corrective retreats.</p>
-		<p>John Stuart Mill's defense of liberty similarly centrally relies on dispute. Even in the face of certainty regarding the answer to certain questions, dispute plays an important role. To be always ready to dispute opponents' claims keeps one's defense of their own claims fresh.</p>
-		<p>Again, joint inquiry incorporates the same insights. To make advances, inquirers must take some things as granted. But rigidity halts discussion, and cooperative interlocutors can't merely assert; they must be able to respond to critique of those assertions as well.</p>
-		<p>In both instances, dispute does more than simply relate contents of assertions in discourse. In addition to the content contributed by utterances, their role as disputative can further the discourse in important ways. The model of dispute in the advancement of knowledge serves to highlight the fact that dispute is a real discourse function. We need both the content it contributes and the context change it inspires.</p>
-		<p>If dispute genuinely modifies the context, then we have an interesting question to answer.  Does it contribute a unique kind of content? Does it change the context in a unique way? Or can the role of dispute be reduced to some combination of other, already recognized discourse contributions.</p>
-		<p>I believe that dispute deserves to be considered as a bit of conversational advancement of its own right. It' not that dispute does anything utterly unique to the scoreboard; it restricts the context set, and it partitions the remainder, both of which are accomplished by other conversational contributions. However, disputative contribtutions, when viewed within the larger context of a posit and correct type conversation, have certain properties, conversational instances of which deserve their own explanations.</p>
-</div></div></div>
-		
-<div id="pop-abs-dc" class="lightbox">
-		
-	<div class="popbox">
-	
-	<div class="poptitle">
-	<h3><i>The discourse contribution of contrastive topic</i> (<a>pdf</a>)</h3>
-	<a href="#papers"><img src="/images/close.png" title="close"></a>
-	</div>
-	<div style="clear: both;"></div>
-	<div class="popmain text">
-		<p>The standard account of focus interpretation has it that focus determines an alternative set (drawn from the domain, elements of the same type as the focus) and generates a felicity condition, whereby a sentence involving focus is felicitously uttered only if the alternative set (suitably restricted by context) has an identical antecedent in the prior discourse. One primary motivation for this account is the explanation it gives of <i>question/answer congruence</i>. For a response to a question posed by the use of a <i>wh-</i> word to be felicitous, the sentence requires a focus placed in the same position as the <i>wh-</i> word of the question.</p> 
-		<p>Focus is generally responsible for structuring the information provided by an utterance into the new information, which is novel in the discourse, and the given (or topic) information, which was previously introduced and on which the new is meant to elaborate. Focus generally marks information newly contributed to the discourse, but it can also arise in the topic when it is used to highlight a contrast set within the backgrounded information.  This use of <i>contrastive focus</i> initially appears to violate the demands of question/answer congruence, but its felicity too can also be accounted for by positing within the conversational scoreboard a <i>plan of inquiry</i> involving a nested structure of questions and sub-questions governing the course of appropriate contributions to the discourse. </p>
-		<p>But this purely presuppositional account of focus interpretation is less appealing for the use of contrastive focus in corrections. Corrections are utterances that involve both a denial of some part of prior discourse as well as a positive contribution to the discourse. The role of contrast in corrections cannot be reduced to anaphora without loss.</p>
-		<p>But appeal to a plan of inquiry need not be abandoned. We need only recognize that inquiry can be structured by more than just questions and their answers. <i>Positing</i> and <i>correcting</i> are equally essential to fruitful inquiry, and contrastive focus highlights one interesting way in which they work in concert to further the pursuit of information through communication.</p>
-</div></div></div>
-		
-<div id="pop-abs-cr" class="lightbox">
-	
-	<div class="popbox">
-	
-	<div class="poptitle">	
-	<h3><i>Collaboration, correction, and relativism</i> (<a>pdf</a>)</h3>
-	<a href="#papers"><img src="/images/close.png" title="close"></a>
-	</div>
-	<div style="clear: both;"></div>
-	<div class="popmain text">
-		<p>Disagreement has been a bit of a star figure in recent debates in the philosophy of language. Primarily, it has been used as a tool for assessing the adequacy of different proposals for the semantic contribution of certain expressions. The contestants in battle disagreement are <i>absolutism</i>, <i>contextualism</i>, and <i>relativism</i>, and the standard scorecard has absolutism and relativism coming out on top in virtue of their ability to secure constant content across uses of the expression. Genuine disagreement does seem to require something toward which utterances can entail incompatible commitments, but semantic content is not the only contribution an utterance makes to discourse. Contextualism can appeal other elements of utterances, which may both remain constant and serve as the seat of disagreement.</p>
-		<p>The difference between contextualism and relativism is generally couched in terms of content, but content is not the only semantically relevant element of linguistic utterances. Also associated with what we say is a context change potential. A different way of representing the difference between contextualism and relativism is not in terms of what they mean but what they do.</p>
-		<p>If Brisco and Green both believe that they've got the culprit, then they will act in similar ways. They'll look to elicit a confession, offer up bargains, or threaten physical violence. But if Brisco's suspect is in confession room A while Green's is in B, then their actions will have quite different import. Contextualism aligns with absolutism in taking belief to be a relation between a subject and a proposition; a relation that holds just in case the subject takes the proposition to accurately represent the world she inhabits.	Relativism differs in taking belief to be a relation between a subject and a property; a relation that holds just in case the subject self-ascribes the property. (Perhaps not all relativists would be happy with this characterization, taking belief to be a three-place relation among a subject, proposition, and a perspective. But a perspectival proposition is itself a relation; curry that relation and you're left with a property.)</p>
-</div></div></div>
 
-</div>	
+	<h2>tools</h2><a name="markup"></a>
+
+	<ul>
+		<li><a href="/research/tools/erik-markup.html">Logic markup</a></li>
+		<li>This website, powered by jekyll (<a href="https://github.com/ehovers10/ehovers10.github.io/tree/simulate">github</a>)</li>
+	</ul>
+
+</div>
 
 	<div style="clear: right;"></div>
 </div>

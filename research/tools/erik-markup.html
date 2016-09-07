@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Erik Hoversten | Logic Tools</title>
+
+  <!--Entypo pictograms by Daniel Bruce — www.entypo.com-->
+  <link rel="icon" type="image/png" href="./images/rarr.ico">
+
+  <!-- Styles -->
+  <link href="./css/main.css" media="screen" rel="stylesheet">
+  <link href="./fitch/fitch.css" media="screen" rel="stylesheet">
+  <link href="./truth/truth.css" media="screen" rel="stylesheet">
+  <link href="./pla/pla.css" media="screen" rel="stylesheet">
+
+  <!-- Scripts -->
+  <script src="http://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+  <script src="./js/markup.js"></script>
+  <script src="./fitch/fitch.js"></script>
+  <script src="./truth/truth.js"></script>
+</head>
+
+<body>
+
+<header>
+<div id="inhead">
+<p>Logic markup</p>
+<p>by Erik Hoversten</p>
+</div>
+</header>
+
+<!-- Navigation -->
+<div class="footnav">
+  <div class="button title">
+    Logic Markup
+  </div>
+  <ul>
+    <li><a href="http://erikhoversten.org/research/">Erik's research</a></li>
+    <li><a href="#fitch">Fitch</a></li>
+    <li><a href="#truth">Truth</a></li>
+    <li><a href="#categorical">Categorical</a></li>
+    <li><a href="#pla">PLA</a></li>
+  </ul>
+</div>
+<div class="totop">
+  <a href="#" onclick="return false;" title="Return to the top"><img src="./images/totop.svg"></a>
+</div>
+
+<div id="wrapper">
+<div id="container">
+
+<a name="fitch"></a>
+<h1>Fitch style proofs</h1>
+
+<ul>
+<li>This example proof is based on the <a href="https://ggweb.gradegrinder.net/lpl">Language, Proof, and Logic courseware package.</a></li>
+<li>Hover over question mark icons to reveal a hint on how to proceed.  Click the icon to reveal the next step or subproof.</li>
+<li>Lines and subproofs can be optionally password protected.</li>
+</ul>
+
+<div class="box">
+<!-- Begin Proof -->
+<div class="proof" >
+
+<!-- Premises -->
+<div class="line" ><table><td class="step" ><span class="number" >1. </span><span class="formula" title="" >(A &rarr; (B &and; C)) &and; (&not;A &rarr; (&not;B &and; &not;C))</span></td></table></div>
+
+<div class="line" ><table ><td class="step" ><span class="number" >2. </span><span class="formula" title="" >&not;A &rarr; &not;D</span></td></table></div>
+
+<div class="fitchbar" ></div>
+
+<!-- Main strategy: biconditional proof -->
+<img class="info" title="Biconditional proof"><div class="hid">
+
+<!-- Cond proof 1 -->
+<div class="proof">
+
+<div class="line" ><table ><td class="step" ><span class="number" >3. </span><span class="formula" title="" >A</span></td></table></div>
+
+<div class="fitchbar" ></div>
+
+<img class="info" id="line4" title="Look at premise 1"><span id="line4hid" class="line hid" ><table><td class="step" ><span class="number">4. </span><span class="formula" title="">A &rarr; (B &and; C)</span></td><td class="justification"><span class="rulename" >&and; Elim</span><span class="support"> : 1</span></td></table></span><br>
+
+<img class="info" id="line5" title="Modus ponens"><span class="line hid" ><table><td class="step" ><span class="number" >5. </span><span class="formula" title="" >B &and; C</span></td><td class="justification" ><span class="rulename" >&rarr; Elim</span><span class="support" > : 3,4</span></td></table></span><br>
+
+<img class="info" id="line6" title="Look at line 5"><span class="line hid" ><table><td class="step" ><span class="number" >6. </span><span class="formula" title="" >C</span></td><td class="justification" ><span class="rulename" >&and; Elim</span><span class="support" > : 5</span></td></table></span><br>
+
+<div class="line" ><table ><td class="step" ><span class="number" >7. </span><span class="formula" title="" >C &or; D</span></td><td class="justification" ><span class="rulename" >&or; Intro</span><span class="support" > : 6</span></td></table></div>
+
+</div>
+<!-- End cond proof 1 -->
+
+<!-- Cond proof 2 -->
+<div class="proof">
+
+<div class="line" ><table ><td class="step" ><span class="number" >8. </span><span class="formula" title="" >C &or; D</span></td></table></div>
+
+<div class="fitchbar" ></div>
+
+<!-- Nested strategy: indirect proof -->
+<img class="info" id="lines9-20" title="Indirect proof"><div class="hid">
+
+<div class="proof">
+
+<div class="line" ><table ><td class="step" ><span class="number" >9. </span><span class="formula" title="" >&not;A</span></td></table></div>
+
+<div class="fitchbar" ></div>
+
+<!-- Nested strategy: proof by cases -->
+<img class="info" id="lines10-17" title="Proof by cases"><div id="lines10-17hid" class="hid">
+
+<!-- Case 1 -->
+<div class="proof">
+
+<div class="line" ><table ><td class="step" ><span class="number" >10. </span><span class="formula" title="" >C</span></td></table></div>
+
+<div class="fitchbar" ></div>
+
+<img class="info" id="line11" title="Look at premise 1"><span class="line hid" ><table ><td class="step" ><span class="number" >11. </span><span class="formula" title="" >&not;A &rarr; (&not;B &and; &not;C)</span></td><td class="justification" ><span class="rulename" >&and; Elim</span><span class="support" > : 1</span></td></table></span><br>
+
+<img class="info" id="line12" title="Modus ponens"><span class="line hid" ><table ><td class="step" ><span class="number" >12. </span><span class="formula" title="" >&not;B &and; &not;C</span></td><td class="justification" ><span class="rulename" >&rarr; Elim</span><span class="support" > : 9,11</span></td></table></span><br>
+
+<img class="info" id="line13" title="Look at line 12"><span class="line hid" ><table ><td class="step" ><span class="number" >13. </span><span class="formula" title="" >&not;C</span></td><td class="justification" ><span class="rulename" >&and; Elim</span><span class="support" > : 12</span></td></table></span><br>
+
+<div class="line" ><table ><td class="step" ><span class="number" >14. </span><span class="formula" title="" >&perp;</span></td><td class="justification" ><span class="rulename" >&perp; Intro</span><span class="support" > : 10,13</span></td></table></div>
+
+</div>
+<!-- End case 1 -->
+
+<!-- Case 2 -->
+<div class="proof">
+
+<div class="line" ><table ><td class="step" ><span class="number" >15. </span><span class="formula" title="" >D</span></td></table></div>
+
+<div class="fitchbar" ></div>
+
+<img class="info" id="line16" title="Modus ponens"><span class="line hid" ><table ><td class="step" ><span class="number" >16. </span><span class="formula" title="" >&not;D</span></td><td class="justification" ><span class="rulename" >&rarr; Elim</span><span class="support" > : 2,9</span></td></table></span><br>
+
+<div class="line" ><table ><td class="step" ><span class="number" >17. </span><span class="formula" title="" >&perp;</span></td><td class="justification" ><span class="rulename" >&perp; Intro</span><span class="support" > : 15,16</span></td></table></div>
+
+</div></div>
+<!-- End case 2 -->
+
+<div class="line" ><table ><td class="step" ><span class="number" >18. </span><span class="formula" title="" >&perp;</span></td><td class="justification" ><span class="rulename" >&or; Elim</span><span class="support" > : 8,14-15,16-17</span></td></table></div>
+
+</div>
+<!-- End proof by cases -->
+
+<div class="line" ><table ><td class="step" ><span class="number" >19. </span><span class="formula" title="" >&not;&not;A</span></td><td class="justification" ><span class="rulename" >&not; Intro</span><span class="support" > : 9-18</span></td></table></div>
+
+</div>
+<!-- End indirect proof -->
+
+<div class="line" ><table ><td class="step" ><span class="number" >20. </span><span class="formula" title="" >A</span></td><td class="justification" ><span class="rulename" >&not; Elim</span><span class="support" > : 19</span></td></table></div>
+
+</div>
+<!-- End cond proof 2 -->
+</div>
+<!-- End biconditional proof -->
+
+<div class="line" ><table ><td class="step" ><span class="number" >21. </span><span class="formula" title="" >A &harr; (C &or; D)</span></td><td class="justification" ><span class="rulename" >&harr; Intro</span><span class="support" > : 3-7,8-20</span></td></table></div>
+
+</div>
+<!-- End Proof -->
+</div>
+
+<a href="./fitch/">Download the source files</a>
+<hr>
+
+<a name="truth"></a>
+<h1>Truth tables</h1>
+
+<ul>
+<li>These example truth tables can be revealed one column at a time, allowing a student to practice and check their work.</li>
+</ul>
+
+<div class="ttback odd">
+<table class="tt" id="equiv">
+<caption>Equivalence</caption>
+<tr class="thead">
+  <td class="col1 open sent"><a href='#' onclick="return false;">A</a></td>
+  <td class="col2 open sent"><a href='#' onclick="return false;">B</a></td>
+  <td class="col3 ">A</td>
+  <td class="col4 open"><a href='#' onclick="return false;">&or;</a></td>
+  <td class="col5 open neg sent"><a href='#' onclick="return false;">&not;</a>B</td>
+  <td class="col6 open neg">&nbsp;<a href='#' onclick="return false;">&not;</a>&nbsp;(</td>
+  <td class="col7 open neg"><a href='#' onclick="return false;">&not;</a>A</td>
+  <td class="col8 open"><a href='#' onclick="return false;">&and;</a></td>
+  <td class="col9">B&nbsp;)</td>
+</tr>
+
+<tr class="row1">
+  <td  class="col1">T</td>
+  <td  class="col2">T</td>
+  <td class="col3"></td>
+  <td  class="col4">T</td>
+  <td  class="col5">F</td>
+  <td  class="col6">T</td>
+  <td  class="col7">F</td>
+  <td  class="col8">F</td>
+  <td class="col9"></td>
+</tr>
+
+<tr class="row2">
+  <td  class="col1">T</td>
+  <td  class="col2">F</td>
+  <td class="col3"></td>
+  <td  class="col4">T</td>
+  <td  class="col5">T</td>
+  <td  class="col6">T</td>
+  <td  class="col7">F</td>
+  <td  class="col8">F</td>
+  <td class="col9"></td>
+</tr>
+
+<tr class="row3">
+  <td  class="col1">F</td>
+  <td  class="col2">T</td>
+  <td class="col3"></td>
+  <td  class="col4">F</td>
+  <td  class="col5">F</td>
+  <td  class="col6">F</td>
+  <td  class="col7">T</td>
+  <td  class="col8">T</td>
+  <td class="col9"></td>
+</tr>
+
+<tr class="row4">
+  <td  class="col1">F</td>
+  <td  class="col2">F</td>
+  <td class="col3"></td>
+  <td  class="col4">T</td>
+  <td  class="col5">T</td>
+  <td  class="col6">T</td>
+  <td  class="col7">T</td>
+  <td  class="col8">F</td>
+  <td class="col9"></td>
+</tr>
+</table>
+</div>
+
+<div class="ttback even">
+<table class="tt" id="con">
+<caption>Consequence</caption>
+<tr class="thead">
+  <td class="col1 open sent"><a href='#' onclick="return false;">A</a></td>
+  <td class="col2 open sent"><a href='#' onclick="return false;">B</a></td>
+  <td class="col3 open neg">(<a href='#' onclick="return false;">&not;</a>A</td>
+  <td class="col4 open"><a href='#' onclick="return false;">&or;</a></td>
+  <td class="col5 open">B)</td>
+  <td class="col6 open"><a href='#' onclick="return false;">&and;</a></td>
+  <td class="col7 open neg sent"><a href='#' onclick="return false;">&not;</a>B</td>
+  <td class="col8 open neg"><a href='#' onclick="return false;">&not;</a>A</td>
+</tr>
+
+<tr class="row1">
+  <td  class="col1">T</td>
+  <td  class="col2">T</td>
+  <td  class="col3">F</td>
+  <td  class="col4">T</td>
+  <td  class="col5"></td>
+  <td  class="col6">F</td>
+  <td  class="col7">F</td>
+  <td class="col8">F</td>
+</tr>
+
+<tr class="row2">
+  <td  class="col1">T</td>
+  <td  class="col2">F</td>
+  <td  class="col3">F</td>
+  <td  class="col4">F</td>
+  <td  class="col5"></td>
+  <td  class="col6">F</td>
+  <td  class="col7">T</td>
+  <td class="col8">F</td>
+</tr>
+
+<tr class="row3">
+  <td  class="col1">F</td>
+  <td  class="col2">T</td>
+  <td  class="col3">T</td>
+  <td  class="col4">T</td>
+  <td  class="col5"></td>
+  <td  class="col6">F</td>
+  <td  class="col7">F</td>
+  <td class="col8">T</td>
+</tr>
+
+<tr class="row4">
+  <td  class="col1">F</td>
+  <td  class="col2">F</td>
+  <td  class="col3">T</td>
+  <td  class="col4">T</td>
+  <td  class="col5"></td>
+  <td  class="col6">T</td>
+  <td  class="col7">T</td>
+  <td class="col8">T</td>
+</tr>
+</table>
+</div>
+<div style="clear: both;"></div>
+
+<a href="./truth/">Download the source files</a>
+<hr>
+
+<!-- Categorical logic -->
+<a name="categorical"></a>
+<h1>Categorical logic</h1>
+
+<ul>
+<li>These images are derived from a <span><img class="latex" src="./images/LaTeX.svg"></span> macro that includes functions for representing the square of opposition as well as categorical propositions and syllogisms using Venn diagrams.</li>
+</ul>
+
+<div class="max maxsize">
+<h3>The square of opposition</h3>
+<object data="./categorical/images/cat-logic-samples-5.svg" type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+
+<h3>Categorical propositions</h3>
+<object class="left" data="./categorical/images/cat-logic-samples-1.svg"  type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+<object class="right" data="./categorical/images/cat-logic-samples-2.svg"  type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+<br>
+<object class="left" data="./categorical/images/cat-logic-samples-3.svg"  type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+<object class="right" data="./categorical/images/cat-logic-samples-4.svg"  type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+<br>
+
+<h3>Categorical syllogisms</h3>
+<div class="odd" style="font-size: 1.5em; margin: 10px 40px; border: 1px solid #ccc;">
+<ol class="even">
+<li>No P are M</li>
+<li>All S are M</li>
+<li>&there4;, No S are P</li>
+</ol>
+<object data="./categorical/images/cat-logic-samples-7.svg" width="200px" type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+</div>
+<div style="clear: both;"></div>
+
+<div class="even" style="font-size: 1.5em; margin: 10px 40px; border: 1px solid #ccc;">
+<ol class="even">
+<li>Some M are P</li>
+<li>All M are S</li>
+<li>&there4;, Some S are P</li>
+</ol>
+<object data="./categorical/images/cat-logic-samples-8.svg" width="200px" type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+</div>
+<div style="clear: both;"></div>
+
+<div class="odd" style="font-size: 1.5em; margin: 10px 40px; border: 1px solid #ccc;">
+<ol class="even">
+<li>All M are P</li>
+<li>No S are M</li>
+<li>&there4;, <span class="red">No S are P</span></li>
+</ol>
+<object data="./categorical/images/cat-logic-samples-9.svg" width="200px" type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+</div>
+<div style="clear: both"></div>
+
+<div class="even" style="font-size: 1.5em; margin: 10px 40px; border: 1px solid #ccc;">
+<ol class="even">
+<li>Some M are not P</li>
+<li>Some S are M</li>
+<li>&there4;, <span class="red">Some S are not P</span></li>
+</ol>
+<object data="./categorical/images/cat-logic-samples-10.svg" width="200px" type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+</div>
+<div style="clear: both;"></div>
+
+</div>
+<a href="#" onclick="return false;" class="reveal more"></a>
+<br>
+
+<a href="./categorical/">Download the source files</a>
+<hr>
+
+<a name="pla"></a>
+<h1>Derivations in Predicate Logic with Anaphora</h1>
+
+<ul>
+<li>This presentation of derivations in PLA is presented using the <a href="https://github.com/hakimel/reveal.js">reveal.js</a> html slide presentation format.</li>
+</ul>
+
+<iframe src="./pla/pla-deriv.html"></iframe>
+
+<br>
+<a href="./pla/">Download the source file</a>
+<hr>
+
+</div>
+</div>
+
+<footer>
+<span><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img class="foot" alt="Creative Commons License" style="border-width:0" src="./images/cc.svg" />Creative Commons Attribution 4.0 International License</a></span>
+<span>Updated September 7, 2016 by Erik</span>
+</footer>
+
+</body>
+</html>
