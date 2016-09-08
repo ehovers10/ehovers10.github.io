@@ -7,7 +7,7 @@ url: http://erikhoversten.org
 
 scripts: [open,scroll]
 styles: [ewob-main]
-assets: "https://cdn.rawgit.com/ehovers10/ehovers10.github.io/master/"
+assets: "https://rawgit.com/ehovers10/ehovers10.github.io/master/"
 
 defaults:
   -
