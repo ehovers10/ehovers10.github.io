@@ -9,12 +9,12 @@
 	<link rel="shortcut icon" href="https://cdn.rawgit.com/ehovers10/ehovers10.github.io/master/images/eicon2.ico">
 
   {% for css in site.styles %}
-  <link rel="stylesheet" href="{{ css | prepend: 'https://cdn.rawgit.com/ehovers10/ehovers10.github.io/master/css/' | append: '.css' }}">
+  <link rel="stylesheet" href="{{ css | prepend: 'css/' | prepend: site.assets | append: '.css' }}">
   {% endfor %}
 
   <script src="http://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
   {% for js in site.scripts %}
-	<script type="text/javascript" src="{{ js | prepend: 'https://cdn.rawgit.com/ehovers10/ehovers10.github.io/master/javascript/' | append: '.js' }}"></script>
+	<script type="text/javascript" src="{{ js | prepend: 'javascript/' | prepend: site.assets | append: '.js' }}"></script>
   {% endfor %}
 
   {% if page.head %}
