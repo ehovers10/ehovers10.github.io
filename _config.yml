@@ -5,6 +5,9 @@ hightlighter: pygments
 description: philosophy of language centric notes
 url: http://erikhoversten.org
 
+scripts: [open,scroll]
+styles: [ewob-main]
+
 defaults:
   -
     scope:

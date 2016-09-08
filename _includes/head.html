@@ -2,21 +2,24 @@
 <html>
 
 <head>
-      	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-      	<title>{{ page.subheading }} | {{ page.author }}</title>
-	<link rel="stylesheet" href="/css/ewob-main.css">
-	<link rel="shortcut icon" href="/images/eicon2.ico">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>{{ page.subheading }} | {{ page.author }}</title>
+	<link rel="shortcut icon" href="https://cdn.rawgit.com/ehovers10/ehovers10.github.io/master/images/eicon2.ico">
+
+  {% for css in site.styles %}
+  <link rel="stylesheet" href="{{ css | prepend: 'https://cdn.rawgit.com/ehovers10/ehovers10.github.io/master/css/' | append: '.css' }}">
+  {% endfor %}
 
   <script src="http://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="/javascript/scroll.js"></script>
-  <script type="text/javascript" src="/javascript/open.js"></script>
+  {% for js in site.scripts %}
+	<script type="text/javascript" src="{{ js | prepend: 'https://cdn.rawgit.com/ehovers10/ehovers10.github.io/master/javascript/' | append: '.js' }}"></script>
+  {% endfor %}
 
   {% if page.head %}
     {% include {{ page.head | append: "-head.html" }} %}
   {% endif %}
 </head>
-
-	<a name="top"></a>
 
 <body>
