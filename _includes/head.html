@@ -8,15 +8,13 @@
 	<link rel="stylesheet" href="/css/ewob-main.css">
 	<link rel="shortcut icon" href="/images/eicon2.ico">
 
-  <script   src="http://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
-	<script type="text/javascript" src="/javascript/sumatra.js"></script>
+  <script src="http://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="/javascript/scroll.js"></script>
+  <script type="text/javascript" src="/javascript/open.js"></script>
 
-  <!-- Data-tables -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.dataTables.min.css">
-  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
-  <script src="/javascript/bibtable.js"></script>
+  {% if page.head %}
+    {% include {{ page.head | append: "-head.html" }} %}
+  {% endif %}
 </head>
 
 	<a name="top"></a>

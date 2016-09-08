@@ -1,22 +1,5 @@
 $(document).ready( function() {
 
-  /* Toggle the Table of contents */
-
-  $( ".folder-link" ).click( function() {
-
-    $( ".folder" ).slideToggle( "slow" );
-
-  });
-
-  /* Toggle hidden items */
-
-  $( ".open" ).click( function() {
-
-    var bit = "#" + this.id + "hid";
-    $( "#" + this.id + "hid" ).slideToggle( "slow" );
-
-  });
-
   /* Stop scroll */
 
   $('.popbox').bind('mousewheel DOMMouseScroll', function(e) {
@@ -37,10 +20,10 @@ $(document).ready( function() {
 
   /* Scroll to top of the page */
 
-  $(window).scroll(function(){ 
- 
+  $(window).scroll(function(){
+
     var winTop = $(window).scrollTop(),
-        winHeight = $(window).height(); 
+        winHeight = $(window).height();
 
     if (winTop > 75) {
       $("#etitle").css("display","block");

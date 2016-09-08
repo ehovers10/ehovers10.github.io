@@ -7,17 +7,34 @@ author: erik hoversten
 date: 2014-09-27 01:00
 ---
 
-<div id="side-bar">
+<!--<div id="side-bar">
 	<img src="/images/loomis.jpg" alt="nature loomis" title="contemplating update semantics at an undisclosed location">
-</div>
+</div>-->
 
 <div id="content">
-	<h2>about me</h2>
+	<div class="body">
+		<p>I am a graduate student in the philosophy department at <a href="http://philosophy.rutgers.edu/" title="ru philosophy">Rutgers University</a>. Before making my way out to Jersey, I received my bachelor's and master's degrees in philosophy from the <a href="http://www.uwyo.edu/philosophy/" title="uw philosophy">University of Wyoming</a>.</p>
+    <img src="/images/loomis.jpg" alt="nature loomis" title="contemplating update semantics at an undisclosed location">
+  </div>
+	<div style="clear: both;margin-bottom: 1em;"></div>
+	<div class="bunch">
 
-	<p>I am a graduate student in the philosophy department at <a href="http://philosophy.rutgers.edu/" title="ru philosophy">Rutgers University</a>. Before making my way out to Jersey, I received my bachelor's and master's degrees in philosophy from the <a href="http://www.uwyo.edu/philosophy/" title="uw philosophy">University of Wyoming</a>.</p>
-	<p><a href="http://erikhoversten.org/cv.pdf">My CV</a></p>
+		<ul class="pagenav">
+			<li class="external"><a href="http://erikhoversten.org/cv.pdf">cv</a></li>
+	    <li class="active internal"><a href="#" id="research" class="research">research</a></li>
+			<li class="internal"><a href="#" id="teaching" class="teaching">teaching</a></li>
+			<li class="internal"><a href="#" id="physicalia" class="physicalia">physicalia</a></li>
+		</ul>
 
-	<h2>about this site</h2>
+		<div id="research-hid" class="area research">
+		  {% include research.html %}
+	  </div>
+		<div id="teaching-hid" class="area teaching hid">
+		  {% include teaching.html %}
+	  </div>
+	  <div id="physicalia-hid" class="area physicalia hid">
+		  {% include physicalia.html %}
+	  </div>
 
-	<p>On this site, you will find links to some of <a href="/research/" title="erik's research">my philosophical work</a>, which is focused on investigating formal models of the influence of context on natural language interpretation.  In addition, if you are looking for information for one of <a href="/teaching/" title="erik's courses">my classes</a>, you can access resources relevant to the course.</p>
+  </div>
 </div>

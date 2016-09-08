@@ -19,7 +19,7 @@ a { position: relative; z-index: 10; text-decoration: none; color: FireBrick; }
 
 /* BANNER */
 .outer {
-	margin-top: 70px;
+	//margin-top: 70px;
   background:url('../images/teton-sky.jpg');
   background-position: center;
   background-size: cover;
@@ -86,6 +86,19 @@ a { position: relative; z-index: 10; text-decoration: none; color: FireBrick; }
 
 #content ul { list-style-type: circle; }
 #content p { text-align: justify; }
+
+.body {
+	p {
+		width:67%;margin-right:3%;float:left;
+	}
+	img {
+		width: 30%;float:left;margin-top:0.5em;
+	}
+	@media all and (max-width: 600px) {
+		p { width: 100%; margin-right: 0; }
+		img { width: 100%; }
+	}
+}
 
 /* SIDEBAR */
 

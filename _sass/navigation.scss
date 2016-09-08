@@ -1,6 +1,24 @@
+.pagenav {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #aaa;
+  li {
+    list-style-type: none;
+    display: inline-block;
+    padding-right: 1em;
+    font-size: 1.5em;
+    text-align: center;
+  }
+  li.active a {
+    color: #000;
+  }
+}
 .footnav {
   z-index: 1000;
-  position: fixed;
+  position: absolute;
   top: 0;
   left:0;
   width: 100%;

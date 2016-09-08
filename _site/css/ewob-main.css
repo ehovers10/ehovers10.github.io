@@ -48,7 +48,6 @@ a {
 
 /* BANNER */
 .outer {
-  margin-top: 70px;
   background: url("../images/teton-sky.jpg");
   background-position: center;
   background-size: cover; }
@@ -137,6 +136,21 @@ a {
 
 #content p {
   text-align: justify; }
+
+.body p {
+  width: 67%;
+  margin-right: 3%;
+  float: left; }
+.body img {
+  width: 30%;
+  float: left;
+  margin-top: 0.5em; }
+@media all and (max-width: 600px) {
+  .body p {
+    width: 100%;
+    margin-right: 0; }
+  .body img {
+    width: 100%; } }
 
 /* SIDEBAR */
 #side-bar {
@@ -259,24 +273,6 @@ a {
 
   #content {
     width: 80%; }
-
-  #etitle {
-    display: none;
-    position: fixed;
-    top: 4em;
-    left: 10%;
-    width: 15%;
-    color: DarkSlateBlue;
-    padding-right: 10px;
-    border-bottom: solid SteelBlue;
-    z-index: -1; }
-
-  #etitle h2 {
-    width: 100%;
-    text-align: right;
-    line-height: 1em;
-    overflow-x: show;
-    font-size: 2.5em; }
 
   #nav-bar {
     position: fixed;
@@ -428,8 +424,11 @@ a {
     font-size: 2.5em !important; }
 
   #main {
-    width: 90%;
-    left: 5%; }
+    width: 100%;
+    left: 0; }
+
+  #wrap {
+    width: 100%; }
 
   #content {
     width: 90%; }
@@ -531,9 +530,25 @@ a {
     top: 5%;
     max-width: 90%;
     max-height: 90%; } }
+.pagenav {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #aaa; }
+  .pagenav li {
+    list-style-type: none;
+    display: inline-block;
+    padding-right: 1em;
+    font-size: 1.5em;
+    text-align: center; }
+  .pagenav li.active a {
+    color: #000; }
+
 .footnav {
   z-index: 1000;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
