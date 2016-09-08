@@ -1,15 +1,9 @@
 @font-face {
-  font-family: 'finalfrontier';
-  src: url("/fonts/finalfrontier.ttf"); }
-@font-face {
-  font-family: 'sffourche';
-  src: url("/fonts/sffourche.ttf"); }
-@font-face {
   font-family: 'glamB';
-  src: url("/fonts/GlametrixBold.otf"); }
+  src: url("https://cdn.rawgit.com/ehovers10/ehovers10.github.io/master/fonts/GlametrixBold.otf"); }
 @font-face {
   font-family: 'glam';
-  src: url("/fonts/Glametrix.otf"); }
+  src: url("https://cdn.rawgit.com/ehovers10/ehovers10.github.io/master/fonts/Glametrix.otf"); }
 html, body, p, h1, h2, a, div {
   margin: 0; }
 
