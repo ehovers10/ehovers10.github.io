@@ -2,8 +2,8 @@ $(document).ready( function() {
 
   /* Set info image */
 
-  $(".info").attr('src',"./images/info.svg");
-  $("img.protect").attr('src',"./images/info.svg");
+  $(".info").attr('src',"https://cdn.rawgit.com/ehovers10/ehovers10.github.io/master/research/tools/images/info.svg");
+  $("img.protect").attr('src',"https://cdn.rawgit.com/ehovers10/ehovers10.github.io/master/research/tools/images/info.svg");
 
   /* Toggle proof lines */
 
@@ -13,17 +13,17 @@ $(document).ready( function() {
 
     $(this).toggleClass("gray");
 
-  }); 
+  });
 
   /* Toggle protected items */
 
   $( '.protect' ).click( function() {
 
     var north = this.id;
-  
+
     if ( north.indexOf('ex') > -1 ) {
       var bertrand = "baruch";
-    } 
+    }
     else if ( north.indexOf('line') > -1 ) {
       var bertrand = "gottlieb";
     }
@@ -37,7 +37,7 @@ $(document).ready( function() {
     }
     else if (getin == null || getin == '') {
       return;
-    } 
+    }
     else {
       location.href = 'nope.html';
     }
