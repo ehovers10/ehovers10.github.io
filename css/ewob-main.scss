@@ -4,7 +4,41 @@
 @font-face { font-family: 'glamB'; src: url('https://cdn.rawgit.com/ehovers10/ehovers10.github.io/master/fonts/GlametrixBold.otf'); }
 @font-face { font-family: 'glam'; src: url('https://cdn.rawgit.com/ehovers10/ehovers10.github.io/master/fonts/Glametrix.otf'); }
 
+$base-font-family: Helvetica, Arial, sans-serif;
+$baseFontSize:   24px;
+$small-font-size:  $baseFontSize * 0.875;
+$base-line-height: 1.5;
 
+$spacing-unit:     30px;
+
+$text-color:       #111;
+$background-color: #fdfdfd;
+$brand-color:      #2a7ae2;
+
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+// Width of the content area
+$content-width:    800px;
+
+$on-palm:          600px;
+$on-laptop:        800px;
+
+// Media queries
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+%clearfix {
+  &:after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+}
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
@@ -14,5 +48,6 @@
         "ewob-tiny",
         "ewob-lightbox",
         "navigation",
-        "datatables"
+        "datatables",
+        "layout"
 ;

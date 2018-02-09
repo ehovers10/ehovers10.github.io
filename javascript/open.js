@@ -1,7 +1,7 @@
 $(document).ready( function() {
 
   /* Open hidden elements */
-  $(".hid").css("display","none");
+  $(".hid").css({"display":"none"});
   $(".open").click( function() {
     var hidden = $(this).attr('id') + '-hid';
     $('#' + hidden).slideToggle('slow',function() {
@@ -15,11 +15,12 @@ $(document).ready( function() {
     var temp = $( this ).attr( "class" );
     $( this ).closest( "li" ).addClass("active");
     $( this ).closest( "li" ).siblings().removeClass("active");
-    $( this ).closest( ".bunch" ).find( ".area" ).each( function() {
-      if ( $( this ).hasClass( temp ) ) {
-        $( this ).css( "display", "block" );
+    $( this ).closest( ".bunch" ).find( ".area" ).each( function(index) {
+      var elem = $(this);
+      if ( $( elem ).hasClass( temp ) ) {
+        $( elem ).css("display","block").animate({"opacity":"1"},1000);
       } else {
-        $( this ).css( "display", "none" );
+        $( elem ).css({"display":"none","opacity":"0"});
       }
     });
     return false;

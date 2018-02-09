@@ -1,19 +1,25 @@
 .pagenav {
   width: 100%;
   text-align: center;
-  margin: 0;
-  padding: 0;
-  padding-bottom: 1em;
-  border-bottom: 1px solid #aaa;
+  margin-top: 0;
+  padding-left: 0;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #ccc;
   li {
     list-style-type: none;
     display: inline-block;
-    padding-right: 1em;
-    font-size: 1.5em;
+    margin: 0.5em 1em 0 0;
+    font-size: 1.25em;
+    line-height: 1.25em;
     text-align: center;
+
+    a {
+      padding: 5px;
+    }
   }
   li.active a {
-    color: #000;
+    color: #fff;
+    background: rgba(42,122,226,0.8);
   }
 }
 .footnav {

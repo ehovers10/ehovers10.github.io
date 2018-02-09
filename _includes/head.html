@@ -5,16 +5,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <title>{{ page.subheading }} | {{ page.author }}</title>
-	<link rel="shortcut icon" href="https://cdn.rawgit.com/ehovers10/ehovers10.github.io/master/images/eicon2.ico">
+  <title>{{ site.author }} | {{ page.subheading }}</title>
+	<link rel="shortcut icon" href="{{ 'eicon2' | prepend: site.assets | append: '.ico' }}">
 
   {% for css in site.styles %}
-  <link rel="stylesheet" href="{{ css | prepend: 'css/' | prepend: site.assets | append: '.css' }}">
+  <link rel="stylesheet" href="{{ css | prepend: "/css/" | append: '.css' }}">
   {% endfor %}
 
   <script src="http://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
   {% for js in site.scripts %}
-	<script type="text/javascript" src="{{ js | prepend: 'javascript/' | prepend: site.assets | append: '.js' }}"></script>
+	<script type="text/javascript" src="{{ js | prepend: "/javascript/" | append: '.js' }}"></script>
+  {% endfor %}
+  {% for js in page.scripts %}
+  <script type="text/javascript" src="{{ js | prepend: "/javascript/" | append: '.js' }}"></script>
   {% endfor %}
 
   {% if page.head %}

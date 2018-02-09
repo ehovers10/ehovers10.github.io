@@ -1,0 +1,31 @@
+---
+layout: lamps
+title: Collaborative Discourse Dynamics
+subheading: data
+category: esite
+author: erik hoversten
+date: 2017-03-26
+tabs:
+  - example: shr5n9XAWONlnJFSP
+  - author: shrMUoIVCrZx58wVk
+  - reference: shrVAui8je0Ahgle7
+---
+
+<div class="bunch">
+	<ul class="pagenav">
+	{% for item in page.tabs %}
+    {% if forloop.first %}{% assign active=" active" %}{% else %}{% assign active="" %}{% endif %}
+    {% for bit in item %}
+    <li class="internal{{active}}"><a href="#" id="{{bit[0]}}" class="{{bit[0]}}">{{bit[0]}}</a></li>
+    {% endfor %}
+  {% endfor %}
+	</ul>
+{% for item in page.tabs %}
+  {% if forloop.first %}{% assign hid="" %}{% else %}{% assign hid=" hid" %}{% endif %}
+  {% for bit in item %}
+	<div id="{{bit[0]}}-hid" class="area {{bit[0]}}{{hid}}">
+	  <iframe class="airtable-embed" src="https://airtable.com/embed/{{bit[1]}}?backgroundColor=blue" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+  </div>
+  {% endfor %}
+{% endfor %}
+</div>

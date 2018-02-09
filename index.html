@@ -1,36 +1,22 @@
 ---
-layout: elay1
-title: about erik
+layout: lamps
+title: erik hoversten
 subheading: home
 category: esite
 author: erik hoversten
 date: 2014-09-27 01:00
+tabs: [bio,philosophy,physicalia,resume]
 ---
 
-<div id="content">
-	<div class="body">
-		<p>I am a graduate student in the philosophy department at <a href="http://philosophy.rutgers.edu/" title="ru philosophy">Rutgers University</a>. Before making my way out to Jersey, I received my bachelor's and master's degrees in philosophy from the <a href="http://www.uwyo.edu/philosophy/" title="uw philosophy">University of Wyoming</a>.</p>
-    <img src="{{ 'loomis.jpg' | prepend: 'images/' | prepend: site.assets }}" alt="nature" title="contemplating update semantics at an undisclosed location">
+<div class="bunch">
+	<ul class="pagenav">
+	{% for item in page.tabs %}
+    <li class="internal{% if forloop.first %} active{% endif %}"><a href="#" id="{{item}}" class="{{item}}">{{item}}</a></li>
+  {% endfor %}
+	</ul>
+{% for item in page.tabs %}
+	<div id="{{item}}-hid" class="area {{item}}{% unless forloop.first %} hid{% endunless %}">
+	  {% include {{item}}.html %}
   </div>
-	<div style="clear: both;margin-bottom: 1em;"></div>
-	<div class="bunch">
-
-		<ul class="pagenav">
-			<li class="external"><a href="{{ 'cv.pdf' | prepend: site.url }}">cv</a></li>
-	    <li class="active internal"><a href="#" id="research" class="research">research</a></li>
-			<li class="internal"><a href="#" id="teaching" class="teaching">teaching</a></li>
-			<li class="internal"><a href="#" id="physicalia" class="physicalia">physicalia</a></li>
-		</ul>
-
-		<div id="research-hid" class="area research">
-		  {% include research.html %}
-	  </div>
-		<div id="teaching-hid" class="area teaching hid">
-		  {% include teaching.html %}
-	  </div>
-	  <div id="physicalia-hid" class="area physicalia hid">
-		  {% include physicalia.html %}
-	  </div>
-
-  </div>
+{% endfor %}
 </div>

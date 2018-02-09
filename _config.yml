@@ -1,13 +1,15 @@
-name: Erik's website
-markdown: kramdown
-hightlighter: pygments
-
-description: philosophy of language centric notes
+title: Erik Hoversten
+author: Erik Hoversten
+description: a webspace
 url: http://erikhoversten.org
+email: "ehovers10@gmail.com"
+github: ehovers10
+copy: true
 
+markdown: kramdown
 scripts: [open,scroll]
-styles: [ewob-main]
-assets: "https://rawgit.com/ehovers10/ehovers10.github.io/master/"
+styles: [ewob-main,resume]
+assets: "/assets/"
 
 defaults:
   -
@@ -15,24 +17,12 @@ defaults:
       path: ""
       type: "pages"
     values:
-      layout: "elay1"
+      layout: "lamps"
+  -
+    scope:
+      path: "compost"
+    values:
+      layout: "compostlay"
 
 #gems: ['jekyll/tagging']
 exclude: [deprecated,non-jekyll-indices,CNAME,README.md]
-
-sitemap:
-  exclude:
-    - "/blog/feed.xml"
-  include_posts: "/blog/index.html"
-
-pandoc:
-  options:
-    smart: true
-    mathjax: true
-
-scholar:
-  source: ./_bibliography
-  bibliography: language
-
-tag_page_layout: tag
-tag_page_dir: ./blog/tag

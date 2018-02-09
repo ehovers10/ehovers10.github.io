@@ -1,0 +1,26 @@
+---
+layout: lamps
+title: compost tools
+subheading:
+category: esite
+author: erik hoversten
+date: 2018-01-10 01:00
+tabs: [calculator,temperature,odor]
+scripts: [calculator,temperature,odor,bunch,notes]
+data:
+  Mar-May 2015: temps2015-03-26.json
+  Jan-Feb 2016: temps2016-01-15.json
+---
+
+<div class="bunch">
+	<ul class="pagenav">
+	{% for item in page.tabs %}
+    <li class="internal{% if forloop.first %} active{% endif %}"><a href="#" id="{{item}}" class="{{item}}">{{item}}</a></li>
+  {% endfor %}
+	</ul>
+{% for item in page.tabs %}
+	<div id="{{item}}-hid" class="area {{item}}{% unless forloop.first %} hid{% endunless %}">
+	  {% include_relative {{item}}.html %}
+  </div>
+{% endfor %}
+</div>

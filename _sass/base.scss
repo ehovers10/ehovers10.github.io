@@ -1,6 +1,7 @@
-html,body,p,h1,h2,a,div { margin: 0; }
+html,body,p,h1,h2,a,div,ul { margin: 0; }
+.site-header,.page-content,h1,h2,.pagenav,.area ul { margin-bottom: $spacing-unit / 2; }
 
-html { font-size: 100%; }
+html { font-size: $baseFontSize; }
 
 body {
 	background: #fff;
@@ -10,7 +11,7 @@ body {
 
 h1,h2 { font-family: glamB; }
 p { margin: 10px 0 20px; }
-a { position: relative; z-index: 10; text-decoration: none; color: FireBrick; }
+a { position: relative; z-index: 10; text-decoration: none; color: SteelBlue; }
 
 .alignleft { float: left; padding-left: 3%; }
 .alignright { float: right; padding-right: 3%; }
@@ -20,7 +21,7 @@ a { position: relative; z-index: 10; text-decoration: none; color: FireBrick; }
 /* BANNER */
 .outer {
 	//margin-top: 70px;
-  background:url('https://cdn.rawgit.com/ehovers10/ehovers10.github.io/master/images/teton-sky.jpg');
+  background:url('https://s3.amazonaws.com/erikhoverstenorg/teton-sky.jpg');
   background-position: center;
   background-size: cover;
 }
@@ -83,19 +84,19 @@ a { position: relative; z-index: 10; text-decoration: none; color: FireBrick; }
 #content h2 a { color: inherit; }
 #content h2 a:hover { color: SteelBlue; }
 
-#content ul { list-style-type: circle; }
+.area ul {
+	list-style-type: none;
+	padding-left: 0.75em;
+	text-indent: -0.75em;
+}
 #content p { text-align: justify; }
 
-.body {
-	p {
-		width:67%;margin-right:3%;float:left;
-	}
+.bio {
 	img {
-		width: 30%;float:left;margin-top:0.5em;
+		width: 30%;float:right;margin:0.5em;
 	}
 	@media all and (max-width: 600px) {
-		p { width: 100%; margin-right: 0; }
-		img { width: 100%; }
+		img { width: 100%; margin: 0.5em 0; }
 	}
 }
 

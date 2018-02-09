@@ -1,33 +1,30 @@
 ---
-layout: child
 title: Logic tools
 subheading: logic tools
 category: logic tools
 parent: research
 head: logic
 ---
+<h2>{{ page.title | capitalize }}</h2>
+<div class="bunch">
 
-<div id="content">
-	<div class="bunch">
+	<ul class="pagenav">
+    <li class="active internal"><a href="#" id="fitch" class="fitch">fitch</a></li>
+		<li class="internal"><a href="#" id="truth" class="truth">truth</a></li>
+		<li class="internal"><a href="#" id="categorical" class="categorical">categorical</a></li>
+    <li class="internal"><a href="#" id="pla" class="pla">pla</a></li>
+	</ul>
 
-		<ul class="pagenav">
-	    <li class="active internal"><a href="#" id="fitch" class="fitch">fitch</a></li>
-			<li class="internal"><a href="#" id="truth" class="truth">truth</a></li>
-			<li class="internal"><a href="#" id="categorical" class="categorical">categorical</a></li>
-      <li class="internal"><a href="#" id="pla" class="pla">pla</a></li>
-		</ul>
-
-		<div id="fitch-hid" class="area fitch">
-		  {% include_relative fitch.html %}
-	  </div>
-		<div id="truth-hid" class="area truth hid">
-		  {% include_relative truth.html %}
-	  </div>
-		<div id="categorical-hid" class="area categorical hid">
-		  {% include_relative categorical.html %}
-	  </div>
-		<div id="pla-hid" class="area pla hid">
-		  {% include_relative pla.html %}
-	  </div>
-	</div>
-</dv>
+	<div id="fitch-hid" class="area fitch">
+	  {% include_relative fitch.html %}
+  </div>
+	<div id="truth-hid" class="area truth hid">
+	  {% include_relative truth.html %}
+  </div>
+	<div id="categorical-hid" class="area categorical hid">
+	  {% include_relative categorical.html %}
+  </div>
+	<div id="pla-hid" class="area pla hid">
+	  {% include_relative pla.html %}
+  </div>
+</div>
