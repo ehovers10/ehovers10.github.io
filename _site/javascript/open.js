@@ -1,7 +1,11 @@
 $(document).ready( function() {
 
   /* Open hidden elements */
+<<<<<<< HEAD
   $(".hid").css({"display":"none"});
+=======
+  $(".hid").css("display","none");
+>>>>>>> 2b2a61afd9912c3cd8d0817e174d94b5c0c8bc0a
   $(".open").click( function() {
     var hidden = $(this).attr('id') + '-hid';
     $('#' + hidden).slideToggle('slow',function() {
@@ -15,12 +19,20 @@ $(document).ready( function() {
     var temp = $( this ).attr( "class" );
     $( this ).closest( "li" ).addClass("active");
     $( this ).closest( "li" ).siblings().removeClass("active");
+<<<<<<< HEAD
     $( this ).closest( ".bunch" ).find( ".area" ).each( function(index) {
       var elem = $(this);
       if ( $( elem ).hasClass( temp ) ) {
         $( elem ).css("display","block").animate({"opacity":"1"},1000);
       } else {
         $( elem ).css({"display":"none","opacity":"0"});
+=======
+    $( this ).closest( ".bunch" ).find( ".area" ).each( function() {
+      if ( $( this ).hasClass( temp ) ) {
+        $( this ).css( "display", "block" );
+      } else {
+        $( this ).css( "display", "none" );
+>>>>>>> 2b2a61afd9912c3cd8d0817e174d94b5c0c8bc0a
       }
     });
     return false;
