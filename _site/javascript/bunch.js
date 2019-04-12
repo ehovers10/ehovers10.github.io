@@ -27,7 +27,7 @@ $(document).ready( function() {
       }
     });
     $(window).scrollTop(0);
-    return false;
+    //return false;
   });
 
   /* Regenerate TOC */
